@@ -1,7 +1,6 @@
 package org.tum.project.controller;
 
 
-
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -18,15 +17,13 @@ import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
+import javafx.scene.text.TextAlignment;
 import org.tum.project.bean.FifoInfo;
 import org.tum.project.bean.FlitsInfo;
-import org.tum.project.dataservice.FifoSizeService;
-import org.tum.project.dataservice.FlowLatencyService;
+import org.tum.project.dataservice.*;
 import org.tum.project.bean.PacketTimingInfo;
 import org.tum.project.callback.DataUpdateCallback;
 import org.tum.project.constant.ConstantValue;
-import org.tum.project.dataservice.FlitTraceService;
-import org.tum.project.dataservice.FlowPacketLatencyService;
 
 import java.util.*;
 
@@ -58,7 +55,6 @@ public class MainController implements DataUpdateCallback {
     private Accordion parentAccordionForFifoSize = new Accordion();
 
 
-
     private final Label label_1 = new Label("start:");
     private final Label label_2 = new Label("end:");
     private final TextField startTime = new TextField();
@@ -85,17 +81,13 @@ public class MainController implements DataUpdateCallback {
 
         flitTraceService = new FlitTraceService();
         flitTraceService.setCallback(this);
-        initContent1();
-        initContent2();
-        initContent3();
-        initContent4();
+        initFlowLatency();
+        initFlowPacketLatency();
+        initFifoSize();
     }
 
-    private void initContent4() {
 
-    }
-
-    private void initContent3() {
+    private void initFifoSize() {
         xAxis_3 = new NumberAxis();
         yAxis_3 = new NumberAxis();
         xAxis_3.setLabel("packet id");
@@ -104,7 +96,7 @@ public class MainController implements DataUpdateCallback {
         thirdLineChart.setTitle("Flow Packet Latency Analyze");
     }
 
-    private void initContent2() {
+    private void initFlowPacketLatency() {
         lxAxis = new NumberAxis();
         lyAxis = new NumberAxis();
         lxAxis.setLabel("time (ns)");
@@ -114,7 +106,7 @@ public class MainController implements DataUpdateCallback {
 
     }
 
-    private void initContent1() {
+    private void initFlowLatency() {
         CategoryAxis mxAxis1 = new CategoryAxis();
         NumberAxis myAxis1 = new NumberAxis();
         mxAxis1.setLabel("Flow Index");
@@ -132,7 +124,7 @@ public class MainController implements DataUpdateCallback {
         flowLatencyChart2.setPadding(new Insets(5, 5, 5, 5));
     }
 
-    public void setTop(BorderPane root) {
+    public void setTopLayout(BorderPane root) {
         HBox hBox = new HBox();
         hBox.setPadding(new Insets(15, 12, 15, 12));
         hBox.setSpacing(10);
@@ -148,12 +140,12 @@ public class MainController implements DataUpdateCallback {
         //  separator.setStyle(" -fx-background-color: #e79423; -fx-background-radius: 2;");
         vBox.getChildren().addAll(hBox, separator);
 
-         root.setTop(vBox);
-       // root.setBottom(vBox);
+        root.setTop(vBox);
+        // root.setBottom(vBox);
     }
 
 
-    public void setLeft(BorderPane root) {
+    public void setLeftLayout(BorderPane root) {
 
         Accordion accordion = new Accordion();
         if (content != null) {
@@ -234,7 +226,7 @@ public class MainController implements DataUpdateCallback {
         return hBox;
     }
 
-    private ScrollPane getFirstContentCenter() {
+    private ScrollPane getFlowLatencyContentCenter() {
         ScrollPane scrollPane = new ScrollPane();
         VBox vBox = new VBox(5);
         vBox.setPadding(new Insets(15, 12, 15, 12));
@@ -314,10 +306,10 @@ public class MainController implements DataUpdateCallback {
         label_2.setTextFill(Color.BLACK);
         Button update = new Button("update");
         update.setId("update");
-        update.setOnAction(new ButtonEvents());
+        update.setOnAction(buttonEvent);
         Button clear = new Button("clear");
         clear.setId("clear");
-        clear.setOnAction(new ButtonEvents());
+        clear.setOnAction(buttonEvent);
         hBox.getChildren().addAll(label_1, startTime, label_2, endTime, getSeparator(Orientation.VERTICAL), update, clear);
         hBox.setAlignment(Pos.CENTER);
         vBox.getChildren().add(hBox);
@@ -442,11 +434,30 @@ public class MainController implements DataUpdateCallback {
                     }
                 }
 
-                traceDetails.append("Flit ID: " + header+"      Path");
+                // append the information for flits: header-> flits id, tail->time+flit position at this time
+                traceDetails.append("Flit ID: " + header + "      Path");
                 traceDetails.append(": ");
                 traceDetails.append(tail);
-                Label traceInfo = new Label(traceDetails.toString());
-                titledPaneContent.getChildren().add(traceInfo);
+
+
+                HBox lineBox = new HBox(10);
+                lineBox.setAlignment(Pos.CENTER_LEFT);
+                Button traceButton = new Button("Trace");
+                traceButton.setId(String.valueOf(header));
+                traceButton.setOnAction(new EventHandler<ActionEvent>() {
+                    @Override
+                    public void handle(ActionEvent event) {
+                        //handle the button event,to show the trace information for flits
+                        TraceJframe traceJframe=new TraceJframe(tail);
+                        traceJframe.runTrace();
+                    }
+                });
+
+
+                Label traceLabel = new Label(traceDetails.toString());
+                traceLabel.setTextAlignment(TextAlignment.CENTER);
+                lineBox.getChildren().addAll(traceButton, traceLabel);
+                titledPaneContent.getChildren().add(lineBox);
             }
 
 
@@ -604,7 +615,7 @@ public class MainController implements DataUpdateCallback {
             vBox.getChildren().addAll(getContentTop(), node);
         } else {
 
-            vBox.getChildren().addAll(getContentTop(), getFirstContentCenter());
+            vBox.getChildren().addAll(getContentTop(), getFlowLatencyContentCenter());
 
         }
         root.setCenter(vBox);
@@ -614,7 +625,9 @@ public class MainController implements DataUpdateCallback {
         this.root = root;
     }
 
-
+    /**
+     * handle the different click event for the Button Widget in the User Interface
+     */
     private class ButtonEvents implements EventHandler {
         @Override
         public void handle(Event event) {
@@ -622,7 +635,7 @@ public class MainController implements DataUpdateCallback {
             switch (target.getId()) {
                 case "0":
                     startFlag = 0;
-                    setCenter(root, getFirstContentCenter());
+                    setCenter(root, getFlowLatencyContentCenter());
                     // flowLatencyService.getContent();
                     break;
                 case "1":

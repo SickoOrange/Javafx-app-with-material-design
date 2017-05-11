@@ -2,10 +2,13 @@ package org.tum.project.controller;
 
 import javafx.application.Platform;
 import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.scene.Scene;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
+import javafx.scene.input.KeyCode;
+import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
@@ -29,6 +32,22 @@ public class LoginController {
     public static String realName = "";
     public static String realPassword = "";
     private static Stage parentStage;
+
+    @FXML
+    public void initialize(){
+       passwordField.setOnKeyPressed(new EventHandler<KeyEvent>() {
+           @Override
+           public void handle(KeyEvent event) {
+               KeyCode code = event.getCode();
+               if (code.getName().equals("Enter")) {
+                   String nameString = nameField.getText();
+                   String passwordString = passwordField.getText();
+                   connectMysql(nameString, passwordString);
+               }
+           }
+       });
+
+    }
 
     @FXML
     protected void handleSubmitButtonAction(ActionEvent event) throws SQLException {
@@ -79,8 +98,8 @@ public class LoginController {
 
                     BorderPane root = new BorderPane();
                     MainController layout = new MainController(content);
-                    layout.setTop(root);
-                    layout.setLeft(root);
+                    layout.setTopLayout(root);
+                    layout.setLeftLayout(root);
                     layout.setCenter(root,null);
                     layout.registerRoot(root);
                     mainActivityStage.setScene(new Scene(root, 1000, 600));
