@@ -2,60 +2,24 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="cc0a22d4-ea44-4bba-8315-bd711e88aac1" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libs/Ecore.jar" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libs/emf_runtime/org.eclipse.emf.ant_2.8.0.v20160526-0356.jar" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libs/emf_runtime/org.eclipse.emf.codegen.ecore.ui_2.12.0.v20160526-0356.jar" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libs/emf_runtime/org.eclipse.emf.codegen.ecore_2.12.0.v20160526-0356.jar" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libs/emf_runtime/org.eclipse.emf.codegen.ui_2.6.0.v20160526-0356.jar" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libs/emf_runtime/org.eclipse.emf.codegen_2.11.0.v20160526-0356.jar" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libs/emf_runtime/org.eclipse.emf.common.ui_2.11.0.v20160526-0356.jar" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libs/emf_runtime/org.eclipse.emf.common_2.12.0.v20160420-0247.jar" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libs/emf_runtime/org.eclipse.emf.converter_2.7.0.v20160526-0356.jar" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libs/emf_runtime/org.eclipse.emf.databinding.edit_1.3.0.v20160526-0356.jar" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libs/emf_runtime/org.eclipse.emf.databinding_1.3.0.v20160526-0356.jar" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libs/emf_runtime/org.eclipse.emf.ecore.change.edit_2.6.0.v20160526-0356.jar" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libs/emf_runtime/org.eclipse.emf.ecore.change_2.11.0.v20160420-0247.jar" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libs/emf_runtime/org.eclipse.emf.ecore.edit_2.9.0.v20160526-0356.jar" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libs/emf_runtime/org.eclipse.emf.ecore.editor_2.12.0.v20160526-0356.jar" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libs/emf_runtime/org.eclipse.emf.ecore.xmi_2.12.0.v20160420-0247.jar" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libs/emf_runtime/org.eclipse.emf.ecore_2.12.0.v20160420-0247.jar" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libs/emf_runtime/org.eclipse.emf.edit.ui_2.12.0.v20160526-0356.jar" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libs/emf_runtime/org.eclipse.emf.edit_2.12.0.v20160526-0356.jar" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libs/emf_runtime/org.eclipse.emf.exporter_2.7.0.v20160526-0356.jar" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libs/emf_runtime/org.eclipse.emf.importer.ecore_2.8.0.v20160526-0356.jar" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libs/emf_runtime/org.eclipse.emf.importer.java_2.7.0.v20160526-0356.jar" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libs/emf_runtime/org.eclipse.emf.importer.rose_2.8.0.v20160526-0356.jar" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libs/emf_runtime/org.eclipse.emf.importer_2.9.0.v20160526-0356.jar" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libs/emf_runtime/org.eclipse.emf.mapping.ecore.editor_2.6.0.v20160526-0356.jar" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libs/emf_runtime/org.eclipse.emf.mapping.ecore2ecore.editor_2.7.0.v20160526-0356.jar" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libs/emf_runtime/org.eclipse.emf.mapping.ecore2ecore_2.9.0.v20160526-0356.jar" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libs/emf_runtime/org.eclipse.emf.mapping.ecore2xml.ui_2.8.0.v20160526-0356.jar" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libs/emf_runtime/org.eclipse.emf.mapping.ecore2xml_2.9.0.v20160526-0356.jar" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libs/emf_runtime/org.eclipse.emf.mapping.ecore_2.6.0.v20160526-0356.jar" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libs/emf_runtime/org.eclipse.emf.mapping.ui_2.7.0.v20160526-0356.jar" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libs/emf_runtime/org.eclipse.emf.mapping_2.9.0.v20160526-0356.jar" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libs/emf_runtime/org.eclipse.emf_2.6.0.v20160526-0356.jar" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libs/jfoenix.jar" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Ecore.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/emf_runtime.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/jfoenix.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/libs.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Tum-Master-Thsis.iml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/org/tum/project/CefModelEditor/CefVisualizationService.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/org/tum/project/callback/JFrameCallback.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/org/tum/project/layout/block.fxml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/org/tum/project/layout/handle_button_group.fxml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/org/tum/project/layout/port.fxml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/org/tum/project/test/TestCefEditor.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/org/tum/project/test/TestUI.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/misc.xml" afterPath="$PROJECT_DIR$/.idea/misc.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/modules.xml" afterPath="$PROJECT_DIR$/.idea/modules.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/org/tum/project/controller/BlockEventController.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/org/tum/project/controller/DeleteBlockEventController.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/org/tum/project/controller/DeleteLinkEventController.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/org/tum/project/controller/HandleButtonGroupForCefEditor.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/org/tum/project/controller/LinkEventController.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/org/tum/project/controller/PortEventController.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/org/tum/project/layout/block_event.fxml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/org/tum/project/layout/delete_block_event.fxml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/org/tum/project/layout/delete_link_event.fxml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/org/tum/project/layout/link.fxml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/org/tum/project/layout/link_event.fxml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/org/tum/project/layout/port_event.fxml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/org/tum/project/controller/LoginController.java" afterPath="$PROJECT_DIR$/src/org/tum/project/controller/LoginController.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/org/tum/project/CefModelEditor/CefVisualizationService.java" afterPath="$PROJECT_DIR$/src/org/tum/project/CefModelEditor/CefVisualizationService.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/org/tum/project/controller/MainController.java" afterPath="$PROJECT_DIR$/src/org/tum/project/controller/MainController.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/org/tum/project/dataservice/FifoSizeService.java" afterPath="$PROJECT_DIR$/src/org/tum/project/dataservice/FifoSizeService.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/org/tum/project/dataservice/TraceJframe.java" afterPath="$PROJECT_DIR$/src/org/tum/project/dataservice/TraceJframe.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/org/tum/project/layout/main_activity_fxml.fxml" afterPath="$PROJECT_DIR$/src/org/tum/project/layout/main_activity_fxml.fxml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/org/tum/project/layout/block.fxml" afterPath="$PROJECT_DIR$/src/org/tum/project/layout/block.fxml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/org/tum/project/layout/handle_button_group.fxml" afterPath="$PROJECT_DIR$/src/org/tum/project/layout/handle_button_group.fxml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/org/tum/project/test/TestCefEditor.java" afterPath="$PROJECT_DIR$/src/org/tum/project/test/TestCefEditor.java" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -65,6 +29,11 @@
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
+  <component name="CoverageDataManager">
+    <SUITE FILE_PATH="coverage/Tum-Master-Thsis$Main.coverage" NAME="Main Coverage Results" MODIFIED="1494775516432" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>org.tum.project.main.*</FILTER>
+    </SUITE>
+  </component>
   <component name="CreatePatchCommitExecutor">
     <option name="PATCH_PATH" value="" />
   </component>
@@ -73,121 +42,76 @@
     <favorites_list name="Tum-Master-Thsis" />
   </component>
   <component name="FileEditorManager">
-    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="block.fxml" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/org/tum/project/layout/block.fxml">
-          <provider editor-type-id="JavaFX-Scene-Builder">
-            <state />
-          </provider>
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="299">
-              <caret line="20" column="21" lean-forward="false" selection-start-line="20" selection-start-column="21" selection-end-line="20" selection-end-column="21" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="port.fxml" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/org/tum/project/layout/port.fxml">
-          <provider editor-type-id="JavaFX-Scene-Builder">
-            <state />
-          </provider>
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1272">
-              <caret line="70" column="0" lean-forward="false" selection-start-line="70" selection-start-column="0" selection-end-line="70" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="MainController.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/org/tum/project/controller/MainController.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="169">
-              <caret line="352" column="71" lean-forward="false" selection-start-line="352" selection-start-column="71" selection-end-line="352" selection-end-column="71" />
-              <folding>
-                <element signature="e#39702#39703#0" expanded="true" />
-                <element signature="e#39761#39762#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="TraceJframe.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/org/tum/project/dataservice/TraceJframe.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="322">
-              <caret line="25" column="0" lean-forward="true" selection-start-line="25" selection-start-column="0" selection-end-line="25" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="FifoSizeService.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/org/tum/project/dataservice/FifoSizeService.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="401">
-              <caret line="93" column="9" lean-forward="false" selection-start-line="93" selection-start-column="9" selection-end-line="93" selection-end-column="9" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="FlitTraceService.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/org/tum/project/dataservice/FlitTraceService.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="391">
-              <caret line="28" column="18" lean-forward="true" selection-start-line="28" selection-start-column="18" selection-end-line="28" selection-end-column="18" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="handle_button_group.fxml" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/org/tum/project/layout/handle_button_group.fxml">
-          <provider editor-type-id="JavaFX-Scene-Builder">
-            <state />
-          </provider>
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="698">
-              <caret line="49" column="6" lean-forward="false" selection-start-line="49" selection-start-column="6" selection-end-line="49" selection-end-column="6" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="JFrameCallback.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/org/tum/project/callback/JFrameCallback.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="23">
-              <caret line="1" column="0" lean-forward="true" selection-start-line="1" selection-start-column="0" selection-end-line="1" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="CefVisualizationService.java" pinned="false" current-in-tab="false">
+    <leaf>
+      <file leaf-file-name="CefVisualizationService.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/org/tum/project/CefModelEditor/CefVisualizationService.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="341">
-              <caret line="341" column="62" lean-forward="false" selection-start-line="341" selection-start-column="62" selection-end-line="341" selection-end-column="62" />
-              <folding>
-                <element signature="e#4713#4714#0" expanded="true" />
-                <element signature="e#4808#4809#0" expanded="true" />
-                <element signature="e#10850#10851#0" expanded="true" />
-                <element signature="e#10922#10923#0" expanded="true" />
-                <marker date="1494733798875" expanded="false" signature="3567:3674" ph="(mxMouseAdapter) mouseReleased(mouseEvent) → {" />
-              </folding>
+            <state relative-caret-position="0">
+              <caret line="0" column="39" lean-forward="true" selection-start-line="0" selection-start-column="39" selection-end-line="0" selection-end-column="39" />
+              <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="MainActivityController.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/org/tum/project/controller/MainActivityController.java">
+      <file leaf-file-name="TestUI.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/org/tum/project/test/TestUI.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="115">
-              <caret line="14" column="13" lean-forward="false" selection-start-line="14" selection-start-column="13" selection-end-line="14" selection-end-column="13" />
+            <state relative-caret-position="368">
+              <caret line="24" column="60" lean-forward="false" selection-start-line="24" selection-start-column="25" selection-end-line="24" selection-end-column="60" />
               <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="TestCefEditor.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/org/tum/project/test/TestCefEditor.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="161">
+              <caret line="10" column="7" lean-forward="false" selection-start-line="10" selection-start-column="7" selection-end-line="10" selection-end-column="7" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="block_event.fxml" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/org/tum/project/layout/block_event.fxml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="161">
+              <caret line="7" column="269" lean-forward="false" selection-start-line="7" selection-start-column="206" selection-end-line="7" selection-end-column="269" />
+              <folding>
+                <element signature="n#children#0;n#Pane#0;n#children#0;n#AnchorPane#0;n#!!top" expanded="false" />
+              </folding>
+            </state>
+          </provider>
+          <provider editor-type-id="JavaFX-Scene-Builder">
+            <state />
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="delete_link_event.fxml" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/org/tum/project/layout/delete_link_event.fxml">
+          <provider editor-type-id="text-editor">
+            <state relative-caret-position="486">
+              <caret line="65" column="26" lean-forward="false" selection-start-line="65" selection-start-column="26" selection-end-line="65" selection-end-column="26" />
+              <folding>
+                <marker date="1494797986701" expanded="true" signature="5050:5092" ph="..." />
+                <marker date="1494797986701" expanded="true" signature="5050:5122" ph="..." />
+              </folding>
+            </state>
+          </provider>
+          <provider selected="true" editor-type-id="JavaFX-Scene-Builder">
+            <state />
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="DeleteLinkEventController.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/org/tum/project/controller/DeleteLinkEventController.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-98">
+              <caret line="10" column="6" lean-forward="false" selection-start-line="10" selection-start-column="6" selection-end-line="20" selection-end-column="60" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -205,6 +129,11 @@
   <component name="FindInProjectRecents">
     <findStrings>
       <find>1000</find>
+      <find>blockPane</find>
+      <find>jFrameCallbacK</find>
+      <find>ok</find>
+      <find>add link</find>
+      <find>insertE</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -221,19 +150,32 @@
         <option value="$PROJECT_DIR$/src/org/tum/project/controller/LoginController.java" />
         <option value="$PROJECT_DIR$/src/org/tum/project/dataservice/TraceJframe.java" />
         <option value="$PROJECT_DIR$/src/org/tum/project/test/test2.java" />
-        <option value="$PROJECT_DIR$/src/org/tum/project/test/TestCefEditor.java" />
         <option value="$PROJECT_DIR$/src/org/tum/project/test/TestUI.java" />
         <option value="$PROJECT_DIR$/src/org/tum/project/layout/xx.fxml" />
         <option value="$PROJECT_DIR$/src/org/tum/project/layout/main_activity_fxml.fxml" />
         <option value="$PROJECT_DIR$/src/org/tum/project/layout/port.fxml" />
         <option value="$PROJECT_DIR$/src/org/tum/project/layout/Editor.fxml" />
         <option value="$PROJECT_DIR$/src/org/tum/project/layout/editor_layout.fxml" />
-        <option value="$PROJECT_DIR$/src/org/tum/project/layout/block.fxml" />
         <option value="$PROJECT_DIR$/src/org/tum/project/dataservice/FifoSizeService.java" />
         <option value="$PROJECT_DIR$/src/org/tum/project/callback/JFrameCallback.java" />
-        <option value="$PROJECT_DIR$/src/org/tum/project/CefModelEditor/CefVisualizationService.java" />
-        <option value="$PROJECT_DIR$/src/org/tum/project/controller/MainController.java" />
+        <option value="$PROJECT_DIR$/src/org/tum/project/layout/link.fxml" />
+        <option value="$PROJECT_DIR$/src/org/tum/project/layout/block.fxml" />
         <option value="$PROJECT_DIR$/src/org/tum/project/layout/handle_button_group.fxml" />
+        <option value="$PROJECT_DIR$/src/org/tum/project/controller/HandleButtonGroupForCefEditor.java" />
+        <option value="$PROJECT_DIR$/src/org/tum/project/layout/link_event.fxml" />
+        <option value="$PROJECT_DIR$/src/org/tum/project/controller/LinkEventController.java" />
+        <option value="$PROJECT_DIR$/src/org/tum/project/controller/BlockEventController.java" />
+        <option value="$PROJECT_DIR$/src/org/tum/project/controller/PortEventController.java" />
+        <option value="$PROJECT_DIR$/src/org/tum/project/layout/port_event.fxml" />
+        <option value="$PROJECT_DIR$/src/org/tum/project/layout/block_event.fxml" />
+        <option value="$PROJECT_DIR$/src/org/tum/project/controller/MainController.java" />
+        <option value="$PROJECT_DIR$/src/org/tum/project/layout/delete_block_event.fxml" />
+        <option value="$PROJECT_DIR$/src/org/tum/project/controller/deleteBlockEventController.java" />
+        <option value="$PROJECT_DIR$/src/org/tum/project/controller/DeleteBlockEventController.java" />
+        <option value="$PROJECT_DIR$/src/org/tum/project/layout/delete_link_event.fxml" />
+        <option value="$PROJECT_DIR$/src/org/tum/project/controller/DeleteLinkEventController.java" />
+        <option value="$PROJECT_DIR$/src/org/tum/project/test/TestCefEditor.java" />
+        <option value="$PROJECT_DIR$/src/org/tum/project/CefModelEditor/CefVisualizationService.java" />
       </list>
     </option>
   </component>
@@ -258,7 +200,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -308,6 +249,32 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="project" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="sqlutils" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Tum-Master-Thsis" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Tum-Master-Thsis" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="project" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="res" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -416,6 +383,24 @@
               <option name="myItemId" value="project" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Tum-Master-Thsis" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Tum-Master-Thsis" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="project" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="CefModelEditor" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
@@ -443,10 +428,33 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Tum-Master-Thsis" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Tum-Master-Thsis" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="project" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="bean" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
         </subPane>
       </pane>
-      <pane id="PackagesPane" />
       <pane id="Scratches" />
+      <pane id="PackagesPane" />
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -454,6 +462,7 @@
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\SickoOrange\Desktop\Editor\Tum-Master-Thsis\src\org\tum\project\layout" />
       <recent name="C:\Users\SickoOrange\Desktop\Editor\Tum-Master-Thsis\libs" />
       <recent name="C:\Users\SickoOrange\Desktop\Editor\Tum-Master-Thsis\libs\emf_runtime" />
     </key>
@@ -731,8 +740,8 @@
     <recent_temporary>
       <list size="3">
         <item index="0" class="java.lang.String" itemvalue="Application.Main" />
-        <item index="1" class="java.lang.String" itemvalue="Application.TestUI" />
-        <item index="2" class="java.lang.String" itemvalue="Application.TestCefEditor" />
+        <item index="1" class="java.lang.String" itemvalue="Application.TestCefEditor" />
+        <item index="2" class="java.lang.String" itemvalue="Application.TestUI" />
       </list>
     </recent_temporary>
   </component>
@@ -747,48 +756,61 @@
       <option name="presentableId" value="Default" />
       <updated>1494688500793</updated>
     </task>
+    <task id="LOCAL-00001" summary="material design for javafx">
+      <created>1494734919271</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1494734919271</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
     <editor active="false" />
     <layout>
-      <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Nl-Palette" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32858595" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Image Layers" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32804233" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
+      <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Image Layers" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
-      <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.28042328" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Properties" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.21354167" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32910052" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.19259259" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
+      <window_info id="Properties" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
+      <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.21354167" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Theme Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.39894179" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32984978" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
+      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Theme Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.45079365" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32984978" sideWeight="0.5" order="6" side_tool="true" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="3" side_tool="false" content_ui="combo" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Coverage" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3296875" sideWeight="0.5" order="0" side_tool="true" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32910052" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
     </layout>
   </component>
   <component name="VcsContentAnnotationSettings">
     <option name="myLimit" value="2678400000" />
   </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="material design for javafx" />
+    <option name="LAST_COMMIT_MESSAGE" value="material design for javafx" />
+  </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <option name="time" value="3" />
+      <option name="time" value="5" />
     </breakpoint-manager>
     <watches-manager />
   </component>
@@ -797,24 +819,11 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/org/tum/project/layout/Editor.fxml">
-      <provider editor-type-id="JavaFX-Scene-Builder">
-        <state />
-      </provider>
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/org/tum/project/CefModelEditor/CefVisualizationService.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="920">
           <caret line="65" column="0" lean-forward="false" selection-start-line="65" selection-start-column="0" selection-end-line="65" selection-end-column="0" />
-          <folding>
-            <element signature="imports" expanded="false" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -838,10 +847,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="16974">
           <caret line="738" column="34" lean-forward="true" selection-start-line="738" selection-start-column="34" selection-end-line="738" selection-end-column="34" />
-          <folding>
-            <element signature="e#39702#39703#0" expanded="true" />
-            <element signature="e#39761#39762#0" expanded="true" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -857,23 +863,11 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="368">
           <caret line="24" column="60" lean-forward="true" selection-start-line="24" selection-start-column="25" selection-end-line="24" selection-end-column="60" />
-          <folding>
-            <element signature="imports" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/org/tum/project/layout/Editor.fxml">
-      <provider editor-type-id="JavaFX-Scene-Builder">
-        <state />
-      </provider>
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/org/tum/project/layout/Editor.fxml" />
     <entry file="file://$PROJECT_DIR$/src/org/tum/project/dataservice/FlowPacketLatencyService.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="2921">
@@ -889,9 +883,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <element signature="imports" expanded="false" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -914,7 +906,9 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="276">
           <caret line="13" column="0" lean-forward="false" selection-start-line="13" selection-start-column="0" selection-end-line="13" selection-end-column="0" />
-          <folding />
+          <folding>
+            <element signature="imports" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -930,7 +924,11 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="437">
           <caret line="30" column="40" lean-forward="false" selection-start-line="30" selection-start-column="40" selection-end-line="30" selection-end-column="72" />
-          <folding />
+          <folding>
+            <element signature="imports" expanded="false" />
+            <element signature="e#581#582#0" expanded="false" />
+            <element signature="e#623#624#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -945,14 +943,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-4768">
           <caret line="61" column="11" lean-forward="false" selection-start-line="61" selection-start-column="11" selection-end-line="61" selection-end-column="11" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/org/tum/project/test/TestCefEditor.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="23">
-          <caret line="1" column="0" lean-forward="false" selection-start-line="1" selection-start-column="0" selection-end-line="1" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1004,53 +994,57 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/org/tum/project/test/TestUI.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="368">
-          <caret line="24" column="60" lean-forward="false" selection-start-line="24" selection-start-column="25" selection-end-line="24" selection-end-column="60" />
-          <folding>
-            <element signature="imports" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/org/tum/project/controller/LoginController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1932">
-          <caret line="102" column="40" lean-forward="true" selection-start-line="102" selection-start-column="40" selection-end-line="102" selection-end-column="40" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/org/tum/project/layout/Editor.fxml">
-      <provider editor-type-id="JavaFX-Scene-Builder">
-        <state />
-      </provider>
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="138">
-          <caret line="6" column="30" lean-forward="false" selection-start-line="6" selection-start-column="30" selection-end-line="6" selection-end-column="30" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/src/org/tum/project/layout/Editor.fxml" />
     <entry file="file://$PROJECT_DIR$/src/org/tum/project/layout/main_activity_fxml.fxml">
-      <provider editor-type-id="JavaFX-Scene-Builder">
-        <state />
-      </provider>
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="665">
           <caret line="31" column="0" lean-forward="false" selection-start-line="31" selection-start-column="0" selection-end-line="31" selection-end-column="0" />
           <folding />
         </state>
       </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/org/tum/project/layout/login_fxml.fxml">
       <provider editor-type-id="JavaFX-Scene-Builder">
         <state />
       </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/org/tum/project/layout/login_fxml.fxml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="345">
           <caret line="15" column="162" lean-forward="false" selection-start-line="15" selection-start-column="125" selection-end-line="15" selection-end-column="162" />
+          <folding />
+        </state>
+      </provider>
+      <provider editor-type-id="JavaFX-Scene-Builder">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/org/tum/project/dataservice/FlitTraceService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="391">
+          <caret line="28" column="18" lean-forward="false" selection-start-line="28" selection-start-column="18" selection-end-line="28" selection-end-column="18" />
+          <folding>
+            <element signature="imports" expanded="false" />
+            <element signature="e#1109#1110#0" expanded="false" />
+            <element signature="e#1153#1154#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/org/tum/project/dataservice/TraceJframe.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="322">
+          <caret line="25" column="0" lean-forward="false" selection-start-line="25" selection-start-column="0" selection-end-line="25" selection-end-column="0" />
+          <folding>
+            <element signature="imports" expanded="false" />
+            <element signature="e#581#582#0" expanded="false" />
+            <element signature="e#623#624#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/org/tum/project/controller/LoginController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="460">
+          <caret line="99" column="78" lean-forward="false" selection-start-line="99" selection-start-column="71" selection-end-line="99" selection-end-column="78" />
           <folding />
         </state>
       </provider>
@@ -1063,92 +1057,224 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/org/tum/project/callback/JFrameCallback.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="161">
+          <caret line="7" column="13" lean-forward="false" selection-start-line="7" selection-start-column="13" selection-end-line="7" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/org/tum/project/dataservice/FifoSizeService.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="401">
+        <state relative-caret-position="198">
           <caret line="93" column="9" lean-forward="false" selection-start-line="93" selection-start-column="9" selection-end-line="93" selection-end-column="9" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/org/tum/project/dataservice/FlitTraceService.java">
+    <entry file="file://$PROJECT_DIR$/src/org/tum/project/callback/DataUpdateCallback.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="391">
-          <caret line="28" column="18" lean-forward="true" selection-start-line="28" selection-start-column="18" selection-end-line="28" selection-end-column="18" />
+        <state relative-caret-position="221">
+          <caret line="16" column="17" lean-forward="false" selection-start-line="16" selection-start-column="17" selection-end-line="16" selection-end-column="17" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/org/tum/project/layout/block.fxml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="920">
+          <caret line="40" column="13" lean-forward="true" selection-start-line="40" selection-start-column="13" selection-end-line="40" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
       <provider editor-type-id="JavaFX-Scene-Builder">
         <state />
       </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/org/tum/project/layout/handle_button_group.fxml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="299">
-          <caret line="20" column="21" lean-forward="false" selection-start-line="20" selection-start-column="21" selection-end-line="20" selection-end-column="21" />
+        <state relative-caret-position="184">
+          <caret line="8" column="319" lean-forward="false" selection-start-line="8" selection-start-column="319" selection-end-line="8" selection-end-column="319" />
+          <folding />
+        </state>
+      </provider>
+      <provider editor-type-id="JavaFX-Scene-Builder">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/org/tum/project/controller/BlockEventController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="322">
+          <caret line="18" column="34" lean-forward="false" selection-start-line="18" selection-start-column="34" selection-end-line="18" selection-end-column="34" />
+          <folding>
+            <element signature="imports" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/org/tum/project/controller/HandleButtonGroupForCefEditor.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1725">
+          <caret line="91" column="53" lean-forward="false" selection-start-line="91" selection-start-column="44" selection-end-line="91" selection-end-column="53" />
+          <folding>
+            <element signature="imports" expanded="false" />
+            <element signature="e#2612#2613#0" expanded="false" />
+            <element signature="e#2674#2675#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/org/tum/project/controller/PortEventController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1058">
+          <caret line="49" column="23" lean-forward="false" selection-start-line="49" selection-start-column="23" selection-end-line="49" selection-end-column="23" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/org/tum/project/layout/port.fxml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1541">
+          <caret line="67" column="20" lean-forward="false" selection-start-line="63" selection-start-column="8" selection-end-line="67" selection-end-column="20" />
+          <folding />
+        </state>
+      </provider>
       <provider editor-type-id="JavaFX-Scene-Builder">
         <state />
       </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/org/tum/project/layout/port_event.fxml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1272">
-          <caret line="70" column="0" lean-forward="false" selection-start-line="70" selection-start-column="0" selection-end-line="70" selection-end-column="0" />
+        <state relative-caret-position="202">
+          <caret line="65" column="94" lean-forward="false" selection-start-line="65" selection-start-column="94" selection-end-line="65" selection-end-column="94" />
+          <folding />
+        </state>
+      </provider>
+      <provider editor-type-id="JavaFX-Scene-Builder">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/org/tum/project/layout/link.fxml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="633">
+          <caret line="58" column="17" lean-forward="false" selection-start-line="58" selection-start-column="17" selection-end-line="58" selection-end-column="17" />
+          <folding>
+            <element signature="n#JFXButton#0;n#children#0;n#AnchorPane#0;n#!!top" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+      <provider editor-type-id="JavaFX-Scene-Builder">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/org/tum/project/layout/link_event.fxml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="525">
+          <caret line="63" column="156" lean-forward="true" selection-start-line="63" selection-start-column="156" selection-end-line="63" selection-end-column="163" />
+          <folding />
+        </state>
+      </provider>
+      <provider editor-type-id="JavaFX-Scene-Builder">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/org/tum/project/controller/MainController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="138">
+          <caret line="342" column="69" lean-forward="false" selection-start-line="342" selection-start-column="52" selection-end-line="342" selection-end-column="69" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/org/tum/project/dataservice/TraceJframe.java">
+    <entry file="file://$PROJECT_DIR$/src/org/tum/project/layout/delete_block_event.fxml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="322">
-          <caret line="25" column="0" lean-forward="true" selection-start-line="25" selection-start-column="0" selection-end-line="25" selection-end-column="0" />
+        <state relative-caret-position="207">
+          <caret line="9" column="76" lean-forward="false" selection-start-line="9" selection-start-column="76" selection-end-line="9" selection-end-column="76" />
+          <folding />
+        </state>
+      </provider>
+      <provider editor-type-id="JavaFX-Scene-Builder">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/org/tum/project/controller/DeleteBlockEventController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="621">
+          <caret line="27" column="34" lean-forward="false" selection-start-line="27" selection-start-column="34" selection-end-line="27" selection-end-column="34" />
+          <folding>
+            <element signature="imports" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/org/tum/project/controller/LinkEventController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="792">
+          <caret line="44" column="0" lean-forward="true" selection-start-line="12" selection-start-column="3" selection-end-line="44" selection-end-column="0" />
+          <folding>
+            <element signature="imports" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/org/tum/project/layout/block_event.fxml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="161">
+          <caret line="7" column="269" lean-forward="false" selection-start-line="7" selection-start-column="206" selection-end-line="7" selection-end-column="269" />
+          <folding>
+            <element signature="n#children#0;n#Pane#0;n#children#0;n#AnchorPane#0;n#!!top" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+      <provider editor-type-id="JavaFX-Scene-Builder">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/org/tum/project/layout/delete_link_event.fxml">
+      <provider editor-type-id="text-editor">
+        <state relative-caret-position="486">
+          <caret line="65" column="26" lean-forward="false" selection-start-line="65" selection-start-column="26" selection-end-line="65" selection-end-column="26" />
+          <folding>
+            <marker date="1494797986701" expanded="true" signature="5050:5092" ph="..." />
+            <marker date="1494797986701" expanded="true" signature="5050:5122" ph="..." />
+          </folding>
+        </state>
+      </provider>
+      <provider selected="true" editor-type-id="JavaFX-Scene-Builder">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/org/tum/project/controller/DeleteLinkEventController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-98">
+          <caret line="10" column="6" lean-forward="false" selection-start-line="10" selection-start-column="6" selection-end-line="20" selection-end-column="60" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/org/tum/project/test/TestUI.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="368">
+          <caret line="24" column="60" lean-forward="false" selection-start-line="24" selection-start-column="25" selection-end-line="24" selection-end-column="60" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/org/tum/project/callback/JFrameCallback.java">
+    <entry file="file://$PROJECT_DIR$/src/org/tum/project/test/TestCefEditor.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="23">
-          <caret line="1" column="0" lean-forward="true" selection-start-line="1" selection-start-column="0" selection-end-line="1" selection-end-column="0" />
+        <state relative-caret-position="161">
+          <caret line="10" column="7" lean-forward="false" selection-start-line="10" selection-start-column="7" selection-end-line="10" selection-end-column="7" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/org/tum/project/CefModelEditor/CefVisualizationService.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="341">
-          <caret line="341" column="62" lean-forward="false" selection-start-line="341" selection-start-column="62" selection-end-line="341" selection-end-column="62" />
-          <folding>
-            <element signature="e#4713#4714#0" expanded="true" />
-            <element signature="e#4808#4809#0" expanded="true" />
-            <element signature="e#10850#10851#0" expanded="true" />
-            <element signature="e#10922#10923#0" expanded="true" />
-            <marker date="1494733798875" expanded="false" signature="3567:3674" ph="(mxMouseAdapter) mouseReleased(mouseEvent) → {" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/org/tum/project/controller/MainController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="169">
-          <caret line="352" column="71" lean-forward="false" selection-start-line="352" selection-start-column="71" selection-end-line="352" selection-end-column="71" />
-          <folding>
-            <element signature="e#39702#39703#0" expanded="true" />
-            <element signature="e#39761#39762#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/org/tum/project/layout/handle_button_group.fxml">
-      <provider editor-type-id="JavaFX-Scene-Builder">
-        <state />
-      </provider>
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="698">
-          <caret line="49" column="6" lean-forward="false" selection-start-line="49" selection-start-column="6" selection-end-line="49" selection-end-column="6" />
+        <state relative-caret-position="0">
+          <caret line="0" column="39" lean-forward="true" selection-start-line="0" selection-start-column="39" selection-end-line="0" selection-end-column="39" />
           <folding />
         </state>
       </provider>

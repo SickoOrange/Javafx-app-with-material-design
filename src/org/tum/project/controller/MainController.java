@@ -2,9 +2,7 @@ package org.tum.project.controller;
 
 
 import Cef.BlockType;
-import Cef.DocumentRoot;
-import Cef.PortType;
-import com.jfoenix.controls.JFXTextField;
+import Cef.LinkType;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -23,7 +21,6 @@ import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
 import javafx.scene.text.TextAlignment;
 import javafx.stage.Stage;
-import org.eclipse.emf.common.util.EList;
 import org.tum.project.CefModelEditor.CefVisualizationService;
 import org.tum.project.bean.FifoInfo;
 import org.tum.project.bean.FlitsInfo;
@@ -82,10 +79,15 @@ public class MainController implements DataUpdateCallback, JFrameCallback {
 
 
     //root stage for main ui
-    private Stage mainActivityStage;
+    private static Stage mainActivityStage;
+    private Pane handleButtonGroup;
+
+    public static CefVisualizationService getCefVisualizationService() {
+        return cefVisualizationService;
+    }
 
     //variable for Cef domain model Visualization
-    private CefVisualizationService cefVisualizationService;
+    private static CefVisualizationService cefVisualizationService;
 
     //variable for flow latency service
     private final FlowLatencyService flowLatencyService;
@@ -100,9 +102,9 @@ public class MainController implements DataUpdateCallback, JFrameCallback {
     private FlitTraceService flitTraceService;
 
     //editor layout
-    private Node editorNode;
-    private AnchorPane blockPane;
-    private AnchorPane portPane;
+//    private Node editorNode;
+//    private AnchorPane blockPane;
+//    private AnchorPane portPane;
 
 
     /**
@@ -148,20 +150,6 @@ public class MainController implements DataUpdateCallback, JFrameCallback {
         initFlowPacketLatency();
         initFifoSize();
     }
-
-//    private void initUILayout() {
-//        handleButtonGroup = null;
-//        blockPane = null;
-//        portPane = null;
-//        try {
-//            handleButtonGroup = FXMLLoader.load(getClass().getResource("../layout/handle_button_group.fxml"));
-//            blockPane = FXMLLoader.load(getClass().getResource("../layout/block.fxml"));
-//            portPane = FXMLLoader.load(getClass().getResource("../layout/port.fxml"));
-//        } catch (IOException e) {
-//            e.printStackTrace();
-//        }
-//    }
-
 
     private void initFifoSize() {
         xAxis_3 = new NumberAxis();
@@ -326,104 +314,92 @@ public class MainController implements DataUpdateCallback, JFrameCallback {
         ScrollPane scrollPane = new ScrollPane();
         VBox vBox = new VBox(5);
         vBox.setPadding(new Insets(15, 12, 15, 12));
-        Pane handleButtonGroup = null;
+
         try {
-            handleButtonGroup = FXMLLoader.load(getClass().getResource("../layout/handle_button_group.fxml"));
+            if (handleButtonGroup == null) {
+                handleButtonGroup = FXMLLoader.load(getClass().getResource("../layout/handle_button_group.fxml"));
+            }
             vBox.getChildren().add(handleButtonGroup);
 
             //handle button event to add the block or link edit part
             if (o != null) {
                 if (o instanceof String) {
                     //click block event
-                    HBox hbox = new HBox(5);
-                    hbox.setPadding(new Insets(15, 15, 15, 15));
-                    BlockType block = cefVisualizationService.findBlockByName((String) o);
-                    AnchorPane blockPane = FXMLLoader.load(getClass().getResource("../layout/block.fxml"));
+                    String command = (String) o;
+                    switch (command) {
+                        case "add_block":
+                            cefVisualizationService.addBlockCard(vBox);
+                            break;
+                        case "delete_block":
+                            cefVisualizationService.addDeleteBlockCard(vBox);
+                            break;
+                        case "add_port":
+                            cefVisualizationService.addPortCard(vBox);
+                            break;
+                        case "add_link":
+                            cefVisualizationService.addLinkCard(vBox);
+                            break;
+                        case "delete_link":
+                            cefVisualizationService.addDeleteLinkCard(vBox);
+                            break;
+                        default:
+                            //load the information from the graph, that we double click it
+                            HBox hbox = new HBox(5);
+                            hbox.setPadding(new Insets(15, 15, 15, 15));
+                            BlockType block = cefVisualizationService.findBlockByName((String) o);
 
-                    //pane container for edit group
-                    ObservableList<Node> editGroupForBlock = ((Pane) blockPane.getChildren().get(0)).getChildren();
-                    for (Node node : editGroupForBlock) {
-                        if (node instanceof JFXTextField) {
-                            JFXTextField textField = (JFXTextField) node;
-                            //get text filed id
-                            String id = textField.getId();
-                            id = id.split("_")[1];
-                            switch (id) {
-                                case "name":
-                                    textField.setText(block.getName());
-                                    break;
-                                case "id":
-                                    textField.setText(String.valueOf(block.getId()));
-                                    break;
-                                case "blockType":
-                                    textField.setText(String.valueOf(block.getBlockType()));
-                                    break;
-                                case "layer":
-                                    textField.setText(String.valueOf(block.getLayer()));
-                                    break;
+                            //get a block pane
+                            AnchorPane blockPane = cefVisualizationService.getBlockPane(block, "source");
+
+                            //add the block pane the content layout
+                            hbox.getChildren().add(blockPane);
+
+                            //get a port pane list that belong to this block
+                            ArrayList<AnchorPane> portPaneList = cefVisualizationService.getPortPane(block);
+                            for (AnchorPane portPane : portPaneList) {
+                                hbox.getChildren().add(portPane);
                             }
-                        }
+                            vBox.getChildren().add(hbox);
+                            break;
                     }
-
-                    //add the block pane the content layout
-                    hbox.getChildren().add(blockPane);
-
-
-                    EList<PortType> portList = block.getPorts().getPort();
-                    for (PortType port : portList) {
-                        AnchorPane portPane = FXMLLoader.load(getClass().getResource("../layout/port.fxml"));
-                        ObservableList<Node> editGroupForPort = ((Pane) portPane.getChildren().get(0)).getChildren();
-                        for (Node node : editGroupForPort) {
-                            if (node instanceof JFXTextField) {
-                                JFXTextField textField = (JFXTextField) node;
-                                String id = textField.getId().split("_")[1];
-                                System.out.println(id);
-                                switch (id) {
-                                    case "id":
-                                        textField.setText(String.valueOf(port.getId()));
-                                        break;
-                                    case "protocol":
-                                        System.out.println(": " + port.getProtocol());
-                                        textField.setText(port.getProtocol());
-                                        break;
-                                    case "maxOutstandingTransactions":
-                                        textField.setText(String.valueOf(port.getMaxOutstandingTransactions()));
-                                        break;
-                                    case "addressWidth":
-                                        textField.setText(String.valueOf(port.getAddressWidth()));
-                                        break;
-                                    case "readDataWidth":
-                                        textField.setText(String.valueOf(port.getReadDataWidth()));
-                                        break;
-                                    case "writeDataWidth":
-                                        textField.setText(String.valueOf(port.getWriteDataWidth()));
-                                        break;
-                                    case "flitWidth":
-                                        textField.setText(String.valueOf(port.getFlitWidth()));
-                                        break;
-                                    case "positionX":
-                                        textField.setText(String.valueOf(port.getPositionX()));
-                                        break;
-                                    case "positionY":
-                                        textField.setText(String.valueOf(port.getPositionY()));
-                                        break;
-                                    case "domainId":
-                                        textField.setText(String.valueOf(port.getDomainId()));
-                                        break;
-                                }
-
-                            }
-                        }
-
-                        //add port pane to the container
-                        hbox.getChildren().add(portPane);
-                    }
-
-
-                    vBox.getChildren().add(hbox);
 
                 } else if (o instanceof BigInteger) {
                     //click link event
+                    HBox hbox = new HBox(5);
+                    hbox.setPadding(new Insets(15, 15, 15, 15));
+                    Object[] linkResource = cefVisualizationService.findLinkById((BigInteger) o);
+
+                    LinkType linkType = (LinkType) linkResource[0];
+                    BlockType sourceBlock = (BlockType) linkResource[1];
+                    BlockType destinationBlock = (BlockType) linkResource[2];
+
+                    //get a link pane
+                    AnchorPane linkPane = cefVisualizationService.getLinkPane(linkType);
+                    hbox.getChildren().add(linkPane);
+
+                    //get source block pane
+                    AnchorPane sourceBlockPane = cefVisualizationService.getBlockPane(sourceBlock, "source");
+                    hbox.getChildren().add(sourceBlockPane);
+
+                    //get port list pane that belong to source block pane
+                    ArrayList<AnchorPane> sourcePortPaneList = cefVisualizationService.getPortPane(sourceBlock);
+                    for (AnchorPane portPane : sourcePortPaneList) {
+                        hbox.getChildren().add(portPane);
+                    }
+
+                    //get destination block pane
+                    AnchorPane destinationBlockPane = cefVisualizationService.getBlockPane(destinationBlock,
+                            "destination");
+                    hbox.getChildren().add(destinationBlockPane);
+
+                    //get port list pane that belong to destination block pane
+                    ArrayList<AnchorPane> destinationPortPaneList = cefVisualizationService.getPortPane(sourceBlock);
+                    for (AnchorPane portPane : destinationPortPaneList) {
+                        hbox.getChildren().add(portPane);
+                    }
+
+                    vBox.getChildren().add(hbox);
+
                 }
             }
 
@@ -838,6 +814,10 @@ public class MainController implements DataUpdateCallback, JFrameCallback {
         this.mainActivityStage = mainActivityStage;
     }
 
+    public static Stage getStage() {
+        return mainActivityStage;
+    }
+
 
     /**
      * handle the different click event for the Button Widget in the User Interface
@@ -849,7 +829,7 @@ public class MainController implements DataUpdateCallback, JFrameCallback {
             switch (target.getId()) {
                 case "cefEditor":
                     cefVisualizationService.getDefaultContent();
-                    cefVisualizationService.handleCefEditor(mainActivityStage, "open");
+
                     break;
                 case "simulation":
                     break;
