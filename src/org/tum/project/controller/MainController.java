@@ -1,34 +1,46 @@
 package org.tum.project.controller;
 
 
+import Cef.BlockType;
+import Cef.DocumentRoot;
+import Cef.PortType;
+import com.jfoenix.controls.JFXTextField;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.event.Event;
 import javafx.event.EventHandler;
+import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.geometry.Insets;
 import javafx.geometry.Orientation;
 import javafx.geometry.Pos;
 import javafx.scene.Node;
 import javafx.scene.chart.*;
 import javafx.scene.control.*;
-import javafx.scene.layout.BorderPane;
-import javafx.scene.layout.HBox;
-import javafx.scene.layout.VBox;
+import javafx.scene.layout.*;
 import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
 import javafx.scene.text.TextAlignment;
+import javafx.stage.Stage;
+import org.eclipse.emf.common.util.EList;
+import org.tum.project.CefModelEditor.CefVisualizationService;
 import org.tum.project.bean.FifoInfo;
 import org.tum.project.bean.FlitsInfo;
+import org.tum.project.callback.JFrameCallback;
 import org.tum.project.dataservice.*;
 import org.tum.project.bean.PacketTimingInfo;
 import org.tum.project.callback.DataUpdateCallback;
 import org.tum.project.constant.ConstantValue;
 
+import java.io.IOException;
+import java.math.BigInteger;
 import java.util.*;
 
 
-public class MainController implements DataUpdateCallback {
+public class MainController implements DataUpdateCallback, JFrameCallback {
+    @FXML
+    private AnchorPane EditorPane;
 
     private HashMap<String, List<String>> content;
     private BorderPane root;
@@ -39,9 +51,9 @@ public class MainController implements DataUpdateCallback {
 
     private List<String> dataModelName = new ArrayList<>();
     private String currentDataBase;
-    private final FlowLatencyService flowLatencyService;
+
     private Label flowBottomLabel;
-    private final FifoSizeService fifoSizeService;
+
     private NumberAxis lxAxis;
     private NumberAxis lyAxis;
     private LineChart<Number, Number> lineChart;
@@ -60,31 +72,95 @@ public class MainController implements DataUpdateCallback {
     private final TextField startTime = new TextField();
     private final TextField endTime = new TextField();
     private HashMap<String, List<FifoInfo>> fifoMapClone;
-    private final FlowPacketLatencyService flowPacketLatencyService;
+
     private NumberAxis xAxis_3;
     private NumberAxis yAxis_3;
     private LineChart<Number, Number> thirdLineChart;
     private TextArea packetLatencyInformation = new TextArea();
     private int recoverChoiceButtonIndex = -1;
     private String recoverTextAreaInformation = "";
+
+
+    //root stage for main ui
+    private Stage mainActivityStage;
+
+    //variable for Cef domain model Visualization
+    private CefVisualizationService cefVisualizationService;
+
+    //variable for flow latency service
+    private final FlowLatencyService flowLatencyService;
+
+    //variable for fifo size service
+    private final FifoSizeService fifoSizeService;
+
+    //variable for flow packet latencz service
+    private final FlowPacketLatencyService flowPacketLatencyService;
+
+    //variable for flit trace service
     private FlitTraceService flitTraceService;
 
+    //editor layout
+    private Node editorNode;
+    private AnchorPane blockPane;
+    private AnchorPane portPane;
+
+
+    /**
+     * constructor for the main ui
+     * handle the init event
+     * define the variable
+     *
+     * @param content
+     */
     MainController(HashMap<String, List<String>> content) {
 
         this.content = content;
+        //define the button event for all button in the ui
         buttonEvent = new ButtonEvents();
+
+        //initUILayout();
+
+
+        //class for Cef domain model Visualization
+        cefVisualizationService = new CefVisualizationService();
+        cefVisualizationService.setJframeCallback(this);
+
+        //class for flow latency analyze =>Button Flow Analyze
         flowLatencyService = new FlowLatencyService();
+
+        //class for fifo size analyze => Button Fifo Analyze
         fifoSizeService = new FifoSizeService();
+        //register the callback interface for get the analyze data from the fifo size service
         fifoSizeService.setCallback(this);
+
+        //class for flow packet latency analyze =>Button Packet Analyze
         flowPacketLatencyService = new FlowPacketLatencyService();
+        //register the callback interface for get the analyze data from the fifo size service
         flowPacketLatencyService.setCallback(this);
 
+        //class for flit analyze and flit trace => Button Trace Flits
         flitTraceService = new FlitTraceService();
+        //register the callback interface for get the analyze data from the fifo size service
         flitTraceService.setCallback(this);
+
+        //init the content for every service
         initFlowLatency();
         initFlowPacketLatency();
         initFifoSize();
     }
+
+//    private void initUILayout() {
+//        handleButtonGroup = null;
+//        blockPane = null;
+//        portPane = null;
+//        try {
+//            handleButtonGroup = FXMLLoader.load(getClass().getResource("../layout/handle_button_group.fxml"));
+//            blockPane = FXMLLoader.load(getClass().getResource("../layout/block.fxml"));
+//            portPane = FXMLLoader.load(getClass().getResource("../layout/port.fxml"));
+//        } catch (IOException e) {
+//            e.printStackTrace();
+//        }
+//    }
 
 
     private void initFifoSize() {
@@ -140,8 +216,8 @@ public class MainController implements DataUpdateCallback {
         //  separator.setStyle(" -fx-background-color: #e79423; -fx-background-radius: 2;");
         vBox.getChildren().addAll(hBox, separator);
 
-        root.setTop(vBox);
-        // root.setBottom(vBox);
+        //root.setTop(vBox);
+        root.setTop(getContentTop());
     }
 
 
@@ -199,6 +275,19 @@ public class MainController implements DataUpdateCallback {
     private HBox getContentTop() {
         HBox hBox = new HBox(15);
         hBox.setPadding(new Insets(15, 12, 15, 12));
+        //adding button for Cef Editor
+        Button cefButton = new Button("Cef Editor");
+        cefButton.setId("cefEditor");
+        cefButton.setOnAction(buttonEvent);
+        hBox.getChildren().add(cefButton);
+
+        //adding button for new simulation
+        Button simulationButton = new Button("simulation");
+        simulationButton.setId("simulation");
+        simulationButton.setOnAction(buttonEvent);
+        hBox.getChildren().add(simulationButton);
+
+
         for (int i = 0; i < 4; i++) {
             Button button = new Button();
             if (i == 0) {
@@ -224,6 +313,130 @@ public class MainController implements DataUpdateCallback {
 
         hBox.setAlignment(Pos.CENTER);
         return hBox;
+    }
+
+
+    /**
+     * get the cef editor pane
+     *
+     * @param o block name or link id
+     * @return node
+     */
+    private Node getCefEditorLayout(Object o) {
+        ScrollPane scrollPane = new ScrollPane();
+        VBox vBox = new VBox(5);
+        vBox.setPadding(new Insets(15, 12, 15, 12));
+        Pane handleButtonGroup = null;
+        try {
+            handleButtonGroup = FXMLLoader.load(getClass().getResource("../layout/handle_button_group.fxml"));
+            vBox.getChildren().add(handleButtonGroup);
+
+            //handle button event to add the block or link edit part
+            if (o != null) {
+                if (o instanceof String) {
+                    //click block event
+                    HBox hbox = new HBox(5);
+                    hbox.setPadding(new Insets(15, 15, 15, 15));
+                    BlockType block = cefVisualizationService.findBlockByName((String) o);
+                    AnchorPane blockPane = FXMLLoader.load(getClass().getResource("../layout/block.fxml"));
+
+                    //pane container for edit group
+                    ObservableList<Node> editGroupForBlock = ((Pane) blockPane.getChildren().get(0)).getChildren();
+                    for (Node node : editGroupForBlock) {
+                        if (node instanceof JFXTextField) {
+                            JFXTextField textField = (JFXTextField) node;
+                            //get text filed id
+                            String id = textField.getId();
+                            id = id.split("_")[1];
+                            switch (id) {
+                                case "name":
+                                    textField.setText(block.getName());
+                                    break;
+                                case "id":
+                                    textField.setText(String.valueOf(block.getId()));
+                                    break;
+                                case "blockType":
+                                    textField.setText(String.valueOf(block.getBlockType()));
+                                    break;
+                                case "layer":
+                                    textField.setText(String.valueOf(block.getLayer()));
+                                    break;
+                            }
+                        }
+                    }
+
+                    //add the block pane the content layout
+                    hbox.getChildren().add(blockPane);
+
+
+                    EList<PortType> portList = block.getPorts().getPort();
+                    for (PortType port : portList) {
+                        AnchorPane portPane = FXMLLoader.load(getClass().getResource("../layout/port.fxml"));
+                        ObservableList<Node> editGroupForPort = ((Pane) portPane.getChildren().get(0)).getChildren();
+                        for (Node node : editGroupForPort) {
+                            if (node instanceof JFXTextField) {
+                                JFXTextField textField = (JFXTextField) node;
+                                String id = textField.getId().split("_")[1];
+                                System.out.println(id);
+                                switch (id) {
+                                    case "id":
+                                        textField.setText(String.valueOf(port.getId()));
+                                        break;
+                                    case "protocol":
+                                        System.out.println(": " + port.getProtocol());
+                                        textField.setText(port.getProtocol());
+                                        break;
+                                    case "maxOutstandingTransactions":
+                                        textField.setText(String.valueOf(port.getMaxOutstandingTransactions()));
+                                        break;
+                                    case "addressWidth":
+                                        textField.setText(String.valueOf(port.getAddressWidth()));
+                                        break;
+                                    case "readDataWidth":
+                                        textField.setText(String.valueOf(port.getReadDataWidth()));
+                                        break;
+                                    case "writeDataWidth":
+                                        textField.setText(String.valueOf(port.getWriteDataWidth()));
+                                        break;
+                                    case "flitWidth":
+                                        textField.setText(String.valueOf(port.getFlitWidth()));
+                                        break;
+                                    case "positionX":
+                                        textField.setText(String.valueOf(port.getPositionX()));
+                                        break;
+                                    case "positionY":
+                                        textField.setText(String.valueOf(port.getPositionY()));
+                                        break;
+                                    case "domainId":
+                                        textField.setText(String.valueOf(port.getDomainId()));
+                                        break;
+                                }
+
+                            }
+                        }
+
+                        //add port pane to the container
+                        hbox.getChildren().add(portPane);
+                    }
+
+
+                    vBox.getChildren().add(hbox);
+
+                } else if (o instanceof BigInteger) {
+                    //click link event
+                }
+            }
+
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        vBox.prefHeightProperty().bind(scrollPane.heightProperty());
+        vBox.prefWidthProperty().bind(scrollPane.widthProperty());
+        scrollPane.setContent(vBox);
+        scrollPane.setPannable(true);
+        scrollPane.setPrefHeight(1000);
+
+        return scrollPane;
     }
 
     private ScrollPane getFlowLatencyContentCenter() {
@@ -448,7 +661,7 @@ public class MainController implements DataUpdateCallback {
                     @Override
                     public void handle(ActionEvent event) {
                         //handle the button event,to show the trace information for flits
-                        TraceJframe traceJframe=new TraceJframe(tail);
+                        TraceJframe traceJframe = new TraceJframe(tail);
                         traceJframe.runTrace();
                     }
                 });
@@ -609,21 +822,22 @@ public class MainController implements DataUpdateCallback {
 
 
     public void setCenter(BorderPane root, Node node) {
-        VBox vBox = new VBox();
-
         if (node != null) {
-            vBox.getChildren().addAll(getContentTop(), node);
+            root.setCenter(node);
         } else {
-
-            vBox.getChildren().addAll(getContentTop(), getFlowLatencyContentCenter());
-
+            root.setCenter(getFlowLatencyContentCenter());
         }
-        root.setCenter(vBox);
     }
 
     public void registerRoot(BorderPane root) {
         this.root = root;
     }
+
+    public void registerStage(Stage mainActivityStage) {
+
+        this.mainActivityStage = mainActivityStage;
+    }
+
 
     /**
      * handle the different click event for the Button Widget in the User Interface
@@ -633,10 +847,15 @@ public class MainController implements DataUpdateCallback {
         public void handle(Event event) {
             Button target = (Button) event.getTarget();
             switch (target.getId()) {
+                case "cefEditor":
+                    cefVisualizationService.getDefaultContent();
+                    cefVisualizationService.handleCefEditor(mainActivityStage, "open");
+                    break;
+                case "simulation":
+                    break;
                 case "0":
                     startFlag = 0;
                     setCenter(root, getFlowLatencyContentCenter());
-                    // flowLatencyService.getContent();
                     break;
                 case "1":
                     startFlag = 1;
@@ -788,4 +1007,21 @@ public class MainController implements DataUpdateCallback {
     }
 
 
+    /**
+     * set content for cef editor layout
+     *
+     * @param object
+     */
+    @Override
+    public void popData(Object object) {
+        setCenter(root, getCefEditorLayout(object));
+    }
+
+
 }
+
+
+
+
+
+

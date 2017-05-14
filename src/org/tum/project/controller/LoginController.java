@@ -34,18 +34,18 @@ public class LoginController {
     private static Stage parentStage;
 
     @FXML
-    public void initialize(){
-       passwordField.setOnKeyPressed(new EventHandler<KeyEvent>() {
-           @Override
-           public void handle(KeyEvent event) {
-               KeyCode code = event.getCode();
-               if (code.getName().equals("Enter")) {
-                   String nameString = nameField.getText();
-                   String passwordString = passwordField.getText();
-                   connectMysql(nameString, passwordString);
-               }
-           }
-       });
+    public void initialize() {
+        passwordField.setOnKeyPressed(new EventHandler<KeyEvent>() {
+            @Override
+            public void handle(KeyEvent event) {
+                KeyCode code = event.getCode();
+                if (code.getName().equals("Enter")) {
+                    String nameString = nameField.getText();
+                    String passwordString = passwordField.getText();
+                    connectMysql(nameString, passwordString);
+                }
+            }
+        });
 
     }
 
@@ -80,7 +80,7 @@ public class LoginController {
         if (conn != null) {
             realName = name;
             realPassword = password;
-
+            //hide the login window and show the main ui
             Platform.runLater(() -> {
                 Stage mainActivityStage = null;
                 try {
@@ -91,17 +91,18 @@ public class LoginController {
 
                     //get all database and table
                     List<String> allDatabase = getAllDatabase();
-                    HashMap<String,List<String>> content=new HashMap<>();
+                    HashMap<String, List<String>> content = new HashMap<>();
                     for (String s : allDatabase) {
-                        content.put(s,getTableName(s));
+                        content.put(s, getTableName(s));
                     }
 
                     BorderPane root = new BorderPane();
-                    MainController layout = new MainController(content);
-                    layout.setTopLayout(root);
-                    layout.setLeftLayout(root);
-                    layout.setCenter(root,null);
-                    layout.registerRoot(root);
+                    MainController mainController = new MainController(content);
+                    mainController.setTopLayout(root);
+                    mainController.setLeftLayout(root);
+                    mainController.setCenter(root, null);
+                    mainController.registerRoot(root);
+                    mainController.registerStage(mainActivityStage);
                     mainActivityStage.setScene(new Scene(root, 1000, 600));
 
 
@@ -170,7 +171,4 @@ public class LoginController {
 
         return databaseName;
     }
-
-
-
 }

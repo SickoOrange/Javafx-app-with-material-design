@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import javafx.scene.effect.*?>
+<?import javafx.scene.text.*?>
+<?import com.jfoenix.controls.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="599.0" prefWidth="337.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+    <children>
+        <Pane layoutX="27.0" layoutY="65.0" prefHeight="513.0" prefWidth="280.0" style="-fx-background-color: #ffffff;">
+            <children>
+                <JFXTextField id="port_id" labelFloat="true" layoutX="38.0" layoutY="43.0" prefHeight="23.0" prefWidth="219.0" promptText="ID: Integer" />
+                <JFXTextField id="port_protocol" labelFloat="true" layoutX="38.0" layoutY="84.0" prefHeight="26.0" prefWidth="219.0" promptText="Protocol: Sting">
+                    <font>
+                        <Font size="13.0" />
+                    </font>
+                </JFXTextField>
+                <JFXTextField id="port_maxOutstandingTransactions" labelFloat="true" layoutX="38.0" layoutY="132.0" prefHeight="26.0" prefWidth="219.0" promptText="MaxoutstandingTransaction">
+                    <font>
+                        <Font size="13.0" />
+                    </font>
+                </JFXTextField>
+                <JFXTextField id="port_addressWidth" labelFloat="true" layoutX="38.0" layoutY="181.0" prefHeight="26.0" prefWidth="219.0" promptText="AddressWidth: Integer">
+                    <font>
+                        <Font size="13.0" />
+                    </font>
+                </JFXTextField>
+            <JFXTextField id="port_readDataWidth" labelFloat="true" layoutX="38.0" layoutY="228.0" prefHeight="26.0" prefWidth="219.0" promptText="ReadDataWidth: Integer">
+               <font>
+                  <Font size="13.0" />
+               </font>
+            </JFXTextField>
+            <JFXTextField id="port_writeDataWidth" labelFloat="true" layoutX="38.0" layoutY="275.0" prefHeight="26.0" prefWidth="219.0" promptText="WriteDataWidth: Integer">
+               <font>
+                  <Font size="13.0" />
+               </font>
+            </JFXTextField>
+            <JFXTextField id="port_flitWidth" labelFloat="true" layoutX="38.0" layoutY="321.0" prefHeight="26.0" prefWidth="219.0" promptText="flitWidth: Integer">
+               <font>
+                  <Font size="13.0" />
+               </font>
+            </JFXTextField>
+            <JFXTextField id="port_positionX" labelFloat="true" layoutX="38.0" layoutY="368.0" prefHeight="26.0" prefWidth="219.0" promptText="PositionX: Integer">
+               <font>
+                  <Font size="13.0" />
+               </font>
+            </JFXTextField>
+            <JFXTextField id="port_positionY" labelFloat="true" layoutX="38.0" layoutY="417.0" prefHeight="26.0" prefWidth="219.0" promptText="PositionY: Integer">
+               <font>
+                  <Font size="13.0" />
+               </font>
+            </JFXTextField>
+            <JFXTextField id="port_domainId" labelFloat="true" layoutX="38.0" layoutY="465.0" prefHeight="26.0" prefWidth="219.0" promptText="DomainId: Integer">
+               <font>
+                  <Font size="13.0" />
+               </font>
+            </JFXTextField>
+            </children>
+            <effect>
+                <DropShadow />
+            </effect>
+        </Pane>
+        <JFXButton buttonType="RAISED" layoutX="65.0" layoutY="36.0" prefHeight="57.0" prefWidth="147.0" ripplerFill="#b53e3e" style="-fx-background-color: #0096F3;" text="PortType" textAlignment="CENTER" textOverrun="CLIP">
+            <font>
+                <Font size="18.0" />
+            </font>
+        </JFXButton>
+    </children>
+</AnchorPane>

@@ -89,9 +89,7 @@ public class FifoSizeService {
                 }
             }
             sqlUtils.closeConn(conn, statement, rs);
-        } catch (ClassNotFoundException e) {
-            e.printStackTrace();
-        } catch (SQLException e) {
+        } catch (ClassNotFoundException | SQLException e) {
             e.printStackTrace();
         }
     }

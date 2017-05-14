@@ -13,7 +13,7 @@ import java.util.ArrayList;
 
 /**
  * This class is used to convert flit information to graph with jgraphx and jFrame
- * Created by SickoOrange on 2017/5/11.
+ * Created by Yin Ya on 2017/5/11.
  */
 public class TraceJframe {
     private StringBuffer traceInfo;
@@ -28,7 +28,7 @@ public class TraceJframe {
         JFrame jFrame = new JFrame();
         jFrame.setSize(500, 500);
         jFrame.setLocation(200, 200);
-        jFrame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
+        jFrame.setDefaultCloseOperation(WindowConstants.DISPOSE_ON_CLOSE);
 
         //create the trace graph
         mxGraph graph = new mxGraph();
