@@ -5,22 +5,25 @@
 <?import com.jfoenix.controls.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="464.0" prefWidth="276.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.tum.project.controller.BlockEventController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="464.0" prefWidth="276.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.tum.project.controller.AddBlockEventController">
    <children>
       <Pane layoutX="27.0" layoutY="73.0" prefHeight="361.0" prefWidth="222.0" style="-fx-background-color: #ffffff;">
          <children>
-            <JFXTextField id="block_name" labelFloat="true" layoutX="38.0" layoutY="35.0" promptText="Name: String" />
-            <JFXTextField id="block_id" labelFloat="true" layoutX="38.0" layoutY="107.0" promptText="ID: Integer">
+            <JFXTextField fx:id="addBlock_name" id="addBlock_name" labelFloat="true" layoutX="38.0" layoutY="35.0"
+                          promptText="Name: String" />
+            <JFXTextField fx:id="addBlock_id" id="addBlock_id" labelFloat="true" layoutX="38.0" layoutY="107.0" promptText="ID: Integer">
                <font>
                   <Font size="13.0" />
                </font>
             </JFXTextField>
-            <JFXTextField id="block_blockType" labelFloat="true" layoutX="38.0" layoutY="181.0" promptText="BlockType: Integer">
+            <JFXTextField fx:id="addBlock_blockType" id="addBlock_blockType" labelFloat="true" layoutX="38.0" layoutY="181.0"
+                          promptText="BlockType: Integer">
                <font>
                   <Font size="13.0" />
                </font>
             </JFXTextField>
-            <JFXTextField id="block_layer" labelFloat="true" layoutX="38.0" layoutY="256.0" promptText="Layer: Integer">
+            <JFXTextField fx:id="addBlock_layer" id="addBlock_layer" labelFloat="true" layoutX="38.0" layoutY="256.0"
+                          promptText="Layer: Integer">
                <font>
                   <Font size="13.0" />
                </font>

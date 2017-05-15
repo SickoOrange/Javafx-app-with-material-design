@@ -117,6 +117,10 @@ public class HandleButtonGroupForCefEditor implements Initializable {
 
     @FXML
     void saveFile(ActionEvent event) {
+        //save the element to the document root, just effective for that be double clicked element
+        //in the graph
+        System.out.println("save to the document root");
+        cefVisualizationService.save();
 
     }
 

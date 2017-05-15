@@ -270,7 +270,7 @@ public class MainController implements DataUpdateCallback, JFrameCallback {
         hBox.getChildren().add(cefButton);
 
         //adding button for new simulation
-        Button simulationButton = new Button("simulation");
+        Button simulationButton = new Button("Simulation");
         simulationButton.setId("simulation");
         simulationButton.setOnAction(buttonEvent);
         hBox.getChildren().add(simulationButton);

@@ -3,11 +3,8 @@ package org.tum.project.CefModelEditor;
 import Cef.*;
 import Cef.util.CefResourceFactoryImpl;
 import com.jfoenix.controls.JFXButton;
-import com.jfoenix.controls.JFXDialog;
 import com.jfoenix.controls.JFXTextField;
 import com.mxgraph.layout.*;
-import com.mxgraph.layout.hierarchical.mxHierarchicalLayout;
-import com.mxgraph.layout.orthogonal.mxOrthogonalLayout;
 import com.mxgraph.swing.mxGraphComponent;
 import com.mxgraph.swing.util.mxMorphing;
 import com.mxgraph.swing.util.mxMouseAdapter;
@@ -17,7 +14,6 @@ import javafx.application.Platform;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
-import javafx.scene.control.*;
 import javafx.scene.layout.*;
 import javafx.stage.FileChooser;
 import javafx.stage.Stage;
@@ -29,7 +25,6 @@ import org.tum.project.callback.JFrameCallback;
 
 import javax.swing.*;
 import java.awt.*;
-import java.awt.ScrollPane;
 import java.awt.event.MouseEvent;
 import java.io.File;
 import java.io.IOException;
@@ -748,5 +743,39 @@ public class CefVisualizationService {
 
             }
         }).start();
+    }
+
+
+    /**
+     * save the element to the document root
+     */
+    public void save() {
+        // TODO: 2017/5/15  save the document to the file, update the graph,
+
+        if (documentRoot != null) {
+            graph.clearSelection();
+            visualization(documentRoot);
+        }else{
+            CefModifyUtils.alertDialog("can't save the file, pls select a xml file first");
+        }
+
+    }
+
+    public void addBlockToDocumentRoot(BlockType newBlockType) {
+        if (documentRoot != null) {
+            CefModifyUtils.addBlock(documentRoot, newBlockType);
+        }else {
+            CefModifyUtils.alertDialog("please select a xml file");
+        }
+
+    }
+
+
+    public void addLinkToDocumentRoot(LinkType newLinkType) {
+        if (documentRoot != null) {
+            CefModifyUtils.addLinkToDocumentRoot(documentRoot, newLinkType);
+        }else {
+            CefModifyUtils.alertDialog("please select a xml file");
+        }
     }
 }
