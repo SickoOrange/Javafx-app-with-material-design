@@ -63,8 +63,9 @@
                 <DropShadow />
             </effect>
         </Pane>
-        <JFXButton buttonType="RAISED" layoutX="65.0" layoutY="36.0" prefHeight="57.0" prefWidth="147.0"
-                   ripplerFill="#b53e3e" style="-fx-background-color: #0096F3;" text="Add Port" textAlignment="CENTER"
+        <JFXButton buttonType="RAISED" layoutX="65.0" layoutY="36.0" prefHeight="57.0" prefWidth="167.0"
+                   ripplerFill="#b53e3e" style="-fx-background-color: #0096F3;" text="Modify Port"
+                   textAlignment="CENTER"
                    textOverrun="CLIP">
             <font>
                 <Font size="18.0" />

@@ -55,7 +55,7 @@ public class CefVisualizationService {
 
 
     /**
-     * set the callback for receive the popData from jFrame
+     * set the callback for receive the popFrameData from jFrame
      *
      * @param jFrameCallbacK
      */
@@ -77,7 +77,7 @@ public class CefVisualizationService {
                 fileChooser.setTitle("Open Resource File");
                 selectFile = fileChooser.showOpenDialog(mainActivityStage);
                 documentRoot = getMetalDocumentRoot(selectFile.getAbsolutePath());
-                initGraph();
+
                 visualization(documentRoot);
                 break;
             case "save":
@@ -151,12 +151,7 @@ public class CefVisualizationService {
                         }
 
 
-                        Platform.runLater(new Runnable() {
-                            @Override
-                            public void run() {
-                                jFrameCallbacK.popData(popData);
-                            }
-                        });
+                        Platform.runLater(() -> jFrameCallbacK.popFrameData(popData));
 
 
                     }
@@ -221,6 +216,7 @@ public class CefVisualizationService {
      * @param root cef document documentRoot
      */
     private void visualization(DocumentRoot root) {
+        initGraph();
 
         Object parent = graph.getDefaultParent();
         graph.getModel().beginUpdate();
@@ -355,7 +351,7 @@ public class CefVisualizationService {
     }
 
     public void getDefaultContent() {
-        Platform.runLater(() -> jFrameCallbacK.popData(popData));
+        Platform.runLater(() -> jFrameCallbacK.popFrameData(popData));
     }
 
     /**
@@ -365,12 +361,7 @@ public class CefVisualizationService {
      */
     public BlockType findBlockByName(String name) {
         EList<BlockType> blockList = documentRoot.getCef().getSystem().getBlocks().getBlock();
-        for (BlockType blockType : blockList) {
-            if (blockType.getName().equals(name)) {
-                return blockType;
-            }
-        }
-        return null;
+        return CefModifyUtils.findBlockByName(name, blockList);
     }
 
 
@@ -380,7 +371,7 @@ public class CefVisualizationService {
      * @param o link id
      * @return linkType+sourceBlock+destinationBlock
      */
-    public Object[] findLinkById(BigInteger o) {
+    public Object[] findLinkandBlockByLinkId(BigInteger o) {
         EList<LinkType> linksList = documentRoot.getCef().getSystem().getLinks().getLink();
         EList<BlockType> blocksList = documentRoot.getCef().getSystem().getBlocks().getBlock();
         //Generate the linksList array that kann hold linkType, sourceBlock, and destinationBlock
@@ -556,8 +547,8 @@ public class CefVisualizationService {
     }
 
 
-    public void addCommand(String command) {
-        jFrameCallbacK.popData(command);
+    public void popCommand(String command) {
+        jFrameCallbacK.popFrameData(command);
     }
 
 
@@ -567,7 +558,7 @@ public class CefVisualizationService {
      * @param vBox
      */
     public void addBlockCard(VBox vBox) throws IOException {
-        AnchorPane blockPane = FXMLLoader.load(getClass().getResource("../layout/block_event.fxml"));
+        AnchorPane blockPane = FXMLLoader.load(getClass().getResource("../layout/modify_block_event.fxml"));
         vBox.getChildren().add(blockPane);
     }
 
@@ -577,7 +568,7 @@ public class CefVisualizationService {
      * @param vBox
      */
     public void addPortCard(VBox vBox) throws IOException {
-        AnchorPane portPane = FXMLLoader.load(getClass().getResource("../layout/port_event.fxml"));
+        AnchorPane portPane = FXMLLoader.load(getClass().getResource("../layout/modify_port_event.fxml"));
         vBox.getChildren().add(portPane);
     }
 
@@ -587,7 +578,7 @@ public class CefVisualizationService {
      * @param vBox
      */
     public void addLinkCard(VBox vBox) throws IOException {
-        AnchorPane portPane = FXMLLoader.load(getClass().getResource("../layout/link_event.fxml"));
+        AnchorPane portPane = FXMLLoader.load(getClass().getResource("../layout/modify_link_event.fxml"));
         vBox.getChildren().add(portPane);
     }
 
@@ -755,7 +746,7 @@ public class CefVisualizationService {
         if (documentRoot != null) {
             graph.clearSelection();
             visualization(documentRoot);
-        }else{
+        } else {
             CefModifyUtils.alertDialog("can't save the file, pls select a xml file first");
         }
 
@@ -764,7 +755,7 @@ public class CefVisualizationService {
     public void addBlockToDocumentRoot(BlockType newBlockType) {
         if (documentRoot != null) {
             CefModifyUtils.addBlock(documentRoot, newBlockType);
-        }else {
+        } else {
             CefModifyUtils.alertDialog("please select a xml file");
         }
 
@@ -774,8 +765,21 @@ public class CefVisualizationService {
     public void addLinkToDocumentRoot(LinkType newLinkType) {
         if (documentRoot != null) {
             CefModifyUtils.addLinkToDocumentRoot(documentRoot, newLinkType);
-        }else {
+        } else {
             CefModifyUtils.alertDialog("please select a xml file");
         }
+    }
+
+    public void deleteBlock(String blockName) {
+        ArrayList<LinkType> linkList = CefModifyUtils.findLinkByBlockName(blockName, documentRoot);
+        System.out.println("delete block and link: " + linkList.size());
+        for (LinkType linkType : linkList) {
+            deleteLink(linkType.getId());
+        }
+        CefModifyUtils.deleteBlock(blockName, documentRoot);
+    }
+
+    public void deleteLink(BigInteger linkId) {
+        CefModifyUtils.deleteLink(linkId, documentRoot);
     }
 }

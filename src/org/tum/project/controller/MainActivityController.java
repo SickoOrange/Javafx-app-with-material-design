@@ -5,7 +5,7 @@ import javafx.fxml.FXML;
 import javafx.scene.chart.*;
 import org.tum.project.bean.FlowAnalysisResult;
 import org.tum.project.bean.PacketTimingInfo;
-import org.tum.project.sqlutils.sqlUtils;
+import org.tum.project.utils.sqlUtils;
 import org.tum.project.constant.ConstantValue;
 
 import java.sql.*;

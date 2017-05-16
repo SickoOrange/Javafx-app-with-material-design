@@ -2,7 +2,7 @@ package org.tum.project.dataservice;
 
 import javafx.scene.control.TitledPane;
 import org.tum.project.bean.FifoInfo;
-import org.tum.project.sqlutils.sqlUtils;
+import org.tum.project.utils.sqlUtils;
 import org.tum.project.callback.DataUpdateCallback;
 import org.tum.project.constant.ConstantValue;
 

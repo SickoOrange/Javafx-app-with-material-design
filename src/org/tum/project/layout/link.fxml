@@ -10,43 +10,43 @@
     <children>
         <Pane layoutX="27.0" layoutY="65.0" prefHeight="486.0" prefWidth="280.0" style="-fx-background-color: #ffffff;">
             <children>
-                <JFXTextField id="link_name" labelFloat="true" layoutX="38.0" layoutY="43.0" prefHeight="23.0" prefWidth="219.0" promptText="name: String" />
-                <JFXTextField id="link_id" labelFloat="true" layoutX="38.0" layoutY="84.0" prefHeight="26.0" prefWidth="219.0" promptText="Id: Integer">
+                <JFXTextField editable="false" id="link_name" labelFloat="true" layoutX="38.0" layoutY="43.0" prefHeight="23.0" prefWidth="219.0" promptText="name: String" />
+                <JFXTextField editable="false" id="link_id" labelFloat="true" layoutX="38.0" layoutY="84.0" prefHeight="26.0" prefWidth="219.0" promptText="Id: Integer">
                     <font>
                         <Font size="13.0" />
                     </font>
                 </JFXTextField>
-                <JFXTextField id="link_sourcePortId" labelFloat="true" layoutX="38.0" layoutY="132.0" prefHeight="26.0" prefWidth="219.0" promptText="sourcePortId: Integer">
+                <JFXTextField editable="false" id="link_sourcePortId" labelFloat="true" layoutX="38.0" layoutY="132.0" prefHeight="26.0" prefWidth="219.0" promptText="sourcePortId: Integer">
                     <font>
                         <Font size="13.0" />
                     </font>
                 </JFXTextField>
-                <JFXTextField id="link_destinationPortId" labelFloat="true" layoutX="38.0" layoutY="181.0" prefHeight="26.0" prefWidth="219.0" promptText="destinationPortId: Integer">
+                <JFXTextField editable="false" id="link_destinationPortId" labelFloat="true" layoutX="38.0" layoutY="181.0" prefHeight="26.0" prefWidth="219.0" promptText="destinationPortId: Integer">
                     <font>
                         <Font size="13.0" />
                     </font>
                 </JFXTextField>
-            <JFXTextField id="link_carriesSourceClock" labelFloat="true" layoutX="38.0" layoutY="228.0" prefHeight="26.0" prefWidth="219.0" promptText="carriesSourceClock: Boolean">
+            <JFXTextField editable="false" id="link_carriesSourceClock" labelFloat="true" layoutX="38.0" layoutY="228.0" prefHeight="26.0" prefWidth="219.0" promptText="carriesSourceClock: Boolean">
                <font>
                   <Font size="13.0" />
                </font>
             </JFXTextField>
-            <JFXTextField id="link_carriesSourceReset" labelFloat="true" layoutX="38.0" layoutY="275.0" prefHeight="26.0" prefWidth="219.0" promptText="carriesSourceReset: Boolean">
+            <JFXTextField editable="false" id="link_carriesSourceReset" labelFloat="true" layoutX="38.0" layoutY="275.0" prefHeight="26.0" prefWidth="219.0" promptText="carriesSourceReset: Boolean">
                <font>
                   <Font size="13.0" />
                </font>
             </JFXTextField>
-            <JFXTextField id="link_linkLengthEstimation" labelFloat="true" layoutX="38.0" layoutY="321.0" prefHeight="26.0" prefWidth="219.0" promptText="linkLengthEstimation: Double">
+            <JFXTextField editable="false" id="link_linkLengthEstimation" labelFloat="true" layoutX="38.0" layoutY="321.0" prefHeight="26.0" prefWidth="219.0" promptText="linkLengthEstimation: Double">
                <font>
                   <Font size="13.0" />
                </font>
             </JFXTextField>
-            <JFXTextField id="link_auxiliaryForwareWires" labelFloat="true" layoutX="38.0" layoutY="368.0" prefHeight="26.0" prefWidth="219.0" promptText="auxiliaryForwardWires: Integer">
+            <JFXTextField editable="false" id="link_auxiliaryForwareWires" labelFloat="true" layoutX="38.0" layoutY="368.0" prefHeight="26.0" prefWidth="219.0" promptText="auxiliaryForwardWires: Integer">
                <font>
                   <Font size="13.0" />
                </font>
             </JFXTextField>
-            <JFXTextField id="link_auxiliaryBackwareWires" labelFloat="true" layoutX="38.0" layoutY="417.0" prefHeight="26.0" prefWidth="219.0" promptText="auxiliaryBackwardWires: Integer">
+            <JFXTextField editable="false" id="link_auxiliaryBackwareWires" labelFloat="true" layoutX="38.0" layoutY="417.0" prefHeight="26.0" prefWidth="219.0" promptText="auxiliaryBackwardWires: Integer">
                <font>
                   <Font size="13.0" />
                </font>

@@ -2,15 +2,9 @@ package org.tum.project.controller;
 
 import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXTextField;
-import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
-import javafx.scene.Node;
-import javafx.scene.Parent;
-import javafx.scene.control.ScrollPane;
-import javafx.scene.layout.*;
 import javafx.stage.Stage;
 import org.tum.project.CefModelEditor.CefVisualizationService;
 
@@ -26,33 +20,14 @@ import java.util.ResourceBundle;
  */
 public class HandleButtonGroupForCefEditor implements Initializable {
     private String saveFilePathString;
-    @FXML
-    private JFXButton openFileButton;
 
-    @FXML
-    private JFXButton deleteBlockButton;
-
-
-    @FXML
-    private JFXButton addPortButton;
 
     @FXML
     private JFXTextField openFilePath;
-
     @FXML
-    private JFXButton addBlockButton;
+    private JFXTextField  saveFilePath;
 
-    @FXML
-    private JFXButton deleteLinkButton;
 
-    @FXML
-    private JFXButton saveFileButton;
-
-    @FXML
-    private JFXTextField saveFilePath;
-
-    @FXML
-    private JFXButton addLinkButton;
     private CefVisualizationService cefVisualizationService;
     private Stage mainStage;
     private String openFilePathString = "";
@@ -87,31 +62,31 @@ public class HandleButtonGroupForCefEditor implements Initializable {
      * @param event
      */
     @FXML
-    void addBlock(ActionEvent event) throws IOException {
+    void modifyBlock(ActionEvent event) throws IOException {
 
-        cefVisualizationService.addCommand("add_block");
+        cefVisualizationService.popCommand("add_block");
     }
 
     @FXML
     void deleteBlock(ActionEvent event) {
-        cefVisualizationService.addCommand("delete_block");
+        cefVisualizationService.popCommand("delete_block");
 
     }
 
     @FXML
-    void addPort(ActionEvent event) {
-        cefVisualizationService.addCommand("add_port");
+    void modifyPort(ActionEvent event) {
+        cefVisualizationService.popCommand("add_port");
 
     }
 
     @FXML
-    void addLink(ActionEvent event) {
-        cefVisualizationService.addCommand("add_link");
+    void modifyLink(ActionEvent event) {
+        cefVisualizationService.popCommand("add_link");
     }
 
     @FXML
     void deleteLink(ActionEvent event) {
-        cefVisualizationService.addCommand("delete_link");
+        cefVisualizationService.popCommand("delete_link");
 
     }
 

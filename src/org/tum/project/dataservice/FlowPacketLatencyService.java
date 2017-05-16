@@ -3,7 +3,7 @@ package org.tum.project.dataservice;
 import org.tum.project.bean.PacketTimingInfo;
 import org.tum.project.callback.DataUpdateCallback;
 import org.tum.project.constant.ConstantValue;
-import org.tum.project.sqlutils.sqlUtils;
+import org.tum.project.utils.sqlUtils;
 
 import java.sql.Connection;
 import java.sql.ResultSet;

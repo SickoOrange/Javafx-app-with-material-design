@@ -11,18 +11,22 @@
    <children>
       <Pane layoutX="27.0" layoutY="73.0" prefHeight="361.0" prefWidth="222.0" style="-fx-background-color: #ffffff;">
          <children>
-            <JFXTextField id="block_name" fx:id="deleteBlock_name" labelFloat="true" layoutX="38.0" layoutY="35.0" promptText="Name: String" />
-            <JFXTextField id="block_id" fx:id="deleteBlock_id" labelFloat="true" layoutX="38.0" layoutY="107.0" promptText="ID: Integer">
+            <JFXTextField editable="false" id="block_name" fx:id="deleteBlock_name" labelFloat="true" layoutX="38.0" layoutY="35.0"
+                          promptText="Name: String" />
+            <JFXTextField editable="false" id="block_id" fx:id="deleteBlock_id" labelFloat="true" layoutX="38.0"
+                          layoutY="107.0" promptText="ID: Integer">
                <font>
                   <Font size="13.0" />
                </font>
             </JFXTextField>
-            <JFXTextField id="block_blockType" fx:id="deleteBlock_blockType" labelFloat="true" layoutX="38.0" layoutY="181.0" promptText="BlockType: Integer">
+            <JFXTextField editable="false" id="block_blockType" fx:id="deleteBlock_blockType" labelFloat="true"
+                          layoutX="38.0" layoutY="181.0" promptText="BlockType: Integer">
                <font>
                   <Font size="13.0" />
                </font>
             </JFXTextField>
-            <JFXTextField id="block_layer" fx:id="deleteBlock_layer" labelFloat="true" layoutX="38.0" layoutY="256.0" promptText="Layer: Integer">
+            <JFXTextField editable="false" id="block_layer" fx:id="deleteBlock_layer" labelFloat="true"
+                          layoutX="38.0" layoutY="256.0" promptText="Layer: Integer">
                <font>
                   <Font size="13.0" />
                </font>

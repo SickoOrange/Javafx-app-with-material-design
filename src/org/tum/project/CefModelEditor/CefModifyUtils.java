@@ -5,9 +5,12 @@ import Cef.DocumentRoot;
 import Cef.LinkType;
 import Cef.PortType;
 import javafx.scene.control.Alert;
+import javafx.scene.control.ButtonType;
 import org.eclipse.emf.common.util.EList;
 
 import java.math.BigInteger;
+import java.util.ArrayList;
+import java.util.Optional;
 
 /**
  * document root modify utils
@@ -46,12 +49,13 @@ public class CefModifyUtils {
     }
 
 
-    public static void alertDialog(String content) {
-        Alert alert = new Alert(Alert.AlertType.WARNING);
+    public static Optional<ButtonType> alertDialog(String content) {
+        Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
         alert.setTitle("Warning Dialog");
-        alert.setHeaderText("Look, a Warning Dialog");
+        alert.setHeaderText(null);
         alert.setContentText(content);
-        alert.showAndWait();
+        return alert.showAndWait();
+
     }
 
     /**
@@ -133,7 +137,7 @@ public class CefModifyUtils {
                 linkList.add(newLinkType);
             }
 
-        }else {
+        } else {
             alertDialog("cant add link,because source port and target port can't be found");
         }
 
@@ -161,4 +165,99 @@ public class CefModifyUtils {
         }
         return findId;
     }
+
+    /**
+     * delete a block from the document root
+     *
+     * @param blockName    given block name, that need to be deleted
+     * @param documentRoot document root
+     */
+    public static void deleteBlock(String blockName, DocumentRoot documentRoot) {
+        EList<BlockType> blockList = documentRoot.getCef().getSystem().getBlocks().getBlock();
+        BlockType findBlock = findBlockByName(blockName, blockList);
+        blockList.remove(findBlock);
+        System.out.println("delete block success");
+
+
+    }
+
+
+    /**
+     * find block by name in the document root
+     *
+     * @param blockName block name
+     * @param blockList block list in the document root
+     * @return block type
+     */
+    public static BlockType findBlockByName(String blockName, EList<BlockType> blockList) {
+        for (BlockType blockType : blockList) {
+            if (blockType.getName().equals(blockName)) {
+                return blockType;
+            }
+        }
+        return null;
+    }
+
+
+    /**
+     * delete a link from document root
+     *
+     * @param linkId       link id
+     * @param documentRoot document root
+     */
+    public static void deleteLink(BigInteger linkId, DocumentRoot documentRoot) {
+        EList<LinkType> linkList = documentRoot.getCef().getSystem().getLinks().getLink();
+        LinkType linkType = findLinkById(linkId, linkList);
+        linkList.remove(linkType);
+        System.out.println("delete link success");
+    }
+
+    /**
+     * find a link by in in the document root
+     *
+     * @param linkId   link id
+     * @param linkList link list from document root
+     * @return link type
+     */
+    private static LinkType findLinkById(BigInteger linkId, EList<LinkType> linkList) {
+        for (LinkType linkType : linkList) {
+            if (linkType.getId().compareTo(linkId) == 0) {
+                //find this link
+                return linkType;
+            }
+        }
+        return null;
+    }
+
+    /**
+     * find a link list in the graph, that this block hold.
+     *
+     * @param blockName    block name
+     * @param documentRoot document root
+     * @return link list
+     */
+    public static ArrayList<LinkType> findLinkByBlockName(String blockName, DocumentRoot documentRoot) {
+        EList<BlockType> blockList = documentRoot.getCef().getSystem().getBlocks().getBlock();
+        EList<LinkType> linkList = documentRoot.getCef().getSystem().getLinks().getLink();
+        ArrayList<LinkType> targetLinkList = new ArrayList<>();
+        BlockType block = findBlockByName(blockName, blockList);
+        //all port that this block hold
+        EList<PortType> portList = block.getPorts().getPort();
+        for (PortType portType : portList) {
+            BigInteger portId = portType.getId();
+            for (LinkType linkType : linkList) {
+                if (linkType.getSourcePortId().compareTo(portId) == 0) {
+                    targetLinkList.add(linkType);
+                    break;
+                }
+                if (linkType.getDestinationPortId().compareTo(portId) == 0) {
+                    targetLinkList.add(linkType);
+                    break;
+                }
+            }
+        }
+        return targetLinkList;
+    }
+
+
 }

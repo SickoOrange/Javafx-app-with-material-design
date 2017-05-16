@@ -6,7 +6,7 @@
 <?import javafx.scene.effect.*?>
 <?import javafx.scene.layout.*?>
 
-<VBox alignment="TOP_CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="148.0" prefWidth="928.0" style="-fx-spacing: 15;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.tum.project.controller.HandleButtonGroupForCefEditor">
+<VBox alignment="TOP_CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="148.0" prefWidth="984.0" style="-fx-spacing: 15;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.tum.project.controller.HandleButtonGroupForCefEditor">
    <children>
       <HBox prefHeight="88.0" prefWidth="591.0" style="-fx-alignment: CENTER; -fx-spacing: 15;">
          <children>
@@ -15,7 +15,22 @@
                   <Font size="14.0" />
                </font>
             </JFXButton>
-            <JFXButton fx:id="addBlockButton" buttonType="RAISED" onAction="#addBlock" prefHeight="38.0" prefWidth="90.0" ripplerFill="WHITE" style="-fx-background-color: #2196f3;" text="Add Block" textFill="WHITE">
+            <JFXButton fx:id="saveFileButton" buttonType="RAISED" onAction="#saveFile" prefHeight="38.0" prefWidth="113.0" ripplerFill="WHITE" style="-fx-background-color: #e03e3e;" text="Save File" textFill="WHITE">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </JFXButton>
+            <JFXButton fx:id="modifyBlockButton" buttonType="RAISED" onAction="#modifyBlock" prefHeight="38.0" prefWidth="117.0" ripplerFill="WHITE" style="-fx-background-color: #2196f3;" text="Modify Block" textFill="WHITE">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </JFXButton>
+            <JFXButton fx:id="addPortButton" buttonType="RAISED" onAction="#modifyPort" prefHeight="38.0" prefWidth="105.0" ripplerFill="WHITE" style="-fx-background-color: #2196f3;" text="Modify Port" textFill="WHITE">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </JFXButton>
+            <JFXButton fx:id="modifyLinkButton" buttonType="RAISED" onAction="#modifyLink" prefHeight="38.0" prefWidth="105.0" ripplerFill="WHITE" style="-fx-background-color: #2196f3;" text="Modify Link" textFill="WHITE">
                <font>
                   <Font size="14.0" />
                </font>
@@ -25,22 +40,7 @@
                   <Font size="14.0" />
                </font>
             </JFXButton>
-            <JFXButton fx:id="addPortButton" buttonType="RAISED" onAction="#addPort" prefHeight="38.0" prefWidth="90.0" ripplerFill="WHITE" style="-fx-background-color: #2196f3;" text="Add Port" textFill="WHITE">
-               <font>
-                  <Font size="14.0" />
-               </font>
-            </JFXButton>
-            <JFXButton fx:id="addLinkButton" buttonType="RAISED" onAction="#addLink" prefHeight="38.0" prefWidth="90.0" ripplerFill="WHITE" style="-fx-background-color: #2196f3;" text="Add Link" textFill="WHITE">
-               <font>
-                  <Font size="14.0" />
-               </font>
-            </JFXButton>
             <JFXButton fx:id="deleteLinkButton" buttonType="RAISED" onAction="#deleteLink" prefHeight="38.0" prefWidth="113.0" ripplerFill="WHITE" style="-fx-background-color: #2196f3;" text="Delete Link" textFill="WHITE">
-               <font>
-                  <Font size="14.0" />
-               </font>
-            </JFXButton>
-            <JFXButton fx:id="saveFileButton" buttonType="RAISED" onAction="#saveFile" prefHeight="38.0" prefWidth="113.0" ripplerFill="WHITE" style="-fx-background-color: #e03e3e;" text="Save File" textFill="WHITE">
                <font>
                   <Font size="14.0" />
                </font>

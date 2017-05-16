@@ -1,4 +1,4 @@
-package org.tum.project.sqlutils;
+package org.tum.project.utils;
 
 import org.tum.project.controller.LoginController;
 

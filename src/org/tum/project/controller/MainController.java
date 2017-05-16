@@ -25,6 +25,7 @@ import org.tum.project.CefModelEditor.CefVisualizationService;
 import org.tum.project.bean.FifoInfo;
 import org.tum.project.bean.FlitsInfo;
 import org.tum.project.callback.JFrameCallback;
+import org.tum.project.callback.SimulationCallBack;
 import org.tum.project.dataservice.*;
 import org.tum.project.bean.PacketTimingInfo;
 import org.tum.project.callback.DataUpdateCallback;
@@ -35,7 +36,7 @@ import java.math.BigInteger;
 import java.util.*;
 
 
-public class MainController implements DataUpdateCallback, JFrameCallback {
+public class MainController implements DataUpdateCallback, JFrameCallback, SimulationCallBack {
     @FXML
     private AnchorPane EditorPane;
 
@@ -80,11 +81,12 @@ public class MainController implements DataUpdateCallback, JFrameCallback {
 
     //root stage for main ui
     private static Stage mainActivityStage;
+    //handle button group for the cef editor
     private Pane handleButtonGroup;
 
-    public static CefVisualizationService getCefVisualizationService() {
-        return cefVisualizationService;
-    }
+    //simulation service
+    private static SimulationService simulationService;
+
 
     //variable for Cef domain model Visualization
     private static CefVisualizationService cefVisualizationService;
@@ -107,6 +109,13 @@ public class MainController implements DataUpdateCallback, JFrameCallback {
 //    private AnchorPane portPane;
 
 
+    public static SimulationService getSimulationService() {
+        return simulationService;
+    }
+
+    public static CefVisualizationService getCefVisualizationService() {
+        return cefVisualizationService;
+    }
     /**
      * constructor for the main ui
      * handle the init event
@@ -126,6 +135,11 @@ public class MainController implements DataUpdateCallback, JFrameCallback {
         //class for Cef domain model Visualization
         cefVisualizationService = new CefVisualizationService();
         cefVisualizationService.setJframeCallback(this);
+
+        //class for simulation pane setting
+        simulationService = new SimulationService();
+        simulationService.setSimulationCallBack(this);
+
 
         //class for flow latency analyze =>Button Flow Analyze
         flowLatencyService = new FlowLatencyService();
@@ -367,7 +381,7 @@ public class MainController implements DataUpdateCallback, JFrameCallback {
                     //click link event
                     HBox hbox = new HBox(5);
                     hbox.setPadding(new Insets(15, 15, 15, 15));
-                    Object[] linkResource = cefVisualizationService.findLinkById((BigInteger) o);
+                    Object[] linkResource = cefVisualizationService.findLinkandBlockByLinkId((BigInteger) o);
 
                     LinkType linkType = (LinkType) linkResource[0];
                     BlockType sourceBlock = (BlockType) linkResource[1];
@@ -832,6 +846,8 @@ public class MainController implements DataUpdateCallback, JFrameCallback {
 
                     break;
                 case "simulation":
+                    //simulationService.getDefaultContent();
+                    simulationService.getSimulationContent();
                     break;
                 case "0":
                     startFlag = 0;
@@ -993,8 +1009,14 @@ public class MainController implements DataUpdateCallback, JFrameCallback {
      * @param object
      */
     @Override
-    public void popData(Object object) {
+    public void popFrameData(Object object) {
         setCenter(root, getCefEditorLayout(object));
+    }
+
+    @Override
+    public void popSimulationData(String command) {
+        setCenter(root, simulationService.getSimulationLayout(command));
+
     }
 
 

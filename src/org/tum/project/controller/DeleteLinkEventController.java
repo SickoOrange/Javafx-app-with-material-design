@@ -3,11 +3,18 @@ package org.tum.project.controller;
 import com.jfoenix.controls.JFXTextField;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.Initializable;
+import org.tum.project.CefModelEditor.CefVisualizationService;
+
+import java.math.BigInteger;
+import java.net.URL;
+import java.util.ResourceBundle;
 
 /**
+ * delete a link from document root
  * Created by Yin Ya on 2017/5/14.
  */
-public class DeleteLinkEventController {
+public class DeleteLinkEventController implements Initializable {
 //    @FXML
 //    private JFXTextField deleteLink_carriesSourceClock;
 //
@@ -31,14 +38,22 @@ public class DeleteLinkEventController {
 
     @FXML
     private JFXTextField deleteLink_id;
+    private CefVisualizationService cefVisualizationService;
 
 //    @FXML
 //    private JFXTextField auxiliaryBackwardWires;
 
     @FXML
     void deleteLinkSubmit(ActionEvent event) {
-        System.out.println("delete link ");
+        BigInteger linkId = new BigInteger(deleteLink_id.getText());
+        cefVisualizationService.deleteLink(linkId);
+        //update the layout ui
+        cefVisualizationService.popCommand("delete_link");
 
     }
 
+    @Override
+    public void initialize(URL location, ResourceBundle resources) {
+        cefVisualizationService = MainController.getCefVisualizationService();
+    }
 }

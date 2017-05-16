@@ -5,5 +5,6 @@ package org.tum.project.callback;
  * Created by Yin Ya on 2017/5/14.
  */
 public interface JFrameCallback {
-    void popData(Object object);
+    //object is command
+    void popFrameData(Object object);
 }
