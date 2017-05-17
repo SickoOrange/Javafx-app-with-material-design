@@ -14,6 +14,5 @@ public class AddNewProjectController {
     @FXML
     void newProjectAction(ActionEvent event) {
         System.out.println("add new project card");
-
     }
 }

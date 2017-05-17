@@ -24,6 +24,8 @@ import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.emf.ecore.resource.ResourceSet;
 import org.eclipse.emf.ecore.resource.impl.ResourceSetImpl;
 import org.tum.project.callback.JFrameCallback;
+import org.tum.project.controller.MainController;
+import org.tum.project.utils.Utils;
 
 import javax.swing.*;
 import java.awt.*;
@@ -225,6 +227,10 @@ public class CefVisualizationService {
 
         //get all block list
         EList<BlockType> blocksList = root.getCef().getSystem().getBlocks().getBlock();
+        if (blocksList.size() == 0) {
+            System.out.println("null block");
+            return;
+        }
         vertexList = new ArrayList<>();
         for (BlockType block : blocksList) {
             BigInteger blockType = block.getBlockType();
@@ -243,6 +249,10 @@ public class CefVisualizationService {
 
         //get all link list
         EList<LinkType> linksList = root.getCef().getSystem().getLinks().getLink();
+        if (linksList.size() == 0) {
+            System.out.println("null link");
+            return;
+        }
         edgeList = new HashMap<>();
         for (LinkType linkType : linksList) {
             BigInteger sourcePortId = linkType.getSourcePortId();
@@ -574,7 +584,8 @@ public class CefVisualizationService {
 
     /**
      * add a link_edit_card to the layout
-     vBox  *
+     * vBox  *
+     *
      * @param
      */
     public void addLinkCard(VBox vBox) throws IOException {
@@ -595,6 +606,9 @@ public class CefVisualizationService {
 
         new Thread(() -> {
             EList<BlockType> blocksList = documentRoot.getCef().getSystem().getBlocks().getBlock();
+            if (blocksList.size() == 0) {
+                return;
+            }
             int blockCounter = blocksList.size();
             //calculate how many hbox we need, to storage the delete Block Pane
             //every hbox can hold maximal 6 delete block pane
@@ -666,6 +680,9 @@ public class CefVisualizationService {
             @Override
             public void run() {
                 EList<LinkType> linkList = documentRoot.getCef().getSystem().getLinks().getLink();
+                if (linkList.size() == 0) {
+                    return;
+                }
                 int blockCounter = linkList.size();
                 //calculate how many hbox we need, to storage the delete Block Pane
                 //every hbox can hold maximal 6 delete block pane
@@ -741,9 +758,11 @@ public class CefVisualizationService {
      * save the element to the document root
      */
     public void save() {
-        // TODO: 2017/5/15  save the document to the file, update the graph,
-
         if (documentRoot != null) {
+            //save the document
+            File file = Utils.openFileChooser("save", MainController.getStage());
+            documentRoot = CefModifyUtils.saveCef(this.documentRoot.getCef(), file);
+
             graph.clearSelection();
             visualization(documentRoot);
         } else {
@@ -782,7 +801,6 @@ public class CefVisualizationService {
     public void deleteLink(BigInteger linkId) {
         CefModifyUtils.deleteLink(linkId, documentRoot);
     }
-
 
 
 }

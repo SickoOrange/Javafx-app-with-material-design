@@ -1,9 +1,17 @@
 package org.tum.project.controller;
 
+import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXTextField;
+import javafx.application.Platform;
+import javafx.concurrent.Task;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.Parent;
+import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.HBox;
+import javafx.scene.layout.Pane;
+import javafx.scene.layout.VBox;
 import org.tum.project.CefModelEditor.CefVisualizationService;
 
 import java.io.IOException;
@@ -47,9 +55,21 @@ public class DeleteLinkEventController implements Initializable {
     @FXML
     void deleteLinkSubmit(ActionEvent event) throws IOException {
         BigInteger linkId = new BigInteger(deleteLink_id.getText());
-        cefVisualizationService.deleteLink(linkId);
-        //update the layout ui
-        cefVisualizationService.popCommand("delete_link");
+        new Thread(() -> {
+            cefVisualizationService.deleteLink(linkId);
+            deleteTarget(event);
+        }).start();
+
+    }
+
+    private void deleteTarget(ActionEvent event) {
+        AnchorPane anchorPane = (AnchorPane) ((Pane) ((JFXButton) event.getSource()).getParent()).getParent();
+        HBox parent = (HBox) anchorPane.getParent();
+        if (parent.getChildren().contains(anchorPane)) {
+            System.out.println("delete this pane");
+            Platform.runLater(() -> parent.getChildren().remove(anchorPane));
+
+        }
 
     }
 

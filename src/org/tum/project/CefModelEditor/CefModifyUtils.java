@@ -279,5 +279,21 @@ public class CefModifyUtils {
         return cef;
     }
 
+    public static DocumentRoot saveCef(CefType cef, File file) {
+        ResourceSet resourceSet = new ResourceSetImpl();
+        resourceSet.getResourceFactoryRegistry().getExtensionToFactoryMap().put(
+                Resource.Factory.Registry.DEFAULT_EXTENSION, new CefResourceFactoryImpl());
+        resourceSet.getPackageRegistry().put(CefPackage.eNS_URI, CefPackage.eINSTANCE);
+        Resource resource = resourceSet.createResource(URI.createFileURI(file.getAbsolutePath()));
+        DocumentRoot root = CefFactory.eINSTANCE.createDocumentRoot();
+        root.setCef(cef);
+        resource.getContents().add(root);
+        try {
+            resource.save(null);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        return root;
+    }
 
 }
