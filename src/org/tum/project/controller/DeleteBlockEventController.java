@@ -11,6 +11,7 @@ import javafx.scene.layout.Pane;
 import org.tum.project.CefModelEditor.CefModifyUtils;
 import org.tum.project.CefModelEditor.CefVisualizationService;
 
+import java.io.IOException;
 import java.net.URL;
 import java.util.Optional;
 import java.util.ResourceBundle;
@@ -35,7 +36,7 @@ public class DeleteBlockEventController implements Initializable {
     private CefVisualizationService cefVisualizationService;
 
     @FXML
-    void deleteBlockAction(ActionEvent event) {
+    void deleteBlockAction(ActionEvent event) throws IOException {
         String dialog = "Deleting a Block will delete all of its corresponding links\n" +
                 "confirm delete?";
         Optional<ButtonType> buttonType = CefModifyUtils.alertDialog(dialog);

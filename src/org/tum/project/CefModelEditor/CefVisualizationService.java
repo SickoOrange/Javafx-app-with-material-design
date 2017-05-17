@@ -13,7 +13,9 @@ import com.mxgraph.view.mxGraph;
 import javafx.application.Platform;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXMLLoader;
+import javafx.geometry.*;
 import javafx.scene.Node;
+import javafx.scene.control.*;
 import javafx.scene.layout.*;
 import javafx.stage.FileChooser;
 import javafx.stage.Stage;
@@ -25,6 +27,8 @@ import org.tum.project.callback.JFrameCallback;
 
 import javax.swing.*;
 import java.awt.*;
+import java.awt.Insets;
+import java.awt.ScrollPane;
 import java.awt.event.MouseEvent;
 import java.io.File;
 import java.io.IOException;
@@ -52,6 +56,9 @@ public class CefVisualizationService {
     private DocumentRoot documentRoot;
 
     private Object popData;
+    private AnchorPane handleButtonGroup;
+    private javafx.scene.control.ScrollPane cefEditorRoot;
+    private VBox cefEditorVBox;
 
 
     /**
@@ -149,13 +156,8 @@ public class CefVisualizationService {
                             popData = linkId;
 
                         }
-
-
                         Platform.runLater(() -> jFrameCallbacK.popFrameData(popData));
-
-
                     }
-
                 }
                 super.mouseReleased(mouseEvent);
             }
@@ -554,8 +556,6 @@ public class CefVisualizationService {
 
     /**
      * add a add_block_cardView to the content
-     *
-     * @param vBox
      */
     public void addBlockCard(VBox vBox) throws IOException {
         AnchorPane blockPane = FXMLLoader.load(getClass().getResource("../layout/modify_block_event.fxml"));
@@ -574,8 +574,8 @@ public class CefVisualizationService {
 
     /**
      * add a link_edit_card to the layout
-     *
-     * @param vBox
+     vBox  *
+     * @param
      */
     public void addLinkCard(VBox vBox) throws IOException {
         AnchorPane portPane = FXMLLoader.load(getClass().getResource("../layout/modify_link_event.fxml"));
@@ -782,4 +782,7 @@ public class CefVisualizationService {
     public void deleteLink(BigInteger linkId) {
         CefModifyUtils.deleteLink(linkId, documentRoot);
     }
+
+
+
 }

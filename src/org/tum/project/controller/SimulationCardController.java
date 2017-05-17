@@ -4,11 +4,17 @@ import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXTextField;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.ButtonType;
+import javafx.stage.Stage;
 import org.tum.project.CefModelEditor.CefModifyUtils;
 import org.tum.project.bean.ProjectInfo;
+import org.tum.project.testbench.TestBenchStageController;
 import org.tum.project.utils.xmlUtils;
 
+import java.io.IOException;
 import java.util.Optional;
 
 /**
@@ -24,6 +30,9 @@ public class SimulationCardController {
     private JFXButton simulationCard_simulationButton;
 
     @FXML
+    private JFXButton simulationCard_testBenchButton;
+
+    @FXML
     private JFXTextField simulationCard_fastfifoTable;
 
     @FXML
@@ -37,6 +46,7 @@ public class SimulationCardController {
 
     @FXML
     private JFXTextField simulationCard_moduleTable;
+
 
     @FXML
     void generationAction(ActionEvent event) {
@@ -58,7 +68,7 @@ public class SimulationCardController {
                 xmlUtils.writeToDocument(info);
 
                 setElementDisable();
-                //generate test bench
+
             } else {
                 CefModifyUtils.alertDialog("All options can not be empty!");
                 return;
@@ -83,6 +93,25 @@ public class SimulationCardController {
 
     @FXML
     void simulationAction(ActionEvent event) {
+
+    }
+
+    @FXML
+    void testBenchAction(ActionEvent event) {
+        //generate test bench cpp file for simulation
+        Stage testBenchStage = new Stage();
+        Parent textBenchRoot=null;
+        try {
+            textBenchRoot = FXMLLoader.load(getClass().getResource("../layout/test_bench_stage.fxml"));
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        testBenchStage.setScene(new Scene(textBenchRoot, 550, 300));
+        testBenchStage.setTitle("generate test bench cpp file");
+        testBenchStage.toFront();
+        testBenchStage.show();
+        TestBenchStageController controller=new TestBenchStageController();
+        controller.setStage(testBenchStage);
 
     }
 }

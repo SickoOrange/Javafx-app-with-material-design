@@ -116,6 +116,7 @@ public class MainController implements DataUpdateCallback, JFrameCallback, Simul
     public static CefVisualizationService getCefVisualizationService() {
         return cefVisualizationService;
     }
+
     /**
      * constructor for the main ui
      * handle the init event
@@ -579,7 +580,7 @@ public class MainController implements DataUpdateCallback, JFrameCallback, Simul
         packetLatencyInformation.setFont(new Font(20));
         vBox.getChildren().add(packetLatencyInformation);
 
-        vBox.prefWidthProperty().bind(scrollPane.widthProperty());
+        // vBox.prefWidthProperty().bind(scrollPane.widthProperty());
         vBox.setAlignment(Pos.CENTER);
         //scrollPane.setContent(vBox);
         //scrollPane.setPannable(true);
@@ -964,7 +965,7 @@ public class MainController implements DataUpdateCallback, JFrameCallback, Simul
 
 
     /**
-     * call back method
+     * call back interface
      * data visualization operations for fifo Analyze
      *
      * @param fifoMap     fifo information
@@ -977,7 +978,7 @@ public class MainController implements DataUpdateCallback, JFrameCallback, Simul
 
 
     /**
-     * call back method
+     * call back interface
      * data visualization operations for packet analyze
      *
      * @param flow_id_to_packetInfo_map packet information in flow
@@ -990,7 +991,7 @@ public class MainController implements DataUpdateCallback, JFrameCallback, Simul
 
 
     /**
-     * call back method
+     * call back interface
      * data visualization operations for flits trace
      *
      * @param flow_id_to_flits_map flits information in flows
@@ -1004,15 +1005,21 @@ public class MainController implements DataUpdateCallback, JFrameCallback, Simul
 
 
     /**
+     * call back interface
      * set content for cef editor layout
-     *
-     * @param object
+     * @param object command to set different layout for cef editor
      */
     @Override
-    public void popFrameData(Object object) {
+    public void popFrameData(Object object){
         setCenter(root, getCefEditorLayout(object));
     }
 
+
+    /**
+     * call back interface
+     * set the simulation layout
+     * @param command command to set different layout to simulation
+     */
     @Override
     public void popSimulationData(String command) {
         setCenter(root, simulationService.getSimulationLayout(command));

@@ -1,13 +1,17 @@
 package org.tum.project.CefModelEditor;
 
-import Cef.BlockType;
-import Cef.DocumentRoot;
-import Cef.LinkType;
-import Cef.PortType;
+import Cef.*;
+import Cef.util.CefResourceFactoryImpl;
 import javafx.scene.control.Alert;
 import javafx.scene.control.ButtonType;
 import org.eclipse.emf.common.util.EList;
+import org.eclipse.emf.common.util.URI;
+import org.eclipse.emf.ecore.resource.Resource;
+import org.eclipse.emf.ecore.resource.ResourceSet;
+import org.eclipse.emf.ecore.resource.impl.ResourceSetImpl;
 
+import java.io.File;
+import java.io.IOException;
 import java.math.BigInteger;
 import java.util.ArrayList;
 import java.util.Optional;
@@ -257,6 +261,22 @@ public class CefModifyUtils {
             }
         }
         return targetLinkList;
+    }
+
+    public static CefType getCef(File file){
+        ResourceSet resourceSet = new ResourceSetImpl();
+        resourceSet.getResourceFactoryRegistry().getExtensionToFactoryMap().put(
+                Resource.Factory.Registry.DEFAULT_EXTENSION, new CefResourceFactoryImpl());
+        resourceSet.getPackageRegistry().put(CefPackage.eNS_URI, CefPackage.eINSTANCE);
+        Resource resource = resourceSet.createResource(URI.createFileURI(file.getAbsolutePath()));
+        try {
+            resource.load(null);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        DocumentRoot documentRoot = (DocumentRoot) resource.getContents().get(0);
+        CefType cef = documentRoot.getCef();
+        return cef;
     }
 
 

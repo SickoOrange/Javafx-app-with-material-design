@@ -62,7 +62,7 @@ public class HandleButtonGroupForCefEditor implements Initializable {
      * @param event
      */
     @FXML
-    void modifyBlock(ActionEvent event) throws IOException {
+    void modifyBlock(ActionEvent event){
 
         cefVisualizationService.popCommand("add_block");
     }

@@ -94,6 +94,7 @@ public class SimulationService {
             e.printStackTrace();
         }
 
+        if ((projectInfos != null)&&(projectInfos.size()!=0)) {
         for (ProjectInfo info : projectInfos) {
             AnchorPane existProject = null;
             try {
@@ -142,6 +143,7 @@ public class SimulationService {
                 }
             }
             simulationFlowPane.getChildren().add(existProject);
+        }
         }
 
         simulationVBox.getChildren().add(simulation_button_group);

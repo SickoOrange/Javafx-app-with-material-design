@@ -16,7 +16,7 @@ public class Main extends Application {
         try {
             Parent root = FXMLLoader.load(getClass().getResource("../layout/login_fxml.fxml"));
             primaryStage.setTitle("TUM GUI Analyse Tool");
-            primaryStage.setScene(new Scene(root, 800, 600));
+            primaryStage.setScene(new Scene(root, 1368, 768));
             primaryStage.show();
             LoginController.registerStage(primaryStage);
         } catch (IOException e) {

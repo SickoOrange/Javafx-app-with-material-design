@@ -1,11 +1,19 @@
 package org.tum.project.utils;
 
+import Cef.CefPackage;
+import Cef.CefType;
+import Cef.DocumentRoot;
+import Cef.util.CefResourceFactoryImpl;
 import org.dom4j.Document;
 import org.dom4j.DocumentException;
 import org.dom4j.DocumentHelper;
 import org.dom4j.Element;
 import org.dom4j.io.SAXReader;
 import org.dom4j.io.XMLWriter;
+import org.eclipse.emf.common.util.URI;
+import org.eclipse.emf.ecore.resource.Resource;
+import org.eclipse.emf.ecore.resource.ResourceSet;
+import org.eclipse.emf.ecore.resource.impl.ResourceSetImpl;
 import org.tum.project.bean.ProjectInfo;
 
 import java.io.File;
@@ -147,4 +155,7 @@ public class xmlUtils {
         }
 
     }
+
+
+
 }

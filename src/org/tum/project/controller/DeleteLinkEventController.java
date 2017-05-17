@@ -6,6 +6,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import org.tum.project.CefModelEditor.CefVisualizationService;
 
+import java.io.IOException;
 import java.math.BigInteger;
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -44,7 +45,7 @@ public class DeleteLinkEventController implements Initializable {
 //    private JFXTextField auxiliaryBackwardWires;
 
     @FXML
-    void deleteLinkSubmit(ActionEvent event) {
+    void deleteLinkSubmit(ActionEvent event) throws IOException {
         BigInteger linkId = new BigInteger(deleteLink_id.getText());
         cefVisualizationService.deleteLink(linkId);
         //update the layout ui
