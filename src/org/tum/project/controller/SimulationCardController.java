@@ -101,7 +101,7 @@ public class SimulationCardController {
     void simulationAction(ActionEvent event) {
         //SystemcModels-Noc
         System.out.println("simulation start");
-        String compilePath = "";
+        String compilePath = "/home/orange/master_thesis/SystemcModels-Noc";
         SystemCSimExcecute.compile(compilePath);
         System.out.println("simulation compile finish");
         String cmd = "./nocSim";

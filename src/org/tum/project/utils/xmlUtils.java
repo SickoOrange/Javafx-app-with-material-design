@@ -20,6 +20,7 @@ import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.net.MalformedURLException;
+import java.nio.file.FileSystem;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Iterator;
@@ -51,16 +52,17 @@ public class xmlUtils {
     public static File createAndGetProjectXmlFile() {
         String projectPath = xmlUtils.class.getResource("../").getFile();
         System.out.println(projectPath);
-        File file = new File(projectPath + "/projectInfo.xml");
+        File file = new File(projectPath + File.separator+"projectInfo.xml");
         if (!file.exists()) {
             try {
-                file.createNewFile();
+                boolean is=file.createNewFile();
+                System.out.println("file create: "+is);
                 writeToXml(createDocument(), file);
             } catch (IOException e) {
                 e.printStackTrace();
             }
         }
-
+        System.out.println(file.exists());
         return file;
     }
 
