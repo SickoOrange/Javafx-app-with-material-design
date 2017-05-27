@@ -14,9 +14,10 @@ public class Main extends Application {
     @Override
     public void start(Stage primaryStage) throws Exception{
         try {
-            Parent root = FXMLLoader.load(getClass().getResource("../layout/login_fxml.fxml"));
+            //Parent root = FXMLLoader.load(getClass().getResource("../layout/login_fxml.fxml"));
+            Parent root = FXMLLoader.load(getClass().getResource("../tum_controller/login.fxml"));
             primaryStage.setTitle("TUM GUI Analyse Tool");
-            primaryStage.setScene(new Scene(root, 800, 600));
+            primaryStage.setScene(new Scene(root));
             primaryStage.show();
             LoginController.registerStage(primaryStage);
         } catch (IOException e) {

@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXCheckBox?>
+<?import com.jfoenix.controls.JFXPasswordField?>
+<?import com.jfoenix.controls.JFXTextField?>
+<?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView?>
+<?import de.jensd.fx.glyphs.materialdesignicons.MaterialDesignIconView?>
+<?import javafx.scene.Group?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.shape.Circle?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane id="AnchorPane" fx:id="parentContainer" prefHeight="650.0" prefWidth="1100.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/8.0.91" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.tum.project.tum_controller.loginController">
+    <children>
+        <AnchorPane prefHeight="278.0" prefWidth="1100.0" style="-fx-background-color: #2981BD;" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
+            <children>
+                <Label layoutX="-1.0" layoutY="60.0" maxHeight="-Infinity" minHeight="-Infinity" opacity="0.3" prefHeight="3.0" prefWidth="1103.0" style="-fx-background-color: #8aefff;" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" />
+                <Pane layoutX="388.0" layoutY="21.0" prefHeight="243.0" prefWidth="325.0">
+                    <children>
+                        <ImageView fitHeight="94.0" fitWidth="286.0" layoutX="20.0" pickOnBounds="true">
+                            <image>
+                                <Image url="@../images/asset.png" />
+                            </image>
+                        </ImageView>
+                        <Text fill="#2981bd" layoutX="64.0" layoutY="47.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Analytics Tool" textAlignment="CENTER" wrappingWidth="183.9999884366989">
+                            <font>
+                                <Font name="Medium" size="25.0" />
+                            </font>
+                        </Text>
+                    <MaterialDesignIconView fill="#74efff" glyphName="AV_TIMER" layoutX="-15.0" layoutY="222.0" opacity="0.55" size="28.0" strokeDashOffset="9.0" strokeType="OUTSIDE" strokeWidth="6.0" />
+                        <Text fx:id="appDescription" fill="WHITE" layoutX="-124.0" layoutY="117.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Technische Universität München Department of Electrical Engineering and Information Technology\nInstitute for Electronic Design Automation" textAlignment="CENTER" wrappingWidth="573.4570080041885">
+                            <font>
+                                <Font name="Roboto Medium" size="16.0" />
+                            </font>
+                        </Text>
+                    </children>
+                </Pane>
+                <MaterialDesignIconView fill="#74efff" glyphName="REMOTE" layoutX="223.0" layoutY="185.0" opacity="0.55" rotate="-53.1" size="28.0" strokeDashOffset="9.0" strokeType="OUTSIDE" strokeWidth="6.0" />
+                <MaterialDesignIconView fill="#74efff" glyphName="SEAT_LEGROOM_EXTRA" layoutX="689.0" layoutY="246.0" opacity="0.55" rotate="15.9" size="28.0" strokeDashOffset="9.0" strokeType="OUTSIDE" strokeWidth="6.0" />
+                <MaterialDesignIconView fill="#74efff" glyphName="MaterialIcon.BROKEN_IMAGE" layoutX="817.0" layoutY="149.0" opacity="0.55" size="28.0" strokeDashOffset="9.0" strokeType="OUTSIDE" strokeWidth="6.0" />
+                <!--<MaterialDesignIconView fx:id="iconClose" fill="WHITE" glyphName="CLOSE" layoutX="1058.0" layoutY="39.0" onMouseClicked="#hideStage" size="28.0" strokeDashOffset="9.0" strokeType="OUTSIDE" strokeWidth="6.0">-->
+                <!--<cursor>-->
+                <!--<Cursor fx:constant="HAND" />-->
+                <!--</cursor>-->
+                <!--</MaterialDesignIconView>-->
+                <FontAwesomeIconView fill="#8aefff" glyphName="PLANE" layoutX="1040.0" layoutY="226.0" opacity="0.57" size="22.0" />
+                <FontAwesomeIconView fill="#8aefff" glyphName="TRAIN" layoutX="903.0" layoutY="234.0" opacity="0.57" size="22.0" />
+                <FontAwesomeIconView fill="#8aefff" glyphName="CIRCLE" layoutX="894.0" layoutY="69.0" opacity="0.3" size="22.0" />
+                <FontAwesomeIconView fill="#8aefff" glyphName="CIRCLE" layoutX="207.0" layoutY="69.0" opacity="0.3" size="22.0" />
+              <MaterialDesignIconView fill="#74efff" glyphName="BUS" layoutX="86.0" layoutY="237.0" opacity="0.55" size="28.0" strokeDashOffset="9.0" strokeType="OUTSIDE" strokeWidth="6.0" />
+
+            </children>
+        </AnchorPane>
+        <Circle fill="#2981bd" layoutX="552.0" layoutY="260.0" radius="47.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" />
+        <Circle fill="#2981bd" layoutX="252.0" layoutY="260.0" radius="47.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" />
+        <Circle fill="#2981bd" layoutX="852.0" layoutY="260.0" radius="47.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" />
+        <HBox fx:id="menusHolder" alignment="CENTER" layoutX="73.0" layoutY="319.0" prefHeight="250.0" prefWidth="964.0" spacing="50.0" AnchorPane.leftAnchor="73.0" AnchorPane.rightAnchor="68.0">
+            <children>
+                <AnchorPane fx:id="PLANE" prefHeight="263.0" prefWidth="499.0">
+                    <children>
+                        <Group fx:id="groupPlanes" layoutX="-211.0" layoutY="-1.0">
+                            <children>
+                                <Pane layoutX="217.0" layoutY="22.0" prefHeight="234.0" prefWidth="527.0" style="-fx-effect: dropshadow(gaussian, rgb(0.0, 0.0, 0.0, 0.15), 6.0, 0.7, 0.0,1.5); -fx-background-color: #ffffff; -fx-background-radius: 8;">
+                                    <children>
+                                        <JFXTextField fx:id="name" focusColor="#a83f8c" labelFloat="true" layoutX="45.0" layoutY="49.0" prefHeight="32.0" prefWidth="423.0" promptText="User Name" />
+                                        <JFXPasswordField fx:id="password" focusColor="#a83f8c" labelFloat="true" layoutX="45.0" layoutY="101.0" prefHeight="32.0" prefWidth="423.0" promptText="Password" />
+                                        <JFXButton layoutX="271.0" layoutY="145.0" onAction="#signIn" prefHeight="36.0" prefWidth="155.0" style="-fx-background-color: #2b8fd1;" text="Sign in" textFill="WHITE">
+                                 <font>
+                                    <Font size="15.0" />
+                                 </font></JFXButton>
+                                        <JFXCheckBox fx:id="rememberMe" layoutX="51.0" layoutY="151.0" prefHeight="24.0" prefWidth="192.0" text="Remember me!" textFill="slateblue" />
+                                    </children>
+                                </Pane>
+                                <Label alignment="CENTER" layoutX="451.0" layoutY="-8.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="60.0" prefWidth="60.0" style="-fx-background-color: rgb(47, 143, 212,0.8); -fx-effect: dropshadow(gaussian, rgb(0.0, 0.0, 0.0, 0.15), 4.0, 0.3, 0.0,0.5); -fx-border-radius: 60; -fx-background-radius: 60;" textAlignment="CENTER">
+                                    <graphic>
+                                        <FontAwesomeIconView fill="#a4fffc" glyphName="USER" size="28.0" />
+                                    </graphic>
+                                </Label>
+                            </children>
+                        </Group>
+                    </children>
+                </AnchorPane>
+            </children>
+        </HBox>
+    </children>
+</AnchorPane>

@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.layout.*?>
+<?import com.jfoenix.controls.*?>
+<?import java.lang.*?>
+
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <JFXTextField layoutX="80.0" layoutY="129.0" prefHeight="32.0" prefWidth="390.0" promptText="User Name" />
+      <JFXTextField focusColor="#2458f5" layoutX="80.0" layoutY="200.0" prefHeight="32.0" prefWidth="390.0" promptText="Password" unFocusColor="#b51919" />
+      <JFXButton layoutX="290.0" layoutY="285.0" prefHeight="36.0" prefWidth="155.0" />
+      <JFXCheckBox layoutX="80.0" layoutY="291.0" prefHeight="24.0" prefWidth="192.0" />
+   </children>
+</AnchorPane>
