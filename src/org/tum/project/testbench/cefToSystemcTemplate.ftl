@@ -39,9 +39,11 @@
 #include <iostream>
 #include <fstream>
 #include <sstream>
+#include <time.h>
 
 #include "Util.h"
 #include "TrafficAnalyzer.h"
+#include "MySqlConnector.h"
 
 int sc_main(int argc, char* argv[]) {
   sc_set_time_resolution(1, SC_NS);
@@ -60,6 +62,37 @@ int sc_main(int argc, char* argv[]) {
 
   sc_clock clk("clock", 10, SC_NS);
   sc_signal<bool> rst;
+  //--------------------------------
+  	std::string dataName="SystemC";
+  	MySqlConnector* connector=MySqlConnector::getInstance();
+  	connector->connectMySQL();
+  	connector->createDatabase(dataName);
+  	time_t tt = time(NULL);
+   	tm* t= localtime(&tt);
+   	printf("%d-%02d-%02d %02d:%02d:%02d\n",
+   	t->tm_year + 1900,
+    	t->tm_mon + 1,
+    	t->tm_mday,
+    	t->tm_hour,
+    	t->tm_min,
+    	t->tm_sec);
+  	stringstream timeInhalt;
+  	timeInhalt<<t->tm_year + 1900<<"_"<<t->tm_mon + 1<<"_"<<t->tm_mday<<"_"<<t->tm_hour<<"_"<<t->tm_min<<"_"<<t->tm_sec;
+  	std::string moduleTableName="module_simulation_";
+  	std::string fastFifoRWTableName="fastfiforw_simulation_";
+  	std::string fifoTableName="fifo_simulation_";
+  	moduleTableName+=timeInhalt.str();
+  	fastFifoRWTableName+=timeInhalt.str();
+  	fifoTableName+=timeInhalt.str();
+  	connector->createTable(moduleTableName);
+  	connector->createTable(fastFifoRWTableName);
+  	connector->createTable(fifoTableName);
+  	connector->setModuleTableName(moduleTableName);
+  	connector->setFastFifoRWTableName(fastFifoRWTableName);
+  	connector->setFifoTableName(fifoTableName);
+  	connector->startTransaction();
+  	cout<<"wait  to write data to datebank"<<endl;
+    //--------------------------------
   
 <#list getSystem().getBlocks().getBlock() as block>
   <#if block.getBlockType() == BLOCKTYPE_PE_WR>
@@ -145,7 +178,9 @@ int sc_main(int argc, char* argv[]) {
   rst.write(false);
   sc_start(50000, SC_NS );
   
-  cout<<"simulation finish !"<<endl;
+ cout<<"simulation finish !"<<endl;
+ 	connector->commitTransaction();
+ cout<<"finish writing data  to datebank"<<endl;
   
   <#if DEBUG_MODE == 1>
   TrafficAnalyzer analyzer;
