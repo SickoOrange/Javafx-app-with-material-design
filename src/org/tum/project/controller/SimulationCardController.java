@@ -12,6 +12,7 @@ import javafx.stage.Stage;
 import org.tum.project.CefModelEditor.CefModifyUtils;
 import org.tum.project.bean.ProjectInfo;
 import org.tum.project.testbench.TestBenchStageController;
+import org.tum.project.utils.SystemCSimExcecute;
 import org.tum.project.utils.xmlUtils;
 
 import java.io.IOException;
@@ -91,16 +92,28 @@ public class SimulationCardController {
 
     }
 
+    /**
+     * start to simulation the system
+     *
+     * @param event mouse event
+     */
     @FXML
     void simulationAction(ActionEvent event) {
-
+        //SystemcModels-Noc
+        System.out.println("simulation start");
+        String compilePath = "";
+        SystemCSimExcecute.compile(compilePath);
+        System.out.println("simulation compile finish");
+        String cmd = "./nocSim";
+        SystemCSimExcecute.execute(cmd, compilePath);
+        System.out.println("simulation finish");
     }
 
     @FXML
     void testBenchAction(ActionEvent event) {
         //generate test bench cpp file for simulation
         Stage testBenchStage = new Stage();
-        Parent textBenchRoot=null;
+        Parent textBenchRoot = null;
         try {
             textBenchRoot = FXMLLoader.load(getClass().getResource("../layout/test_bench_stage.fxml"));
         } catch (IOException e) {
@@ -110,7 +123,7 @@ public class SimulationCardController {
         testBenchStage.setTitle("generate test bench cpp file");
         testBenchStage.toFront();
         testBenchStage.show();
-        TestBenchStageController controller=new TestBenchStageController();
+        TestBenchStageController controller = new TestBenchStageController();
         controller.setStage(testBenchStage);
 
     }
