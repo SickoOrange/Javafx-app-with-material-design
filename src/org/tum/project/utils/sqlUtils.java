@@ -19,7 +19,7 @@ public class sqlUtils {
         if (!database.equals("")) {
             database="/"+database;
         }
-      //  System.out.println(loginController.getRealName()+loginController.getRealPassword());
+      //  System.out.println(MaterialLoginController.getRealName()+MaterialLoginController.getRealPassword());
         return DriverManager.getConnection(URL+database,LoginController.realName,LoginController.realPassword);
     }
 

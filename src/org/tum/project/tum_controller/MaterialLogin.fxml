@@ -6,6 +6,7 @@
 <?import com.jfoenix.controls.JFXTextField?>
 <?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView?>
 <?import de.jensd.fx.glyphs.materialdesignicons.MaterialDesignIconView?>
+<?import javafx.scene.Cursor?>
 <?import javafx.scene.Group?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.image.Image?>
@@ -17,7 +18,8 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane id="AnchorPane" fx:id="parentContainer" prefHeight="650.0" prefWidth="1100.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/8.0.91" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.tum.project.tum_controller.loginController">
+<AnchorPane id="AnchorPane" fx:id="parentContainer" prefHeight="650.0" prefWidth="1100.0"
+            style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/8.0.91" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.tum.project.tum_controller.MaterialLoginController">
     <children>
         <AnchorPane prefHeight="278.0" prefWidth="1100.0" style="-fx-background-color: #2981BD;" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
             <children>
@@ -34,7 +36,7 @@
                                 <Font name="Medium" size="25.0" />
                             </font>
                         </Text>
-                    <MaterialDesignIconView fill="#74efff" glyphName="AV_TIMER" layoutX="-15.0" layoutY="222.0" opacity="0.55" size="28.0" strokeDashOffset="9.0" strokeType="OUTSIDE" strokeWidth="6.0" />
+                        <MaterialDesignIconView fill="#74efff" glyphName="AV_TIMER" layoutX="-15.0" layoutY="222.0" opacity="0.55" size="28.0" strokeDashOffset="9.0" strokeType="OUTSIDE" strokeWidth="6.0" />
                         <Text fx:id="appDescription" fill="WHITE" layoutX="-124.0" layoutY="117.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Technische Universität München Department of Electrical Engineering and Information Technology\nInstitute for Electronic Design Automation" textAlignment="CENTER" wrappingWidth="573.4570080041885">
                             <font>
                                 <Font name="Roboto Medium" size="16.0" />
@@ -54,27 +56,32 @@
                 <FontAwesomeIconView fill="#8aefff" glyphName="TRAIN" layoutX="903.0" layoutY="234.0" opacity="0.57" size="22.0" />
                 <FontAwesomeIconView fill="#8aefff" glyphName="CIRCLE" layoutX="894.0" layoutY="69.0" opacity="0.3" size="22.0" />
                 <FontAwesomeIconView fill="#8aefff" glyphName="CIRCLE" layoutX="207.0" layoutY="69.0" opacity="0.3" size="22.0" />
-              <MaterialDesignIconView fill="#74efff" glyphName="BUS" layoutX="86.0" layoutY="237.0" opacity="0.55" size="28.0" strokeDashOffset="9.0" strokeType="OUTSIDE" strokeWidth="6.0" />
+                <MaterialDesignIconView fill="#74efff" glyphName="BUS" layoutX="86.0" layoutY="237.0" opacity="0.55" size="28.0" strokeDashOffset="9.0" strokeType="OUTSIDE" strokeWidth="6.0" />
 
             </children>
         </AnchorPane>
         <Circle fill="#2981bd" layoutX="552.0" layoutY="260.0" radius="47.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" />
         <Circle fill="#2981bd" layoutX="252.0" layoutY="260.0" radius="47.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" />
         <Circle fill="#2981bd" layoutX="852.0" layoutY="260.0" radius="47.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" />
-        <HBox fx:id="menusHolder" alignment="CENTER" layoutX="73.0" layoutY="319.0" prefHeight="250.0" prefWidth="964.0" spacing="50.0" AnchorPane.leftAnchor="73.0" AnchorPane.rightAnchor="68.0">
+        <HBox fx:id="menusHolder" alignment="CENTER" layoutX="67.0" layoutY="319.0" prefHeight="262.0" prefWidth="965.0" spacing="50.0" AnchorPane.leftAnchor="30.0" AnchorPane.rightAnchor="30.0">
             <children>
-                <AnchorPane fx:id="PLANE" prefHeight="263.0" prefWidth="499.0">
+                <AnchorPane fx:id="loginRoot" prefHeight="263.0" prefWidth="499.0">
                     <children>
-                        <Group fx:id="groupPlanes" layoutX="-211.0" layoutY="-1.0">
+                        <Group fx:id="groupLogin" layoutX="-211.0" layoutY="-1.0">
                             <children>
                                 <Pane layoutX="217.0" layoutY="22.0" prefHeight="234.0" prefWidth="527.0" style="-fx-effect: dropshadow(gaussian, rgb(0.0, 0.0, 0.0, 0.15), 6.0, 0.7, 0.0,1.5); -fx-background-color: #ffffff; -fx-background-radius: 8;">
                                     <children>
-                                        <JFXTextField fx:id="name" focusColor="#a83f8c" labelFloat="true" layoutX="45.0" layoutY="49.0" prefHeight="32.0" prefWidth="423.0" promptText="User Name" />
-                                        <JFXPasswordField fx:id="password" focusColor="#a83f8c" labelFloat="true" layoutX="45.0" layoutY="101.0" prefHeight="32.0" prefWidth="423.0" promptText="Password" />
+                                        <JFXTextField fx:id="name" focusColor="#a33e5f" labelFloat="true" layoutX="45.0" layoutY="49.0" prefHeight="32.0" prefWidth="423.0" promptText="User Name" />
+                                        <JFXPasswordField fx:id="password" focusColor="#a33e5f" labelFloat="true" layoutX="45.0" layoutY="101.0" prefHeight="32.0" prefWidth="423.0" promptText="Password" />
                                         <JFXButton layoutX="271.0" layoutY="145.0" onAction="#signIn" prefHeight="36.0" prefWidth="155.0" style="-fx-background-color: #2b8fd1;" text="Sign in" textFill="WHITE">
-                                 <font>
-                                    <Font size="15.0" />
-                                 </font></JFXButton>
+                                            <font>
+                                                <Font size="15.0" />
+                                            </font>
+                                            <cursor>
+                                                <Cursor fx:constant="HAND" />
+                                            </cursor>
+
+                                        </JFXButton>
                                         <JFXCheckBox fx:id="rememberMe" layoutX="51.0" layoutY="151.0" prefHeight="24.0" prefWidth="192.0" text="Remember me!" textFill="slateblue" />
                                     </children>
                                 </Pane>
@@ -89,5 +96,7 @@
                 </AnchorPane>
             </children>
         </HBox>
+
+        <HBox fx:id="progressBar" alignment="CENTER" layoutX="30.0" layoutY="591.0" prefHeight="79.0" prefWidth="1040.0" AnchorPane.leftAnchor="30.0" AnchorPane.rightAnchor="30.0" />
     </children>
 </AnchorPane>

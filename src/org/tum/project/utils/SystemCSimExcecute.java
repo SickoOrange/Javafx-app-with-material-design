@@ -4,6 +4,7 @@ import java.io.File;
 import java.io.IOException;
 
 /**
+ * noc simulation utils
  * Created by Yin Ya on 2017/5/27.
  */
 public class SystemCSimExcecute {

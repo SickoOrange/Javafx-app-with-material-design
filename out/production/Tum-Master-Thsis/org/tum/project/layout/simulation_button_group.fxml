@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import javafx.scene.text.*?>
+<?import com.jfoenix.controls.*?>
+<?import javafx.scene.effect.*?>
+<?import javafx.scene.layout.*?>
+
+<VBox alignment="TOP_CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="338.0" prefWidth="700.0" style="-fx-spacing: 0;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.tum.project.controller.HandleButtonGroupForSimulation">
+   <children>
+      <VBox alignment="CENTER" prefHeight="266.0" prefWidth="984.0" style="-fx-padding: 5; -fx-spacing: 25;">
+         <children>
+            <JFXTextField fx:id="simulation_path1" alignment="TOP_LEFT" editable="false" focusColor="#a83f8c" labelFloat="true" promptText="eclispeWorkspacePath: " />
+            <JFXTextField fx:id="simulation_path2" editable="false" focusColor="#a83f8c" labelFloat="true" promptText="systemcPath:" />
+            <JFXTextField fx:id="simulation_path3" alignment="TOP_LEFT" editable="false" focusColor="#a83f8c" labelFloat="true" promptText="nocSystemcSimPath:" />
+            <JFXTextField fx:id="simulation_path4" alignment="TOP_LEFT" editable="false" focusColor="#a83f8c" labelFloat="true" promptText="orionPath: " />
+         </children>
+      </VBox>
+      <HBox prefHeight="57.0" prefWidth="700.0" style="-fx-alignment: CENTER; -fx-spacing: 40;">
+         <children>
+            <JFXCheckBox fx:id="simulation_check" text="Use the last path setting" />
+            <JFXButton fx:id="simulation_new" buttonType="RAISED" onAction="#createAction" prefHeight="38.0" prefWidth="192.0" ripplerFill="WHITE" style="-fx-background-color: #2196f3;" text="Create new simulation" textFill="WHITE">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </JFXButton>
+         </children>
+      </HBox>
+   </children>
+   <effect>
+      <Glow />
+   </effect>
+</VBox>

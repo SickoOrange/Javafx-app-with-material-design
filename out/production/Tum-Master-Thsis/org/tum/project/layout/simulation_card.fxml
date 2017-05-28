@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import javafx.scene.effect.*?>
+<?import com.jfoenix.controls.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="347.0" prefWidth="458.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.tum.project.controller.SimulationCardController">
+   <children>
+      <Pane layoutX="18.0" layoutY="26.0" prefHeight="307.0" prefWidth="419.0" style="-fx-background-color: #ffffff;">
+         <effect>
+            <DropShadow />
+         </effect>
+         <children>
+            <JFXTextField fx:id="simulationCard_projectName" labelFloat="true" layoutX="14.0" layoutY="21.0" prefHeight="32.0" prefWidth="202.0" promptText="project name">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </JFXTextField>
+            <JFXTextField fx:id="simulationCard_dataBankName" labelFloat="true" layoutX="14.0" layoutY="77.0" prefHeight="32.0" prefWidth="202.0" promptText="daten bank name">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </JFXTextField>
+            <JFXTextField fx:id="simulationCard_moduleTable" labelFloat="true" layoutX="14.0" layoutY="135.0" prefHeight="32.0" prefWidth="202.0" promptText="module table">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </JFXTextField>
+            <JFXTextField fx:id="simulationCard_fastfifoTable" labelFloat="true" layoutX="11.0" layoutY="256.0" prefHeight="32.0" prefWidth="208.0" promptText="fast fifo table">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </JFXTextField>
+            <JFXTextField fx:id="simulationCard_fifoTable" labelFloat="true" layoutX="14.0" layoutY="195.0" prefHeight="32.0" prefWidth="202.0" promptText="fifo table" />
+            <JFXButton fx:id="simulationCard_generateButton" layoutX="261.0" layoutY="82.0" onAction="#generationAction" prefHeight="22.0" prefWidth="84.0" ripplerFill="WHITE" style="-fx-background-color: #b72ab5;" text="Generate" textFill="WHITE">
+               <font>
+                  <Font size="12.0" />
+               </font>
+            </JFXButton>
+            <JFXButton fx:id="simulationCard_simulationButton" layoutX="250.0" layoutY="167.0" onAction="#simulationAction" prefHeight="23.0" prefWidth="106.0" style="-fx-background-color: #b72ab5;" text="Simulation" textFill="WHITE">
+               <font>
+                  <Font size="11.0" />
+               </font>
+            </JFXButton>
+            <JFXButton fx:id="simulationCard_testBenchButton" layoutX="261.0" layoutY="124.0" onAction="#testBenchAction" prefHeight="22.0" prefWidth="84.0" ripplerFill="WHITE" style="-fx-background-color: #b72ab5;" text="Test Bench" textFill="WHITE">
+               <font>
+                  <Font size="12.0" />
+               </font>
+            </JFXButton>
+         </children>
+      </Pane>
+   </children>
+</AnchorPane>

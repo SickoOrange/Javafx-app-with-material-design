@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<root>
+    <project>
+        <projectName>Simulation</projectName>
+        <dataBankName>SystemC</dataBankName>
+        <moduleName>module_1</moduleName>
+        <fifoName>fifo_1</fifoName>
+        <fastfifoName>fastfifo_1</fastfifoName>
+    </project>
+</root>
