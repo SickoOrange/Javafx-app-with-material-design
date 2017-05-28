@@ -18,8 +18,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane id="AnchorPane" fx:id="parentContainer" prefHeight="650.0" prefWidth="1100.0"
-            style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/8.0.91" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.tum.project.tum_controller.MaterialLoginController">
+<AnchorPane id="AnchorPane" fx:id="parentContainer" prefHeight="650.0" prefWidth="1100.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/8.0.91" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.tum.project.login_controller.MaterialLoginController">
     <children>
         <AnchorPane prefHeight="278.0" prefWidth="1100.0" style="-fx-background-color: #2981BD;" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
             <children>
@@ -97,6 +96,8 @@
             </children>
         </HBox>
 
-        <HBox fx:id="progressBar" alignment="CENTER" layoutX="30.0" layoutY="591.0" prefHeight="79.0" prefWidth="1040.0" AnchorPane.leftAnchor="30.0" AnchorPane.rightAnchor="30.0" />
+        <HBox fx:id="Holder" alignment="CENTER" layoutX="30.0" layoutY="596.0" prefHeight="40.0" prefWidth="965.0" spacing="50.0" AnchorPane.leftAnchor="30.0" AnchorPane.rightAnchor="30.0">
+        </HBox>
+
     </children>
 </AnchorPane>

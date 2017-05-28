@@ -1,13 +1,12 @@
-package org.tum.project.tum_controller;
+package org.tum.project.login_controller;
 
 import com.jfoenix.controls.JFXRippler;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.input.MouseEvent;
-import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.HBox;
+import javafx.scene.layout.Pane;
 
-import java.awt.event.ActionEvent;
 import java.net.URL;
 import java.util.ResourceBundle;
 
@@ -16,10 +15,10 @@ import java.util.ResourceBundle;
  */
 public class MenusHolderController implements Initializable{
     @FXML
-    private AnchorPane NocEditor;
+    private Pane NocEditor;
 
     @FXML
-    private AnchorPane Analytics;
+    private Pane Analytics;
 
     @FXML
     private HBox Holder;
@@ -28,11 +27,13 @@ public class MenusHolderController implements Initializable{
     @FXML
     private void openNocEditor(MouseEvent event) {
         System.out.println("click one");
+        //openStage();
     }
 
     @FXML
     private void openAnalytics(MouseEvent event) {
         System.out.println("click two");
+        //openStage();
     }
 
 
@@ -46,5 +47,9 @@ public class MenusHolderController implements Initializable{
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         setUpRipples();
+    }
+
+    private void openStage(String path){
+
     }
 }

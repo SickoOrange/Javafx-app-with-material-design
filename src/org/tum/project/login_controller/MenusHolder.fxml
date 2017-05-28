@@ -9,13 +9,14 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<HBox fx:id="Holder" alignment="CENTER" prefHeight="268.0" prefWidth="975.0" spacing="50" styleClass="card" xmlns="http://javafx.com/javafx/8.0.91" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.tum.project.tum_controller.MenusHolderController">
+<HBox fx:id="Holder" alignment="CENTER" prefHeight="268.0" prefWidth="975.0" spacing="50" styleClass="card" xmlns="http://javafx.com/javafx/8.0.91" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.tum.project.login_controller.MenusHolderController">
     <children>
-        <AnchorPane fx:id="NocEditor" layoutX="241.0" layoutY="28.0" onMouseClicked="#openNocEditor" prefHeight="230.0" prefWidth="236.0">
+        <AnchorPane fx:id="NocEditor" layoutX="241.0" layoutY="28.0" onMouseClicked="#openNocEditor" prefHeight="241.0" prefWidth="197.0">
             <children>
-                <Group fx:id="groupPlanes">
+                <Group fx:id="groupPlanes" layoutY="21.0">
                <children>
-                        <Pane layoutX="28.0" layoutY="27.0" prefHeight="189.0" prefWidth="184.0" style="-fx-effect: dropshadow(gaussian, rgb(0.0, 0.0, 0.0, 0.15), 6.0, 0.7, 0.0,1.5); -fx-background-color: rgb(17, 158, 132); -fx-background-radius: 8;">
+                        <Pane fx:id="nocPane" layoutX="7.0" layoutY="36.0" prefHeight="189.0" prefWidth="184.0"
+                              style="-fx-effect: dropshadow(gaussian, rgb(0.0, 0.0, 0.0, 0.15), 6.0, 0.7, 0.0,1.5); -fx-background-color: rgb(17, 158, 132); -fx-background-radius: 8;">
                             <children>
                                 <Label alignment="CENTER" layoutX="62.0" layoutY="-32.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="60.0" prefWidth="60.0" style="-fx-background-color: rgb(47, 143, 212,0.8); -fx-effect: dropshadow(gaussian, rgb(0.0, 0.0, 0.0, 0.15), 4.0, 0.3, 0.0,0.5); -fx-border-radius: 60; -fx-background-radius: 60;" textAlignment="CENTER">
                                     <graphic>
@@ -39,11 +40,11 @@
             </Group>
             </children>
         </AnchorPane>
-        <AnchorPane fx:id="Analytics" layoutX="504.0" layoutY="28.0" onMouseClicked="#openAnalytics" prefHeight="230.0" prefWidth="236.0">
+        <AnchorPane fx:id="Analytics" layoutX="504.0" layoutY="28.0" onMouseClicked="#openAnalytics" prefHeight="268.0" prefWidth="158.0">
             <children>
                 <Group fx:id="groupTrains1">
                <children>
-                        <Pane layoutX="25.0" layoutY="23.0" prefHeight="189.0" prefWidth="184.0" style="-fx-effect: dropshadow(gaussian, rgb(0.0, 0.0, 0.0, 0.15), 6.0, 0.7, 0.0,1.5); -fx-background-color: rgb(140, 69, 172); -fx-background-radius: 8;">
+                        <Pane layoutX="10.0" layoutY="54.0" prefHeight="189.0" prefWidth="184.0" style="-fx-effect: dropshadow(gaussian, rgb(0.0, 0.0, 0.0, 0.15), 6.0, 0.7, 0.0,1.5); -fx-background-color: rgb(140, 69, 172); -fx-background-radius: 8;">
                             <children>
                                 <Label alignment="CENTER" layoutX="62.0" layoutY="-30.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="60.0" prefWidth="60.0" style="-fx-background-color: rgb(39, 58, 78,0.7); -fx-effect: dropshadow(gaussian, rgb(0.0, 0.0, 0.0, 0.15), 4.0, 0.3, 0.0,0.5); -fx-border-radius: 60; -fx-background-radius: 60;" textAlignment="CENTER">
                                     <graphic>

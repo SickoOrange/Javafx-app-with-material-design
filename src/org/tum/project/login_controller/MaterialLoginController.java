@@ -1,23 +1,17 @@
-package org.tum.project.tum_controller;
+package org.tum.project.login_controller;
 
 import com.jfoenix.controls.JFXCheckBox;
 import com.jfoenix.controls.JFXPasswordField;
 import com.jfoenix.controls.JFXTextField;
 import javafx.animation.FadeTransition;
-import javafx.animation.RotateTransition;
-import javafx.beans.value.ChangeListener;
-import javafx.beans.value.ObservableValue;
 import javafx.event.ActionEvent;
-import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Parent;
-import javafx.scene.control.Button;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.HBox;
-import javafx.scene.shape.Circle;
 import javafx.scene.text.Text;
 import javafx.util.Duration;
 import org.tum.project.utils.Utils;
@@ -69,7 +63,7 @@ public class MaterialLoginController implements Initializable {
     public void initialize(URL location, ResourceBundle resources) {
 
         try {
-            menusCard = FXMLLoader.load(getClass().getResource("../tum_controller/MenusHolder.fxml"));
+            menusCard = FXMLLoader.load(getClass().getResource("../login_controller/MenusHolder.fxml"));
         } catch (IOException e) {
             e.printStackTrace();
         }
