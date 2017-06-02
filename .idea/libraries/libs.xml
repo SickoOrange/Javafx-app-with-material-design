@@ -1,12 +1,13 @@
 <component name="libraryTable">
   <library name="libs">
     <CLASSES>
-      <root url="jar://$PROJECT_DIR$/libs/jfoenix.jar!/" />
-      <root url="jar://$PROJECT_DIR$/libs/jgraphx.jar!/" />
-      <root url="jar://$PROJECT_DIR$/libs/Ecore.jar!/" />
-      <root url="jar://$PROJECT_DIR$/libs/dom4j-2.0.0-RC1.jar!/" />
       <root url="jar://$PROJECT_DIR$/libs/mysql-connector-java-5.1.41-bin.jar!/" />
+      <root url="jar://$PROJECT_DIR$/libs/fontawesomefx-8.9.jar!/" />
+      <root url="jar://$PROJECT_DIR$/libs/Ecore.jar!/" />
       <root url="jar://$PROJECT_DIR$/libs/freemarker.jar!/" />
+      <root url="jar://$PROJECT_DIR$/libs/jgraphx.jar!/" />
+      <root url="jar://$PROJECT_DIR$/libs/dom4j-2.0.0-RC1.jar!/" />
+      <root url="jar://$PROJECT_DIR$/libs/jfoenix.jar!/" />
     </CLASSES>
     <JAVADOC />
     <SOURCES />

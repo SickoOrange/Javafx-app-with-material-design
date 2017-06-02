@@ -13,6 +13,7 @@ import javafx.scene.Parent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.text.Text;
+import javafx.stage.Stage;
 import javafx.util.Duration;
 import org.tum.project.utils.Utils;
 
@@ -48,9 +49,6 @@ public class MaterialLoginController implements Initializable {
     @FXML
     private HBox menusHolder;
     private Parent menusCard;
-
-    @FXML
-    private HBox progressBar;
 
 
     /**
@@ -89,7 +87,7 @@ public class MaterialLoginController implements Initializable {
     }
 
     /**
-     * login to the databank
+     * login to the data bank
      *
      * @param event click event
      */
@@ -134,6 +132,12 @@ public class MaterialLoginController implements Initializable {
         }
     }
 
+
+    /**
+     * switch the menu, that display the content after successfully login in.
+     * @param original original node
+     * @param target  target node to switch
+     */
     private void switchMenusHolder(Node original, Node target) {
         FadeTransition inTransition = new FadeTransition();
         inTransition.setNode(original);
@@ -144,14 +148,9 @@ public class MaterialLoginController implements Initializable {
         inTransition.setOnFinished(event -> {
             menusHolder.getChildren().clear();
             menusHolder.getChildren().add(target);
-//            FadeTransition outTransition = new FadeTransition();
-//            outTransition.setNode(target);
-//            outTransition.setDuration(Duration.millis(1000));
-//            outTransition.setFromValue(0.0);
-//            outTransition.setToValue(1.0);
-//            outTransition.play();
         });
 
     }
+
 
 }

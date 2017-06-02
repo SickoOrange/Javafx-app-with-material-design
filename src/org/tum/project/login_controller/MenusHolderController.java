@@ -2,18 +2,25 @@ package org.tum.project.login_controller;
 
 import com.jfoenix.controls.JFXRippler;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Node;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.Pane;
+import javafx.stage.Stage;
 
+import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
 /**
+ * menus holder controller to control the logic after user login in success.
  * Created by Yin Ya on 2017/5/28.
  */
-public class MenusHolderController implements Initializable{
+public class MenusHolderController implements Initializable {
     @FXML
     private Pane NocEditor;
 
@@ -22,18 +29,38 @@ public class MenusHolderController implements Initializable{
 
     @FXML
     private HBox Holder;
+    private Parent dashBoard;
+    private static Stage primaryStage;
 
 
+    /**
+     * open the noc editor stage
+     *
+     * @param event mouse click event
+     */
     @FXML
     private void openNocEditor(MouseEvent event) {
         System.out.println("click one");
         //openStage();
     }
 
+    /**
+     * open the analytics and simulation stage
+     *
+     * @param event mouse click event
+     */
     @FXML
     private void openAnalytics(MouseEvent event) {
-        System.out.println("click two");
-        //openStage();
+        System.out.println(primaryStage);
+        openStage(dashBoard);
+    }
+
+    private void openStage(Parent node) {
+        Stage stage = new Stage();
+        stage.setScene(new Scene(node));
+        stage.setTitle("Analytics Dashboard");
+        stage.show();
+        primaryStage.close();
     }
 
 
@@ -47,9 +74,23 @@ public class MenusHolderController implements Initializable{
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         setUpRipples();
+        createStage();
     }
 
-    private void openStage(String path){
 
+    /**
+     * create stage that need to be switch
+     */
+    private void createStage() {
+        try {
+            dashBoard = FXMLLoader.load(getClass().getResource("../dashboard_controller/dashboard.fxml"));
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
+
+    public static void registerPrimaryStage(Stage stage) {
+        primaryStage = stage;
+    }
+
 }
