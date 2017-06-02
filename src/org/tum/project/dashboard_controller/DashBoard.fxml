@@ -13,7 +13,7 @@
 
 <StackPane fx:id="stackPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity"
            prefHeight="720.0" prefWidth="1300.0" stylesheets="@custom.css" xmlns="http://javafx.com/javafx/8.0.111"
-           xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.tum.project.dashboard_controller.DashboardController">
+           xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.tum.project.dashboard_controller.DashBoardController">
     <children>
         <VBox prefHeight="720.0" prefWidth="1300.0">
             <children>
@@ -44,17 +44,18 @@
                                                                      wrappingWidth="40.0"/>
                                             </graphic>
                                         </JFXButton>
-                                        <!--<JFXButton fx:id="btnAdd"  prefHeight="36.0"-->
-                                                   <!--prefWidth="189.0" styleClass="side-buttons" text="Add sudent"-->
-                                                   <!--textFill="#757575" GridPane.rowIndex="1">-->
-                                            <!--<font>-->
-                                                <!--<Font name="Roboto Medium" size="13.0"/>-->
-                                            <!--</font>-->
-                                            <!--<graphic>-->
-                                                <!--<FontAwesomeIconView fill="#757575" glyphName="PLUS_SQUARE" size="16.0"-->
-                                                                     <!--wrappingWidth="40.0"/>-->
-                                            <!--</graphic>-->
-                                        <!--</JFXButton>-->
+
+                                        <JFXButton fx:id="btnAdd"  prefHeight="36.0"
+                                                   prefWidth="189.0" styleClass="side-buttons" text="Add sudent"
+                                                   textFill="#757575" GridPane.rowIndex="1">
+                                            <font>
+                                                <Font name="Roboto Medium" size="13.0"/>
+                                            </font>
+                                            <graphic>
+                                                <FontAwesomeIconView fill="#757575" glyphName="PLUS_SQUARE" size="16.0"
+                                                                     wrappingWidth="40.0"/>
+                                            </graphic>
+                                        </JFXButton>
                                         <!--<JFXButton fx:id="btnView"  prefHeight="36.0"-->
                                                    <!--prefWidth="189.0" styleClass="side-buttons" text="View students"-->
                                                    <!--textFill="#757575" GridPane.rowIndex="2">-->

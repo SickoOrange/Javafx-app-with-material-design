@@ -12,7 +12,7 @@ import java.util.ResourceBundle;
  * dashboard for simulation and analytics
  * Created by heylbly on 17-6-2.
  */
-public class DashboardController implements Initializable{
+public class DashBoardController implements Initializable{
 
     @FXML
     private JFXButton btnSimulation;

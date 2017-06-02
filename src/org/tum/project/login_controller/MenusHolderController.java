@@ -4,7 +4,6 @@ import com.jfoenix.controls.JFXRippler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
-import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.input.MouseEvent;
@@ -83,7 +82,7 @@ public class MenusHolderController implements Initializable {
      */
     private void createStage() {
         try {
-            dashBoard = FXMLLoader.load(getClass().getResource("../dashboard_controller/dashboard.fxml"));
+            dashBoard = FXMLLoader.load(getClass().getResource("../dashboard_controller/DashBoard.fxml"));
         } catch (IOException e) {
             e.printStackTrace();
         }
