@@ -1,5 +1,6 @@
 package org.tum.project.utils;
 
+import javafx.stage.DirectoryChooser;
 import javafx.stage.FileChooser;
 import javafx.stage.Stage;
 
@@ -17,14 +18,25 @@ public class Utils {
 
     public static File openFileChooser(String flag, Stage stage) {
         FileChooser chooser = new FileChooser();
-        File file = null;
-        if (flag.equals("open")) {
-            file = chooser.showOpenDialog(stage);
+        switch (flag) {
+            case "open":
+                return chooser.showOpenDialog(stage);
+            case "save":
+                return chooser.showSaveDialog(stage);
         }
-        if (flag.equals("save")) {
-            file = chooser.showSaveDialog(stage);
+        return null;
+    }
+
+
+    public static File openDirectorChooser(String flag, Stage stage) {
+        DirectoryChooser directoryChooser = new DirectoryChooser();
+        switch (flag) {
+            case "open":
+                return directoryChooser.showDialog(stage);
+            case "save":
+                return null;
         }
-        return file;
+        return null;
     }
 
 
@@ -65,6 +77,7 @@ public class Utils {
 
     /**
      * read the target value with the given key
+     *
      * @param key key
      * @return return value, if not found then return null
      */
@@ -75,7 +88,8 @@ public class Utils {
 
     /**
      * update the target value with the given key
-     * @param key given key
+     *
+     * @param key   given key
      * @param value given value with this key
      */
     public static void updatePropValue(String key, String value) {

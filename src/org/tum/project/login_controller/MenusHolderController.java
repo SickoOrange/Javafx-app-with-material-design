@@ -30,10 +30,11 @@ public class MenusHolderController implements Initializable {
     private HBox Holder;
     private Parent dashBoard;
     private static Stage primaryStage;
+    private static Stage dashboardStage;
 
 
     /**
-     * open the noc editor stage
+     * open the noc editor dashboardStage
      *
      * @param event mouse click event
      */
@@ -44,7 +45,7 @@ public class MenusHolderController implements Initializable {
     }
 
     /**
-     * open the analytics and simulation stage
+     * open the analytics and simulation dashboardStage
      *
      * @param event mouse click event
      */
@@ -55,11 +56,15 @@ public class MenusHolderController implements Initializable {
     }
 
     private void openStage(Parent node) {
-        Stage stage = new Stage();
-        stage.setScene(new Scene(node));
-        stage.setTitle("Analytics Dashboard");
-        stage.show();
+        dashboardStage = new Stage();
+        dashboardStage.setScene(new Scene(node));
+        dashboardStage.setTitle("Analytics Dashboard");
+        dashboardStage.show();
         primaryStage.close();
+    }
+
+    public static Stage getDashBoardStage() {
+        return dashboardStage;
     }
 
 
@@ -78,7 +83,7 @@ public class MenusHolderController implements Initializable {
 
 
     /**
-     * create stage that need to be switch
+     * create dashboardStage that need to be switch
      */
     private void createStage() {
         try {

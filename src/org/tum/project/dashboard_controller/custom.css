@@ -41,6 +41,13 @@
     -fx-effect: dropshadow(gaussian, rgb(0.0, 0.0, 0.0, 0.30), 6.0, 0.3, 0,1);
 }
 
+.scan-btn{
+    -fx-background-color: #59B971;
+    -fx-background-radius: 40;
+    -fx-border-style: none;
+    -fx-border-radius: 40;
+}
+
 
 .card-white{
     -fx-background-color: rgb(255.0, 255.0, 255.0);

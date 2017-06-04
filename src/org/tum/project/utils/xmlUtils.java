@@ -1,26 +1,17 @@
 package org.tum.project.utils;
 
-import Cef.CefPackage;
-import Cef.CefType;
-import Cef.DocumentRoot;
-import Cef.util.CefResourceFactoryImpl;
 import org.dom4j.Document;
 import org.dom4j.DocumentException;
 import org.dom4j.DocumentHelper;
 import org.dom4j.Element;
 import org.dom4j.io.SAXReader;
 import org.dom4j.io.XMLWriter;
-import org.eclipse.emf.common.util.URI;
-import org.eclipse.emf.ecore.resource.Resource;
-import org.eclipse.emf.ecore.resource.ResourceSet;
-import org.eclipse.emf.ecore.resource.impl.ResourceSetImpl;
 import org.tum.project.bean.ProjectInfo;
 
 import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.net.MalformedURLException;
-import java.nio.file.FileSystem;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Iterator;
@@ -120,7 +111,7 @@ public class xmlUtils {
         while (elementIterator.hasNext()) {
             Element project = elementIterator.next();
             ProjectInfo info = new ProjectInfo();
-            info.setProjectName(project.element("projectName").getText());
+            info.setSimulationFile(project.element("projectName").getText());
             info.setDataBankName(project.element("dataBankName").getText());
             info.setModuleTableName(project.element("moduleName").getText());
             info.setFifoTableName(project.element("fifoName").getText());
@@ -143,7 +134,7 @@ public class xmlUtils {
             Document document = readDocument(file.getAbsolutePath());
             Element rootElement = document.getRootElement();
             Element project = rootElement.addElement("project");
-            project.addElement("projectName").setText(info.getProjectName());
+            project.addElement("projectName").setText(info.getSimulationFile());
             project.addElement("dataBankName").setText(info.getDataBankName());
             project.addElement("moduleName").setText(info.getModuleTableName());
             project.addElement("fifoName").setText(info.getFifoTableName());

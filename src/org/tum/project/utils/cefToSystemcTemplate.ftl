@@ -176,7 +176,7 @@ int sc_main(int argc, char* argv[]) {
   rst.write(true);
   sc_start(100, SC_NS );
   rst.write(false);
-  sc_start(1000, SC_NS );
+  sc_start(50000, SC_NS );
   
  cout<<"simulation finish !"<<endl;
  	connector->commitTransaction();

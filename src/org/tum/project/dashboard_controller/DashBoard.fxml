@@ -12,7 +12,7 @@
 <?import javafx.scene.text.Font?>
 
 <StackPane fx:id="stackPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity"
-           prefHeight="720.0" prefWidth="1300.0" stylesheets="@custom.css" xmlns="http://javafx.com/javafx/8.0.111"
+           prefHeight="720.0" prefWidth="1300.0" stylesheets="@custom.css" xmlns="http://javafx.com/javafx/8"
            xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.tum.project.dashboard_controller.DashBoardController">
     <children>
         <VBox prefHeight="720.0" prefWidth="1300.0">

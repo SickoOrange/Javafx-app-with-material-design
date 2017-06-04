@@ -113,7 +113,7 @@ public class SimulationService {
                     System.out.println("id: "+id);
                     switch (id) {
                         case "projectName":
-                            textField.setText(info.getProjectName());
+                            textField.setText(info.getSimulationFile());
                             break;
                         case "dataBankName":
                             textField.setText(info.getDataBankName());

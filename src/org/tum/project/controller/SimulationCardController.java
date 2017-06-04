@@ -12,7 +12,7 @@ import javafx.stage.Stage;
 import org.tum.project.CefModelEditor.CefModifyUtils;
 import org.tum.project.bean.ProjectInfo;
 import org.tum.project.testbench.TestBenchStageController;
-import org.tum.project.utils.SystemCSimExcecute;
+import org.tum.project.utils.SimulationUtils;
 import org.tum.project.utils.xmlUtils;
 
 import java.io.IOException;
@@ -60,7 +60,7 @@ public class SimulationCardController {
                     (!simulationCard_moduleTable.getText().equals("")) && (!simulationCard_fifoTable.getText().equals
                     ("")) && (!simulationCard_fastfifoTable.getText().equals(""))) {
                 ProjectInfo info = new ProjectInfo();
-                info.setProjectName(simulationCard_projectName.getText());
+                info.setSimulationFile(simulationCard_projectName.getText());
                 info.setDataBankName(simulationCard_dataBankName.getText());
                 info.setModuleTableName(simulationCard_moduleTable.getText());
                 info.setFifoTableName(simulationCard_fifoTable.getText());
@@ -102,10 +102,10 @@ public class SimulationCardController {
         //SystemcModels-Noc
         System.out.println("simulation start");
         String compilePath = "/home/orange/master_thesis/SystemcModels-Noc";
-        SystemCSimExcecute.compile(compilePath);
+        SimulationUtils.compile(compilePath);
         System.out.println("simulation compile finish");
         String cmd = "./nocSim";
-        SystemCSimExcecute.execute(cmd, compilePath);
+        //SimulationUtils.execute(cmd, compilePath);
         System.out.println("simulation finish");
     }
 
