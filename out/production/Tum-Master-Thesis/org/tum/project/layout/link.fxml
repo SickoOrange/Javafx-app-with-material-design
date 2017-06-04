@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import javafx.scene.effect.*?>
+<?import javafx.scene.text.*?>
+<?import com.jfoenix.controls.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="599.0" prefWidth="337.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+    <children>
+        <Pane layoutX="27.0" layoutY="65.0" prefHeight="486.0" prefWidth="280.0" style="-fx-background-color: #ffffff;">
+            <children>
+                <JFXTextField editable="false" id="link_name" labelFloat="true" layoutX="38.0" layoutY="43.0" prefHeight="23.0" prefWidth="219.0" promptText="name: String" />
+                <JFXTextField editable="false" id="link_id" labelFloat="true" layoutX="38.0" layoutY="84.0" prefHeight="26.0" prefWidth="219.0" promptText="Id: Integer">
+                    <font>
+                        <Font size="13.0" />
+                    </font>
+                </JFXTextField>
+                <JFXTextField editable="false" id="link_sourcePortId" labelFloat="true" layoutX="38.0" layoutY="132.0" prefHeight="26.0" prefWidth="219.0" promptText="sourcePortId: Integer">
+                    <font>
+                        <Font size="13.0" />
+                    </font>
+                </JFXTextField>
+                <JFXTextField editable="false" id="link_destinationPortId" labelFloat="true" layoutX="38.0" layoutY="181.0" prefHeight="26.0" prefWidth="219.0" promptText="destinationPortId: Integer">
+                    <font>
+                        <Font size="13.0" />
+                    </font>
+                </JFXTextField>
+            <JFXTextField editable="false" id="link_carriesSourceClock" labelFloat="true" layoutX="38.0" layoutY="228.0" prefHeight="26.0" prefWidth="219.0" promptText="carriesSourceClock: Boolean">
+               <font>
+                  <Font size="13.0" />
+               </font>
+            </JFXTextField>
+            <JFXTextField editable="false" id="link_carriesSourceReset" labelFloat="true" layoutX="38.0" layoutY="275.0" prefHeight="26.0" prefWidth="219.0" promptText="carriesSourceReset: Boolean">
+               <font>
+                  <Font size="13.0" />
+               </font>
+            </JFXTextField>
+            <JFXTextField editable="false" id="link_linkLengthEstimation" labelFloat="true" layoutX="38.0" layoutY="321.0" prefHeight="26.0" prefWidth="219.0" promptText="linkLengthEstimation: Double">
+               <font>
+                  <Font size="13.0" />
+               </font>
+            </JFXTextField>
+            <JFXTextField editable="false" id="link_auxiliaryForwareWires" labelFloat="true" layoutX="38.0" layoutY="368.0" prefHeight="26.0" prefWidth="219.0" promptText="auxiliaryForwardWires: Integer">
+               <font>
+                  <Font size="13.0" />
+               </font>
+            </JFXTextField>
+            <JFXTextField editable="false" id="link_auxiliaryBackwareWires" labelFloat="true" layoutX="38.0" layoutY="417.0" prefHeight="26.0" prefWidth="219.0" promptText="auxiliaryBackwardWires: Integer">
+               <font>
+                  <Font size="13.0" />
+               </font>
+            </JFXTextField>
+            </children>
+            <effect>
+                <DropShadow />
+            </effect>
+        </Pane>
+        <JFXButton buttonType="RAISED" layoutX="65.0" layoutY="36.0" prefHeight="57.0" prefWidth="147.0" ripplerFill="#b53e3e" style="-fx-background-color: #0096F3;" text="LinkType" textAlignment="CENTER" textOverrun="CLIP">
+            <font>
+                <Font size="18.0" />
+            </font>
+        </JFXButton>
+    </children>
+</AnchorPane>

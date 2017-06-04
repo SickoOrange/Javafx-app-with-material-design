@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.paint.*?>
+<?import javafx.scene.effect.*?>
+<?import javafx.scene.text.*?>
+<?import com.jfoenix.controls.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="512.0" prefWidth="321.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <Pane layoutX="26.0" layoutY="51.0" prefHeight="344.0" prefWidth="270.0" style="-fx-background-color: #ffffff;">
+         <children>
+            <JFXTextField id="block_name" editable="false" labelFloat="true" layoutX="38.0" layoutY="35.0" prefHeight="32.0" prefWidth="203.0" promptText="Name: String">
+               <font>
+                  <Font size="13.0" />
+               </font></JFXTextField>
+            <JFXTextField id="block_id" editable="false" labelFloat="true" layoutX="38.0" layoutY="107.0" prefHeight="26.0" prefWidth="203.0" promptText="ID: Integer">
+               <font>
+                  <Font size="13.0" />
+               </font>
+            </JFXTextField>
+            <JFXTextField id="block_blockType" editable="false" labelFloat="true" layoutX="38.0" layoutY="181.0" prefHeight="26.0" prefWidth="203.0" promptText="BlockType: Integer">
+               <font>
+                  <Font size="13.0" />
+               </font>
+            </JFXTextField>
+            <JFXTextField id="block_layer" editable="false" labelFloat="true" layoutX="38.0" layoutY="256.0" prefHeight="26.0" prefWidth="203.0" promptText="Layer: Integer">
+               <font>
+                  <Font size="13.0" />
+               </font>
+            </JFXTextField>
+         </children>
+         <effect>
+            <DropShadow />
+         </effect>
+      </Pane>
+      <JFXButton buttonType="RAISED" layoutX="89.0" layoutY="14.0" prefHeight="57.0" prefWidth="147.0" ripplerFill="#b53e3e" style="-fx-background-color: #0096F3;" text="BlockType" textAlignment="CENTER" textOverrun="CLIP">
+         <font>
+            <Font size="16.0" />
+         </font>
+      </JFXButton>
+   </children>
+</AnchorPane>

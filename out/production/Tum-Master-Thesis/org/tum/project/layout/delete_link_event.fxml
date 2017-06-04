@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXTextField?>
+<?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="328.0" prefWidth="337.0" xmlns="http://javafx.com/javafx/8.0.91" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.tum.project.controller.DeleteLinkEventController">
+    <children>
+        <Pane layoutX="27.0" layoutY="65.0" prefHeight="235.0" prefWidth="280.0" style="-fx-background-color: #ffffff;">
+            <children>
+                <JFXTextField id="link_name" fx:id="deleteLink_name" labelFloat="true" layoutX="38.0" layoutY="43.0" prefHeight="23.0" prefWidth="219.0" promptText="name: String" />
+                <JFXTextField id="link_id" fx:id="deleteLink_id" labelFloat="true" layoutX="38.0" layoutY="84.0" prefHeight="26.0" prefWidth="219.0" promptText="Id: Integer">
+                    <font>
+                        <Font size="13.0" />
+                    </font>
+                </JFXTextField>
+                <JFXTextField id="link_sourcePortId" fx:id="deleteLink_sourcePortId" labelFloat="true" layoutX="38.0" layoutY="132.0" prefHeight="26.0" prefWidth="219.0" promptText="sourcePortId: Integer">
+                    <font>
+                        <Font size="13.0" />
+                    </font>
+                </JFXTextField>
+                <JFXTextField id="link_destinationPortId" fx:id="deleteLink_destinationPortId" labelFloat="true" layoutX="38.0" layoutY="181.0" prefHeight="26.0" prefWidth="219.0" promptText="destinationPortId: Integer">
+                    <font>
+                        <Font size="13.0" />
+                    </font>
+                </JFXTextField>
+                <!--<JFXTextField id="link_carriesSourceClock" fx:id="deleteLink_carriesSourceClock" labelFloat="true"-->
+                              <!--layoutX="38.0" layoutY="228.0" prefHeight="26.0" prefWidth="219.0"-->
+                              <!--promptText="carriesSourceClock: Boolean">-->
+                    <!--<font>-->
+                        <!--<Font size="13.0"/>-->
+                    <!--</font>-->
+                <!--</JFXTextField>-->
+                <!--<JFXTextField id="link_carriesSourceReset" fx:id="deleteLink_carriesSourceReset" labelFloat="true"-->
+                              <!--layoutX="38.0" layoutY="275.0" prefHeight="26.0" prefWidth="219.0"-->
+                              <!--promptText="carriesSourceReset: Boolean">-->
+                    <!--<font>-->
+                        <!--<Font size="13.0"/>-->
+                    <!--</font>-->
+                <!--</JFXTextField>-->
+                <!--<JFXTextField id="link_linkLengthEstimation" fx:id="deleteLink_linkLengthEstimation" labelFloat="true"-->
+                              <!--layoutX="38.0" layoutY="321.0" prefHeight="26.0" prefWidth="219.0"-->
+                              <!--promptText="linkLengthEstimation: Double">-->
+                    <!--<font>-->
+                        <!--<Font size="13.0"/>-->
+                    <!--</font>-->
+                <!--</JFXTextField>-->
+                <!--<JFXTextField id="link_auxiliaryForwareWires" fx:id="deleteLink_auxiliaryForwardWires" labelFloat="true"-->
+                              <!--layoutX="38.0" layoutY="368.0" prefHeight="26.0" prefWidth="219.0"-->
+                              <!--promptText="auxiliaryForwardWires: Integer">-->
+                    <!--<font>-->
+                        <!--<Font size="13.0"/>-->
+                    <!--</font>-->
+                <!--</JFXTextField>-->
+                <!--<JFXTextField id="link_auxiliaryBackwareWires" fx:id="deleteLink_auxiliaryBackwardWires"-->
+                              <!--labelFloat="true" layoutX="38.0" layoutY="417.0" prefHeight="26.0" prefWidth="219.0"-->
+                              <!--promptText="auxiliaryBackwardWires: Integer">-->
+                    <!--<font>-->
+                        <!--<Font size="13.0"/>-->
+                    <!--</font>-->
+                <!--</JFXTextField>-->
+                <JFXButton buttonType="RAISED" layoutX="76.0" layoutY="221.0" onAction="#deleteLinkSubmit" prefHeight="17.0" prefWidth="105.0" ripplerFill="#b53e3e" style="-fx-background-color: #e43939;" text="Delete" textAlignment="CENTER" textFill="WHITE" textOverrun="CLIP">
+                    <font>
+                        <Font size="18.0" />
+                    </font>
+                </JFXButton>
+            </children>
+            <effect>
+                <DropShadow />
+            </effect>
+        </Pane>
+        <JFXButton buttonType="RAISED" layoutX="65.0" layoutY="36.0" prefHeight="57.0" prefWidth="147.0" ripplerFill="#b53e3e" style="-fx-background-color: #0096F3;" text="Delete Link" textAlignment="CENTER" textOverrun="CLIP">
+            <font>
+                <Font size="18.0" />
+            </font>
+        </JFXButton>
+    </children>
+</AnchorPane>
