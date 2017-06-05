@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXTextArea?>
+<?import javafx.scene.chart.BarChart?>
+<?import javafx.scene.chart.CategoryAxis?>
+<?import javafx.scene.chart.NumberAxis?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.text.Font?>
+
+<?import javafx.scene.control.TextArea?>
+<AnchorPane prefHeight="720.0" prefWidth="1100.0" stylesheets="./custom.css" xmlns="http://javafx.com/javafx/8.0.112" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.tum.project.dashboard_controller.FlowLatencyController">
+    <children>
+        <AnchorPane layoutX="22.0" layoutY="215.0" prefHeight="481.0" prefWidth="1060.0" style="-fx-background-color: white; -fx-background-radius: 3; -fx-border-radius: 3; -fx-effect: dropshadow(gaussian, rgb(0.0, 0.0, 0.0, 0.15), 6.0, 0.7, 0.0,1.5);">
+            <children>
+                <StackPane layoutY="14.0" prefHeight="376.0" prefWidth="1060.0">
+                    <children>
+                        <BarChart fx:id="chart_latency">
+                            <xAxis>
+                                <CategoryAxis side="BOTTOM" />
+                            </xAxis>
+                            <yAxis>
+                                <NumberAxis side="LEFT" />
+                            </yAxis>
+                        </BarChart>
+                        <BarChart fx:id="chart_package" visible="false">
+                            <xAxis>
+                                <CategoryAxis side="BOTTOM" />
+                            </xAxis>
+                            <yAxis>
+                                <NumberAxis side="LEFT" />
+                            </yAxis>
+                        </BarChart>
+                    </children>
+                </StackPane>
+
+                <JFXButton layoutX="156.0" layoutY="404.0" mnemonicParsing="false" onAction="#showLatencyChartAction" prefHeight="34.0" prefWidth="208.0" styleClass="scan-btn" text="Show Latency Chart" textFill="WHITE">
+                    <font>
+                        <Font name="System Bold" size="16.0" />
+                    </font>
+                </JFXButton>
+                <JFXButton layoutX="712.0" layoutY="404.0" mnemonicParsing="false" onAction="#showPackageChartAction" prefHeight="34.0" prefWidth="208.0" styleClass="scan-btn" text="Show Package Chart" textFill="WHITE">
+                    <font>
+                        <Font name="System Bold" size="16.0" />
+                    </font>
+                </JFXButton>
+            </children>
+        </AnchorPane>
+        <AnchorPane layoutX="22.0" layoutY="25.0" prefHeight="182.0" prefWidth="1060.0" style="-fx-background-color: white; -fx-background-radius: 3; -fx-border-radius: 3; -fx-effect: dropshadow(gaussian, rgb(0.0, 0.0, 0.0, 0.15), 6.0, 0.7, 0.0,1.5);">
+            <children>
+                <TextArea fx:id="tf_flowResults" layoutY="1.0" prefHeight="181.0" prefWidth="1060.0" />
+            </children>
+        </AnchorPane>
+    </children>
+</AnchorPane>

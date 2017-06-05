@@ -61,9 +61,9 @@
                             <font>
                                 <Font name="Roboto Medium" size="14.0" />
                             </font>
-                     <VBox.margin>
-                        <Insets top="5.0" />
-                     </VBox.margin>
+                            <VBox.margin>
+                                <Insets top="5.0" />
+                            </VBox.margin>
                         </JFXTextField>
                     </children>
                     <GridPane.margin>
@@ -142,7 +142,7 @@
         <Separator layoutX="729.0" layoutY="155.0" orientation="VERTICAL" prefHeight="141.0" prefWidth="11.0" />
         <VBox layoutX="764.0" layoutY="155.0" prefHeight="113.0" prefWidth="261.0" style="-fx-spacing: 20; -fx-padding: 5;">
             <children>
-                <JFXTextField fx:id="et_cefFile" labelFloat="true" layoutX="57.0" layoutY="52.0" prefHeight="32.0" prefWidth="345.0" promptText="select cef model file" />
+                <JFXTextField fx:id="et_cefFile" editable="false" labelFloat="true" layoutX="57.0" layoutY="52.0" prefHeight="32.0" prefWidth="345.0" promptText="select cef model file" />
                 <JFXTextField fx:id="et_testBench" labelFloat="true" layoutX="57.0" layoutY="114.0" prefHeight="32.0" prefWidth="345.0" promptText="select test bench file save path" />
             </children>
         </VBox>
@@ -161,6 +161,14 @@
                 <Font name="Roboto Medium" size="20.0" />
             </font>
         </Text>
+        <JFXRadioButton fx:id="defaultPath" layoutX="764.0" layoutY="268.0" onAction="#rb_defaultPathAction" prefHeight="41.0" prefWidth="132.0" styleClass="custom-jfx-check-box" text="load path" textFill="#141313">
+            <font>
+                <Font size="14.0" />
+            </font>
+            <toggleGroup>
+                <ToggleGroup fx:id="filter" />
+            </toggleGroup>
+        </JFXRadioButton>
     </children>
 
 </AnchorPane>

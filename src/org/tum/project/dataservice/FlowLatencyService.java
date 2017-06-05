@@ -5,6 +5,7 @@ import javafx.scene.chart.XYChart;
 import javafx.scene.control.Label;
 import org.tum.project.bean.FlowAnalysisResult;
 import org.tum.project.bean.PacketTimingInfo;
+import org.tum.project.callback.DataUpdateCallback;
 import org.tum.project.constant.ConstantValue;
 import org.tum.project.utils.sqlUtils;
 
@@ -24,9 +25,17 @@ public class FlowLatencyService {
     private static HashMap<Long, String> flowChartDataMap = new HashMap<Long, String>();
     private static StringBuffer analyzeResult = new StringBuffer("");
 
-    private static HashMap<Integer,List<PacketTimingInfo>> flow_id_to_packetInfo_map=new HashMap<>();
+    private static HashMap<Integer, List<PacketTimingInfo>> flow_id_to_packetInfo_map = new HashMap<>();
 
-    private StringBuffer recoverInformation=new StringBuffer();
+    private DataUpdateCallback callback;
+
+    public void setCallback(DataUpdateCallback callback) {
+        if (callback != null) {
+            this.callback = callback;
+        }
+    }
+
+    private StringBuffer recoverInformation = new StringBuffer();
 
     public StringBuffer getRecoverInformation() {
         return analyzeResult;
@@ -34,6 +43,31 @@ public class FlowLatencyService {
 
     public void startAnalyze(List<String> dataModelName, String currentDataBase, BarChart<String, Number> flowLatencyChart1, BarChart<String, Number> flowLatencyChart2, Label flowBottomLabel) {
 
+        execute(dataModelName, currentDataBase);
+
+        showInBarChart(flowLatencyChart1, flowLatencyChart2, flowBottomLabel);
+    }
+
+
+    /**
+     * start the analysis
+     *
+     * @param dataModelName   module table name list
+     * @param currentDataBase current data base
+     */
+    public void startAnalyze(List<String> dataModelName, String currentDataBase) {
+        execute(dataModelName, currentDataBase);
+        callback.updateFLowLatency(flowChartDataMap,analyzeResult);
+    }
+
+
+    /**
+     * execute the flow latency analysis
+     *
+     * @param dataModelName   module table name in the dabase
+     * @param currentDataBase current database name
+     */
+    private void execute(List<String> dataModelName, String currentDataBase) {
         initVariables();
 
         //parse  PacketTimingInfo
@@ -48,11 +82,9 @@ public class FlowLatencyService {
         //report all flows
         reportAllFlows();
 
-        showInBarChart(flowLatencyChart1, flowLatencyChart2,flowBottomLabel);
     }
 
-
-    private  void showInBarChart(BarChart<String, Number> flowLatencyChart1, BarChart<String, Number> flowLatencyChart2, Label flowBottomLabel) {
+    private void showInBarChart(BarChart<String, Number> flowLatencyChart1, BarChart<String, Number> flowLatencyChart2, Label flowBottomLabel) {
         flowLatencyChart1.getData().clear();
         flowLatencyChart2.getData().clear();
 
@@ -90,7 +122,7 @@ public class FlowLatencyService {
     }
 
 
-    private  void reportAllFlows() {
+    private void reportAllFlows() {
         int flow_number = 0;
         double total_noc_latency = 0;
         int total_noc_packet_number = 0;
@@ -124,7 +156,7 @@ public class FlowLatencyService {
         System.out.println("SUMMARY: flow number " + flow_number + " total_pkt " + total_noc_packet_number
                 + " success_pkt " + total_noc_success_packet_number + " average_latency " + (float) total_noc_latency / total_noc_success_packet_number);
         analyzeResult.append("SUMMARY: flow number " + flow_number + ", total_pkt " + total_noc_packet_number
-                + ", success_pkt " + total_noc_success_packet_number + ", average_latency " + (float) total_noc_latency / total_noc_success_packet_number+" ns" + "\n");
+                + ", success_pkt " + total_noc_success_packet_number + ", average_latency " + (float) total_noc_latency / total_noc_success_packet_number + " ns" + "\n");
 
 
         recoverInformation.append(analyzeResult.toString());
@@ -132,7 +164,7 @@ public class FlowLatencyService {
     }
 
 
-    private  void analyzeAllFlows() {
+    private void analyzeAllFlows() {
 
         for (Map.Entry<Integer, PacketTimingInfo> entry : packet_id_to_info_map.entrySet()) {
 
@@ -144,7 +176,7 @@ public class FlowLatencyService {
             } else {
                 flowAnalysis = new FlowAnalysisResult();
                 flow_id_to_analysis_map.put(entry.getValue().getFlow_id(), flowAnalysis);
-                successfulPacketList =new ArrayList<>();
+                successfulPacketList = new ArrayList<>();
                 flow_id_to_packetInfo_map.put(entry.getValue().getFlow_id(), successfulPacketList);
             }
             Integer generatedPacketNumber = flowAnalysis.getGeneratedPacketNumber();
@@ -155,7 +187,7 @@ public class FlowLatencyService {
                 System.out.println("missing flit id= " + entry.getValue().getPacket_id() + " flow_id= " + entry.getValue()
                         .getFlow_id() + " produce_time= " + entry.getValue().getProduce_time());
                 analyzeResult.append("missing flit id= " + entry.getValue().getPacket_id() + ", flow_id= " + entry.getValue()
-                        .getFlow_id() + ", produce_time= " + entry.getValue().getProduce_time()+" ns" + "\n");
+                        .getFlow_id() + ", produce_time= " + entry.getValue().getProduce_time() + " ns" + "\n");
             } else {
                 Integer successfulPacketNumber = flowAnalysis.getSuccessfulPacketNumber();
                 successfulPacketNumber++;
@@ -177,7 +209,7 @@ public class FlowLatencyService {
         analyzeResult.append("\n");
     }
 
-    private  void parseConsumer(List<String> table, String database) {
+    private void parseConsumer(List<String> table, String database) {
         Connection conn = null;
         try {
             conn = sqlUtils.getMySqlConnection(database);
@@ -212,7 +244,7 @@ public class FlowLatencyService {
         }
     }
 
-    private  void parseProducer(List<String> table, String database) {
+    private void parseProducer(List<String> table, String database) {
         Connection conn = null;
         try {
             conn = sqlUtils.getMySqlConnection(database);
@@ -237,12 +269,13 @@ public class FlowLatencyService {
         }
     }
 
-    private  void initVariables() {
+    private void initVariables() {
         analyzeResult.setLength(0);
-        analyzeResult.append("Report All Flows:"+"\n");
+        analyzeResult.append("Report All Flows:" + "\n");
         packet_id_to_info_map.clear();
         flow_id_to_analysis_map.clear();
         flowChartDataMap.clear();
     }
+
 
 }

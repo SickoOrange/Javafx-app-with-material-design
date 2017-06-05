@@ -31,6 +31,7 @@ public class SimulationController implements Initializable {
         System.out.println("SimulationController initialize");
         createContent();
         setContent();
+
     }
 
     /**

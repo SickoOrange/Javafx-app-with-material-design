@@ -2,23 +2,34 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="f19edaa5-fc81-437a-96e0-f19e57d10d47" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libs/gson-2.8.1.jar" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/gson_2_8_1.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/genSimGraph.cpp" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/org/tum/project/test/jsonTest.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/org/tum/project/test/testObj.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/test.json" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/test.txt" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/org/tum/project/callback/DataUpdateCallbackAdapter.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/org/tum/project/dashboard_controller/FlowLatency.fxml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/org/tum/project/dashboard_controller/FlowLatencyController.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Tum-Master-Thesis/org/tum/project/callback/DataUpdateCallback.class" afterPath="$PROJECT_DIR$/out/production/Tum-Master-Thesis/org/tum/project/callback/DataUpdateCallback.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Tum-Master-Thesis/org/tum/project/controller/MainController.class" afterPath="$PROJECT_DIR$/out/production/Tum-Master-Thesis/org/tum/project/controller/MainController.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Tum-Master-Thesis/org/tum/project/dashboard_controller/DashBoardController.class" afterPath="$PROJECT_DIR$/out/production/Tum-Master-Thesis/org/tum/project/dashboard_controller/DashBoardController.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Tum-Master-Thesis/org/tum/project/dashboard_controller/SimulationController.class" afterPath="$PROJECT_DIR$/out/production/Tum-Master-Thesis/org/tum/project/dashboard_controller/SimulationController.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Tum-Master-Thesis/org/tum/project/dashboard_controller/simulationPane/SimulationProgressController.class" afterPath="$PROJECT_DIR$/out/production/Tum-Master-Thesis/org/tum/project/dashboard_controller/simulationPane/SimulationProgressController.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Tum-Master-Thesis/org/tum/project/dashboard_controller/simulationPane/SimulationProjectSettingController$1.class" afterPath="$PROJECT_DIR$/out/production/Tum-Master-Thesis/org/tum/project/dashboard_controller/simulationPane/SimulationProjectSettingController$1.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Tum-Master-Thesis/org/tum/project/dashboard_controller/simulationPane/SimulationProjectSettingController.class" afterPath="$PROJECT_DIR$/out/production/Tum-Master-Thesis/org/tum/project/dashboard_controller/simulationPane/SimulationProjectSettingController.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Tum-Master-Thesis/org/tum/project/dataservice/FlowLatencyService.class" afterPath="$PROJECT_DIR$/out/production/Tum-Master-Thesis/org/tum/project/dataservice/FlowLatencyService.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Tum-Master-Thesis/org/tum/project/utils/sqlUtils.class" afterPath="$PROJECT_DIR$/out/production/Tum-Master-Thesis/org/tum/project/utils/sqlUtils.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Tum-Master-Thesis.iml" afterPath="$PROJECT_DIR$/Tum-Master-Thesis.iml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Tum-Master-Thesis/org/tum/project/dashboard_controller/simulationPane/SimulationProgress.fxml" afterPath="$PROJECT_DIR$/out/production/Tum-Master-Thesis/org/tum/project/dashboard_controller/simulationPane/SimulationProgress.fxml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Tum-Master-Thesis/org/tum/project/dashboard_controller/DashBoard.fxml" afterPath="$PROJECT_DIR$/out/production/Tum-Master-Thesis/org/tum/project/dashboard_controller/DashBoard.fxml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Tum-Master-Thesis/org/tum/project/dashboard_controller/simulationPane/SimulationProjectSetting.fxml" afterPath="$PROJECT_DIR$/out/production/Tum-Master-Thesis/org/tum/project/dashboard_controller/simulationPane/SimulationProjectSetting.fxml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Tum-Master-Thesis/org/tum/project/projectInfo.xml" afterPath="$PROJECT_DIR$/out/production/Tum-Master-Thesis/org/tum/project/projectInfo.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Tum-Master-Thesis/org/tum/project/prop.properties" afterPath="$PROJECT_DIR$/out/production/Tum-Master-Thesis/org/tum/project/prop.properties" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/org/tum/project/dashboard_controller/simulationPane/SimulationProgress.fxml" afterPath="$PROJECT_DIR$/src/org/tum/project/dashboard_controller/simulationPane/SimulationProgress.fxml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/org/tum/project/callback/DataUpdateCallback.java" afterPath="$PROJECT_DIR$/src/org/tum/project/callback/DataUpdateCallback.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/org/tum/project/controller/MainController.java" afterPath="$PROJECT_DIR$/src/org/tum/project/controller/MainController.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/org/tum/project/dashboard_controller/DashBoard.fxml" afterPath="$PROJECT_DIR$/src/org/tum/project/dashboard_controller/DashBoard.fxml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/org/tum/project/dashboard_controller/DashBoardController.java" afterPath="$PROJECT_DIR$/src/org/tum/project/dashboard_controller/DashBoardController.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/org/tum/project/dashboard_controller/SimulationController.java" afterPath="$PROJECT_DIR$/src/org/tum/project/dashboard_controller/SimulationController.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/org/tum/project/dashboard_controller/simulationPane/SimulationProgressController.java" afterPath="$PROJECT_DIR$/src/org/tum/project/dashboard_controller/simulationPane/SimulationProgressController.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/org/tum/project/dashboard_controller/simulationPane/SimulationProjectSetting.fxml" afterPath="$PROJECT_DIR$/src/org/tum/project/dashboard_controller/simulationPane/SimulationProjectSetting.fxml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/org/tum/project/dashboard_controller/simulationPane/SimulationProjectSettingController.java" afterPath="$PROJECT_DIR$/src/org/tum/project/dashboard_controller/simulationPane/SimulationProjectSettingController.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/org/tum/project/dataservice/FlowLatencyService.java" afterPath="$PROJECT_DIR$/src/org/tum/project/dataservice/FlowLatencyService.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/org/tum/project/main/Main.java" afterPath="$PROJECT_DIR$/src/org/tum/project/main/Main.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/org/tum/project/utils/sqlUtils.java" afterPath="$PROJECT_DIR$/src/org/tum/project/utils/sqlUtils.java" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -33,7 +44,83 @@
     <favorites_list name="Tum-Master-Thesis" />
   </component>
   <component name="FileEditorManager">
-    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300" />
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+      <file leaf-file-name="FlowLatencyService.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/org/tum/project/dataservice/FlowLatencyService.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="417">
+              <caret line="59" column="59" lean-forward="false" selection-start-line="59" selection-start-column="59" selection-end-line="59" selection-end-column="59" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="FlowLatency.fxml" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/org/tum/project/dashboard_controller/FlowLatency.fxml">
+          <provider editor-type-id="JavaFX-Scene-Builder">
+            <state />
+          </provider>
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="447">
+              <caret line="55" column="13" lean-forward="true" selection-start-line="55" selection-start-column="13" selection-end-line="55" selection-end-column="13" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="projectInfo.xml" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/out/production/Tum-Master-Thesis/org/tum/project/projectInfo.xml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="756">
+              <caret line="36" column="42" lean-forward="true" selection-start-line="36" selection-start-column="42" selection-end-line="36" selection-end-column="42" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="prop.properties" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/out/production/Tum-Master-Thesis/org/tum/project/prop.properties">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="168">
+              <caret line="8" column="0" lean-forward="true" selection-start-line="8" selection-start-column="0" selection-end-line="8" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="FlowLatencyController.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/org/tum/project/dashboard_controller/FlowLatencyController.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="422">
+              <caret line="38" column="40" lean-forward="false" selection-start-line="38" selection-start-column="40" selection-end-line="38" selection-end-column="40" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="SimulationProgressController.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/org/tum/project/dashboard_controller/simulationPane/SimulationProgressController.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="496">
+              <caret line="167" column="48" lean-forward="false" selection-start-line="167" selection-start-column="48" selection-end-line="167" selection-end-column="48" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="MaterialLoginController.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/org/tum/project/login_controller/MaterialLoginController.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="266">
+              <caret line="144" column="23" lean-forward="false" selection-start-line="141" selection-start-column="7" selection-end-line="150" selection-end-column="11" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -54,6 +141,11 @@
       <find>jfx</find>
       <find>item</find>
       <find>choicebox</find>
+      <find>openDefaultPath</find>
+      <find>jfxra</find>
+      <find>load</find>
+      <find>startS</find>
+      <find>transi</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -67,15 +159,8 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/org/tum/project/analytics_controller/dashboard.fxml" />
-        <option value="$PROJECT_DIR$/src/org/tum/project/analytics_controller/DashboardController.java" />
-        <option value="$PROJECT_DIR$/src/org/tum/project/dashboard_controller/DashboardController.java" />
-        <option value="$PROJECT_DIR$/src/org/tum/project/dashboard_controller/dashboard.fxml" />
-        <option value="$PROJECT_DIR$/src/org/tum/project/dashboard_controller/Simulation.java" />
-        <option value="$PROJECT_DIR$/src/org/tum/project/layout/simulation_card.fxml" />
         <option value="$PROJECT_DIR$/src/org/tum/project/layout/test_bench_stage.fxml" />
         <option value="$PROJECT_DIR$/src/org/tum/project/login_controller/MenusHolderController.java" />
-        <option value="$PROJECT_DIR$/src/org/tum/project/dashboard_controller/DashBoardController.java" />
         <option value="$PROJECT_DIR$/src/org/tum/project/dashboard_controller/Simulation_ProjectSetting.fxml" />
         <option value="$PROJECT_DIR$/src/org/tum/project/dashboard_controller/SimulationProjectSetting.java" />
         <option value="$PROJECT_DIR$/src/org/tum/project/dashboard_controller/SimulationProjectSettingController.java" />
@@ -88,23 +173,17 @@
         <option value="$PROJECT_DIR$/src/org/tum/project/dashboard_controller/simulatePane/SimulationPathSettingController.java" />
         <option value="$PROJECT_DIR$/libs/jfoenix.jar!/com/jfoenix/controls/JFXButton.class" />
         <option value="$PROJECT_DIR$/src/org/tum/project/dashboard_controller/Simulation.fxml" />
-        <option value="$PROJECT_DIR$/src/org/tum/project/dashboard_controller/DashBoard.fxml" />
         <option value="$PROJECT_DIR$/src/org/tum/project/dashboard_controller/simulationPane/SimulationPathSetting.fxml" />
         <option value="$PROJECT_DIR$/src/org/tum/project/dashboard_controller/custom.css" />
         <option value="$PROJECT_DIR$/src/org/tum/project/dashboard_controller/simulationPane/simulationProgress.fxml" />
         <option value="$PROJECT_DIR$/src/org/tum/project/login_controller/MaterialLoginController.java" />
-        <option value="$PROJECT_DIR$/src/org/tum/project/dashboard_controller/simulationPane/SimulationProgress.fxml" />
         <option value="$PROJECT_DIR$/src/org/tum/project/bean/ProjectInfo.java" />
-        <option value="$PROJECT_DIR$/src/org/tum/project/dashboard_controller/simulationPane/SimulationProjectSetting.fxml" />
         <option value="$PROJECT_DIR$/src/org/tum/project/utils/Utils.java" />
         <option value="$PROJECT_DIR$/src/org/tum/project/utils/SystemCSimExcecute.java" />
         <option value="$PROJECT_DIR$/src/org/tum/project/dashboard_controller/simulationPane/SimulationTHread.java" />
         <option value="$PROJECT_DIR$/src/org/tum/project/dashboard_controller/simulationPane/SimulationThread.java" />
         <option value="$PROJECT_DIR$/src/org/tum/project/utils/xmlUtils.java" />
-        <option value="$PROJECT_DIR$/src/org/tum/project/main/Main.java" />
-        <option value="$PROJECT_DIR$/src/org/tum/project/dashboard_controller/SimulationController.java" />
         <option value="$PROJECT_DIR$/src/org/tum/project/dashboard_controller/simulationPane/SimulationPathSettingController.java" />
-        <option value="$PROJECT_DIR$/out/production/Tum-Master-Thesis/org/tum/project/projectInfo.xml" />
         <option value="$PROJECT_DIR$/src/org/tum/project/utils/SimulationUtils.java" />
         <option value="$PROJECT_DIR$/src/org/tum/project/controller/SimulationCardController.java" />
         <option value="$PROJECT_DIR$/src/org/tum/project/testbench/cefToSystemcTemplate.ftl" />
@@ -112,14 +191,32 @@
         <option value="$PROJECT_DIR$/src/org/tum/project/test/jsonTest.java" />
         <option value="$PROJECT_DIR$/test.json" />
         <option value="$PROJECT_DIR$/src/org/tum/project/dashboard_controller/simulationPane/simulationTask.java" />
+        <option value="$PROJECT_DIR$/src/org/tum/project/dashboard_controller/simulationPane/SimulationProjectSetting.fxml" />
+        <option value="$PROJECT_DIR$/src/org/tum/project/dashboard_controller/FowLatencyController.java" />
+        <option value="$PROJECT_DIR$/out/production/Tum-Master-Thesis/org/tum/project/prop.properties" />
+        <option value="$PROJECT_DIR$/src/org/tum/project/dashboard_controller/simulationPane/SimulationProgress.fxml" />
+        <option value="$PROJECT_DIR$/src/org/tum/project/dashboard_controller/DashBoard.fxml" />
+        <option value="$PROJECT_DIR$/src/org/tum/project/dashboard_controller/FowLatency.fxml" />
+        <option value="$PROJECT_DIR$/src/org/tum/project/dashboard_controller/SimulationController.java" />
+        <option value="$PROJECT_DIR$/src/org/tum/project/callback/DataUpdateCallback.java" />
+        <option value="$PROJECT_DIR$/src/org/tum/project/callback/DataUpdateCallbackAdapter.java" />
+        <option value="$PROJECT_DIR$/src/org/tum/project/controller/MainController.java" />
+        <option value="$PROJECT_DIR$/src/org/tum/project/utils/sqlUtils.java" />
+        <option value="$PROJECT_DIR$/src/org/tum/project/dashboard_controller/DashBoardController.java" />
         <option value="$PROJECT_DIR$/src/org/tum/project/dashboard_controller/simulationPane/SimulationProjectSettingController.java" />
+        <option value="$PROJECT_DIR$/src/org/tum/project/main/Main.java" />
+        <option value="$PROJECT_DIR$/src/org/tum/project/dataservice/FlowLatencyService.java" />
         <option value="$PROJECT_DIR$/src/org/tum/project/dashboard_controller/simulationPane/SimulationProgressController.java" />
+        <option value="$PROJECT_DIR$/src/org/tum/project/dashboard_controller/FlowLatencyController.java" />
+        <option value="$PROJECT_DIR$/src/org/tum/project/dashboard_controller/FlowLatency.fxml" />
+        <option value="$PROJECT_DIR$/out/production/Tum-Master-Thesis/org/tum/project/projectInfo.xml" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds">
+    <option name="y" value="1" />
     <option name="width" value="1920" />
-    <option name="height" value="1026" />
+    <option name="height" value="1025" />
   </component>
   <component name="ProjectView">
     <navigator currentView="ProjectPane" proportions="" version="1">
@@ -136,8 +233,9 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="Scratches" />
+      <pane id="Scope" />
+      <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -277,6 +375,50 @@
               <option name="myItemId" value="project" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="login_controller" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Tum-Master-Thesis" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Tum-Master-Thesis" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="project" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Tum-Master-Thesis" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Tum-Master-Thesis" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="project" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="images" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
           </PATH>
           <PATH>
             <PATH_ELEMENT>
@@ -366,36 +508,6 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="dashboard_controller" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="simulationPane" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="imgs" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Tum-Master-Thesis" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Tum-Master-Thesis" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="project" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
               <option name="myItemId" value="controller" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
@@ -462,7 +574,81 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
+              <option name="myItemId" value="callback" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Tum-Master-Thesis" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Tum-Master-Thesis" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="project" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
               <option name="myItemId" value="bean" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Tum-Master-Thesis" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Tum-Master-Thesis" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="out" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="production" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Tum-Master-Thesis" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Tum-Master-Thesis" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="out" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="production" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Tum-Master-Thesis" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="org" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="tum" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="project" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -482,7 +668,6 @@
           </PATH>
         </subPane>
       </pane>
-      <pane id="PackagesPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -877,7 +1062,14 @@
       <option name="project" value="LOCAL" />
       <updated>1496613528824</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="linux 4.commit, add simulation progress logic">
+      <created>1496629728038</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1496629728039</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TodoView">
@@ -890,7 +1082,7 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="0" width="1920" height="1026" extended-state="6" />
+    <frame x="0" y="1" width="1920" height="1025" extended-state="0" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
@@ -901,26 +1093,26 @@
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.20734341" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.24972972" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Properties" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.24895833" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32829374" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.24322917" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Theme Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32324323" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32289416" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
-      <window_info id="Documentation" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="FLOATING" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" x="100" y="100" width="1720" height="826" />
+      <window_info id="Documentation" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="FLOATING" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" x="100" y="100" width="1720" height="826" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32829374" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
     </layout>
   </component>
   <component name="VcsContentAnnotationSettings">
@@ -930,7 +1122,8 @@
     <MESSAGE value="linux 1.commit, add new material login controller" />
     <MESSAGE value="linux 2.commit, design dashboard layout" />
     <MESSAGE value="linux 3.commit, add simulation pane logic" />
-    <option name="LAST_COMMIT_MESSAGE" value="linux 3.commit, add simulation pane logic" />
+    <MESSAGE value="linux 4.commit, add simulation progress logic" />
+    <option name="LAST_COMMIT_MESSAGE" value="linux 4.commit, add simulation progress logic" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -943,179 +1136,6 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/org/tum/project/images/register.png">
-      <provider selected="true" editor-type-id="images">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/org/tum/project/layout/add_new_project.fxml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-      <provider editor-type-id="JavaFX-Scene-Builder">
-        <state />
-      </provider>
-    </entry>
-    <entry file="jar://$PROJECT_DIR$/libs/jfoenix.jar!/com/jfoenix/controls/JFXButton.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="147">
-          <caret line="7" column="13" lean-forward="false" selection-start-line="7" selection-start-column="13" selection-end-line="7" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$PROJECT_DIR$/libs/jfoenix.jar!/com/jfoenix/controls/JFXRadioButton.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="126">
-          <caret line="23" column="13" lean-forward="false" selection-start-line="23" selection-start-column="13" selection-end-line="23" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/org/tum/project/dashboard_controller/Simulation.fxml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="84">
-          <caret line="4" column="47" lean-forward="true" selection-start-line="4" selection-start-column="12" selection-end-line="4" selection-end-column="47" />
-          <folding />
-        </state>
-      </provider>
-      <provider editor-type-id="JavaFX-Scene-Builder">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/org/tum/project/login_controller/MenusHolderController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="609">
-          <caret line="60" column="22" lean-forward="false" selection-start-line="60" selection-start-column="8" selection-end-line="60" selection-end-column="22" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/org/tum/project/login_controller/MenusHolder.fxml">
-      <provider editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-      <provider selected="true" editor-type-id="JavaFX-Scene-Builder">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/org/tum/project/dashboard_controller/DashBoard.fxml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="441">
-          <caret line="21" column="113" lean-forward="true" selection-start-line="21" selection-start-column="92" selection-end-line="21" selection-end-column="113" />
-          <folding />
-        </state>
-      </provider>
-      <provider editor-type-id="JavaFX-Scene-Builder">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/org/tum/project/dashboard_controller/custom.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="903">
-          <caret line="43" column="1" lean-forward="false" selection-start-line="43" selection-start-column="1" selection-end-line="43" selection-end-column="9" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/org/tum/project/login_controller/MaterialLoginController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="861">
-          <caret line="63" column="0" lean-forward="false" selection-start-line="63" selection-start-column="0" selection-end-line="63" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/org/tum/project/constant/ConstantValue.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-84">
-          <caret line="2" column="13" lean-forward="false" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/org/tum/project/CefModelEditor/CefVisualizationService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="987">
-          <caret line="86" column="73" lean-forward="false" selection-start-line="86" selection-start-column="56" selection-end-line="86" selection-end-column="73" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/org/tum/project/dataservice/FlowPacketLatencyService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="84">
-          <caret line="16" column="13" lean-forward="false" selection-start-line="16" selection-start-column="13" selection-end-line="16" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/org/tum/project/dataservice/FlowLatencyService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="84">
-          <caret line="19" column="13" lean-forward="false" selection-start-line="19" selection-start-column="13" selection-end-line="19" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/org/tum/project/dataservice/FifoSizeService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="84">
-          <caret line="14" column="13" lean-forward="false" selection-start-line="14" selection-start-column="13" selection-end-line="14" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/org/tum/project/dataservice/TraceJframe.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="168">
-          <caret line="17" column="13" lean-forward="false" selection-start-line="17" selection-start-column="13" selection-end-line="17" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/org/tum/project/dashboard_controller/DashBoardController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="861">
-          <caret line="53" column="0" lean-forward="false" selection-start-line="53" selection-start-column="0" selection-end-line="53" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/org/tum/project/controller/MainController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="85">
-          <caret line="549" column="72" lean-forward="true" selection-start-line="549" selection-start-column="72" selection-end-line="549" selection-end-column="72" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/out/production/Tum-Master-Thesis/org/tum/project/prop.properties">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="21">
-          <caret line="1" column="0" lean-forward="false" selection-start-line="2" selection-start-column="78" selection-end-line="3" selection-end-column="15" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/org/tum/project/utils/Utils.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="198">
-          <caret line="30" column="23" lean-forward="false" selection-start-line="30" selection-start-column="23" selection-end-line="30" selection-end-column="23" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/org/tum/project/bean/ProjectInfo.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-126">
-          <caret line="9" column="33" lean-forward="false" selection-start-line="9" selection-start-column="33" selection-end-line="9" selection-end-column="33" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/org/tum/project/dashboard_controller/simulationPane/SimulationPathSetting.fxml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="480">
-          <caret line="71" column="25" lean-forward="false" selection-start-line="55" selection-start-column="7" selection-end-line="71" selection-end-column="25" />
-          <folding />
-        </state>
-      </provider>
-      <provider editor-type-id="JavaFX-Scene-Builder">
-        <state />
-      </provider>
-    </entry>
     <entry file="jar://$PROJECT_DIR$/libs/freemarker.jar!/freemarker/template/Configuration.class">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="220">
@@ -1139,13 +1159,6 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/org/tum/project/dashboard_controller/simulationPane/SimulationThread.java" />
-    <entry file="file://$PROJECT_DIR$/src/org/tum/project/main/Main.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="210">
-          <caret line="19" column="11" lean-forward="true" selection-start-line="19" selection-start-column="11" selection-end-line="19" selection-end-column="11" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/org/tum/project/dataservice/FlitTraceService.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="126">
@@ -1167,24 +1180,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/org/tum/project/dashboard_controller/SimulationController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1302">
-          <caret line="73" column="24" lean-forward="false" selection-start-line="73" selection-start-column="24" selection-end-line="73" selection-end-column="24" />
-          <folding>
-            <element signature="e#2302#2303#0" expanded="false" />
-            <element signature="e#2346#2347#0" expanded="false" />
-            <element signature="e#2408#2409#0" expanded="false" />
-            <element signature="e#2451#2452#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/org/tum/project/utils/cefToSystemcTemplate.ftl">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1192,9 +1191,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1848">
           <caret line="104" column="45" lean-forward="false" selection-start-line="104" selection-start-column="45" selection-end-line="104" selection-end-column="45" />
-          <folding>
-            <element signature="imports" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1202,7 +1198,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="3738">
           <caret line="178" column="12" lean-forward="false" selection-start-line="178" selection-start-column="12" selection-end-line="178" selection-end-column="12" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1210,7 +1205,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1226,31 +1220,14 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="132" lean-forward="true" selection-start-line="0" selection-start-column="132" selection-end-line="0" selection-end-column="132" />
-          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/out/production/Tum-Master-Thesis/org/tum/project/projectInfo.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="651">
-          <caret line="31" column="7" lean-forward="false" selection-start-line="31" selection-start-column="7" selection-end-line="31" selection-end-column="7" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/org/tum/project/dashboard_controller/simulationPane/simulationTask.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="168">
-          <caret line="8" column="8" lean-forward="false" selection-start-line="8" selection-start-column="8" selection-end-line="8" selection-end-column="8" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/src/org/tum/project/dashboard_controller/simulationPane/simulationTask.java" />
     <entry file="file://$PROJECT_DIR$/src/org/tum/project/utils/SimulationUtils.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="155">
           <caret line="66" column="0" lean-forward="false" selection-start-line="66" selection-start-column="0" selection-end-line="66" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1259,7 +1236,7 @@
         <state relative-caret-position="462">
           <caret line="33" column="57" lean-forward="false" selection-start-line="33" selection-start-column="57" selection-end-line="33" selection-end-column="57" />
           <folding>
-            <element signature="imports" expanded="true" />
+            <element signature="imports" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1268,7 +1245,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="177">
           <caret line="272" column="0" lean-forward="false" selection-start-line="272" selection-start-column="0" selection-end-line="272" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1277,63 +1253,9 @@
         <state relative-caret-position="3563">
           <caret line="446" column="11" lean-forward="false" selection-start-line="446" selection-start-column="11" selection-end-line="446" selection-end-column="11" />
           <folding>
-            <element signature="e#15020#15021#0" expanded="true" />
-            <element signature="e#15084#15085#0" expanded="true" />
+            <element signature="e#15020#15021#0" expanded="false" />
+            <element signature="e#15084#15085#0" expanded="false" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/org/tum/project/dashboard_controller/simulationPane/SimulationProjectSetting.fxml">
-      <provider editor-type-id="text-editor">
-        <state relative-caret-position="208">
-          <caret line="29" column="34" lean-forward="false" selection-start-line="29" selection-start-column="34" selection-end-line="29" selection-end-column="34" />
-          <folding>
-            <marker date="1496605177758" expanded="true" signature="9193:9214" ph="..." />
-          </folding>
-        </state>
-      </provider>
-      <provider selected="true" editor-type-id="JavaFX-Scene-Builder">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/org/tum/project/dashboard_controller/simulationPane/SimulationProgress.fxml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="394">
-          <caret line="28" column="28" lean-forward="false" selection-start-line="28" selection-start-column="28" selection-end-line="28" selection-end-column="28" />
-          <folding>
-            <marker date="1496628145257" expanded="true" signature="3548:3625" ph="..." />
-            <marker date="1496628145257" expanded="true" signature="4909:5021" ph="..." />
-            <marker date="1496628145257" expanded="true" signature="4928:5005" ph="..." />
-          </folding>
-        </state>
-      </provider>
-      <provider editor-type-id="JavaFX-Scene-Builder">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/org/tum/project/dashboard_controller/simulationPane/SimulationPathSettingController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="361">
-          <caret line="33" column="29" lean-forward="false" selection-start-line="33" selection-start-column="29" selection-end-line="33" selection-end-column="29" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/org/tum/project/dashboard_controller/simulationPane/SimulationProjectSettingController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="226">
-          <caret line="143" column="0" lean-forward="false" selection-start-line="143" selection-start-column="0" selection-end-line="143" selection-end-column="0" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/org/tum/project/dashboard_controller/simulationPane/SimulationProgressController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="405">
-          <caret line="210" column="0" lean-forward="false" selection-start-line="210" selection-start-column="0" selection-end-line="210" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1350,6 +1272,261 @@
     <entry file="file://$PROJECT_DIR$/src/org/tum/project/dashboard_controller/simulationPane/imgs/ok.png">
       <provider selected="true" editor-type-id="images">
         <state />
+      </provider>
+    </entry>
+    <entry file="jar://$USER_HOME$/Documents/Software/jdk1.8.0_131/javafx-src.zip!/javafx/animation/Animation.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-290">
+          <caret line="571" column="35" lean-forward="false" selection-start-line="571" selection-start-column="22" selection-end-line="571" selection-end-column="35" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/org/tum/project/dashboard_controller/custom.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="903">
+          <caret line="43" column="1" lean-forward="false" selection-start-line="43" selection-start-column="1" selection-end-line="43" selection-end-column="9" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/org/tum/project/dashboard_controller/simulationPane/SimulationPathSettingController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1638">
+          <caret line="90" column="23" lean-forward="false" selection-start-line="90" selection-start-column="8" selection-end-line="90" selection-end-column="23" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$USER_HOME$/Documents/Software/jdk1.8.0_131/javafx-src.zip!/javafx/event/EventHandler.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="441">
+          <caret line="44" column="9" lean-forward="false" selection-start-line="44" selection-start-column="9" selection-end-line="44" selection-end-column="9" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/org/tum/project/images/Female - 01.png">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/org/tum/project/images/Male - 01.png">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/org/tum/project/images/Preloader_1.gif">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/org/tum/project/dashboard_controller/simulationPane/SimulationProgress.fxml">
+      <provider editor-type-id="JavaFX-Scene-Builder">
+        <state />
+      </provider>
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="315">
+          <caret line="15" column="66" lean-forward="false" selection-start-line="15" selection-start-column="66" selection-end-line="15" selection-end-column="230" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/org/tum/project/login_controller/MenusHolderController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="785">
+          <caret line="80" column="0" lean-forward="false" selection-start-line="80" selection-start-column="0" selection-end-line="80" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/org/tum/project/dashboard_controller/simulationPane/SimulationPathSetting.fxml">
+      <provider editor-type-id="JavaFX-Scene-Builder">
+        <state />
+      </provider>
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-273">
+          <caret line="23" column="27" lean-forward="false" selection-start-line="23" selection-start-column="23" selection-end-line="23" selection-end-column="27" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/org/tum/project/dashboard_controller/Simulation.fxml">
+      <provider editor-type-id="JavaFX-Scene-Builder">
+        <state />
+      </provider>
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="63">
+          <caret line="3" column="54" lean-forward="false" selection-start-line="3" selection-start-column="25" selection-end-line="3" selection-end-column="63" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/org/tum/project/dashboard_controller/DashBoard.fxml">
+      <provider editor-type-id="JavaFX-Scene-Builder">
+        <state />
+      </provider>
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1386">
+          <caret line="66" column="92" lean-forward="true" selection-start-line="66" selection-start-column="92" selection-end-line="66" selection-end-column="92" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/org/tum/project/controller/MainActivityController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-2641">
+          <caret line="14" column="13" lean-forward="false" selection-start-line="14" selection-start-column="13" selection-end-line="14" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/org/tum/project/callback/DataUpdateCallback.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="303">
+          <caret line="24" column="26" lean-forward="false" selection-start-line="24" selection-start-column="9" selection-end-line="24" selection-end-column="26" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/org/tum/project/callback/DataUpdateCallbackAdapter.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="294">
+          <caret line="14" column="29" lean-forward="false" selection-start-line="14" selection-start-column="29" selection-end-line="14" selection-end-column="29" />
+          <folding>
+            <element signature="imports" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/org/tum/project/utils/sqlUtils.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="462">
+          <caret line="24" column="128" lean-forward="false" selection-start-line="24" selection-start-column="128" selection-end-line="24" selection-end-column="128" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/org/tum/project/dashboard_controller/simulationPane/SimulationProjectSetting.fxml">
+      <provider editor-type-id="JavaFX-Scene-Builder">
+        <state />
+      </provider>
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="535">
+          <caret line="33" column="28" lean-forward="true" selection-start-line="29" selection-start-column="14" selection-end-line="33" selection-end-column="28" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/org/tum/project/controller/LoginController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="273">
+          <caret line="31" column="33" lean-forward="false" selection-start-line="31" selection-start-column="25" selection-end-line="31" selection-end-column="33" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/org/tum/project/dashboard_controller/DashBoardController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="987">
+          <caret line="64" column="43" lean-forward="false" selection-start-line="64" selection-start-column="43" selection-end-line="64" selection-end-column="43" />
+          <folding>
+            <element signature="e#2176#2177#0" expanded="false" />
+            <element signature="e#2226#2227#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/org/tum/project/dashboard_controller/SimulationController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="504">
+          <caret line="33" column="0" lean-forward="false" selection-start-line="33" selection-start-column="0" selection-end-line="33" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/org/tum/project/dashboard_controller/simulationPane/SimulationProjectSettingController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="3339">
+          <caret line="190" column="66" lean-forward="false" selection-start-line="190" selection-start-column="66" selection-end-line="190" selection-end-column="66" />
+          <folding>
+            <element signature="imports" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/org/tum/project/main/Main.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="189">
+          <caret line="18" column="14" lean-forward="false" selection-start-line="18" selection-start-column="14" selection-end-line="18" selection-end-column="14" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/org/tum/project/controller/MainController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="3213">
+          <caret line="189" column="14" lean-forward="false" selection-start-line="188" selection-start-column="7" selection-end-line="202" selection-end-column="61" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/org/tum/project/dataservice/FlowLatencyService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="417">
+          <caret line="59" column="59" lean-forward="false" selection-start-line="59" selection-start-column="59" selection-end-line="59" selection-end-column="59" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/org/tum/project/login_controller/MaterialLoginController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="266">
+          <caret line="144" column="23" lean-forward="false" selection-start-line="141" selection-start-column="7" selection-end-line="150" selection-end-column="11" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/org/tum/project/dashboard_controller/simulationPane/SimulationProgressController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="496">
+          <caret line="167" column="48" lean-forward="false" selection-start-line="167" selection-start-column="48" selection-end-line="167" selection-end-column="48" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/org/tum/project/dashboard_controller/FlowLatencyController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="422">
+          <caret line="38" column="40" lean-forward="false" selection-start-line="38" selection-start-column="40" selection-end-line="38" selection-end-column="40" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/org/tum/project/dashboard_controller/FlowLatency.fxml">
+      <provider editor-type-id="JavaFX-Scene-Builder">
+        <state />
+      </provider>
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="447">
+          <caret line="55" column="13" lean-forward="true" selection-start-line="55" selection-start-column="13" selection-end-line="55" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/out/production/Tum-Master-Thesis/org/tum/project/projectInfo.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="756">
+          <caret line="36" column="42" lean-forward="true" selection-start-line="36" selection-start-column="42" selection-end-line="36" selection-end-column="42" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/out/production/Tum-Master-Thesis/org/tum/project/prop.properties">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="168">
+          <caret line="8" column="0" lean-forward="true" selection-start-line="8" selection-start-column="0" selection-end-line="8" selection-end-column="0" />
+          <folding />
+        </state>
       </provider>
     </entry>
   </component>

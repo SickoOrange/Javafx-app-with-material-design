@@ -7,9 +7,15 @@ import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.layout.AnchorPane;
+import org.omg.CORBA.OBJECT_NOT_EXIST;
+import org.tum.project.dataservice.FifoSizeService;
+import org.tum.project.dataservice.FlitTraceService;
+import org.tum.project.dataservice.FlowLatencyService;
+import org.tum.project.dataservice.FlowPacketLatencyService;
 
 import java.io.IOException;
 import java.net.URL;
+import java.util.HashMap;
 import java.util.ResourceBundle;
 
 /**
@@ -23,12 +29,8 @@ public class DashBoardController implements Initializable {
 
     @FXML
     private AnchorPane holderPane;
-
-
-    @FXML
-    void openSimulationPane(ActionEvent event) {
-        setCenterNode(simulationPane);
-    }
+    private AnchorPane flowLatencyPane;
+    private static HashMap<String, Object> serviceInstanceMap;
 
 
     /**
@@ -39,10 +41,68 @@ public class DashBoardController implements Initializable {
      */
     @Override
     public void initialize(URL location, ResourceBundle resources) {
+        createDataService();
         createCenterNode();
         setCenterNode(simulationPane);
     }
 
+    /**
+     * create service instance for the data analysis
+     */
+    private void createDataService() {
+        FlowLatencyService flowLatencyService = new FlowLatencyService();
+        FlowPacketLatencyService flowPacketLatencyService = new FlowPacketLatencyService();
+        FifoSizeService fifoSizeService = new FifoSizeService();
+        FlitTraceService flitTraceService = new FlitTraceService();
+        serviceInstanceMap = new HashMap<>();
+        serviceInstanceMap.put(FlowLatencyService.class.getName(), flowLatencyService);
+        serviceInstanceMap.put(FlowPacketLatencyService.class.getName(), flowPacketLatencyService);
+        serviceInstanceMap.put(FifoSizeService.class.getName(), fifoSizeService);
+        serviceInstanceMap.put(FlitTraceService.class.getName(), flitTraceService);
+    }
+
+    public static Object getDataServiceInstance(String key) {
+        return serviceInstanceMap.get(key);
+    }
+
+    /**
+     * create different node, that need to be loaded into the right pane
+     */
+    private void createCenterNode() {
+        try {
+            simulationPane = FXMLLoader.load(getClass().getResource("../dashboard_controller/Simulation.fxml"));
+            flowLatencyPane = FXMLLoader.load(getClass().getResource("../dashboard_controller/FlowLatency.fxml"));
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    @FXML
+    void openSimulationPane(ActionEvent event) {
+        setCenterNode(simulationPane);
+    }
+
+    @FXML
+    public void openFlowLatencyPane(ActionEvent actionEvent) {
+        setCenterNode(flowLatencyPane);
+
+    }
+
+    @FXML
+    public void openFlowPacketLatencyPane(ActionEvent actionEvent) {
+
+    }
+
+    @FXML
+    public void openFlowSizePane(ActionEvent actionEvent) {
+
+
+    }
+
+    @FXML
+    public void openFlitsTrance(ActionEvent actionEvent) {
+
+    }
 
     /**
      * Appends the specified element to the end of this pane list
@@ -54,14 +114,5 @@ public class DashBoardController implements Initializable {
         holderPane.getChildren().add(element);
     }
 
-    /**
-     * create different node, that need to be loaded into the right pane
-     */
-    private void createCenterNode() {
-        try {
-            simulationPane = FXMLLoader.load(getClass().getResource("../dashboard_controller/Simulation.fxml"));
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-    }
+
 }

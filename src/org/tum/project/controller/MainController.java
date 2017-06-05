@@ -964,6 +964,11 @@ public class MainController implements DataUpdateCallback, JFrameCallback, Simul
     }
 
 
+    @Override
+    public void updateFLowLatency(HashMap<Long, String> flowChartDataMap, StringBuffer analyzeResult) {
+
+    }
+
     /**
      * call back interface
      * data visualization operations for fifo Analyze

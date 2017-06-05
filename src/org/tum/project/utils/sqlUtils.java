@@ -8,8 +8,10 @@ import java.sql.*;
 public class sqlUtils {
 
 
-    public static final String REGISTER_NAME="com.mysql.jdbc.Driver";
-    public static final String URL="jdbc:mysql://localhost:3306";
+    public static final String REGISTER_NAME = "com.mysql.jdbc.Driver";
+    public static final String URL = "jdbc:mysql://localhost:3306";
+
+
     private sqlUtils() {
     }
 
@@ -17,20 +19,20 @@ public class sqlUtils {
     public static Connection getMySqlConnection(String database) throws ClassNotFoundException, SQLException {
         Class.forName(REGISTER_NAME);
         if (!database.equals("")) {
-            database="/"+database;
+            database = "/" + database;
         }
-      //  System.out.println(MaterialLoginController.getRealName()+MaterialLoginController.getRealPassword());
-        return DriverManager.getConnection(URL+database,LoginController.realName,LoginController.realPassword);
+        //  System.out.println(MaterialLoginController.getRealName()+MaterialLoginController.getRealPassword());
+        return DriverManager.getConnection(URL + database, Utils.readPropValue("userName"), Utils.readPropValue("userPassword"));
     }
 
-    public static void closeConn(Connection rs, Statement stat, ResultSet conn){
+    public static void closeConn(Connection rs, Statement stat, ResultSet conn) {
         if (rs != null) {
             try {
                 rs.close();
             } catch (SQLException e) {
                 e.printStackTrace();
-            }finally {
-                rs=null;
+            } finally {
+                rs = null;
             }
         }
 
@@ -39,8 +41,8 @@ public class sqlUtils {
                 stat.close();
             } catch (SQLException e) {
                 e.printStackTrace();
-            }finally {
-                stat=null;
+            } finally {
+                stat = null;
             }
         }
 
@@ -49,8 +51,8 @@ public class sqlUtils {
                 conn.close();
             } catch (SQLException e) {
                 e.printStackTrace();
-            }finally {
-                conn=null;
+            } finally {
+                conn = null;
             }
         }
 

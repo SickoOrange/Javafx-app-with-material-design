@@ -15,7 +15,9 @@ import javafx.scene.control.ToggleGroup;
 import org.dom4j.Document;
 import org.dom4j.DocumentException;
 import org.tum.project.bean.ProjectInfo;
+import org.tum.project.dashboard_controller.DashBoardController;
 import org.tum.project.dashboard_controller.SimulationController;
+import org.tum.project.dataservice.FlowLatencyService;
 import org.tum.project.login_controller.MenusHolderController;
 import org.tum.project.utils.SimulationUtils;
 import org.tum.project.utils.Utils;
@@ -28,6 +30,7 @@ import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.ResourceBundle;
 
 /**
@@ -77,6 +80,21 @@ public class SimulationProjectSettingController implements Initializable {
     private SimulationPathSettingController simulationPathSettingController;
     private SimulationProgressController simulationProgressController;
 
+
+    /**
+     * select default path
+     *
+     * @param actionEvent
+     */
+    public void rb_defaultPathAction(ActionEvent actionEvent) {
+        et_cefFile.setEditable(false);
+        et_testBench.setEditable(false);
+        String cefPath = Utils.readPropValue("CefFilePath");
+        String saveCppPath = Utils.readPropValue("SaveCppPath");
+        et_cefFile.setText(cefPath);
+        et_testBench.setText(saveCppPath);
+    }
+
     class SimulationTask implements Runnable {
 
         @Override
@@ -84,6 +102,7 @@ public class SimulationProjectSettingController implements Initializable {
             System.out.println("start simulation");
             btnSimulation.setDisable(true);
             simulationProgressController = (SimulationProgressController) SimulationController.getControllerInstance(SimulationProgressController.class.getName());
+            simulationProgressController.clear();
             simulationProgressController.startAnimation1("Checking for Start");
 
 
@@ -109,6 +128,9 @@ public class SimulationProjectSettingController implements Initializable {
             //load the simulation to the default
             Utils.updatePropValue("ModelsNocPath", simulationPath[0]);
             Utils.updatePropValue("SystemCLibPath", simulationPath[1]);
+
+            Utils.updatePropValue("CefFilePath", cefFilePath);
+            Utils.updatePropValue("SaveCppPath", testBenchSavePath);
 
 
             ProjectInfo info = new ProjectInfo();
@@ -154,9 +176,25 @@ public class SimulationProjectSettingController implements Initializable {
             String cmd = "./nocSim";
             SimulationUtils.execute(cmd, simulationPath[0], simulationPath[1]);
 
+
+            //start to analyze
             System.out.println("start to analyze");
             simulationProgressController.startAnimation6("Start\n" + "to\n" + "analyze\n");
             btnSimulation.setDisable(false);
+
+            //execute the analysis for flow latency
+            //module table name list is needed for the execution
+            FlowLatencyService flowLatencyInstance = (FlowLatencyService) DashBoardController.getDataServiceInstance(FlowLatencyService.class.getName());
+            List<String> moduleTableList = new ArrayList<>();
+            //moduleTableList.add(mt_name);
+            //flowLatencyInstance.startAnalyze(moduleTableList, db_name);
+            moduleTableList.add("module_simulation_2017_6_6_0_3_27");
+            flowLatencyInstance.startAnalyze(moduleTableList, "SystemC");
+
+            //finish
+            System.out.println("finish");
+            simulationProgressController.stopAnimation6();
+
         }
     }
 
