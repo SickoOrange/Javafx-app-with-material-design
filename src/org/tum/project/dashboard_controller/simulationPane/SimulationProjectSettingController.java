@@ -1,5 +1,7 @@
 package org.tum.project.dashboard_controller.simulationPane;
 
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
 import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXComboBox;
 import com.jfoenix.controls.JFXRadioButton;
@@ -20,6 +22,8 @@ import org.tum.project.utils.Utils;
 import org.tum.project.utils.xmlUtils;
 
 import java.io.File;
+import java.io.FileWriter;
+import java.io.IOException;
 import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.ArrayList;
@@ -36,6 +40,8 @@ public class SimulationProjectSettingController implements Initializable {
 
     @FXML
     private ToggleGroup level;
+    @FXML
+    private JFXButton btnSimulation;
 
 
     @FXML
@@ -67,6 +73,98 @@ public class SimulationProjectSettingController implements Initializable {
 
     private File xmlFile;
     private HashMap<String, ProjectInfo> infosMap;
+    private Thread simulationThread;
+    private SimulationPathSettingController simulationPathSettingController;
+    private SimulationProgressController simulationProgressController;
+
+    class SimulationTask implements Runnable {
+
+        @Override
+        public void run() {
+            System.out.println("start simulation");
+            btnSimulation.setDisable(true);
+            simulationProgressController = (SimulationProgressController) SimulationController.getControllerInstance(SimulationProgressController.class.getName());
+            simulationProgressController.startAnimation1("Checking for Start");
+
+
+            //Collect the necessary path information
+            simulationPathSettingController = (SimulationPathSettingController) SimulationController.getControllerInstance(SimulationPathSettingController.class.getName());
+
+            String[] simulationPath = simulationPathSettingController.getSimulationPath();
+
+            //Collect the necessary simulation dank bank information
+            String db_name = et_dbName.getText();
+            String mt_name = et_mtName.getText();
+            String ft_name = et_ftName.getText();
+            String fft_name = et_fftName.getText();
+
+            //Collect the necessary cef model and save test bench test c++ file path
+            String cefFilePath = et_cefFile.getText();
+            String testBenchSavePath = et_testBench.getText();
+
+
+            // TODO: 17-6-4  validate all string, can‘be null
+            System.out.println("start collect information");
+            simulationProgressController.startAnimation2("Collecting\n" + "Info\n");
+            //load the simulation to the default
+            Utils.updatePropValue("ModelsNocPath", simulationPath[0]);
+            Utils.updatePropValue("SystemCLibPath", simulationPath[1]);
+
+
+            ProjectInfo info = new ProjectInfo();
+            info.setSimulationFile(et_fileName.getText());
+            info.setDataBankName(db_name);
+            info.setModuleTableName(mt_name);
+            info.setFifoTableName(ft_name);
+            info.setFastfifoTabelName(fft_name);
+
+            //only when the new project is active, then write the project info to the software
+            if (rb_new.isSelected()) {
+                xmlUtils.writeToDocument(info);
+            }
+
+
+            //write the relative information to the json file in the simulation path.
+            GsonBuilder builder = new GsonBuilder();
+            Gson gson = builder.create();
+            String parametersPath = simulationPath[0] + "/params.json";
+            try {
+                FileWriter writer = new FileWriter(parametersPath);
+                writer.write(gson.toJson(info));
+                writer.flush();
+                writer.close();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+
+
+            //generate the test bench c++ file
+            System.out.println("Start generate c++ file");
+            simulationProgressController.startAnimation3("Generate\n" + "file\n");
+            SimulationUtils.generateTestFile(cefFilePath, testBenchSavePath);
+
+            //compile the module
+            System.out.println("start compile");
+            simulationProgressController.startAnimation4("Start\n" + "to\n" + "compile\n");
+            SimulationUtils.compile(simulationPath[0]);
+
+            //execute the simulation
+            System.out.println("start simulation");
+            simulationProgressController.startAnimation5("Start\n" + "to\n" + "simulate\n");
+            String cmd = "./nocSim";
+            SimulationUtils.execute(cmd, simulationPath[0], simulationPath[1]);
+
+            System.out.println("start to analyze");
+            simulationProgressController.startAnimation6("Start\n" + "to\n" + "analyze\n");
+            btnSimulation.setDisable(false);
+        }
+    }
+
+    @FXML
+    public void startSimulationAction(ActionEvent actionEvent) {
+        simulationThread = new Thread(new SimulationTask());
+        simulationThread.start();
+    }
 
 
     @Override
@@ -120,59 +218,6 @@ public class SimulationProjectSettingController implements Initializable {
         System.out.println("finish");
     }
 
-    @FXML
-    public void startSimulationAction(ActionEvent actionEvent) {
-        System.out.println("start simulation");
-
-        //Collect the necessary path information
-        SimulationPathSettingController simulationPathSettingController = (SimulationPathSettingController) SimulationController.getControllerInstance(SimulationPathSettingController.class.getName());
-        String[] simulationPath = simulationPathSettingController.getSimulationPath();
-
-        //Collect the necessary simulation dank bank information
-        String db_name = et_dbName.getText();
-        String mt_name = et_mtName.getText();
-        String ft_name = et_ftName.getText();
-        String fft_name = et_fftName.getText();
-
-        //Collect the necessary cef model and save test bench test c++ file path
-        String cefFilePath = et_cefFile.getText();
-        String testBenchSavePath = et_testBench.getText();
-
-
-        // TODO: 17-6-4  validate all string, can‘be null
-        System.out.println("start collect information");
-        //load the simulation to the default
-        Utils.updatePropValue("ModelsNocPath", simulationPath[0]);
-        Utils.updatePropValue("SystemCLibPath", simulationPath[1]);
-
-        //only when the new project is active, then write the project info to the software
-        if (rb_new.isSelected()) {
-            ProjectInfo info = new ProjectInfo();
-            info.setSimulationFile(et_fileName.getText());
-            info.setDataBankName(db_name);
-            info.setModuleTableName(mt_name);
-            info.setFifoTableName(ft_name);
-            info.setFastfifoTabelName(fft_name);
-            xmlUtils.writeToDocument(info);
-        }
-
-        //generate the test bench c++ file
-        System.out.println("start generate c++ file");
-        SimulationUtils.generateTestFile(cefFilePath, testBenchSavePath);
-
-        //compile the module
-        System.out.println("start compile");
-        SimulationUtils.compile(simulationPath[0]);
-
-        //execute the simulation
-        System.out.println("start simulation");
-        String cmd = "./nocSim";
-        SimulationUtils.execute(cmd, simulationPath[0],simulationPath[1]);
-
-        System.out.println("simulation finish");
-
-
-    }
 
     @FXML
     void rb_loadAction(ActionEvent event) {
