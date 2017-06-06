@@ -31,6 +31,8 @@ public class DashBoardController implements Initializable {
     private AnchorPane holderPane;
     private AnchorPane flowLatencyPane;
     private static HashMap<String, Object> serviceInstanceMap;
+    private AnchorPane flowPacketDetailsPane;
+    private AnchorPane fifoSizeDetailsPane;
 
 
     /**
@@ -72,6 +74,8 @@ public class DashBoardController implements Initializable {
         try {
             simulationPane = FXMLLoader.load(getClass().getResource("../dashboard_controller/Simulation.fxml"));
             flowLatencyPane = FXMLLoader.load(getClass().getResource("../dashboard_controller/FlowLatency.fxml"));
+            flowPacketDetailsPane = FXMLLoader.load(getClass().getResource("../dashboard_controller/FlowLatencyForPacket.fxml"));
+            fifoSizeDetailsPane = FXMLLoader.load(getClass().getResource("../dashboard_controller/FifoSizeDetails.fxml"));
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -90,11 +94,12 @@ public class DashBoardController implements Initializable {
 
     @FXML
     public void openFlowPacketLatencyPane(ActionEvent actionEvent) {
-
+        setCenterNode(flowPacketDetailsPane);
     }
 
     @FXML
     public void openFlowSizePane(ActionEvent actionEvent) {
+        setCenterNode(fifoSizeDetailsPane);
 
 
     }

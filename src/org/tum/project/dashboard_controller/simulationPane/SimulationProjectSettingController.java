@@ -17,7 +17,10 @@ import org.dom4j.DocumentException;
 import org.tum.project.bean.ProjectInfo;
 import org.tum.project.dashboard_controller.DashBoardController;
 import org.tum.project.dashboard_controller.SimulationController;
+import org.tum.project.dataservice.FifoSizeService;
+import org.tum.project.dataservice.FlitTraceService;
 import org.tum.project.dataservice.FlowLatencyService;
+import org.tum.project.dataservice.FlowPacketLatencyService;
 import org.tum.project.login_controller.MenusHolderController;
 import org.tum.project.utils.SimulationUtils;
 import org.tum.project.utils.Utils;
@@ -190,6 +193,29 @@ public class SimulationProjectSettingController implements Initializable {
             //flowLatencyInstance.startAnalyze(moduleTableList, db_name);
             moduleTableList.add("module_simulation_2017_6_6_0_3_27");
             flowLatencyInstance.startAnalyze(moduleTableList, "SystemC");
+
+
+            //execute the analysis for flow packet details
+            //module table name list is needed for the execution
+            FlowPacketLatencyService flowPacketLatencyService = (FlowPacketLatencyService) DashBoardController.getDataServiceInstance(FlowPacketLatencyService.class.getName());
+            flowPacketLatencyService.startAnalyze(moduleTableList, "SystemC");
+
+
+            //execute the analysis for fifo size analyse details
+            //fifo size table name list is needed for the execution
+            FifoSizeService fifoSizeService = (FifoSizeService) DashBoardController.getDataServiceInstance(FifoSizeService.class.getName());
+            List<String> fifoTabelList = new ArrayList<>();
+            //fifoTabelList.add(ft_name);
+            fifoTabelList.add("fifo_simulation_2017_6_6_3_9_33");
+            fifoSizeService.startAnalyze(fifoTabelList, "SystemC");
+
+            //execute the analysis for trace flits details
+            //FlitTraceService flitTraceService = (FlitTraceService) DashBoardController.getDataServiceInstance(FlitTraceService.class.getName());
+            //List<String> fastfifoTabelList = new ArrayList<>();
+            //fifoTabelList.add(fft_name);
+           // fastfifoTabelList.add("fastfiforw_simulation_2017_6_6_3_9_33 ");
+           // flitTraceService.startAnalyze(fastfifoTabelList, "SystemC");
+
 
             //finish
             System.out.println("finish");
