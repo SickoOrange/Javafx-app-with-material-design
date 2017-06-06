@@ -228,6 +228,7 @@ public class SimulationProjectSettingController implements Initializable {
     public void startSimulationAction(ActionEvent actionEvent) {
         simulationThread = new Thread(new SimulationTask());
         simulationThread.start();
+        // FIXME: 17-6-6 when the simulation is failed, that need to enable the button
     }
 
 

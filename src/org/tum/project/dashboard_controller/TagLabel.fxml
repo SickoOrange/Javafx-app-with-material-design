@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<HBox xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <Label fx:id="lb_tag" alignment="CENTER" contentDisplay="CENTER" prefHeight="27.0" prefWidth="0.0" style="-fx-background-radius: 20;" text="Label" textAlignment="CENTER" textFill="#e106d6" wrapText="true">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Label>
+      <Label fx:id="lb_tag1" alignment="CENTER" contentDisplay="CENTER" layoutX="3.0" prefHeight="20.0" prefWidth="20.0" style="-fx-background-radius: 20; -fx-background-color: #e106d6; -fx-alignment: CENTER;" text="0" textAlignment="CENTER" textFill="WHITE" wrapText="true">
+         <font>
+            <Font size="11.0" />
+         </font>
+         <opaqueInsets>
+            <Insets />
+         </opaqueInsets>
+      </Label>
+   </children>
+</HBox>

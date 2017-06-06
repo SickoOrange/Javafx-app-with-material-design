@@ -56,11 +56,13 @@ public class DashBoardController implements Initializable {
         FlowPacketLatencyService flowPacketLatencyService = new FlowPacketLatencyService();
         FifoSizeService fifoSizeService = new FifoSizeService();
         FlitTraceService flitTraceService = new FlitTraceService();
+        TagLabelController tagLabelController = new TagLabelController();
         serviceInstanceMap = new HashMap<>();
         serviceInstanceMap.put(FlowLatencyService.class.getName(), flowLatencyService);
         serviceInstanceMap.put(FlowPacketLatencyService.class.getName(), flowPacketLatencyService);
         serviceInstanceMap.put(FifoSizeService.class.getName(), fifoSizeService);
         serviceInstanceMap.put(FlitTraceService.class.getName(), flitTraceService);
+        serviceInstanceMap.put(TagLabelController.class.getName(), tagLabelController);
     }
 
     public static Object getDataServiceInstance(String key) {
