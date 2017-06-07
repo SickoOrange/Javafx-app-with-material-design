@@ -210,11 +210,11 @@ public class SimulationProjectSettingController implements Initializable {
             fifoSizeService.startAnalyze(fifoTabelList, "SystemC");
 
             //execute the analysis for trace flits details
-            //FlitTraceService flitTraceService = (FlitTraceService) DashBoardController.getDataServiceInstance(FlitTraceService.class.getName());
-            //List<String> fastfifoTabelList = new ArrayList<>();
+            FlitTraceService flitTraceService = (FlitTraceService) DashBoardController.getDataServiceInstance(FlitTraceService.class.getName());
+            List<String> fastfifoTabelList = new ArrayList<>();
             //fifoTabelList.add(fft_name);
-           // fastfifoTabelList.add("fastfiforw_simulation_2017_6_6_3_9_33 ");
-           // flitTraceService.startAnalyze(fastfifoTabelList, "SystemC");
+            fastfifoTabelList.add("fastfiforw_simulation_2017_6_6_6_8_23");
+            flitTraceService.startAnalyze(fastfifoTabelList, "SystemC");
 
 
             //finish

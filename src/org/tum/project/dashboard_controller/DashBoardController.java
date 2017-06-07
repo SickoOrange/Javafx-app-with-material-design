@@ -33,6 +33,7 @@ public class DashBoardController implements Initializable {
     private static HashMap<String, Object> serviceInstanceMap;
     private AnchorPane flowPacketDetailsPane;
     private AnchorPane fifoSizeDetailsPane;
+    private AnchorPane flitsTraceDetailsPane;
 
 
     /**
@@ -78,6 +79,7 @@ public class DashBoardController implements Initializable {
             flowLatencyPane = FXMLLoader.load(getClass().getResource("../dashboard_controller/FlowLatency.fxml"));
             flowPacketDetailsPane = FXMLLoader.load(getClass().getResource("../dashboard_controller/FlowLatencyForPacket.fxml"));
             fifoSizeDetailsPane = FXMLLoader.load(getClass().getResource("../dashboard_controller/FifoSizeDetails.fxml"));
+            flitsTraceDetailsPane = FXMLLoader.load(getClass().getResource("../dashboard_controller/FlitsTrace.fxml"));
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -108,6 +110,7 @@ public class DashBoardController implements Initializable {
 
     @FXML
     public void openFlitsTrance(ActionEvent actionEvent) {
+        setCenterNode(flitsTraceDetailsPane);
 
     }
 

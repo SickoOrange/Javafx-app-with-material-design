@@ -8,9 +8,9 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<HBox xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+<HBox prefHeight="27.0" prefWidth="80.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
    <children>
-      <Label fx:id="lb_tag" alignment="CENTER" contentDisplay="CENTER" prefHeight="27.0" prefWidth="0.0" style="-fx-background-radius: 20;" text="Label" textAlignment="CENTER" textFill="#e106d6" wrapText="true">
+      <Label fx:id="lb_tag" alignment="CENTER" contentDisplay="CENTER" prefHeight="27.0" prefWidth="60.0" style="-fx-background-radius: 20;" text="Label" textAlignment="CENTER" textFill="#e106d6" wrapText="true">
          <font>
             <Font size="14.0" />
          </font>

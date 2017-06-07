@@ -18,6 +18,7 @@ import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import javafx.scene.text.Font;
 import javafx.scene.text.Text;
+import javafx.scene.text.TextAlignment;
 import org.tum.project.bean.FifoInfo;
 import org.tum.project.callback.DataUpdateCallbackAdapter;
 import org.tum.project.dataservice.FifoSizeService;
@@ -239,6 +240,8 @@ public class FifoSizeDetailsController extends DataUpdateCallbackAdapter impleme
             box.setId(name);
             Label label = (Label) box.getChildren().get(0);
             label.setText(name);
+            label.setWrapText(true);
+            label.setTextAlignment(TextAlignment.JUSTIFY);
             Label counter = (Label) box.getChildren().get(1);
 
             counterLabelContainer.put(name, counter);

@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import com.jfoenix.controls.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane prefHeight="720.0" prefWidth="1100.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.tum.project.dashboard_controller.FlitsTraceController">
+    <children>
+        <AnchorPane layoutX="541.0" layoutY="28.0" prefHeight="405.0" prefWidth="527.0" style="-fx-background-color: white; -fx-background-radius: 3; -fx-border-radius: 3; -fx-effect: dropshadow(gaussian, rgb(0.0, 0.0, 0.0, 0.15), 6.0, 0.7, 0.0,1.5);">
+         <children>
+            <JFXButton layoutX="73.0" layoutY="361.0" onAction="#testAction" prefHeight="28.0" prefWidth="137.0" text="bbb" textFill="#1cd369" />
+         </children></AnchorPane>
+        <AnchorPane layoutX="293.0" layoutY="439.0" prefHeight="260.0" prefWidth="776.0" style="-fx-background-color: white; -fx-background-radius: 3; -fx-border-radius: 3; -fx-effect: dropshadow(gaussian, rgb(0.0, 0.0, 0.0, 0.15), 6.0, 0.7, 0.0,1.5);">
+            <children>
+                <TextArea fx:id="ta_flitsDetails" editable="false" prefHeight="260.0" prefWidth="776.0" />
+            </children>
+        </AnchorPane>
+        <AnchorPane layoutX="34.0" layoutY="28.0" prefHeight="672.0" prefWidth="252.0" style="-fx-background-color: white; -fx-background-radius: 3; -fx-border-radius: 3; -fx-effect: dropshadow(gaussian, rgb(0.0, 0.0, 0.0, 0.15), 6.0, 0.7, 0.0,1.5);">
+            <children>
+                <Pane prefHeight="146.0" prefWidth="252.0" style="-fx-background-color: #e316d1; -fx-background-radius: 3; -fx-border-radius: 3; -fx-effect: dropshadow(gaussian, rgb(0.0, 0.0, 0.0, 0.15), 6.0, 0.7, 0.0,1.5);" />
+            <VBox alignment="CENTER" layoutX="26.0" layoutY="184.0" prefHeight="96.0" prefWidth="202.0" style="-fx-spacing: 10;">
+               <children>
+                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Flow Details" wrappingWidth="80.126953125" />
+                  <JFXComboBox fx:id="cb_flowid" prefHeight="28.0" prefWidth="177.0" />
+               </children>
+            </VBox>
+            <VBox alignment="CENTER" layoutX="14.0" layoutY="329.0" prefHeight="283.0" prefWidth="222.0">
+               <children>
+                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="flow id. flits number, start element, end element,success flit,faild flits, trasmission time" wrappingWidth="108.126953125" />
+               </children>
+            </VBox>
+            </children>
+        </AnchorPane>
+        <AnchorPane layoutX="293.0" layoutY="28.0" prefHeight="405.0" prefWidth="241.0" style="-fx-background-color: white; -fx-background-radius: 3; -fx-border-radius: 3; -fx-effect: dropshadow(gaussian, rgb(0.0, 0.0, 0.0, 0.15), 6.0, 0.7, 0.0,1.5);">
+            <children>
+                <VBox alignment="CENTER" layoutX="16.0" layoutY="176.0" prefHeight="176.0" prefWidth="210.0" style="-fx-spacing: 15;">
+                    <children>
+                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Select FLow ID" />
+                        <Label fx:id="lb_flowid" text="Defalu Flow ID" />
+                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Select Flits ID" />
+                        <JFXComboBox fx:id="cb_flitsid" prefHeight="28.0" prefWidth="137.0" />
+                    </children>
+                </VBox>
+                <JFXButton layoutX="52.0" layoutY="352.0" onAction="#startToTraceAction" prefHeight="28.0" prefWidth="137.0" text="Start to trace" textFill="#1cd369" />
+                <Pane prefHeight="146.0" prefWidth="241.0" style="-fx-background-color: #50EEEE;" />
+            </children>
+        </AnchorPane>
+    </children>
+</AnchorPane>
