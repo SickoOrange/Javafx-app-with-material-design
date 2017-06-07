@@ -8,6 +8,8 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextArea;
+import javafx.scene.text.Text;
+import org.omg.CORBA.INTERNAL;
 import org.tum.project.bean.FlitsInfo;
 import org.tum.project.bean.FlitsSummary;
 import org.tum.project.callback.DataUpdateCallbackAdapter;
@@ -25,10 +27,35 @@ public class FlitsTraceController extends DataUpdateCallbackAdapter implements I
     private TextArea ta_flitsDetails;
 
     @FXML
-    private JFXComboBox<?> cb_flitsid;
+    private JFXComboBox<String> cb_flitsid;
 
     @FXML
     private JFXComboBox<String> cb_flowid;
+
+
+    @FXML
+    private Text lb_secondTitle;
+
+    @FXML
+    private Label lb_topTitle;
+
+    @FXML
+    private Label lb_source;
+
+    @FXML
+    private Label lb_destination;
+
+    @FXML
+    private Text lb_success;
+
+    @FXML
+    private Text lb_failed;
+
+    @FXML
+    private Text lb_duration;
+
+    @FXML
+    private Text lb_rate;
 
 
     @FXML
@@ -41,6 +68,9 @@ public class FlitsTraceController extends DataUpdateCallbackAdapter implements I
     private HashMap<Integer, StringBuffer> traceDetailsMap = new HashMap<>();
     private StringBuffer traceDetails;
     private StringBuffer tail;
+    private HashMap<Integer, List<FlitsInfo>> cloneMap = new HashMap<>();
+    ;
+
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
@@ -48,17 +78,54 @@ public class FlitsTraceController extends DataUpdateCallbackAdapter implements I
         flitTraceService.setCallback(this);
 
         //add listener to the flow id combo box
-        cb_flowid.getSelectionModel().selectedItemProperty().addListener(new ChangeListener<String>() {
-            @Override
-            public void changed(ObservableValue<? extends String> observable, String oldValue, String newValue) {
-                String id = newValue.split(":")[1];
-                StringBuffer buffer = traceDetailsMap.get(Integer.valueOf(id));
-                ta_flitsDetails.setText(buffer.toString());
+        cb_flowid.getSelectionModel().selectedItemProperty().addListener((observable, oldValue, newValue) -> {
+            String id = newValue.split(":")[1];
+            StringBuffer buffer = traceDetailsMap.get(Integer.valueOf(id));
+            ta_flitsDetails.setText(buffer.toString());
+
+            //display information in the pane
+            FlitsSummary summary = flitsSummaries.get(Integer.valueOf(id));
+            lb_topTitle.setText(String.valueOf(summary.getFlowid()));
+            lb_source.setText(summary.getStartPoint());
+            lb_destination.setText(summary.getEndPoint());
+            lb_duration.setText(String.valueOf(summary.getEndTime() - summary.getStartTime()) + " ns");
+            lb_success.setText(String.valueOf(summary.getSuccessFlitsNumber()));
+            lb_failed.setText(String.valueOf(summary.getFailedFlitsNumber()));
+            double rate = (double) summary.getSuccessFlitsNumber() / (summary.getSuccessFlitsNumber() + summary.getFailedFlitsNumber());
+            int intRate = (int) (rate * 100);
+            lb_rate.setText(String.valueOf(intRate) + "%");
+
+
+            HashMap<Integer, List<HashMap<Integer, List<FlitsInfo>>>> allFlitsIDList = summary.getAllFlitsIDList();
+            List<HashMap<Integer, List<FlitsInfo>>> list = allFlitsIDList.get(Integer.valueOf(id));
+
+
+            for (HashMap<Integer, List<FlitsInfo>> map : list) {
+                int flitID = 0;
+                List<FlitsInfo> flitsInfos = null;
+                for (Map.Entry<Integer, List<FlitsInfo>> entry : map.entrySet()) {
+                    flitID = entry.getKey();
+                    flitsInfos = entry.getValue();
+                }
+                cloneMap.put(flitID, flitsInfos);
+                cb_flitsid.getItems().add("flit id:" + String.valueOf(flitID));
+            }
+        });
+
+
+        cb_flitsid.getSelectionModel().selectedItemProperty().addListener((observable, oldValue, newValue) -> {
+            String id = newValue.split(":")[1];
+            lb_secondTitle.setText(String.valueOf(id));
+            List<FlitsInfo> infos = cloneMap.get(Integer.valueOf(id));
+            //trace information
+            for (FlitsInfo info : infos) {
+                System.out.println("\n" + info);
             }
         });
 
 
     }
+
 
     @Override
     public void updateFlitsTraceData(HashMap<Integer, List<HashMap<Integer, List<FlitsInfo>>>> flow_id_to_flits_map) {
@@ -66,6 +133,7 @@ public class FlitsTraceController extends DataUpdateCallbackAdapter implements I
         //if  map not empty, then clear this map
         flitsSummaries.clear();
         traceDetailsMap.clear();
+        cloneMap.clear();
 
         for (Map.Entry<Integer, List<HashMap<Integer, List<FlitsInfo>>>> entry : flow_id_to_flits_map.entrySet()) {
             FlitsSummary flitsSummary = new FlitsSummary();
@@ -81,6 +149,7 @@ public class FlitsTraceController extends DataUpdateCallbackAdapter implements I
             List<HashMap<Integer, List<FlitsInfo>>> flitsList = entry.getValue();
 
             flitsSummary.setFlitsNumber(flitsList.size());
+            flitsSummary.setFlitsIDList(flowid, flitsList);
 
             traceDetails = new StringBuffer();
 
@@ -92,12 +161,13 @@ public class FlitsTraceController extends DataUpdateCallbackAdapter implements I
                 sequenceControl++;
                 tail = new StringBuffer();
                 int header = 0;
+                flitsSummary.setList(flowid, flitMap.entrySet());
+
                 for (Map.Entry<Integer, List<FlitsInfo>> flitInfo : flitMap.entrySet()) {
                     header = flitInfo.getKey();
 
 
                     List<FlitsInfo> infos = flitInfo.getValue();
-                    flitsSummary.setFlitsIDList(header, infos);
                     for (FlitsInfo info : infos) {
 
                         //we just need first flit, because first flit muss be translated successfully
@@ -151,11 +221,6 @@ public class FlitsTraceController extends DataUpdateCallbackAdapter implements I
             flitsSummaries.put(flowid, flitsSummary);
 
         }
-
-    }
-
-    @FXML
-    void testAction(ActionEvent event) {
 
     }
 

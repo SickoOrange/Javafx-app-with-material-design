@@ -1,19 +1,26 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.text.*?>
+<?import javafx.scene.paint.*?>
+<?import javafx.scene.image.*?>
 <?import com.jfoenix.controls.*?>
 <?import java.lang.*?>
-<?import java.util.*?>
-<?import javafx.scene.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXComboBox?>
+<?import com.jfoenix.controls.JFXSlider?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
 
 <AnchorPane prefHeight="720.0" prefWidth="1100.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.tum.project.dashboard_controller.FlitsTraceController">
     <children>
-        <AnchorPane layoutX="541.0" layoutY="28.0" prefHeight="405.0" prefWidth="527.0" style="-fx-background-color: white; -fx-background-radius: 3; -fx-border-radius: 3; -fx-effect: dropshadow(gaussian, rgb(0.0, 0.0, 0.0, 0.15), 6.0, 0.7, 0.0,1.5);">
-         <children>
-            <JFXButton layoutX="73.0" layoutY="361.0" onAction="#testAction" prefHeight="28.0" prefWidth="137.0" text="bbb" textFill="#1cd369" />
-         </children></AnchorPane>
+        <AnchorPane layoutX="541.0" layoutY="28.0" prefHeight="405.0" prefWidth="527.0" style="-fx-background-color: white; -fx-background-radius: 3; -fx-border-radius: 3; -fx-effect: dropshadow(gaussian, rgb(0.0, 0.0, 0.0, 0.15), 6.0, 0.7, 0.0,1.5);" />
         <AnchorPane layoutX="293.0" layoutY="439.0" prefHeight="260.0" prefWidth="776.0" style="-fx-background-color: white; -fx-background-radius: 3; -fx-border-radius: 3; -fx-effect: dropshadow(gaussian, rgb(0.0, 0.0, 0.0, 0.15), 6.0, 0.7, 0.0,1.5);">
             <children>
                 <TextArea fx:id="ta_flitsDetails" editable="false" prefHeight="260.0" prefWidth="776.0" />
@@ -21,32 +28,101 @@
         </AnchorPane>
         <AnchorPane layoutX="34.0" layoutY="28.0" prefHeight="672.0" prefWidth="252.0" style="-fx-background-color: white; -fx-background-radius: 3; -fx-border-radius: 3; -fx-effect: dropshadow(gaussian, rgb(0.0, 0.0, 0.0, 0.15), 6.0, 0.7, 0.0,1.5);">
             <children>
-                <Pane prefHeight="146.0" prefWidth="252.0" style="-fx-background-color: #e316d1; -fx-background-radius: 3; -fx-border-radius: 3; -fx-effect: dropshadow(gaussian, rgb(0.0, 0.0, 0.0, 0.15), 6.0, 0.7, 0.0,1.5);" />
-            <VBox alignment="CENTER" layoutX="26.0" layoutY="184.0" prefHeight="96.0" prefWidth="202.0" style="-fx-spacing: 10;">
-               <children>
-                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Flow Details" wrappingWidth="80.126953125" />
-                  <JFXComboBox fx:id="cb_flowid" prefHeight="28.0" prefWidth="177.0" />
-               </children>
-            </VBox>
-            <VBox alignment="CENTER" layoutX="14.0" layoutY="329.0" prefHeight="283.0" prefWidth="222.0">
-               <children>
-                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="flow id. flits number, start element, end element,success flit,faild flits, trasmission time" wrappingWidth="108.126953125" />
-               </children>
-            </VBox>
+                <Pane prefHeight="146.0" prefWidth="252.0" style="-fx-background-color: rgb(39, 58, 78,0.7); -fx-background-radius: 3; -fx-border-radius: 3; -fx-effect: dropshadow(gaussian, rgb(0.0, 0.0, 0.0, 0.15), 6.0, 0.7, 0.0,1.5);">
+                    <children>
+                        <Label fx:id="lb_topTitle" alignment="CENTER" layoutX="72.0" layoutY="20.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="106.0" prefWidth="108.0" style="-fx-background-color: rgb(39, 58, 78,0.7); -fx-effect: dropshadow(gaussian, rgb(0.0, 0.0, 0.0, 0.15), 4.0, 0.3, 0.0,0.5); -fx-border-radius: 60; -fx-background-radius: 60;" text="?" textAlignment="CENTER" textFill="WHITE">
+                            <font>
+                                <Font size="48.0" />
+                            </font>
+                        </Label>
+                    </children>
+                </Pane>
+                <VBox alignment="CENTER" layoutX="11.0" layoutY="155.0" prefHeight="96.0" prefWidth="230.0" style="-fx-spacing: 10;">
+                    <children>
+                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Flow Details" wrappingWidth="80.126953125" />
+                        <JFXComboBox fx:id="cb_flowid" prefHeight="29.0" prefWidth="202.0" />
+                    </children>
+                </VBox>
+                <Pane layoutX="17.0" layoutY="260.0" prefHeight="394.0" prefWidth="217.0" style="-fx-effect: dropshadow(gaussian, rgb(0.0, 0.0, 0.0, 0.15), 6.0, 0.7, 0.0,1.5); -fx-background-color: rgb(39, 58, 78,0.7); -fx-background-radius: 8;">
+                    <children>
+                        <Text fill="WHITE" layoutX="6.0" layoutY="29.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Flow Summary" textAlignment="CENTER" wrappingWidth="194.298828125">
+                            <font>
+                                <Font name="Roboto Medium" size="14.0" />
+                            </font>
+                        </Text>
+                        <Label alignment="CENTER" contentDisplay="CENTER" layoutX="39.0" layoutY="40.0" minHeight="-Infinity" prefHeight="1.0" prefWidth="128.0" style="-fx-background-color: #a4fffc;" textAlignment="CENTER" />
+                        <Label fx:id="lb_source" alignment="CENTER" layoutX="79.0" layoutY="60.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="60.0" prefWidth="60.0" style="-fx-background-color: rgb(39, 58, 78,0.7); -fx-effect: dropshadow(gaussian, rgb(0.0, 0.0, 0.0, 0.15), 4.0, 0.3, 0.0,0.5); -fx-border-radius: 60; -fx-background-radius: 60;" text="Source" textFill="WHITE" />
+                        <Label fx:id="lb_destination" alignment="CENTER" layoutX="79.0" layoutY="179.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="60.0" prefWidth="60.0" style="-fx-background-color: rgb(39, 58, 78,0.7); -fx-effect: dropshadow(gaussian, rgb(0.0, 0.0, 0.0, 0.15), 4.0, 0.3, 0.0,0.5); -fx-border-radius: 60; -fx-background-radius: 60;" text="Destination" textFill="WHITE" />
+                        <Text fill="WHITE" layoutX="21.0" layoutY="278.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Duration:" textAlignment="CENTER" wrappingWidth="81.09765625">
+                            <font>
+                                <Font name="Roboto Medium" size="14.0" />
+                            </font>
+                        </Text>
+                        <Text fill="WHITE" layoutX="21.0" layoutY="308.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Success:" textAlignment="CENTER" wrappingWidth="81.09765625">
+                            <font>
+                                <Font name="Roboto Medium" size="14.0" />
+                            </font>
+                        </Text>
+                        <Text fill="WHITE" layoutX="21.0" layoutY="337.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Failed:" textAlignment="CENTER" wrappingWidth="81.09765625">
+                            <font>
+                                <Font name="Roboto Medium" size="14.0" />
+                            </font>
+                        </Text>
+                  <Text fx:id="lb_duration" fill="WHITE" layoutX="125.0" layoutY="278.0" strokeType="OUTSIDE" strokeWidth="0.0" text="?" textAlignment="CENTER" wrappingWidth="81.09765625">
+                     <font>
+                        <Font name="Roboto Medium" size="14.0" />
+                     </font>
+                  </Text>
+                  <Text fx:id="lb_success" fill="WHITE" layoutX="125.0" layoutY="308.0" strokeType="OUTSIDE" strokeWidth="0.0" text="?" textAlignment="CENTER" wrappingWidth="81.09765625">
+                     <font>
+                        <Font name="Roboto Medium" size="14.0" />
+                     </font>
+                  </Text>
+                  <Text fx:id="lb_failed" fill="WHITE" layoutX="125.0" layoutY="337.0" strokeType="OUTSIDE" strokeWidth="0.0" text="?" textAlignment="CENTER" wrappingWidth="81.09765625">
+                     <font>
+                        <Font name="Roboto Medium" size="14.0" />
+                     </font>
+                  </Text>
+                  <ImageView fitHeight="60.0" fitWidth="40.0" layoutX="89.0" layoutY="127.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@simulationPane/imgs/1496822053_Arrow_Download.png" />
+                     </image>
+                  </ImageView>
+                  <Text fill="WHITE" layoutX="12.0" layoutY="366.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Success Rate" textAlignment="CENTER" wrappingWidth="98.09765625">
+                     <font>
+                        <Font name="Roboto Medium" size="14.0" />
+                     </font>
+                  </Text>
+                  <Text fx:id="lb_rate" fill="WHITE" layoutX="125.0" layoutY="366.0" strokeType="OUTSIDE" strokeWidth="0.0" text="?" textAlignment="CENTER" wrappingWidth="81.09765625">
+                     <font>
+                        <Font name="Roboto Medium" size="14.0" />
+                     </font>
+                  </Text>
+                    </children>
+                </Pane>
             </children>
         </AnchorPane>
         <AnchorPane layoutX="293.0" layoutY="28.0" prefHeight="405.0" prefWidth="241.0" style="-fx-background-color: white; -fx-background-radius: 3; -fx-border-radius: 3; -fx-effect: dropshadow(gaussian, rgb(0.0, 0.0, 0.0, 0.15), 6.0, 0.7, 0.0,1.5);">
             <children>
-                <VBox alignment="CENTER" layoutX="16.0" layoutY="176.0" prefHeight="176.0" prefWidth="210.0" style="-fx-spacing: 15;">
+                <VBox alignment="CENTER" layoutX="16.0" layoutY="176.0" prefHeight="130.0" prefWidth="210.0" style="-fx-spacing: 15;">
                     <children>
-                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Select FLow ID" />
-                        <Label fx:id="lb_flowid" text="Defalu Flow ID" />
-                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Select Flits ID" />
-                        <JFXComboBox fx:id="cb_flitsid" prefHeight="28.0" prefWidth="137.0" />
+                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Flow Details" wrappingWidth="80.126953125" />
+                        <Text strokeType="OUTSIDE" strokeWidth="0.0" />
+                        <JFXComboBox fx:id="cb_flitsid" prefHeight="29.0" prefWidth="181.0" />
                     </children>
                 </VBox>
-                <JFXButton layoutX="52.0" layoutY="352.0" onAction="#startToTraceAction" prefHeight="28.0" prefWidth="137.0" text="Start to trace" textFill="#1cd369" />
-                <Pane prefHeight="146.0" prefWidth="241.0" style="-fx-background-color: #50EEEE;" />
+                <JFXButton graphicTextGap="6.0" layoutX="52.0" layoutY="352.0" onAction="#startToTraceAction" prefHeight="28.0" prefWidth="137.0" text="Start to trace" textFill="#11dd66">
+               <font>
+                  <Font size="14.0" />
+               </font></JFXButton>
+                <Pane prefHeight="146.0" prefWidth="241.0" style="-fx-background-color: rgb(39, 58, 78,0.7);">
+               <children>
+                  <Text fx:id="lb_secondTitle" fill="WHITE" layoutY="90.0" strokeType="OUTSIDE" strokeWidth="0.0" text="?" textAlignment="CENTER" wrappingWidth="241.0">
+                     <font>
+                        <Font size="48.0" />
+                     </font>
+                  </Text>
+               </children></Pane>
             </children>
         </AnchorPane>
     </children>

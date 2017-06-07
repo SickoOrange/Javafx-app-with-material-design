@@ -1,6 +1,7 @@
 package org.tum.project.login_controller;
 
 import com.jfoenix.controls.JFXRippler;
+import javafx.application.Platform;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -51,8 +52,9 @@ public class MenusHolderController implements Initializable {
      */
     @FXML
     private void openAnalytics(MouseEvent event) {
-        System.out.println(primaryStage);
-        openStage(dashBoard);
+        // Platform.runLater(() -> openStage(dashBoard));
+        new Thread(() -> Platform.runLater(() -> openStage(dashBoard))).start();
+
     }
 
     private void openStage(Parent node) {

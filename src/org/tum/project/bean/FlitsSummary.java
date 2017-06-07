@@ -2,6 +2,8 @@ package org.tum.project.bean;
 
 import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
+import java.util.Set;
 
 /**
  * Represents a flit summary of flow
@@ -18,7 +20,13 @@ public class FlitsSummary {
     private double endTime;
 
 
-    private HashMap<Integer, List<FlitsInfo>> allFlitsIDList = new HashMap<>();
+    private HashMap<Integer, List<HashMap<Integer, List<FlitsInfo>>>> allFlitsIDList = new HashMap<Integer, List<HashMap<Integer, List<FlitsInfo>>>>();
+
+    public HashMap<Integer, Set<Map.Entry<Integer, List<FlitsInfo>>>> getMap() {
+        return map;
+    }
+
+    private HashMap<Integer, Set<Map.Entry<Integer, List<FlitsInfo>>>> map = new HashMap<>();
 
     public double getStartTime() {
         return startTime;
@@ -97,7 +105,7 @@ public class FlitsSummary {
         this.failedFlitsNumber++;
     }
 
-    public void setFlitsIDList(int flitID, List<FlitsInfo> infos) {
+    public void setFlitsIDList(int flitID, List<HashMap<Integer, List<FlitsInfo>>> infos) {
         allFlitsIDList.put(flitID, infos);
     }
 
@@ -118,8 +126,11 @@ public class FlitsSummary {
                 '}';
     }
 
-    public HashMap<Integer, List<FlitsInfo>> getAllFlitsIDList() {
+    public HashMap<Integer, List<HashMap<Integer, List<FlitsInfo>>>> getAllFlitsIDList() {
         return allFlitsIDList;
     }
 
+    public void setList(int flowid, Set<Map.Entry<Integer, List<FlitsInfo>>> entries) {
+        map.put(flowid, entries);
+    }
 }
