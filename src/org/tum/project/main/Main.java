@@ -17,8 +17,8 @@ public class Main extends Application {
     public void start(Stage primaryStage) throws Exception {
         try {
 
-            Parent root = FXMLLoader.load(getClass().getResource("../layout/login_fxml.fxml"));
-            //Parent root = FXMLLoader.load(getClass().getResource("../login_controller/MaterialLogin.fxml"));
+            //Parent root = FXMLLoader.load(getClass().getResource("../layout/login_fxml.fxml"));
+            Parent root = FXMLLoader.load(getClass().getResource("../login_controller/MaterialLogin.fxml"));
            // Parent root = FXMLLoader.load(getClass().getResource("../test/listview.fxml"));
 
 

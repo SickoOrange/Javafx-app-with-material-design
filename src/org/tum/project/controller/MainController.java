@@ -21,7 +21,7 @@ import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
 import javafx.scene.text.TextAlignment;
 import javafx.stage.Stage;
-import org.tum.project.CefModelEditor.CefVisualizationService;
+import org.tum.project.dataservice.CefVisualizationService;
 import org.tum.project.bean.FifoInfo;
 import org.tum.project.bean.FlitsInfo;
 import org.tum.project.callback.JFrameCallback;

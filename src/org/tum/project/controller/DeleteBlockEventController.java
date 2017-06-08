@@ -2,8 +2,6 @@ package org.tum.project.controller;
 
 import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXTextField;
-import com.sun.scenario.effect.impl.sw.sse.SSEBlend_SRC_OUTPeer;
-import com.sun.xml.internal.bind.v2.TODO;
 import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -13,7 +11,7 @@ import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.Pane;
 import org.tum.project.CefModelEditor.CefModifyUtils;
-import org.tum.project.CefModelEditor.CefVisualizationService;
+import org.tum.project.dataservice.CefVisualizationService;
 
 import java.io.IOException;
 import java.net.URL;

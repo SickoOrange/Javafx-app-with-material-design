@@ -1,4 +1,4 @@
-package org.tum.project.CefModelEditor;
+package org.tum.project.dataservice;
 
 import Cef.*;
 import Cef.util.CefResourceFactoryImpl;
@@ -13,9 +13,7 @@ import com.mxgraph.view.mxGraph;
 import javafx.application.Platform;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXMLLoader;
-import javafx.geometry.*;
 import javafx.scene.Node;
-import javafx.scene.control.*;
 import javafx.scene.layout.*;
 import javafx.stage.FileChooser;
 import javafx.stage.Stage;
@@ -23,14 +21,13 @@ import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.emf.ecore.resource.ResourceSet;
 import org.eclipse.emf.ecore.resource.impl.ResourceSetImpl;
+import org.tum.project.CefModelEditor.CefModifyUtils;
 import org.tum.project.callback.JFrameCallback;
 import org.tum.project.controller.MainController;
 import org.tum.project.utils.Utils;
 
 import javax.swing.*;
 import java.awt.*;
-import java.awt.Insets;
-import java.awt.ScrollPane;
 import java.awt.event.MouseEvent;
 import java.io.File;
 import java.io.IOException;
@@ -72,36 +69,6 @@ public class CefVisualizationService {
         this.jFrameCallbacK = jFrameCallbacK;
     }
 
-    /**
-     * open the file chooser to select a xml file
-     *
-     * @param mainActivityStage documentRoot for main ui
-     * @param action            open oder save
-     */
-    public String handleCefEditor(Stage mainActivityStage, String action) {
-        FileChooser fileChooser = new FileChooser();
-        File selectFile = null;
-        switch (action) {
-            case "open":
-                fileChooser.setTitle("Open Resource File");
-                selectFile = fileChooser.showOpenDialog(mainActivityStage);
-                documentRoot = getMetalDocumentRoot(selectFile.getAbsolutePath());
-
-                visualization(documentRoot);
-                break;
-            case "save":
-                fileChooser.setTitle("Open Resource File");
-                selectFile = fileChooser.showSaveDialog(mainActivityStage);
-                break;
-
-        }
-        if (selectFile != null) {
-            return selectFile.getAbsolutePath();
-        } else {
-            return null;
-        }
-
-    }
 
     /**
      * test method
@@ -110,60 +77,6 @@ public class CefVisualizationService {
         DocumentRoot root = getMetalDocumentRoot("C:\\Users\\SickoOrange\\Desktop\\multimedia_4x4_routed.xml");
         initGraph();
         visualization(root);
-    }
-
-
-    /**
-     * init the setting for generate a graph
-     */
-    private void initGraph() {
-        jFrame = new JFrame();
-        jFrame.setSize(800, 800);
-        jFrame.setLocation(300, 200);
-        jFrame.setDefaultCloseOperation(WindowConstants.DISPOSE_ON_CLOSE);
-
-
-        graph = new mxGraph();
-        //Vertices and Edges (Cells) not editable by default in JGraph
-        graph.setCellsEditable(false);
-        graph.setCellsResizable(false);
-        graphComponent = new mxGraphComponent(graph);
-        //Vertices and Edges (Cells) not movable by default in JGraph
-        graphComponent.setDragEnabled(false);
-
-        jFrame.getContentPane().add(graphComponent, BorderLayout.CENTER);
-        jFrame.setVisible(true);
-
-        //set the mouse listener to the graphComponent
-        //capture the double click event
-        //capture the selected cell
-        graphComponent.getGraphControl().addMouseListener(new mxMouseAdapter() {
-            @Override
-            public void mouseReleased(MouseEvent mouseEvent) {
-                //mouse event=> double click
-                if (mouseEvent.getClickCount() == 2) {
-
-                    Object selectedCell = graphComponent.getCellAt(mouseEvent.getX(), mouseEvent.getY());
-                    if (selectedCell != null) {
-                        if (isVertex(selectedCell)) {
-                            //its vertex
-                            //properties: block port ports list
-                            String blockName = graph.convertValueToString(selectedCell);
-                            popData = blockName;
-                        }
-                        if (isEdge(selectedCell)) {
-                            //its edge
-                            //properties: link, source port, destination port
-                            BigInteger linkId = getEdgeId(selectedCell);
-                            popData = linkId;
-
-                        }
-                        Platform.runLater(() -> jFrameCallbacK.popFrameData(popData));
-                    }
-                }
-                super.mouseReleased(mouseEvent);
-            }
-        });
     }
 
 
@@ -212,67 +125,6 @@ public class CefVisualizationService {
             }
         }
         return false;
-    }
-
-    /**
-     * visualization for this model in the graph
-     *
-     * @param root cef document documentRoot
-     */
-    private void visualization(DocumentRoot root) {
-        initGraph();
-
-        Object parent = graph.getDefaultParent();
-        graph.getModel().beginUpdate();
-
-        //get all block list
-        EList<BlockType> blocksList = root.getCef().getSystem().getBlocks().getBlock();
-        if (blocksList.size() == 0) {
-            System.out.println("null block");
-            return;
-        }
-        vertexList = new ArrayList<>();
-        for (BlockType block : blocksList) {
-            BigInteger blockType = block.getBlockType();
-            Object vertex = null;
-            if (blockType.toString().equals("0")) {
-                //0- router style round
-
-                vertex = graph.insertVertex(parent, null, block.getName(), 20, 20, 80, 30, "shape=ellipse;perimeter=100;whiteSpace=wrap;fillColor=green");
-            } else if (blockType.toString().equals("1")) {
-                //1- processing element
-                vertex = graph.insertVertex(parent, null, block.getName(), 20, 20, 80, 30);
-            }
-            vertexList.add(vertex);
-
-        }
-
-        //get all link list
-        EList<LinkType> linksList = root.getCef().getSystem().getLinks().getLink();
-        if (linksList.size() == 0) {
-            System.out.println("null link");
-            return;
-        }
-        edgeList = new HashMap<>();
-        for (LinkType linkType : linksList) {
-            BigInteger sourcePortId = linkType.getSourcePortId();
-            BigInteger destinationPortId = linkType.getDestinationPortId();
-
-            BlockType sourceBlock = findBlockFromPortId(sourcePortId, blocksList);
-            BlockType destinationBlock = findBlockFromPortId(destinationPortId, blocksList);
-
-            //get vertex from block name
-            Object sourceVertex = getVertexFromBlock(sourceBlock, vertexList);
-            Object destinationVertex = getVertexFromBlock(destinationBlock, vertexList);
-            Object edge = graph.insertEdge(parent, null, "linkid: " + linkType.getId(), sourceVertex,
-                    destinationVertex);
-            edgeList.put(linkType.getId(), edge);
-        }
-
-
-        graph.getModel().endUpdate();
-
-        morphGraph(graph, graphComponent);
     }
 
 
@@ -344,23 +196,6 @@ public class CefVisualizationService {
         }
     }
 
-
-    /**
-     * get the document documentRoot from the selected xml file
-     *
-     * @param absolutePath file absolute path
-     * @return documentRoot
-     */
-    private DocumentRoot getMetalDocumentRoot(String absolutePath) {
-        ResourceSet resourceSet = new ResourceSetImpl();
-        resourceSet.getResourceFactoryRegistry().getExtensionToFactoryMap()
-                .put(Resource.Factory.Registry.DEFAULT_EXTENSION, new CefResourceFactoryImpl());
-        resourceSet.getPackageRegistry().put(CefPackage.eNS_URI, CefPackage.eINSTANCE);
-        Resource resource = resourceSet.getResource(org.eclipse.emf.common.util.URI.createFileURI(
-                absolutePath), true);
-        return (DocumentRoot) resource.getContents().get(0);
-
-    }
 
     public void getDefaultContent() {
         Platform.runLater(() -> jFrameCallbacK.popFrameData(popData));
@@ -800,6 +635,302 @@ public class CefVisualizationService {
 
     public void deleteLink(BigInteger linkId) {
         CefModifyUtils.deleteLink(linkId, documentRoot);
+    }
+
+
+    /**
+     * open the file chooser to select a xml file
+     * and start visualization with the specified file(cef ecore model)
+     * this method is not appropriate with the new material design user interface
+     * its deprecated and only be used for use old user interface
+     *
+     * @param mainActivityStage documentRoot for main ui
+     * @param action            open oder save
+     */
+    @Deprecated
+    public String handleCefEditor(Stage mainActivityStage, String action) {
+        FileChooser fileChooser = new FileChooser();
+        File selectFile = null;
+        switch (action) {
+            case "open":
+                fileChooser.setTitle("Open Resource File");
+                selectFile = fileChooser.showOpenDialog(mainActivityStage);
+                documentRoot = getMetalDocumentRoot(selectFile.getAbsolutePath());
+
+                visualization(documentRoot);
+                break;
+            case "save":
+                fileChooser.setTitle("Open Resource File");
+                selectFile = fileChooser.showSaveDialog(mainActivityStage);
+                break;
+
+        }
+        if (selectFile != null) {
+            return selectFile.getAbsolutePath();
+        } else {
+            return null;
+        }
+
+    }
+
+
+    /**
+     * start visualization with specified file name(cef ecore file)
+     * this method is be added for new material ui==>CefEditorController
+     *
+     * @param absolutePath
+     */
+
+    public mxGraphComponent startVisualization(String absolutePath) {
+        documentRoot = getMetalDocumentRoot(absolutePath);
+
+        return visualizationWithPane(documentRoot);
+    }
+
+    /**
+     * get the root element => documentRoot from the selected xml file
+     *
+     * @param absolutePath cef ecore file absolute path
+     * @return documentRoot root element for this file
+     */
+    private DocumentRoot getMetalDocumentRoot(String absolutePath) {
+        ResourceSet resourceSet = new ResourceSetImpl();
+        resourceSet.getResourceFactoryRegistry().getExtensionToFactoryMap()
+                .put(Resource.Factory.Registry.DEFAULT_EXTENSION, new CefResourceFactoryImpl());
+        resourceSet.getPackageRegistry().put(CefPackage.eNS_URI, CefPackage.eINSTANCE);
+        Resource resource = resourceSet.getResource(org.eclipse.emf.common.util.URI.createFileURI(
+                absolutePath), true);
+        return (DocumentRoot) resource.getContents().get(0);
+
+    }
+
+
+    /**
+     * visualization for this model in the graph
+     * its appropriate only with old user interface
+     *
+     * @param root cef document documentRoot
+     */
+    @Deprecated
+    private void visualization(DocumentRoot root) {
+        initGraph();
+
+        Object parent = graph.getDefaultParent();
+        graph.getModel().beginUpdate();
+
+        //get all block list
+        EList<BlockType> blocksList = root.getCef().getSystem().getBlocks().getBlock();
+        if (blocksList.size() == 0) {
+            System.out.println("null block");
+            return;
+        }
+        vertexList = new ArrayList<>();
+        for (BlockType block : blocksList) {
+            BigInteger blockType = block.getBlockType();
+            Object vertex = null;
+            if (blockType.toString().equals("0")) {
+                //0- router style round
+
+                vertex = graph.insertVertex(parent, null, block.getName(), 20, 20, 80, 30, "shape=ellipse;perimeter=100;whiteSpace=wrap;fillColor=green");
+            } else if (blockType.toString().equals("1")) {
+                //1- processing element
+                vertex = graph.insertVertex(parent, null, block.getName(), 20, 20, 80, 30);
+            }
+            vertexList.add(vertex);
+
+        }
+
+        //get all link list
+        EList<LinkType> linksList = root.getCef().getSystem().getLinks().getLink();
+        if (linksList.size() == 0) {
+            System.out.println("null link");
+            return;
+        }
+        edgeList = new HashMap<>();
+        for (LinkType linkType : linksList) {
+            BigInteger sourcePortId = linkType.getSourcePortId();
+            BigInteger destinationPortId = linkType.getDestinationPortId();
+
+            BlockType sourceBlock = findBlockFromPortId(sourcePortId, blocksList);
+            BlockType destinationBlock = findBlockFromPortId(destinationPortId, blocksList);
+
+            //get vertex from block name
+            Object sourceVertex = getVertexFromBlock(sourceBlock, vertexList);
+            Object destinationVertex = getVertexFromBlock(destinationBlock, vertexList);
+            Object edge = graph.insertEdge(parent, null, "linkid: " + linkType.getId(), sourceVertex,
+                    destinationVertex);
+            edgeList.put(linkType.getId(), edge);
+        }
+
+
+        graph.getModel().endUpdate();
+
+        morphGraph(graph, graphComponent);
+    }
+
+    /**
+     * visualization for this model in the graph
+     *
+     * @param root cef document documentRoot
+     */
+    private mxGraphComponent visualizationWithPane(DocumentRoot root) {
+        initGraphForNewUI();
+
+        Object parent = graph.getDefaultParent();
+        graph.getModel().beginUpdate();
+
+        //get all block list
+        EList<BlockType> blocksList = root.getCef().getSystem().getBlocks().getBlock();
+        if (blocksList.size() == 0) {
+            System.out.println("null block");
+            return null;
+        }
+        vertexList = new ArrayList<>();
+        for (BlockType block : blocksList) {
+            BigInteger blockType = block.getBlockType();
+            Object vertex = null;
+            if (blockType.toString().equals("0")) {
+                //0- router style round
+
+                vertex = graph.insertVertex(parent, null, block.getName(), 20, 20, 80, 30);
+            } else if (blockType.toString().equals("1")) {
+                //1- processing element
+                vertex = graph.insertVertex(parent, null, block.getName(), 20, 20, 80, 30);
+            }
+            vertexList.add(vertex);
+
+        }
+
+        //get all link list
+        EList<LinkType> linksList = root.getCef().getSystem().getLinks().getLink();
+        if (linksList.size() == 0) {
+            System.out.println("null link");
+            return null;
+        }
+        edgeList = new HashMap<>();
+        for (LinkType linkType : linksList) {
+            BigInteger sourcePortId = linkType.getSourcePortId();
+            BigInteger destinationPortId = linkType.getDestinationPortId();
+
+            BlockType sourceBlock = findBlockFromPortId(sourcePortId, blocksList);
+            BlockType destinationBlock = findBlockFromPortId(destinationPortId, blocksList);
+
+            //get vertex from block name
+            Object sourceVertex = getVertexFromBlock(sourceBlock, vertexList);
+            Object destinationVertex = getVertexFromBlock(destinationBlock, vertexList);
+            Object edge = graph.insertEdge(parent, null, "linkid: " + linkType.getId(), sourceVertex,
+                    destinationVertex);
+            edgeList.put(linkType.getId(), edge);
+        }
+
+
+        graph.getModel().endUpdate();
+
+        morphGraph(graph, graphComponent);
+        return graphComponent;
+    }
+
+
+    /**
+     * init the setting for generate a graph
+     */
+    @Deprecated
+    private void initGraph() {
+        jFrame = new JFrame();
+        jFrame.setSize(800, 800);
+        jFrame.setLocation(300, 200);
+        jFrame.setDefaultCloseOperation(WindowConstants.DISPOSE_ON_CLOSE);
+
+
+        graph = new mxGraph();
+        //Vertices and Edges (Cells) not editable by default in JGraph
+        graph.setCellsEditable(false);
+        graph.setCellsResizable(false);
+        graphComponent = new mxGraphComponent(graph);
+        //Vertices and Edges (Cells) not movable by default in JGraph
+        graphComponent.setDragEnabled(false);
+
+        jFrame.getContentPane().add(graphComponent, BorderLayout.CENTER);
+        jFrame.setVisible(true);
+
+        //set the mouse listener to the graphComponent
+        //capture the double click event
+        //capture the selected cell
+        graphComponent.getGraphControl().addMouseListener(new mxMouseAdapter() {
+            @Override
+            public void mouseReleased(MouseEvent mouseEvent) {
+                //mouse event=> double click
+                if (mouseEvent.getClickCount() == 2) {
+
+                    Object selectedCell = graphComponent.getCellAt(mouseEvent.getX(), mouseEvent.getY());
+                    if (selectedCell != null) {
+                        if (isVertex(selectedCell)) {
+                            //its vertex
+                            //properties: block port ports list
+                            String blockName = graph.convertValueToString(selectedCell);
+                            popData = blockName;
+                        }
+                        if (isEdge(selectedCell)) {
+                            //its edge
+                            //properties: link, source port, destination port
+                            BigInteger linkId = getEdgeId(selectedCell);
+                            popData = linkId;
+
+                        }
+                        Platform.runLater(() -> jFrameCallbacK.popFrameData(popData));
+                    }
+                }
+                super.mouseReleased(mouseEvent);
+            }
+        });
+    }
+
+    /**
+     * init the setting for generate a graph
+     * only be used for new material user interface
+     */
+    // TODO: 17-6-8 适配新UI
+    private void initGraphForNewUI() {
+
+        graph = new mxGraph();
+        //Vertices and Edges (Cells) not editable by default in JGraph
+        graph.setCellsEditable(false);
+        graph.setCellsResizable(false);
+        graphComponent = new mxGraphComponent(graph);
+        //Vertices and Edges (Cells) not movable by default in JGraph
+        graphComponent.setDragEnabled(false);
+
+
+        //set the mouse listener to the graphComponent
+        //capture the double click event
+        //capture the selected cell
+        graphComponent.getGraphControl().addMouseListener(new mxMouseAdapter() {
+            @Override
+            public void mouseReleased(MouseEvent mouseEvent) {
+                //mouse event=> double click for specified element in the grapg
+                if (mouseEvent.getClickCount() == 2) {
+
+                    Object selectedCell = graphComponent.getCellAt(mouseEvent.getX(), mouseEvent.getY());
+                    if (selectedCell != null) {
+                        if (isVertex(selectedCell)) {
+                            //its vertex
+                            //properties: block port ports list
+                            String blockName = graph.convertValueToString(selectedCell);
+                            popData = blockName;
+                        }
+                        if (isEdge(selectedCell)) {
+                            //its edge
+                            //properties: link, source port, destination port
+                            BigInteger linkId = getEdgeId(selectedCell);
+                            popData = linkId;
+
+                        }
+                        Platform.runLater(() -> jFrameCallbacK.popFrameData(popData));
+                    }
+                }
+                super.mouseReleased(mouseEvent);
+            }
+        });
     }
 
 

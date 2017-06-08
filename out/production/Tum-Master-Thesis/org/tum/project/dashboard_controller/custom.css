@@ -18,7 +18,7 @@
     -fx-background-color: #3F51B5;
 }
 .side-bar{
-    -fx-background-color: #3F51B5;
+    -fx-background-color: #ffffff;
     -fx-effect: dropshadow(gaussian, rgb(0.0, 0.0, 0.0, 0.3), 7.0, 0.0, 0.0,0.0);
 }
 .side-buttons{

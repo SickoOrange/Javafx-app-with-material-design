@@ -1,14 +1,12 @@
 package org.tum.project.controller;
 
-import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXTextField;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.stage.Stage;
-import org.tum.project.CefModelEditor.CefVisualizationService;
+import org.tum.project.dataservice.CefVisualizationService;
 
-import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 

@@ -3,16 +3,13 @@ package org.tum.project.controller;
 import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXTextField;
 import javafx.application.Platform;
-import javafx.concurrent.Task;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.scene.Parent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.Pane;
-import javafx.scene.layout.VBox;
-import org.tum.project.CefModelEditor.CefVisualizationService;
+import org.tum.project.dataservice.CefVisualizationService;
 
 import java.io.IOException;
 import java.math.BigInteger;

@@ -1,85 +1,106 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import com.jfoenix.controls.JFXButton?>
+<?import javafx.scene.image.*?>
+<?import java.lang.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.geometry.*?>
+<?import com.jfoenix.controls.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.scene.control.Label?>
+
 <?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView?>
-<?import javafx.scene.layout.AnchorPane?>
-<?import javafx.scene.layout.ColumnConstraints?>
-<?import javafx.scene.layout.GridPane?>
-<?import javafx.scene.layout.HBox?>
-<?import javafx.scene.layout.RowConstraints?>
-<?import javafx.scene.layout.StackPane?>
-<?import javafx.scene.layout.VBox?>
-<?import javafx.scene.text.Font?>
-
-<StackPane fx:id="stackPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="720.0" prefWidth="1300.0" stylesheets="@custom.css" xmlns="http://javafx.com/javafx/8.0.112" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.tum.project.dashboard_controller.DashBoardController">
+<StackPane fx:id="stackPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="1300.0" stylesheets="@custom.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.tum.project.dashboard_controller.DashBoardController">
     <children>
-        <VBox prefHeight="720.0" prefWidth="1300.0">
-            <children>
-                <HBox prefHeight="720.0" prefWidth="1300.0">
-                    <children>
-                        <AnchorPane fx:id="sideAnchor" prefHeight="680.0" prefWidth="200.0" styleClass="side-bar">
-                            <children>
-                                <GridPane layoutX="3.0" layoutY="13.0" prefHeight="245.0" prefWidth="189.0">
-                                    <columnConstraints>
-                                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" />
-                                    </columnConstraints>
-                                    <rowConstraints>
-                                        <RowConstraints minHeight="10.0" vgrow="SOMETIMES" />
-                                        <RowConstraints minHeight="10.0" vgrow="SOMETIMES" />
-                                        <RowConstraints minHeight="10.0" vgrow="SOMETIMES" />
-                                        <RowConstraints minHeight="10.0" vgrow="SOMETIMES" />
-                                        <RowConstraints minHeight="10.0" vgrow="SOMETIMES" />
-                                    </rowConstraints>
-                                    <children>
-                                        <JFXButton fx:id="btnSimulation" onAction="#openSimulationPane" prefHeight="36.0" prefWidth="189.0" styleClass="side-buttons" text="Simulation Setting" textFill="#ffffff">
-                                            <font>
-                                                <Font name="Roboto Medium" size="13.0" />
-                                            </font>
-                                            <graphic>
-                                                <FontAwesomeIconView fill="#ffffff" glyphName="DASHBOARD" size="16.0" wrappingWidth="40.0" />
-                                            </graphic>
-                                        </JFXButton>
+      <VBox prefHeight="200.0" prefWidth="100.0">
+         <children>
+            <Pane prefHeight="80.0" prefWidth="1300.0" style="-fx-background-color: #2196F3;" />
+             <HBox layoutY="30.0" prefHeight="720.0" prefWidth="1300.0">
+                 <children>
+                     <AnchorPane fx:id="sideAnchor" prefHeight="680.0" prefWidth="200.0" style="-fx-background-color: #EEEEEE;" styleClass="side-bar">
+                         <children>
 
-                                        <JFXButton fx:id="btnAdd" onAction="#openFlowLatencyPane" prefHeight="36.0" prefWidth="189.0" styleClass="side-buttons" text="Flow Latency " textFill="WHITE" GridPane.rowIndex="1">
-                                            <font>
-                                                <Font name="Roboto Medium" size="13.0" />
-                                            </font>
-                                            <graphic>
-                                                <FontAwesomeIconView fill="WHITE" glyphName="EYE" size="16.0" wrappingWidth="40.0" />
-                                            </graphic>
-                                        </JFXButton>
-                                        <JFXButton fx:id="btnView" onAction="#openFlowPacketLatencyPane" prefHeight="36.0" prefWidth="189.0" styleClass="side-buttons" text="Flow Packet Latency" textFill="WHITE" GridPane.rowIndex="2">
-                                            <font>
-                                                <Font name="Roboto Medium" size="13.0" />
-                                            </font>
-                                            <graphic>
-                                                <FontAwesomeIconView fill="WHITE" glyphName="EYE" size="16.0" wrappingWidth="40.0" />
-                                            </graphic>
-                                        </JFXButton>
-                                        <JFXButton fx:id="btnLogout" onAction="#openFlowSizePane" prefHeight="36.0" prefWidth="189.0" styleClass="side-buttons" text="FIFO Size" textFill="WHITE" GridPane.rowIndex="3">
-                                            <font>
-                                                <Font name="Roboto Medium" size="13.0" />
-                                            </font>
-                                            <graphic>
-                                                <FontAwesomeIconView fill="WHITE" glyphName="EYE" size="16.0" wrappingWidth="40.0" />
-                                            </graphic>
-                                        </JFXButton>
-                                        <JFXButton fx:id="btnClose" onAction="#openFlitsTrance" prefHeight="36.0" prefWidth="189.0" styleClass="side-buttons" text="Flits Trace" textFill="WHITE" GridPane.rowIndex="4">
-                                            <font>
-                                                <Font name="Roboto Medium" size="13.0" />
-                                            </font>
-                                            <graphic>
-                                                <FontAwesomeIconView fill="WHITE" glyphName="EYE" size="16.0" wrappingWidth="40.0" />
-                                            </graphic>
-                                        </JFXButton>
-                                    </children>
-                                </GridPane>
-                            </children>
-                        </AnchorPane>
-                        <AnchorPane fx:id="holderPane" prefHeight="720.0" prefWidth="1100.0" />
-                    </children>
-                </HBox>
-            </children>
-        </VBox>
+                             <VBox layoutY="28.0" prefHeight="248.0" prefWidth="200.0" spacing="20.0">
+                                 <children>
+                                     <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Cef Setting:">
+                                         <VBox.margin>
+                                             <Insets left="5.0" />
+                                         </VBox.margin>
+                                 <font>
+                                    <Font size="14.0" />
+                                 </font>
+                                     </Text>
+                                     <JFXButton fx:id="btnClose1" onAction="#openCefEditor" prefHeight="36.0" prefWidth="189.0" styleClass="side-buttons" text="CEF Editor Setting">
+                                         <font>
+                                             <Font size="14.0" />
+                                         </font>
+                                         <graphic>
+                                             <FontAwesomeIconView fill="#212121" glyphName="DASHBOARD" size="16.0" wrappingWidth="40.0" />
+                                         </graphic>
+                                     </JFXButton>
+                                     <Label alignment="CENTER" contentDisplay="CENTER" minHeight="-Infinity" prefHeight="1.0" prefWidth="200.0" style="-fx-background-color: #ffffff;" textAlignment="CENTER" textFill="#D500F9" />
+                                     <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Simulation:">
+                                         <VBox.margin>
+                                             <Insets left="5.0" />
+                                         </VBox.margin>
+                                 <font>
+                                    <Font size="14.0" />
+                                 </font>
+                                     </Text>
+
+                                     <JFXButton fx:id="btnSimulation" onAction="#openSimulationPane" prefHeight="36.0" prefWidth="189.0" styleClass="side-buttons" text="Simulation Setting">
+                                         <font>
+                                             <Font size="14.0" />
+                                         </font>
+                                         <graphic>
+                                         <FontAwesomeIconView fill="#212121" glyphName="DASHBOARD" size="16.0" wrappingWidth="40.0" />
+                                         </graphic>
+                                     </JFXButton>
+                                     <JFXButton fx:id="btnLogout" onAction="#openFlowSizePane" prefHeight="36.0" prefWidth="189.0" styleClass="side-buttons" text="FIFO Size">
+                                         <font>
+                                             <Font size="14.0" />
+                                         </font>
+                                         <graphic>
+                                         <FontAwesomeIconView fill="212121" glyphName="EYE" size="16.0" wrappingWidth="40.0" />
+                                         </graphic>
+                                     </JFXButton>
+                                     <JFXButton fx:id="btnClose" onAction="#openFlitsTrance" prefHeight="36.0" prefWidth="189.0" styleClass="side-buttons" text="Flits Trace">
+                                         <font>
+                                             <Font size="14.0" />
+                                         </font>
+                                         <graphic>
+                                         <FontAwesomeIconView fill="212121" glyphName="EYE" size="16.0" wrappingWidth="40.0" />
+                                         </graphic>
+                                     </JFXButton>
+
+                                     <JFXButton fx:id="btnAdd" onAction="#openFlowLatencyPane" prefHeight="36.0" prefWidth="189.0" styleClass="side-buttons" text="Flow Latency ">
+                                         <font>
+                                             <Font size="14.0" />
+                                         </font>
+                                         <graphic>
+                                         <FontAwesomeIconView fill="212121" glyphName="EYE" size="16.0" wrappingWidth="40.0" />
+                                         </graphic>
+                                     </JFXButton>
+                                     <JFXButton fx:id="btnView" onAction="#openFlowPacketLatencyPane" prefHeight="36.0" prefWidth="189.0" styleClass="side-buttons" text="Flow Packet Latency">
+                                         <font>
+                                             <Font size="14.0" />
+                                         </font>
+                                         <graphic>
+                                         <FontAwesomeIconView fill="212121" glyphName="EYE" size="16.0" wrappingWidth="40.0" />
+                                         </graphic>
+                                     </JFXButton>
+                                 </children>
+                                 <padding>
+                                     <Insets bottom="5.0" left="5.0" right="5.0" top="10.0" />
+                                 </padding>
+                             </VBox>
+                         </children>
+                     </AnchorPane>
+                     <AnchorPane fx:id="holderPane" prefHeight="720.0" prefWidth="1100.0" />
+                 </children>
+             </HBox>
+         </children>
+      </VBox>
+
     </children>
 </StackPane>

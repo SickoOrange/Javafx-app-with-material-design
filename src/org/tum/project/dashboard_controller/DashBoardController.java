@@ -32,6 +32,7 @@ public class DashBoardController implements Initializable {
     private AnchorPane flowPacketDetailsPane;
     private AnchorPane fifoSizeDetailsPane;
     private AnchorPane flitsTraceDetailsPane;
+    private AnchorPane cefEditorPane;
 
 
     /**
@@ -57,6 +58,7 @@ public class DashBoardController implements Initializable {
         FlitTraceService flitTraceService = new FlitTraceService();
         TagLabelController tagLabelController = new TagLabelController();
         TraceJframe traceJframe = new TraceJframe();
+        CefVisualizationService cefVisualizationService = new CefVisualizationService();
         serviceInstanceMap = new HashMap<>();
         serviceInstanceMap.put(FlowLatencyService.class.getName(), flowLatencyService);
         serviceInstanceMap.put(FlowPacketLatencyService.class.getName(), flowPacketLatencyService);
@@ -64,6 +66,7 @@ public class DashBoardController implements Initializable {
         serviceInstanceMap.put(FlitTraceService.class.getName(), flitTraceService);
         serviceInstanceMap.put(TagLabelController.class.getName(), tagLabelController);
         serviceInstanceMap.put(TraceJframe.class.getName(), traceJframe);
+        serviceInstanceMap.put(CefVisualizationService.class.getName(), cefVisualizationService);
     }
 
     public static Object getDataServiceInstance(String key) {
@@ -80,6 +83,7 @@ public class DashBoardController implements Initializable {
             flowPacketDetailsPane = FXMLLoader.load(getClass().getResource("../dashboard_controller/FlowLatencyForPacket.fxml"));
             fifoSizeDetailsPane = FXMLLoader.load(getClass().getResource("../dashboard_controller/FifoSizeDetails.fxml"));
             flitsTraceDetailsPane = FXMLLoader.load(getClass().getResource("../dashboard_controller/FlitsTrace.fxml"));
+            cefEditorPane = FXMLLoader.load(getClass().getResource("../dashboard_controller/CefEditor.fxml"));
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -112,6 +116,16 @@ public class DashBoardController implements Initializable {
     public void openFlitsTrance(ActionEvent actionEvent) {
         setCenterNode(flitsTraceDetailsPane);
 
+    }
+
+
+    /**
+     * open the cef editor pane
+     *
+     * @param actionEvent
+     */
+    public void openCefEditor(ActionEvent actionEvent) {
+        setCenterNode(cefEditorPane);
     }
 
     /**

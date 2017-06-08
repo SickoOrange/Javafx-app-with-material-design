@@ -1,11 +1,5 @@
 package org.tum.project.test;
 
-import com.jfoenix.controls.JFXDialog;
-import javafx.scene.control.Label;
-import javafx.scene.layout.StackPane;
-import org.tum.project.CefModelEditor.CefVisualizationService;
-
-import java.math.BigInteger;
 import java.util.ArrayList;
 
 

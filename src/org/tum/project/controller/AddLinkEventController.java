@@ -7,7 +7,7 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import org.tum.project.CefModelEditor.CefModifyUtils;
-import org.tum.project.CefModelEditor.CefVisualizationService;
+import org.tum.project.dataservice.CefVisualizationService;
 
 import java.math.BigInteger;
 import java.net.URL;
