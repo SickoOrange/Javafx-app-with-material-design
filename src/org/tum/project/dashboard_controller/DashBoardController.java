@@ -1,6 +1,7 @@
 package org.tum.project.dashboard_controller;
 
 import com.jfoenix.controls.JFXButton;
+import com.sun.deploy.trace.Trace;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -8,10 +9,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.layout.AnchorPane;
 import org.omg.CORBA.OBJECT_NOT_EXIST;
-import org.tum.project.dataservice.FifoSizeService;
-import org.tum.project.dataservice.FlitTraceService;
-import org.tum.project.dataservice.FlowLatencyService;
-import org.tum.project.dataservice.FlowPacketLatencyService;
+import org.tum.project.dataservice.*;
 
 import java.io.IOException;
 import java.net.URL;
@@ -58,12 +56,14 @@ public class DashBoardController implements Initializable {
         FifoSizeService fifoSizeService = new FifoSizeService();
         FlitTraceService flitTraceService = new FlitTraceService();
         TagLabelController tagLabelController = new TagLabelController();
+        TraceJframe traceJframe = new TraceJframe();
         serviceInstanceMap = new HashMap<>();
         serviceInstanceMap.put(FlowLatencyService.class.getName(), flowLatencyService);
         serviceInstanceMap.put(FlowPacketLatencyService.class.getName(), flowPacketLatencyService);
         serviceInstanceMap.put(FifoSizeService.class.getName(), fifoSizeService);
         serviceInstanceMap.put(FlitTraceService.class.getName(), flitTraceService);
         serviceInstanceMap.put(TagLabelController.class.getName(), tagLabelController);
+        serviceInstanceMap.put(TraceJframe.class.getName(), traceJframe);
     }
 
     public static Object getDataServiceInstance(String key) {

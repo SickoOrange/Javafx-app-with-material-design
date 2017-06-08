@@ -58,11 +58,12 @@ public class MenusHolderController implements Initializable {
     }
 
     private void openStage(Parent node) {
-        dashboardStage = new Stage();
-        dashboardStage.setScene(new Scene(node));
-        dashboardStage.setTitle("Analytics Dashboard");
-        dashboardStage.show();
-        primaryStage.close();
+        //dashboardStage = new Stage();
+        //dashboardStage.setScene(new Scene(node));
+        //dashboardStage.setTitle("Analytics Dashboard");
+        //dashboardStage.show();
+        primaryStage.setScene(new Scene(node));
+      //  primaryStage.close();
     }
 
     public static Stage getDashBoardStage() {

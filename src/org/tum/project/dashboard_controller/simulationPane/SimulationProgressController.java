@@ -88,11 +88,19 @@ public class SimulationProgressController implements Initializable {
         ImageView[] imageViews = {img1, img2, img3, img4, img5, img6};
         animationArray = new RotateTransition[6];
         for (int i = 0; i < 6; i++) {
-            RotateTransition rotateTransition = new RotateTransition(Duration.seconds(2), imageViews[i]);
+            RotateTransition rotateTransition;
+            if (i == 5) {
+                rotateTransition = new RotateTransition(Duration.seconds(0.5), imageViews[i]);
+
+            } else {
+                rotateTransition = new RotateTransition(Duration.seconds(2), imageViews[i]);
+
+            }
             rotateTransition.setFromAngle(0);
             rotateTransition.setToAngle(720);
             rotateTransition.setAutoReverse(false);
             animationArray[i] = rotateTransition;
+
         }
 
 

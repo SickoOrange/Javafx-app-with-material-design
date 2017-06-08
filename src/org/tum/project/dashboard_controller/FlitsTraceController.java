@@ -1,20 +1,31 @@
 package org.tum.project.dashboard_controller;
 
+import com.jfoenix.controls.JFXBadge;
+import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXComboBox;
+import com.mxgraph.swing.mxGraphComponent;
+import javafx.application.Platform;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
+import javafx.collections.ObservableList;
+import javafx.embed.swing.SwingNode;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextArea;
+import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.Pane;
+import javafx.scene.layout.StackPane;
 import javafx.scene.text.Text;
 import org.omg.CORBA.INTERNAL;
 import org.tum.project.bean.FlitsInfo;
 import org.tum.project.bean.FlitsSummary;
 import org.tum.project.callback.DataUpdateCallbackAdapter;
 import org.tum.project.dataservice.FlitTraceService;
+import org.tum.project.dataservice.TraceJframe;
 
+import javax.swing.*;
 import java.net.URL;
 import java.util.*;
 
@@ -57,9 +68,9 @@ public class FlitsTraceController extends DataUpdateCallbackAdapter implements I
     @FXML
     private Text lb_rate;
 
-
     @FXML
-    private Label lb_flowid;
+    private StackPane ap_visualization;
+
 
     //integer: flow id, FlitsSummary: summary for this flow id
     private HashMap<Integer, FlitsSummary> flitsSummaries = new HashMap<>();
@@ -69,7 +80,8 @@ public class FlitsTraceController extends DataUpdateCallbackAdapter implements I
     private StringBuffer traceDetails;
     private StringBuffer tail;
     private HashMap<Integer, List<FlitsInfo>> cloneMap = new HashMap<>();
-    ;
+    private List<FlitsInfo> cloneTraceInformation;
+    private TraceJframe traceJframe;
 
 
     @Override
@@ -77,8 +89,17 @@ public class FlitsTraceController extends DataUpdateCallbackAdapter implements I
         FlitTraceService flitTraceService = (FlitTraceService) DashBoardController.getDataServiceInstance(FlitTraceService.class.getName());
         flitTraceService.setCallback(this);
 
+        traceJframe = (TraceJframe) DashBoardController.getDataServiceInstance(TraceJframe.class.getName());
+
         //add listener to the flow id combo box
         cb_flowid.getSelectionModel().selectedItemProperty().addListener((observable, oldValue, newValue) -> {
+//            cloneMap.clear();
+//            ObservableList<String> items = cb_flowid.getItems();
+//            items.clear();
+            cb_flitsid.getItems().clear();
+            if (!cloneMap.isEmpty()) {
+                cloneMap.clear();
+            }
             String id = newValue.split(":")[1];
             StringBuffer buffer = traceDetailsMap.get(Integer.valueOf(id));
             ta_flitsDetails.setText(buffer.toString());
@@ -118,9 +139,10 @@ public class FlitsTraceController extends DataUpdateCallbackAdapter implements I
             lb_secondTitle.setText(String.valueOf(id));
             List<FlitsInfo> infos = cloneMap.get(Integer.valueOf(id));
             //trace information
-            for (FlitsInfo info : infos) {
-                System.out.println("\n" + info);
+            if (cloneTraceInformation != null) {
+                cloneTraceInformation = null;
             }
+            cloneTraceInformation = infos;
         });
 
 
@@ -134,6 +156,7 @@ public class FlitsTraceController extends DataUpdateCallbackAdapter implements I
         flitsSummaries.clear();
         traceDetailsMap.clear();
         cloneMap.clear();
+        cb_flowid.getItems().clear();
 
         for (Map.Entry<Integer, List<HashMap<Integer, List<FlitsInfo>>>> entry : flow_id_to_flits_map.entrySet()) {
             FlitsSummary flitsSummary = new FlitsSummary();
@@ -225,7 +248,25 @@ public class FlitsTraceController extends DataUpdateCallbackAdapter implements I
     }
 
 
+    /**
+     * Trace the flit information and visualize it at the jPane
+     *
+     * @param event
+     */
     @FXML
     void startToTraceAction(ActionEvent event) {
+        SwingNode swingNode = new SwingNode();
+        mxGraphComponent panel = traceJframe.runTrace(cloneTraceInformation);
+        SwingUtilities.invokeLater(() -> {
+            swingNode.setContent(panel);
+
+
+            Platform.runLater(() -> {
+                if (!ap_visualization.getChildren().isEmpty()) {
+                    ap_visualization.getChildren().clear();
+                }
+                ap_visualization.getChildren().add(swingNode);
+            });
+        });
     }
 }
