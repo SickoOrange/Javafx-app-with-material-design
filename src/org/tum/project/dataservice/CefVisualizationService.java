@@ -3,6 +3,8 @@ package org.tum.project.dataservice;
 import Cef.*;
 import Cef.util.CefResourceFactoryImpl;
 import com.jfoenix.controls.JFXButton;
+import com.jfoenix.controls.JFXDialog;
+import com.jfoenix.controls.JFXDialogLayout;
 import com.jfoenix.controls.JFXTextField;
 import com.mxgraph.layout.*;
 import com.mxgraph.swing.mxGraphComponent;
@@ -12,8 +14,13 @@ import com.mxgraph.util.mxEvent;
 import com.mxgraph.view.mxGraph;
 import javafx.application.Platform;
 import javafx.collections.ObservableList;
+import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
 import javafx.fxml.FXMLLoader;
+import javafx.geometry.Pos;
 import javafx.scene.Node;
+import javafx.scene.control.*;
+import javafx.scene.control.Label;
 import javafx.scene.layout.*;
 import javafx.stage.FileChooser;
 import javafx.stage.Stage;
@@ -58,6 +65,7 @@ public class CefVisualizationService {
     private AnchorPane handleButtonGroup;
     private javafx.scene.control.ScrollPane cefEditorRoot;
     private VBox cefEditorVBox;
+    private StackPane dialogHolder;
 
 
     /**
@@ -168,32 +176,6 @@ public class CefVisualizationService {
         }
 
         return null;
-    }
-
-    /**
-     * define the layout algorithmus for the graph
-     *
-     * @param graph          graph
-     * @param graphComponent graphComponent
-     */
-    private void morphGraph(mxGraph graph, mxGraphComponent graphComponent) {
-        // define layout
-        mxIGraphLayout layout = new mxFastOrganicLayout(graph);
-        // layout using morphing
-        graph.getModel().beginUpdate();
-        try {
-            layout.execute(graph.getDefaultParent());
-            new mxParallelEdgeLayout(graph).execute(graph.getDefaultParent());
-        } finally {
-            mxMorphing morph = new mxMorphing(graphComponent, 10, 1.5, 10);
-
-
-            morph.addListener(mxEvent.DONE, (arg0, arg1) -> {
-                graph.getModel().endUpdate();
-            });
-
-            morph.startAnimation();
-        }
     }
 
 
@@ -678,11 +660,13 @@ public class CefVisualizationService {
      * start visualization with specified file name(cef ecore file)
      * this method is be added for new material ui==>CefEditorController
      *
-     * @param absolutePath
+     * @param absolutePath file path
+     * @param sp_editor    stack pane that will hold a material dialog and show the edit part for Ecore file
      */
 
-    public mxGraphComponent startVisualization(String absolutePath) {
+    public mxGraphComponent startVisualization(String absolutePath, StackPane sp_editor) {
         documentRoot = getMetalDocumentRoot(absolutePath);
+        dialogHolder = sp_editor;
 
         return visualizationWithPane(documentRoot);
     }
@@ -908,29 +892,137 @@ public class CefVisualizationService {
             @Override
             public void mouseReleased(MouseEvent mouseEvent) {
                 //mouse event=> double click for specified element in the grapg
-                if (mouseEvent.getClickCount() == 2) {
+                System.out.println(mouseEvent.getButton());
+                System.out.println(mouseEvent.getPoint());
 
+                //button type 1=> mouse left, 2=> mouse middle, 3=> mouse right
+                if (mouseEvent.getButton() == 3) {
                     Object selectedCell = graphComponent.getCellAt(mouseEvent.getX(), mouseEvent.getY());
-                    if (selectedCell != null) {
+                    if (selectedCell == null) {
+                        //The clicked panel does not contain any element
+                        //The default dialog behavior
+                        //Add a new block or link
+                        Platform.runLater(() -> showDialogWithContent("default"));
+
+
+                    } else {
                         if (isVertex(selectedCell)) {
                             //its vertex
                             //properties: block port ports list
                             String blockName = graph.convertValueToString(selectedCell);
+                            System.out.println(blockName);
                             popData = blockName;
                         }
                         if (isEdge(selectedCell)) {
                             //its edge
                             //properties: link, source port, destination port
                             BigInteger linkId = getEdgeId(selectedCell);
+                            System.out.println(linkId);
                             popData = linkId;
 
                         }
-                        Platform.runLater(() -> jFrameCallbacK.popFrameData(popData));
                     }
                 }
+
+
+//                if (mouseEvent.getClickCount() == 2) {
+//
+//                    Object selectedCell = graphComponent.getCellAt(mouseEvent.getX(), mouseEvent.getY());
+//                    if (selectedCell != null) {
+//                        if (isVertex(selectedCell)) {
+//                            //its vertex
+//                            //properties: block port ports list
+//                            String blockName = graph.convertValueToString(selectedCell);
+//                            System.out.println(blockName);
+//                            popData = blockName;
+//                        }
+//                        if (isEdge(selectedCell)) {
+//                            //its edge
+//                            //properties: link, source port, destination port
+//                            BigInteger linkId = getEdgeId(selectedCell);
+//                            System.out.println(linkId);
+//                            popData = linkId;
+//
+//                        }
+//                        Platform.runLater(() -> jFrameCallbacK.popFrameData(popData));
+//                    }
+//                }
                 super.mouseReleased(mouseEvent);
             }
         });
+    }
+
+    /**
+     * create a material design type dialog action
+     * in this action has behavior as follows:
+     * default: add block, add link
+     * with content: add block, add link, delete element
+     *
+     * @param flag set dialog content as default oder as "with content"
+     */
+    private void showDialogWithContent(String flag) {
+        JFXDialogLayout layout = new JFXDialogLayout();
+
+        switch (flag) {
+            case "default":
+                VBox boxDefault = new VBox(5);
+                JFXButton addBlock = new JFXButton("Add Block Type");
+                JFXButton addLink = new JFXButton("Add Link Type");
+                boxDefault.getChildren().addAll(addBlock, addLink);
+                boxDefault.setAlignment(Pos.CENTER);
+                layout.setBody(boxDefault);
+                break;
+            case "content":
+                VBox boxContent = new VBox(5);
+               // JFXButton addBlock = new JFXButton("Add Block Type");
+               // JFXButton addLink = new JFXButton("Add Link Type");
+              //  boxContent.getChildren().addAll(addBlock, addLink);
+                boxContent.setAlignment(Pos.CENTER);
+                layout.setBody(boxContent);
+                layout.setBody(new Label("Has Element"));
+                break;
+        }
+
+        JFXDialog dialog = new JFXDialog(dialogHolder, layout, JFXDialog.DialogTransition.CENTER);
+        layout.setHeading(new Label("Cef Control Pane"));
+        JFXButton cancel = new JFXButton("Cancel");
+        cancel.setOnAction(event -> dialog.close());
+        JFXButton add = new JFXButton("Add");
+        add.setOnAction(new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent event) {
+                // TODO: 17-6-9 collecting the information
+            }
+        });
+        layout.setActions(cancel, add);
+        dialog.show();
+    }
+
+
+    /**
+     * define the layout algorithmus for the graph
+     *
+     * @param graph          graph
+     * @param graphComponent graphComponent
+     */
+    private void morphGraph(mxGraph graph, mxGraphComponent graphComponent) {
+        // define layout
+        mxIGraphLayout layout = new mxFastOrganicLayout(graph);
+        // layout using morphing
+        graph.getModel().beginUpdate();
+        try {
+            layout.execute(graph.getDefaultParent());
+            new mxParallelEdgeLayout(graph).execute(graph.getDefaultParent());
+        } finally {
+            mxMorphing morph = new mxMorphing(graphComponent, 10, 1.5, 10);
+
+
+            morph.addListener(mxEvent.DONE, (arg0, arg1) -> {
+                graph.getModel().endUpdate();
+            });
+
+            morph.startAnimation();
+        }
     }
 
 

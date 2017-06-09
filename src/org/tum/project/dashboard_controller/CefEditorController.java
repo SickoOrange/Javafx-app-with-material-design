@@ -18,8 +18,7 @@ import org.tum.project.utils.Utils;
 import javax.swing.*;
 import java.io.File;
 import java.net.URL;
-import java.nio.file.FileSystem;
-import java.util.ResourceBundle;
+ import java.util.ResourceBundle;
 
 /**
  * cef editor controller
@@ -65,8 +64,7 @@ public class CefEditorController implements Initializable {
 
         //visualize the cef ecore file
         CefVisualizationService cefVisualizationService = (CefVisualizationService) DashBoardController.getDataServiceInstance(CefVisualizationService.class.getName());
-        mxGraphComponent mxGraphComponent = cefVisualizationService.startVisualization(file.getAbsolutePath());
-
+        mxGraphComponent mxGraphComponent = cefVisualizationService.startVisualization(file.getAbsolutePath(),sp_editor);
         //embed the Swing Component to the javafx Application
         SwingNode swingNode = new SwingNode();
         SwingUtilities.invokeLater(() -> {

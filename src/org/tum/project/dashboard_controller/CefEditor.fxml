@@ -127,6 +127,7 @@
                   <Text fx:id="t_openFile" layoutX="26.0" layoutY="244.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Text" wrappingWidth="290.0" />
                   <Text fx:id="t_savePath" layoutX="26.0" layoutY="276.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Text" wrappingWidth="290.0" />
                   <JFXButton fx:id="btn_refresh" layoutX="176.0" layoutY="194.0" onAction="#saveAction" prefHeight="29.0" prefWidth="84.0" text="Refresh" />
+                  <JFXCheckBox layoutX="99.0" layoutY="591.0" />
                     </children>
                 </AnchorPane>
             </children>
