@@ -4,8 +4,6 @@ import Cef.CefType;
 import freemarker.template.Configuration;
 import freemarker.template.Template;
 import freemarker.template.TemplateException;
-import javafx.application.Platform;
-import org.tum.project.CefModelEditor.CefModifyUtils;
 import org.tum.project.testbench.TestBenchStageController;
 
 import java.io.File;

@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<ScrollPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="355.0" prefWidth="251.0" style="-fx-background-color: #ffffff;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+   <content>
+      <VBox prefHeight="503.0" prefWidth="249.0" style="-fx-padding: 10; -fx-spacing: 30; -fx-background-color: #ffffff;">
+         <children>
+            <JFXTextField fx:id="tf_name" labelFloat="true" promptText="name:String" />
+            <JFXTextField fx:id="tf_id" labelFloat="true" promptText="id: Integer" />
+            <JFXTextField fx:id="tf_sourcePortId" labelFloat="true" promptText="sourcePortId: Integer" />
+            <JFXTextField fx:id="tf_destinationPortId" labelFloat="true" promptText="destinationPortId: Integer" />
+            <JFXTextField fx:id="tf_carriesSourceClock" labelFloat="true" promptText="carriesSourceClock: Boolean" />
+            <JFXTextField fx:id="tf_carriesSourceReset" labelFloat="true" promptText="carriesSourceReset: Boolean" />
+            <JFXTextField fx:id="tf_linkLengthEstimation" labelFloat="true" promptText="linkLengthEstimation: Double" />
+            <JFXTextField fx:id="tf_auxiliaryForwardWires" labelFloat="true" promptText="auxiliaryForwardWires: Integer" />
+            <JFXTextField fx:id="tf_auxiliaryBackwardWires" labelFloat="true" promptText="auxiliaryBackwardWires: Integer" />
+         </children>
+      </VBox>
+   </content>
+</ScrollPane>

@@ -10,7 +10,7 @@ import javafx.scene.control.ButtonType;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.Pane;
-import org.tum.project.CefModelEditor.CefModifyUtils;
+import org.tum.project.utils.CefModifyUtils;
 import org.tum.project.dataservice.CefVisualizationService;
 
 import java.io.IOException;

@@ -9,7 +9,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.ButtonType;
 import javafx.stage.Stage;
-import org.tum.project.CefModelEditor.CefModifyUtils;
+import org.tum.project.utils.CefModifyUtils;
 import org.tum.project.bean.ProjectInfo;
 import org.tum.project.testbench.TestBenchStageController;
 import org.tum.project.utils.SimulationUtils;

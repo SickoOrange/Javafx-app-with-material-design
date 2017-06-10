@@ -8,7 +8,7 @@ import com.jfoenix.controls.JFXTextField;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import org.tum.project.CefModelEditor.CefModifyUtils;
+import org.tum.project.utils.CefModifyUtils;
 import org.tum.project.dataservice.CefVisualizationService;
 
 import java.math.BigInteger;

@@ -1,14 +1,12 @@
 package org.tum.project.dashboard_controller;
 
-import com.jfoenix.controls.JFXButton;
 import com.mxgraph.swing.mxGraphComponent;
 import javafx.application.Platform;
 import javafx.embed.swing.SwingNode;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.geometry.Pos;
-import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.Pane;
 import javafx.scene.layout.StackPane;
 import javafx.scene.text.Text;
 import org.tum.project.dataservice.CefVisualizationService;
@@ -18,7 +16,7 @@ import org.tum.project.utils.Utils;
 import javax.swing.*;
 import java.io.File;
 import java.net.URL;
- import java.util.ResourceBundle;
+import java.util.ResourceBundle;
 
 /**
  * cef editor controller
@@ -33,18 +31,24 @@ public class CefEditorController implements Initializable {
 
     @FXML
     private Text t_savePath;
-    @FXML
-    private AnchorPane fabPane;
 
     @FXML
     private StackPane sp_editor;
 
+
+    private CefVisualizationService cefVisualizationService;
+    private File openFilePath;
+
     @FXML
-    private JFXButton btn_refresh;
+    private Text t_loadingLabel;
+
+    @FXML
+    private Pane addPropertiesContainer;
+
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        StackPane.setAlignment(btn_refresh, Pos.TOP_RIGHT);
+        DashBoardController.getServiceInstanceMap().put(this.getClass().getName(), this);
     }
 
 
@@ -55,16 +59,26 @@ public class CefEditorController implements Initializable {
      */
     @FXML
     void openAction(ActionEvent event) {
-        File file = Utils.openFileChooser("open", MenusHolderController.getDashBoardStage());
+        t_loadingLabel.setVisible(true);
+        openFilePath = Utils.openFileChooser("open", MenusHolderController.getDashBoardStage());
         String[] split = new String[1];
-        if (file != null) {
-            split = file.getAbsolutePath().split("/");
+        if (openFilePath != null) {
+            split = openFilePath.getAbsolutePath().split("/");
         }
         t_openFile.setText("Open file: " + split[split.length - 1]);
 
         //visualize the cef ecore file
-        CefVisualizationService cefVisualizationService = (CefVisualizationService) DashBoardController.getDataServiceInstance(CefVisualizationService.class.getName());
-        mxGraphComponent mxGraphComponent = cefVisualizationService.startVisualization(file.getAbsolutePath(),sp_editor);
+        cefVisualizationService = (CefVisualizationService) DashBoardController.getDataServiceInstance(CefVisualizationService.class.getName());
+        mxGraphComponent mxGraphComponent = cefVisualizationService.startVisualization(openFilePath.getAbsolutePath(), sp_editor);
+        displayContent(mxGraphComponent);
+    }
+
+    /**
+     * display the graph of the ecore in the javafx application
+     *
+     * @param mxGraphComponent
+     */
+    private void displayContent(mxGraphComponent mxGraphComponent) {
         //embed the Swing Component to the javafx Application
         SwingNode swingNode = new SwingNode();
         SwingUtilities.invokeLater(() -> {
@@ -76,6 +90,7 @@ public class CefEditorController implements Initializable {
                 sp_editor.getChildren().add(swingNode);
             });
         });
+
     }
 
     /**
@@ -85,12 +100,28 @@ public class CefEditorController implements Initializable {
      */
     @FXML
     void saveAction(ActionEvent event) {
-        File file = Utils.openFileChooser("save", MenusHolderController.getDashBoardStage());
+
+        Object[] objects = cefVisualizationService.saveFile();
+
+        String fileName = (String) objects[0];
         String[] split = new String[1];
-        if (file != null) {
-            split = file.getAbsolutePath().split("/");
+        if (fileName != null) {
+            split = fileName.split("/");
         }
         t_savePath.setText("File save: " + split[split.length - 1]);
+
+        displayContent((mxGraphComponent) objects[1]);
+    }
+
+    /**
+     * refresh the graph after edit
+     *
+     * @param event
+     */
+    @FXML
+    void refreshAction(ActionEvent event) {
+        mxGraphComponent mxGraphComponent = cefVisualizationService.refresh();
+        displayContent(mxGraphComponent);
     }
 
     public static void main(String[] args) {
@@ -100,4 +131,7 @@ public class CefEditorController implements Initializable {
     }
 
 
+    public Pane getAddPropertiesContainer() {
+        return addPropertiesContainer;
+    }
 }

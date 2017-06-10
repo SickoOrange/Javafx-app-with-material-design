@@ -14,21 +14,23 @@ import com.mxgraph.util.mxEvent;
 import com.mxgraph.view.mxGraph;
 import javafx.application.Platform;
 import javafx.collections.ObservableList;
-import javafx.event.ActionEvent;
-import javafx.event.EventHandler;
 import javafx.fxml.FXMLLoader;
 import javafx.geometry.Pos;
 import javafx.scene.Node;
 import javafx.scene.control.*;
 import javafx.scene.control.Label;
 import javafx.scene.layout.*;
+import javafx.scene.paint.Color;
+import javafx.scene.text.Text;
 import javafx.stage.FileChooser;
 import javafx.stage.Stage;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.emf.ecore.resource.ResourceSet;
 import org.eclipse.emf.ecore.resource.impl.ResourceSetImpl;
-import org.tum.project.CefModelEditor.CefModifyUtils;
+import org.tum.project.dashboard_controller.CefEditorController;
+import org.tum.project.dashboard_controller.DashBoardController;
+import org.tum.project.utils.CefModifyUtils;
 import org.tum.project.callback.JFrameCallback;
 import org.tum.project.controller.MainController;
 import org.tum.project.utils.Utils;
@@ -50,7 +52,6 @@ import java.util.Map;
  */
 public class CefVisualizationService {
 
-
     private mxGraph graph;
     private mxGraphComponent graphComponent;
     private JFrame jFrame;
@@ -66,6 +67,8 @@ public class CefVisualizationService {
     private javafx.scene.control.ScrollPane cefEditorRoot;
     private VBox cefEditorVBox;
     private StackPane dialogHolder;
+    private JFXDialog dialog;
+    private File file;
 
 
     /**
@@ -574,6 +577,7 @@ public class CefVisualizationService {
     /**
      * save the element to the document root
      */
+    @Deprecated
     public void save() {
         if (documentRoot != null) {
             //save the document
@@ -585,6 +589,32 @@ public class CefVisualizationService {
         } else {
             CefModifyUtils.alertDialog("can't save the file, pls select a xml file first");
         }
+
+    }
+
+    /**
+     * save the element to the document root
+     */
+    public Object[] saveFile() {
+        File file = null;
+        Object[] objects = new Object[2];
+        if (documentRoot != null) {
+            //save the document
+
+            file = Utils.openFileChooser("save", MainController.getStage());
+            objects[0] = file.getAbsolutePath();
+            documentRoot = CefModifyUtils.saveCef(this.documentRoot.getCef(), file);
+
+            graph.clearSelection();
+            //visualization(documentRoot);
+            mxGraphComponent target = visualizationWithPane(documentRoot);
+            objects[1] = target;
+        } else {
+            CefModifyUtils.alertDialog("can't save the file, pls select a xml file first");
+        }
+
+
+        return objects;
 
     }
 
@@ -902,7 +932,7 @@ public class CefVisualizationService {
                         //The clicked panel does not contain any element
                         //The default dialog behavior
                         //Add a new block or link
-                        Platform.runLater(() -> showDialogWithContent("default"));
+                        Platform.runLater(() -> showDialogWithContent("default", null, null));
 
 
                     } else {
@@ -912,6 +942,7 @@ public class CefVisualizationService {
                             String blockName = graph.convertValueToString(selectedCell);
                             System.out.println(blockName);
                             popData = blockName;
+                            Platform.runLater(() -> showDialogWithContent("content", "BlockType: ", blockName));
                         }
                         if (isEdge(selectedCell)) {
                             //its edge
@@ -919,34 +950,12 @@ public class CefVisualizationService {
                             BigInteger linkId = getEdgeId(selectedCell);
                             System.out.println(linkId);
                             popData = linkId;
+                            Platform.runLater(() -> showDialogWithContent("content", "Link ID: ", linkId));
+
 
                         }
                     }
                 }
-
-
-//                if (mouseEvent.getClickCount() == 2) {
-//
-//                    Object selectedCell = graphComponent.getCellAt(mouseEvent.getX(), mouseEvent.getY());
-//                    if (selectedCell != null) {
-//                        if (isVertex(selectedCell)) {
-//                            //its vertex
-//                            //properties: block port ports list
-//                            String blockName = graph.convertValueToString(selectedCell);
-//                            System.out.println(blockName);
-//                            popData = blockName;
-//                        }
-//                        if (isEdge(selectedCell)) {
-//                            //its edge
-//                            //properties: link, source port, destination port
-//                            BigInteger linkId = getEdgeId(selectedCell);
-//                            System.out.println(linkId);
-//                            popData = linkId;
-//
-//                        }
-//                        Platform.runLater(() -> jFrameCallbacK.popFrameData(popData));
-//                    }
-//                }
                 super.mouseReleased(mouseEvent);
             }
         });
@@ -958,44 +967,123 @@ public class CefVisualizationService {
      * default: add block, add link
      * with content: add block, add link, delete element
      *
-     * @param flag set dialog content as default oder as "with content"
+     * @param flag   set dialog content as default oder as "with content"
+     * @param obj    information for the element, which need to be deleted
+     * @param prefix indicate its block or link
      */
-    private void showDialogWithContent(String flag) {
+    private void showDialogWithContent(String flag, String prefix, Object obj) {
         JFXDialogLayout layout = new JFXDialogLayout();
-
+        VBox boxContent = new VBox(5);
         switch (flag) {
             case "default":
-                VBox boxDefault = new VBox(5);
-                JFXButton addBlock = new JFXButton("Add Block Type");
-                JFXButton addLink = new JFXButton("Add Link Type");
-                boxDefault.getChildren().addAll(addBlock, addLink);
-                boxDefault.setAlignment(Pos.CENTER);
-                layout.setBody(boxDefault);
                 break;
             case "content":
-                VBox boxContent = new VBox(5);
-               // JFXButton addBlock = new JFXButton("Add Block Type");
-               // JFXButton addLink = new JFXButton("Add Link Type");
-              //  boxContent.getChildren().addAll(addBlock, addLink);
-                boxContent.setAlignment(Pos.CENTER);
-                layout.setBody(boxContent);
-                layout.setBody(new Label("Has Element"));
+                String describe = null;
+                if (obj instanceof String) {
+                    describe = (String) obj;
+                } else if (obj instanceof BigInteger) {
+                    BigInteger linkId = (BigInteger) obj;
+                    describe = linkId.toString();
+                }
+
+
+                JFXButton button = new JFXButton("Delete Element=> " + prefix + describe);
+                boxContent.getChildren().add(button);
+                button.setOnAction(event -> {
+                    try {
+                        deleteElement(obj);
+                    } catch (NullPointerException e) {
+                        ObservableList<Node> children = dialog.getChildren();
+                        System.out.println(children.size());
+                        Text text = new Text("Delete failed, Please try again after refreshing!");
+                        text.setFill(Color.RED);
+                        boxContent.getChildren().add(text);
+                    }
+                });
+
                 break;
         }
 
-        JFXDialog dialog = new JFXDialog(dialogHolder, layout, JFXDialog.DialogTransition.CENTER);
+        JFXButton addBlock = new JFXButton("Add Block Type");
+        addBlock.setOnAction(event -> {
+            setBlockPropertiesAndAdd();
+        });
+        JFXButton addLink = new JFXButton("Add Link Type");
+        addLink.setOnAction(event -> {
+            setLinkPropertiesAndAdd();
+        });
+        boxContent.getChildren().addAll(addBlock, addLink);
+        boxContent.setAlignment(Pos.CENTER);
+        layout.setBody(boxContent);
+
+        dialog = new JFXDialog(dialogHolder, layout, JFXDialog.DialogTransition.CENTER, true);
         layout.setHeading(new Label("Cef Control Pane"));
         JFXButton cancel = new JFXButton("Cancel");
         cancel.setOnAction(event -> dialog.close());
-        JFXButton add = new JFXButton("Add");
-        add.setOnAction(new EventHandler<ActionEvent>() {
-            @Override
-            public void handle(ActionEvent event) {
-                // TODO: 17-6-9 collecting the information
-            }
+        JFXButton btn_ok = new JFXButton("Ok");
+        btn_ok.setOnAction(event -> {
+            // TODO: 17-6-9 collecting the information
         });
-        layout.setActions(cancel, add);
+        layout.setActions(cancel, btn_ok);
         dialog.show();
+    }
+
+    /**
+     * create a pane that hold all properties,which a link type has
+     * user can edit the properties in this pane
+     * after editing , user can direct add this link type to the cef ecore file
+     */
+    private void setLinkPropertiesAndAdd() {
+        try {
+            CefEditorController cefEditorController = (CefEditorController) DashBoardController.getDataServiceInstance(CefEditorController.class.getName());
+
+            Pane container = cefEditorController.getAddPropertiesContainer();
+            container.getChildren().clear();
+            System.out.println("add link pane");
+            javafx.scene.control.ScrollPane addBlockPane = FXMLLoader.load(getClass().getResource("../dashboard_controller/addLink.fxml"));
+            addBlockPane.setLayoutX(18);
+            addBlockPane.setLayoutY(20);
+            container.getChildren().add(addBlockPane);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+    }
+
+    /**
+     * create a pane that hold all properties,which a block type has
+     * user can edit the properties in this pane
+     * after editing , user can direct add this block type to the cef ecore file
+     */
+    private void setBlockPropertiesAndAdd() {
+        try {
+            CefEditorController cefEditorController = (CefEditorController) DashBoardController.getDataServiceInstance(CefEditorController.class.getName());
+
+            Pane container = cefEditorController.getAddPropertiesContainer();
+            container.getChildren().clear();
+            System.out.println("add block pane");
+            VBox addBlockPane = FXMLLoader.load(getClass().getResource("../dashboard_controller/addBlock.fxml"));
+            addBlockPane.setLayoutX(18);
+            addBlockPane.setLayoutY(20);
+            container.getChildren().add(addBlockPane);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    /**
+     * delete the element in this graph
+     *
+     * @param obj obj indicate the type of the element
+     */
+    private void deleteElement(Object obj) {
+        if (obj instanceof String) {
+            deleteBlock((String) obj);
+        } else if (obj instanceof BigInteger) {
+            deleteLink((BigInteger) obj);
+        }
+        dialog.close();
+
     }
 
 
@@ -1026,4 +1114,12 @@ public class CefVisualizationService {
     }
 
 
+    /**
+     * refresh the diagram
+     *
+     * @return return the mx graph component
+     */
+    public mxGraphComponent refresh() {
+        return visualizationWithPane(documentRoot);
+    }
 }

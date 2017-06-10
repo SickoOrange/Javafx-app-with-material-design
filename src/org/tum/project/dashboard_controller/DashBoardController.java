@@ -48,6 +48,10 @@ public class DashBoardController implements Initializable {
         setCenterNode(simulationPane);
     }
 
+    public static HashMap<String, Object> getServiceInstanceMap() {
+        return serviceInstanceMap;
+    }
+
     /**
      * create service instance for the data analysis
      */
@@ -59,6 +63,7 @@ public class DashBoardController implements Initializable {
         TagLabelController tagLabelController = new TagLabelController();
         TraceJframe traceJframe = new TraceJframe();
         CefVisualizationService cefVisualizationService = new CefVisualizationService();
+        CefEditorController cefEditorController = new CefEditorController();
         serviceInstanceMap = new HashMap<>();
         serviceInstanceMap.put(FlowLatencyService.class.getName(), flowLatencyService);
         serviceInstanceMap.put(FlowPacketLatencyService.class.getName(), flowPacketLatencyService);
@@ -67,6 +72,7 @@ public class DashBoardController implements Initializable {
         serviceInstanceMap.put(TagLabelController.class.getName(), tagLabelController);
         serviceInstanceMap.put(TraceJframe.class.getName(), traceJframe);
         serviceInstanceMap.put(CefVisualizationService.class.getName(), cefVisualizationService);
+        serviceInstanceMap.put(CefEditorController.class.getName(), cefEditorController);
     }
 
     public static Object getDataServiceInstance(String key) {
@@ -139,4 +145,6 @@ public class DashBoardController implements Initializable {
     }
 
 
+    public static void putDataServiceInstance(String name, CefEditorController cefEditorController) {
+    }
 }

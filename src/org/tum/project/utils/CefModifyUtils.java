@@ -1,4 +1,4 @@
-package org.tum.project.CefModelEditor;
+package org.tum.project.utils;
 
 import Cef.*;
 import Cef.util.CefResourceFactoryImpl;
@@ -263,7 +263,7 @@ public class CefModifyUtils {
         return targetLinkList;
     }
 
-    public static CefType getCef(File file){
+    public static CefType getCef(File file) {
         ResourceSet resourceSet = new ResourceSetImpl();
         resourceSet.getResourceFactoryRegistry().getExtensionToFactoryMap().put(
                 Resource.Factory.Registry.DEFAULT_EXTENSION, new CefResourceFactoryImpl());

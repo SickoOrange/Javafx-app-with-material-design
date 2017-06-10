@@ -191,7 +191,7 @@ public class SimulationProjectSettingController implements Initializable {
             List<String> moduleTableList = new ArrayList<>();
             //moduleTableList.add(mt_name);
             //flowLatencyInstance.startAnalyze(moduleTableList, db_name);
-            moduleTableList.add("module_simulation_2017_6_6_0_3_27");
+            moduleTableList.add("module_simulation_2017_6_10_14_21_58");
             flowLatencyInstance.startAnalyze(moduleTableList, "SystemC");
 
 
@@ -206,14 +206,14 @@ public class SimulationProjectSettingController implements Initializable {
             FifoSizeService fifoSizeService = (FifoSizeService) DashBoardController.getDataServiceInstance(FifoSizeService.class.getName());
             List<String> fifoTabelList = new ArrayList<>();
             //fifoTabelList.add(ft_name);
-            fifoTabelList.add("fifo_simulation_2017_6_6_3_9_33");
+            fifoTabelList.add("fifo_simulation_2017_6_10_14_21_58");
             fifoSizeService.startAnalyze(fifoTabelList, "SystemC");
 
             //execute the analysis for trace flits details
             FlitTraceService flitTraceService = (FlitTraceService) DashBoardController.getDataServiceInstance(FlitTraceService.class.getName());
             List<String> fastfifoTabelList = new ArrayList<>();
             //fifoTabelList.add(fft_name);
-            fastfifoTabelList.add("fastfiforw_simulation_2017_6_6_6_8_23");
+            fastfifoTabelList.add("fastfiforw_simulation_2017_6_10_14_21_58");
             flitTraceService.startAnalyze(fastfifoTabelList, "SystemC");
 
 

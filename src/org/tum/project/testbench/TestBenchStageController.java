@@ -12,7 +12,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Label;
 import javafx.stage.Stage;
-import org.tum.project.CefModelEditor.CefModifyUtils;
+import org.tum.project.utils.CefModifyUtils;
 import org.tum.project.controller.MainController;
 import org.tum.project.utils.Utils;
 

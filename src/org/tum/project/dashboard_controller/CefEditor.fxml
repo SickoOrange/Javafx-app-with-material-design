@@ -1,133 +1,44 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import com.jfoenix.controls.*?>
 <?import java.lang.*?>
+<?import com.jfoenix.controls.*?>
 <?import javafx.scene.image.*?>
 <?import javafx.scene.text.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
-<?import javafx.scene.image.ImageView?>
-<?import javafx.scene.image.Image?>
-<?import javafx.scene.text.Font?>
 
 <AnchorPane prefHeight="720.0" prefWidth="1100.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.tum.project.dashboard_controller.CefEditorController">
     <children>
         <StackPane fx:id="sp_editor" layoutX="8.0" layoutY="8.0" prefHeight="705.0" prefWidth="766.0" style="-fx-background-color: white; -fx-background-radius: 3; -fx-border-radius: 3; -fx-effect: dropshadow(gaussian, rgb(0.0, 0.0, 0.0, 0.15), 6.0, 0.7, 0.0,1.5);">
-         <children>
-            <JFXButton fx:id="btn_refresh" prefHeight="41.0" prefWidth="98.0" text="Refresh" textAlignment="RIGHT" />
-         </children></StackPane>
+            <children>
+                <Text fx:id="t_loadingLabel" fill="#ff2c2c" strokeType="OUTSIDE" strokeWidth="0.0" text="Loading..." textAlignment="CENTER" visible="false" wrappingWidth="185.126953125" />
+            </children>
+        </StackPane>
         <StackPane fx:id="sp_properties" layoutX="778.0" layoutY="8.0" prefHeight="705.0" prefWidth="320.0" style="-fx-background-color: white; -fx-background-radius: 3; -fx-border-radius: 3; -fx-effect: dropshadow(gaussian, rgb(0.0, 0.0, 0.0, 0.15), 6.0, 0.7, 0.0,1.5);">
             <children>
-                <VBox prefHeight="200.0" prefWidth="100.0">
+                <AnchorPane prefHeight="200.0" prefWidth="200.0">
                     <children>
                         <Pane prefHeight="180.0" prefWidth="320.0">
                             <children>
-                                <ImageView fitHeight="180.0" fitWidth="320.0" pickOnBounds="true">
-                                    <image>
-                                        <Image url="@../images/mybg.png" />
-                                    </image>
-                                </ImageView>
                                 <Label fx:id="lblName" alignment="CENTER" layoutX="39.0" layoutY="40.0" prefHeight="30.0" prefWidth="241.0" text="Element Properties" textFill="#eeecec">
                                     <font>
                                         <Font name="Roboto Black" size="15.0" />
                                     </font>
                                 </Label>
+                                <ImageView fitHeight="180.0" fitWidth="320.0" pickOnBounds="true">
+                                    <image>
+                                        <Image url="@../images/mybg.png" />
+                                    </image>
+                                </ImageView>
                             </children>
                         </Pane>
-                        <AnchorPane prefHeight="525.0" prefWidth="320.0">
-                            <children>
-                                <Separator layoutX="18.0" layoutY="110.0" prefHeight="0.0" prefWidth="290.0" />
-                                <Separator layoutX="24.0" layoutY="243.0" prefHeight="0.0" prefWidth="290.0" />
-                                <VBox layoutX="50.0" layoutY="37.0" prefHeight="85.0" prefWidth="221.0" />
-                                <Label layoutX="80.0" layoutY="293.0" prefHeight="17.0" prefWidth="70.0" text="FEE" textFill="#a19d9d">
-                                    <font>
-                                        <Font name="Roboto Black" size="12.0" />
-                                    </font>
-                                </Label>
-                                <VBox layoutX="50.0" layoutY="138.0" prefHeight="90.0" prefWidth="221.0">
-                                    <children>
-                                        <Label fx:id="lblDepartment" prefHeight="30.0" prefWidth="214.0" text="Bsc. Computer Science" textFill="#797878">
-                                            <font>
-                                                <Font name="Roboto Regular" size="14.0" />
-                                            </font>
-                                            <!--<graphic>-->
-                                                <!--<FontAwesomeIconView fill="#404bb6" glyphName="MORTAR_BOARD" size="16.0"-->
-                                                                     <!--wrappingWidth="28.0"/>-->
-                                            <!--</graphic>-->
-                                        </Label>
-                                        <Label fx:id="lblLevel" prefHeight="30.0" prefWidth="214.0" text="Degree Programme" textFill="#797878">
-                                            <font>
-                                                <Font name="Roboto Regular" size="14.0" />
-                                            </font>
-                                            <!--<graphic>-->
-                                                <!--<FontAwesomeIconView fill="#404bb6" glyphName="SITEMAP" size="16.0"-->
-                                                                     <!--wrappingWidth="28.0"/>-->
-                                            <!--</graphic>-->
-                                        </Label>
-                                        <Label fx:id="lblCourse" prefHeight="30.0" prefWidth="214.0" text="Bsc. Computer Science" textFill="#797878">
-                                            <font>
-                                                <Font name="Roboto Regular" size="14.0" />
-                                            </font>
-                                            <!--<graphic>-->
-                                                <!--<FontAwesomeIconView fill="#404bb6" glyphName="EXTERNAL_LINK_SQUARE"-->
-                                                                     <!--size="16.0" wrappingWidth="28.0"/>-->
-                                            <!--</graphic>-->
-                                        </Label>
-                                    </children>
-                                </VBox>
-                                <Label fx:id="lblFee" alignment="CENTER_RIGHT" layoutX="236.0" layoutY="293.0" prefHeight="17.0" prefWidth="70.0" text="13,200.00" textFill="#868282">
-                                    <font>
-                                        <Font name="Roboto Black" size="12.0" />
-                                    </font>
-                                </Label>
-                                <Separator layoutX="77.0" layoutY="316.0" prefHeight="2.0" prefWidth="233.0" />
-                                <Label layoutX="80.0" layoutY="326.0" prefHeight="17.0" prefWidth="70.0" text="PAID" textFill="#a19d9d">
-                                    <font>
-                                        <Font name="Roboto Black" size="12.0" />
-                                    </font>
-                                </Label>
-                                <Label fx:id="lblPaid" alignment="CENTER_RIGHT" layoutX="236.0" layoutY="326.0" prefHeight="17.0" prefWidth="70.0" text="13,200.00" textFill="#868282">
-                                    <font>
-                                        <Font name="Roboto Black" size="12.0" />
-                                    </font>
-                                </Label>
-                                <Separator layoutX="77.0" layoutY="349.0" prefHeight="2.0" prefWidth="233.0" />
-                                <Label layoutX="80.0" layoutY="358.0" prefHeight="17.0" prefWidth="70.0" text="BALANCE" textFill="#a19d9d">
-                                    <font>
-                                        <Font name="Roboto Black" size="12.0" />
-                                    </font>
-                                </Label>
-                                <Label fx:id="lblBalance" alignment="CENTER_RIGHT" layoutX="236.0" layoutY="358.0" prefHeight="17.0" prefWidth="70.0" text="13,200.00" textFill="#868282">
-                                    <font>
-                                        <Font name="Roboto Black" size="12.0" />
-                                    </font>
-                                </Label>
-                                <Separator layoutX="77.0" layoutY="381.0" prefHeight="2.0" prefWidth="233.0" />
-                            </children>
-                        </AnchorPane>
-                    </children>
-                </VBox>
-                <AnchorPane prefHeight="200.0" prefWidth="200.0">
-                    <children>
-                        <AnchorPane fx:id="fabPane" layoutX="255.0" layoutY="155.0" prefHeight="53.0" prefWidth="51.0">
-                            <children>
-                                <Label fx:id="fabEdit" styleClass="fab">
-                                    <!--<graphic>-->
-                                        <!--<MaterialDesignIconView fill="WHITE" glyphName="BORDER_COLOR" size="26"-->
-                                                                <!--wrappingWidth="22.666656494140625"/>-->
-                                    <!--</graphic>-->
-                                    <!--<padding>-->
-                                    <!--<Insets right="5.0" top="5.0"/>-->
-                                    <!--</padding>-->
-                                </Label>
-                            </children>
-                        </AnchorPane>
-                  <JFXButton layoutX="8.0" layoutY="194.0" onAction="#openAction" prefHeight="29.0" prefWidth="84.0" text="open " />
-                  <JFXButton layoutX="92.0" layoutY="194.0" onAction="#saveAction" prefHeight="29.0" prefWidth="84.0" text="save" />
-                  <Text fx:id="t_openFile" layoutX="26.0" layoutY="244.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Text" wrappingWidth="290.0" />
-                  <Text fx:id="t_savePath" layoutX="26.0" layoutY="276.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Text" wrappingWidth="290.0" />
-                  <JFXButton fx:id="btn_refresh" layoutX="176.0" layoutY="194.0" onAction="#saveAction" prefHeight="29.0" prefWidth="84.0" text="Refresh" />
-                  <JFXCheckBox layoutX="99.0" layoutY="591.0" />
+                        <JFXButton layoutX="41.0" layoutY="194.0" onAction="#openAction" prefHeight="29.0" prefWidth="84.0" text="open " />
+                        <JFXButton layoutX="118.0" layoutY="194.0" onAction="#saveAction" prefHeight="29.0" prefWidth="84.0" text="save" />
+                        <Text fx:id="t_openFile" layoutX="26.0" layoutY="257.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Text" wrappingWidth="290.0" />
+                        <Text fx:id="t_savePath" layoutX="26.0" layoutY="289.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Text" wrappingWidth="290.0" />
+                        <JFXButton fx:id="btn_refresh" layoutX="222.0" layoutY="194.0" onAction="#refreshAction" prefHeight="29.0" prefWidth="84.0" style="-fx-background-color: #e3eeee; -fx-background-radius: 50;" text="Refresh" />
+                  <Separator layoutX="19.0" layoutY="306.0" prefHeight="2.0" prefWidth="283.0" />
+                  <Pane fx:id="addPropertiesContainer" layoutX="14.0" layoutY="315.0" prefHeight="379.0" prefWidth="290.0" />
                     </children>
                 </AnchorPane>
             </children>
