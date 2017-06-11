@@ -27,7 +27,7 @@
                                 </Label>
                                 <ImageView fitHeight="180.0" fitWidth="320.0" pickOnBounds="true">
                                     <image>
-                                        <Image url="@../../../../../../materialdesign_introduction.png" />
+                                        <Image url="@../images/mybg.png" />
                                     </image>
                                 </ImageView>
                             </children>

@@ -1,16 +1,31 @@
 package org.tum.project.dashboard_controller;
 
-import com.jfoenix.controls.JFXSnackbar;
+import com.jfoenix.controls.JFXButton;
+import com.jfoenix.controls.JFXDialog;
+import com.jfoenix.controls.JFXDialogLayout;
+import com.sun.org.apache.bcel.internal.generic.LADD;
+import javafx.animation.FadeTransition;
+import javafx.beans.property.ObjectProperty;
 import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Node;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
+import javafx.scene.control.Label;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.StackPane;
-import org.tum.project.dashboard_controller.simulationPane.SimulationProgressController;
+import javafx.scene.paint.Color;
+import javafx.stage.Stage;
+import javafx.util.Duration;
 import org.tum.project.dataservice.*;
+import org.tum.project.login_controller.MaterialLoginController;
 
+import javax.xml.soap.Text;
+import java.awt.dnd.MouseDragGestureRecognizer;
+import java.awt.event.MouseEvent;
 import java.io.IOException;
 import java.net.URL;
 import java.util.HashMap;
@@ -36,6 +51,26 @@ public class DashBoardController implements Initializable {
     private AnchorPane fifoSizeDetailsPane;
     private AnchorPane flitsTraceDetailsPane;
     private AnchorPane cefEditorPane;
+    private JFXDialog dialog;
+
+
+    @FXML
+    private JFXButton btn_cefEditor;
+
+    @FXML
+    private JFXButton btn_Simulation;
+
+    @FXML
+    private JFXButton btn_fifosize;
+
+    @FXML
+    private JFXButton btn_flitsTrace;
+
+    @FXML
+    private JFXButton btn_flowLatency;
+
+    @FXML
+    private JFXButton btn_flowPacketLatency;
 
 
     /**
@@ -50,6 +85,7 @@ public class DashBoardController implements Initializable {
         createDataService();
         createCenterNode();
         setCenterNode(simulationPane);
+
     }
 
     public static HashMap<String, Object> getServiceInstanceMap() {
@@ -102,6 +138,11 @@ public class DashBoardController implements Initializable {
 
     @FXML
     void openSimulationPane(ActionEvent event) {
+        btn_Simulation.setTextFill(Color.RED);
+        System.out.println( );
+        javafx.scene.text.Text graphic = (javafx.scene.text.Text) btn_Simulation.getGraphic();
+        graphic.setFill(Color.RED);
+
         setCenterNode(simulationPane);
     }
 
@@ -152,4 +193,38 @@ public class DashBoardController implements Initializable {
 
     public static void putDataServiceInstance(String name, CefEditorController cefEditorController) {
     }
+
+    @FXML
+    void showInfoAction(javafx.scene.input.MouseEvent event) {
+        // TODO: 17-6-11 show information
+        System.out.println("information");
+
+        JFXDialogLayout layout = new JFXDialogLayout();
+        layout.setHeading(new Label("Information about this Application"));
+        JFXButton btn_dialog_ok = new JFXButton("ok");
+        btn_dialog_ok.setOnAction(event1 -> {
+            dialog.close();
+        });
+        layout.setActions(btn_dialog_ok);
+
+        Label label_content = new Label("Fuck U");
+        layout.setBody(label_content);
+        dialog = new JFXDialog(sp_root, layout, JFXDialog.DialogTransition.CENTER, true);
+        dialog.show();
+
+    }
+
+    @FXML
+    void showHomeAction(javafx.scene.input.MouseEvent event) throws IOException {
+        AnchorPane node = FXMLLoader.load(getClass().getResource("../login_controller/MaterialLogin.fxml"));
+        Stage mainStage = MaterialLoginController.getMainStage();
+        mainStage.setScene(new Scene(node));
+    }
+
+    @FXML
+    void showExitAction(javafx.scene.input.MouseEvent event) {
+        MaterialLoginController.getMainStage().close();
+    }
+
+
 }

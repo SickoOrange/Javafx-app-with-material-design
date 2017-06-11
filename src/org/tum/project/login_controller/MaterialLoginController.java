@@ -174,4 +174,10 @@ public class MaterialLoginController implements Initializable {
     public static void registerPrimaryStage(Stage primaryStage) {
         mainStage = primaryStage;
     }
+
+    public static Stage getMainStage() {
+        return mainStage;
+    }
+
+
 }
