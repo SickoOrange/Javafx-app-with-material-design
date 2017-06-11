@@ -27,18 +27,23 @@
                                 </Label>
                                 <ImageView fitHeight="180.0" fitWidth="320.0" pickOnBounds="true">
                                     <image>
-                                        <Image url="@../images/mybg.png" />
+                                        <Image url="@../../../../../../materialdesign_introduction.png" />
                                     </image>
                                 </ImageView>
                             </children>
                         </Pane>
-                        <JFXButton layoutX="41.0" layoutY="194.0" onAction="#openAction" prefHeight="29.0" prefWidth="84.0" text="open " />
-                        <JFXButton layoutX="118.0" layoutY="194.0" onAction="#saveAction" prefHeight="29.0" prefWidth="84.0" text="save" />
-                        <Text fx:id="t_openFile" layoutX="26.0" layoutY="257.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Text" wrappingWidth="290.0" />
-                        <Text fx:id="t_savePath" layoutX="26.0" layoutY="289.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Text" wrappingWidth="290.0" />
-                        <JFXButton fx:id="btn_refresh" layoutX="222.0" layoutY="194.0" onAction="#refreshAction" prefHeight="29.0" prefWidth="84.0" style="-fx-background-color: #e3eeee; -fx-background-radius: 50;" text="Refresh" />
-                  <Separator layoutX="19.0" layoutY="306.0" prefHeight="2.0" prefWidth="283.0" />
-                  <Pane fx:id="addPropertiesContainer" layoutX="14.0" layoutY="315.0" prefHeight="379.0" prefWidth="290.0" />
+                        <JFXButton layoutX="14.0" layoutY="209.0" onAction="#openAction" prefHeight="29.0" prefWidth="84.0" style="-fx-background-radius: 50; -fx-background-color: #F50057;" text="Open " textFill="WHITE" />
+                        <JFXButton layoutX="117.0" layoutY="209.0" onAction="#saveAction" prefHeight="29.0" prefWidth="84.0" style="-fx-background-radius: 50; -fx-background-color: #F50057;" text="Save" textFill="WHITE" />
+                        <Text fx:id="t_openFile" layoutX="14.0" layoutY="278.0" strokeType="OUTSIDE" strokeWidth="0.0" text="CEF:" wrappingWidth="290.0" />
+                        <Text fx:id="t_savePath" layoutX="14.0" layoutY="312.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Save:" wrappingWidth="290.0" />
+                        <JFXButton fx:id="btn_refresh" layoutX="222.0" layoutY="209.0" onAction="#refreshAction" prefHeight="29.0" prefWidth="84.0" style="-fx-background-color: #F50057; -fx-background-radius: 50;" text="Refresh" textFill="WHITE" />
+                  <Separator layoutX="20.0" layoutY="326.0" prefHeight="2.0" prefWidth="280.0" />
+                  <Pane fx:id="addPropertiesContainer" layoutX="14.0" layoutY="369.0" prefHeight="325.0" prefWidth="290.0" />
+                  <Text layoutX="56.0" layoutY="348.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Properties Controll Pane" textAlignment="CENTER" wrappingWidth="201.126953125">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                  </Text>
                     </children>
                 </AnchorPane>
             </children>

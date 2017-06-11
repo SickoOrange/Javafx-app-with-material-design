@@ -19,6 +19,7 @@ import javafx.geometry.Pos;
 import javafx.scene.Node;
 import javafx.scene.control.*;
 import javafx.scene.control.Label;
+import javafx.scene.control.ScrollPane;
 import javafx.scene.layout.*;
 import javafx.scene.paint.Color;
 import javafx.scene.text.Text;
@@ -832,7 +833,9 @@ public class CefVisualizationService {
             //get vertex from block name
             Object sourceVertex = getVertexFromBlock(sourceBlock, vertexList);
             Object destinationVertex = getVertexFromBlock(destinationBlock, vertexList);
-            Object edge = graph.insertEdge(parent, null, "linkid: " + linkType.getId(), sourceVertex,
+//            Object edge = graph.insertEdge(parent, null, "linkid: " + linkType.getId(), sourceVertex,
+//                    destinationVertex);
+            Object edge = graph.insertEdge(parent, null, null, sourceVertex,
                     destinationVertex);
             edgeList.put(linkType.getId(), edge);
         }
@@ -903,7 +906,6 @@ public class CefVisualizationService {
      * init the setting for generate a graph
      * only be used for new material user interface
      */
-    // TODO: 17-6-8 适配新UI
     private void initGraphForNewUI() {
 
         graph = new mxGraph();
@@ -1022,10 +1024,106 @@ public class CefVisualizationService {
         cancel.setOnAction(event -> dialog.close());
         JFXButton btn_ok = new JFXButton("Ok");
         btn_ok.setOnAction(event -> {
-            // TODO: 17-6-9 collecting the information
+            //collect the properties information of the block type or link type
+            CefEditorController cefEditorController = (CefEditorController) DashBoardController.getDataServiceInstance(CefEditorController.class.getName());
+
+            Pane container = cefEditorController.getAddPropertiesContainer();
+            if (container.getChildren().get(0) instanceof VBox) {
+                //this is a block properties
+                VBox box = (VBox) container.getChildren().get(0);
+                collectBlockProperties(box);
+
+            } else if (container.getChildren().get(0) instanceof ScrollPane) {
+                //this is a link properties
+                ScrollPane pane = (ScrollPane) container.getChildren().get(0);
+                VBox box = (VBox) pane.getContent();
+                collectLinkProperties(box);
+            }
+            dialog.close();
+
         });
         layout.setActions(cancel, btn_ok);
         dialog.show();
+    }
+
+    /**
+     * collect the information of a link type and submit to the ecore file
+     *
+     * @param box
+     */
+    private void collectLinkProperties(VBox box) {
+
+        String name = ((JFXTextField) box.getChildren().get(1)).getText();
+        String id = ((JFXTextField) box.getChildren().get(2)).getText();
+        String sourcePortId = ((JFXTextField) box.getChildren().get(3)).getText();
+        String destinationPortId = ((JFXTextField) box.getChildren().get(4)).getText();
+        String carriesSourceClock = ((JFXTextField) box.getChildren().get(5)).getText();
+        String carriesSourceReset = ((JFXTextField) box.getChildren().get(6)).getText();
+        String linkLengthEstimation = ((JFXTextField) box.getChildren().get(7)).getText();
+        String auxilliaryForwardWires = ((JFXTextField) box.getChildren().get(8)).getText();
+        String auxilliaryBackwardWires = ((JFXTextField) box.getChildren().get(9)).getText();
+
+
+        if ((!id.equals("")) && (!sourcePortId.equals("")) && (!destinationPortId.equals(""))) {
+            LinkType newLinkType = CefFactory.eINSTANCE.createLinkType();
+            newLinkType.setName(name.length() == 0 ? null : name);
+            newLinkType.setId(id.length() == 0 ? new BigInteger("0") : new BigInteger(id));
+            newLinkType.setSourcePortId(sourcePortId.length() == 0 ? new BigInteger("0") : new BigInteger
+                    (sourcePortId));
+            newLinkType.setDestinationPortId(destinationPortId.length() == 0 ? new BigInteger("0") : new BigInteger
+                    (destinationPortId));
+
+            newLinkType.setCarriesSourceClock(carriesSourceClock.length() == 0 ? Boolean.FALSE : Boolean.valueOf(carriesSourceClock));
+
+            newLinkType.setCarriesSourceReset(carriesSourceReset.length() == 0 ? Boolean.FALSE : Boolean.valueOf
+                    (carriesSourceReset));
+
+            newLinkType.setLinkLengthEstimation(linkLengthEstimation.length() == 0 ? new Double(0) : new
+                    Double(linkLengthEstimation));
+
+            newLinkType.setAuxiliaryForwardWires(auxilliaryForwardWires.length() == 0 ? new BigInteger("0") : new
+                    BigInteger
+                    (auxilliaryForwardWires));
+
+            newLinkType.setAuxiliaryBackwardWires(auxilliaryBackwardWires.length() == 0 ? new BigInteger("0") : new
+                    BigInteger
+                    (auxilliaryBackwardWires));
+
+            System.out.println("new link type:\n" + newLinkType);
+            addLinkToDocumentRoot(newLinkType);
+
+
+        } else {
+            // TODO: 17-6-11 replace the dialog with snackbar
+            CefModifyUtils.alertDialog("link id, source port id and destination id can't be null");
+        }
+
+    }
+
+    /**
+     * collect the information of a block type and submit to the ecore file
+     *
+     * @param box
+     */
+    private void collectBlockProperties(VBox box) {
+        String name = ((JFXTextField) box.getChildren().get(1)).getText();
+        String id = ((JFXTextField) box.getChildren().get(2)).getText();
+        String blockType = ((JFXTextField) box.getChildren().get(3)).getText();
+        String layer = ((JFXTextField) box.getChildren().get(4)).getText();
+        if (!name.equals("")) {
+            BlockType newBlockType = CefFactory.eINSTANCE.createBlockType();
+            newBlockType.setName(name);
+            newBlockType.setId(id.length() == 0 ? new BigInteger("0") : new BigInteger(id));
+            newBlockType.setBlockType(blockType.length() == 0 ? new BigInteger("0") : new BigInteger(blockType));
+            newBlockType.setLayer(layer.length() == 0 ? new BigInteger("0") : new BigInteger(layer));
+            System.out.println("new block type:\n" + newBlockType);
+            addBlockToDocumentRoot(newBlockType);
+
+
+        } else {
+            // TODO: 17-6-11 replace the dialog with snackbar
+            CefModifyUtils.alertDialog("Block Name can't be null");
+        }
     }
 
     /**

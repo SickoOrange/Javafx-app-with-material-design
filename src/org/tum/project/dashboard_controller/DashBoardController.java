@@ -1,14 +1,14 @@
 package org.tum.project.dashboard_controller;
 
-import com.jfoenix.controls.JFXButton;
-import com.sun.deploy.trace.Trace;
+import com.jfoenix.controls.JFXSnackbar;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.layout.AnchorPane;
-import org.omg.CORBA.OBJECT_NOT_EXIST;
+import javafx.scene.layout.StackPane;
+import org.tum.project.dashboard_controller.simulationPane.SimulationProgressController;
 import org.tum.project.dataservice.*;
 
 import java.io.IOException;
@@ -25,6 +25,9 @@ public class DashBoardController implements Initializable {
 
     private Node simulationPane;
 
+
+    @FXML
+    private StackPane sp_root;
     @FXML
     private AnchorPane holderPane;
     private AnchorPane flowLatencyPane;
@@ -41,6 +44,7 @@ public class DashBoardController implements Initializable {
      * @param location  location
      * @param resources resources
      */
+    @FXML
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         createDataService();
@@ -73,6 +77,7 @@ public class DashBoardController implements Initializable {
         serviceInstanceMap.put(TraceJframe.class.getName(), traceJframe);
         serviceInstanceMap.put(CefVisualizationService.class.getName(), cefVisualizationService);
         serviceInstanceMap.put(CefEditorController.class.getName(), cefEditorController);
+        serviceInstanceMap.put(this.getClass().getName(), this);
     }
 
     public static Object getDataServiceInstance(String key) {

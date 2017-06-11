@@ -85,5 +85,6 @@
                 <Font name="Roboto Light" size="12.0" />
             </font>
         </Text>
+      <Text fx:id="t_error" fill="RED" layoutX="800.0" layoutY="53.0" strokeType="OUTSIDE" strokeWidth="0.0" textAlignment="CENTER" wrappingWidth="223.126953125" />
     </children>
 </AnchorPane>

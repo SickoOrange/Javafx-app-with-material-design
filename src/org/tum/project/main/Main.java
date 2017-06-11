@@ -1,5 +1,6 @@
 package org.tum.project.main;
 
+import com.sun.prism.Material;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -26,7 +27,7 @@ public class Main extends Application {
             primaryStage.setScene(new Scene(root));
             primaryStage.show();
             // LoginController.registerStage(primaryStage);
-            MenusHolderController.registerPrimaryStage(primaryStage);
+            MaterialLoginController.registerPrimaryStage(primaryStage);
         } catch (IOException e) {
             e.printStackTrace();
         }

@@ -11,6 +11,7 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.text.Text;
 import javafx.util.Duration;
+import org.tum.project.dashboard_controller.DashBoardController;
 import org.tum.project.dashboard_controller.SimulationController;
 
 import java.net.MalformedURLException;
@@ -71,6 +72,9 @@ public class SimulationProgressController implements Initializable {
 
     @FXML
     private Text txt1;
+
+    @FXML
+    private Text t_error;
     private RotateTransition[] animationArray;
     private boolean needPlayForCompile = true;
     private boolean needPlayForSimulation = true;
@@ -102,6 +106,8 @@ public class SimulationProgressController implements Initializable {
             animationArray[i] = rotateTransition;
 
         }
+
+        DashBoardController.getServiceInstanceMap().put(this.getClass().getName(), this);
 
 
     }
@@ -234,6 +240,11 @@ public class SimulationProgressController implements Initializable {
      * clear all the label and image
      */
     public void clear() {
+        System.out.println("clear");
+
+        for (RotateTransition transition : animationArray) {
+            transition.stop();
+        }
         img1.setImage(new Image(String.valueOf(getResourceUrl("/clock.png"))));
         img2.setImage(new Image(String.valueOf(getResourceUrl("/clock.png"))));
         img3.setImage(new Image(String.valueOf(getResourceUrl("/clock.png"))));
@@ -247,6 +258,7 @@ public class SimulationProgressController implements Initializable {
         txt4.setText("");
         txt5.setText("");
         txt6.setText("");
+        t_error.setText("");
 
         lbl1.setStyle("-fx-background-color:#BCBCBC");
         lbl2.setStyle("-fx-background-color:#BCBCBC");
@@ -254,5 +266,16 @@ public class SimulationProgressController implements Initializable {
         lbl4.setStyle("-fx-background-color:#BCBCBC");
         lbl5.setStyle("-fx-background-color:#BCBCBC");
 
+    }
+
+    public void stopALL() {
+
+        for (RotateTransition transition : animationArray) {
+            transition.stop();
+        }
+    }
+
+    public void setError(String error) {
+        t_error.setText(error);
     }
 }

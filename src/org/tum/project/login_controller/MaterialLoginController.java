@@ -10,6 +10,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.text.Text;
@@ -25,7 +26,7 @@ import java.sql.SQLException;
 import java.util.ResourceBundle;
 
 /**
- * main app entry for login in with a databank
+ * main app entry for login in with a data sbank
  * Created by Yin Ya on 2017/5/27.
  */
 public class MaterialLoginController implements Initializable {
@@ -47,8 +48,13 @@ public class MaterialLoginController implements Initializable {
     private AnchorPane loginRoot;
 
     @FXML
+    @Deprecated
     private HBox menusHolder;
+    @Deprecated
     private Parent menusCard;
+    private Parent dashBoardPane;
+
+    private static Stage mainStage;
 
 
     /**
@@ -83,6 +89,12 @@ public class MaterialLoginController implements Initializable {
             Utils.updatePropValue("isRemember", Boolean.toString(newValue));
         });
 
+
+        try {
+            dashBoardPane = FXMLLoader.load(getClass().getResource("../dashboard_controller/DashBoard.fxml"));
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
 
     }
 
@@ -126,7 +138,7 @@ public class MaterialLoginController implements Initializable {
             Utils.updatePropValue("userName", userName);
             Utils.updatePropValue("userPassword", userPassword);
             System.out.println("login successfully data: " + userName + "," + userPassword);
-            switchMenusHolder(loginRoot, menusCard);
+            switchMenusHolder(loginRoot);
 
 
         }
@@ -135,10 +147,10 @@ public class MaterialLoginController implements Initializable {
 
     /**
      * switch the menu, that display the content after successfully login in.
+     *
      * @param original original node
-     * @param target  target node to switch
      */
-    private void switchMenusHolder(Node original, Node target) {
+    private void switchMenusHolder(Node original) {
         FadeTransition inTransition = new FadeTransition();
         inTransition.setNode(original);
         inTransition.setDuration(Duration.millis(600));
@@ -146,11 +158,20 @@ public class MaterialLoginController implements Initializable {
         inTransition.setToValue(0.0);
         inTransition.play();
         inTransition.setOnFinished(event -> {
-            menusHolder.getChildren().clear();
-            menusHolder.getChildren().add(target);
+            // menusHolder.getChildren().clear();
+            //menusHolder.getChildren().add(target);
+            mainStage.setScene(new Scene(dashBoardPane));
         });
 
     }
 
 
+    /**
+     * register the main stage for this controller
+     *
+     * @param primaryStage
+     */
+    public static void registerPrimaryStage(Stage primaryStage) {
+        mainStage = primaryStage;
+    }
 }

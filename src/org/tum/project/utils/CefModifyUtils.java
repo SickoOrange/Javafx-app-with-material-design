@@ -28,7 +28,7 @@ public class CefModifyUtils {
      * @param documentRoot document root
      * @param newBlockType new block type
      */
-    public static void addBlock(DocumentRoot documentRoot, BlockType newBlockType) {
+    public static void  addBlock(DocumentRoot documentRoot, BlockType newBlockType) {
         EList<BlockType> blocks = documentRoot.getCef().getSystem().getBlocks().getBlock();
         //System.out.println(blocks.size());
         boolean adding = false;

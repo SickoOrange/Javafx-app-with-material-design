@@ -2,16 +2,17 @@ package org.tum.project.dashboard_controller.simulationPane;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
-import com.jfoenix.controls.JFXButton;
-import com.jfoenix.controls.JFXComboBox;
-import com.jfoenix.controls.JFXRadioButton;
-import com.jfoenix.controls.JFXTextField;
+import com.jfoenix.controls.*;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
 import javafx.event.ActionEvent;
+import javafx.event.Event;
+import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.ToggleGroup;
+import javafx.scene.input.MouseEvent;
+import javafx.scene.layout.StackPane;
 import org.dom4j.Document;
 import org.dom4j.DocumentException;
 import org.tum.project.bean.ProjectInfo;
@@ -85,11 +86,11 @@ public class SimulationProjectSettingController implements Initializable {
 
 
     /**
-     * select default path
+     * select default test bench path
      *
      * @param actionEvent
      */
-    public void rb_defaultPathAction(ActionEvent actionEvent) {
+    public void loadDefaultTestBenchPathAction(ActionEvent actionEvent) {
         et_cefFile.setEditable(false);
         et_testBench.setEditable(false);
         String cefPath = Utils.readPropValue("CefFilePath");
@@ -102,124 +103,137 @@ public class SimulationProjectSettingController implements Initializable {
 
         @Override
         public void run() {
-            System.out.println("start simulation");
-            btnSimulation.setDisable(true);
-            simulationProgressController = (SimulationProgressController) SimulationController.getControllerInstance(SimulationProgressController.class.getName());
-            simulationProgressController.clear();
-            simulationProgressController.startAnimation1("Checking for Start");
-
-
-            //Collect the necessary path information
-            simulationPathSettingController = (SimulationPathSettingController) SimulationController.getControllerInstance(SimulationPathSettingController.class.getName());
-
-            String[] simulationPath = simulationPathSettingController.getSimulationPath();
-
-            //Collect the necessary simulation dank bank information
-            String db_name = et_dbName.getText();
-            String mt_name = et_mtName.getText();
-            String ft_name = et_ftName.getText();
-            String fft_name = et_fftName.getText();
-
-            //Collect the necessary cef model and save test bench test c++ file path
-            String cefFilePath = et_cefFile.getText();
-            String testBenchSavePath = et_testBench.getText();
-
-
-            // TODO: 17-6-4  validate all string, can‘be null
-            System.out.println("start collect information");
-            simulationProgressController.startAnimation2("Collecting\n" + "Info\n");
-            //load the simulation to the default
-            Utils.updatePropValue("ModelsNocPath", simulationPath[0]);
-            Utils.updatePropValue("SystemCLibPath", simulationPath[1]);
-
-            Utils.updatePropValue("CefFilePath", cefFilePath);
-            Utils.updatePropValue("SaveCppPath", testBenchSavePath);
-
-
-            ProjectInfo info = new ProjectInfo();
-            info.setSimulationFile(et_fileName.getText());
-            info.setDataBankName(db_name);
-            info.setModuleTableName(mt_name);
-            info.setFifoTableName(ft_name);
-            info.setFastfifoTabelName(fft_name);
-
-            //only when the new project is active, then write the project info to the software
-            if (rb_new.isSelected()) {
-                xmlUtils.writeToDocument(info);
-            }
-
-
-            //write the relative information to the json file in the simulation path.
-            GsonBuilder builder = new GsonBuilder();
-            Gson gson = builder.create();
-            String parametersPath = simulationPath[0] + "/params.json";
             try {
-                FileWriter writer = new FileWriter(parametersPath);
-                writer.write(gson.toJson(info));
-                writer.flush();
-                writer.close();
-            } catch (IOException e) {
-                e.printStackTrace();
+                System.out.println("start simulation");
+                btnSimulation.setDisable(true);
+                simulationProgressController = (SimulationProgressController) SimulationController.getControllerInstance(SimulationProgressController.class.getName());
+                simulationProgressController.clear();
+                simulationProgressController.startAnimation1("Checking for Start");
+
+
+                //Collect the necessary path information
+                simulationPathSettingController = (SimulationPathSettingController) SimulationController.getControllerInstance(SimulationPathSettingController.class.getName());
+
+                String[] simulationPath = simulationPathSettingController.getSimulationPath();
+
+                //Collect the necessary simulation dank bank information
+                String db_name = et_dbName.getText();
+                String mt_name = et_mtName.getText();
+                String ft_name = et_ftName.getText();
+                String fft_name = et_fftName.getText();
+
+                //Collect the necessary cef model and save test bench test c++ file path
+                String cefFilePath = et_cefFile.getText();
+                String testBenchSavePath = et_testBench.getText();
+
+
+                // TODO: 17-6-4  validate all string, can‘be null
+                System.out.println("start collect information");
+                simulationProgressController.startAnimation2("Collecting\n" + "Info\n");
+
+
+                ProjectInfo info = new ProjectInfo();
+                info.setSimulationFile(et_fileName.getText());
+                info.setDataBankName(db_name);
+                info.setModuleTableName(mt_name);
+                info.setFifoTableName(ft_name);
+                info.setFastfifoTabelName(fft_name);
+
+                //only when the new project is active, then write the project info to the software
+                if (rb_new.isSelected()) {
+                    xmlUtils.writeToDocument(info);
+                }
+
+
+                //write the relative information to the json file in the simulation path.
+                GsonBuilder builder = new GsonBuilder();
+                Gson gson = builder.create();
+                String parametersPath = simulationPath[0] + "/params.json";
+                try {
+                    FileWriter writer = new FileWriter(parametersPath);
+                    writer.write(gson.toJson(info));
+                    writer.flush();
+                    writer.close();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+
+
+                //generate the test bench c++ file
+                System.out.println("Start generate c++ file");
+                simulationProgressController.startAnimation3("Generate\n" + "file\n");
+                SimulationUtils.generateTestFile(cefFilePath, testBenchSavePath);
+
+                //compile the module
+                System.out.println("start compile");
+                simulationProgressController.startAnimation4("Start\n" + "to\n" + "compile\n");
+                SimulationUtils.compile(simulationPath[0]);
+
+                //execute the simulation
+                System.out.println("start simulation");
+                simulationProgressController.startAnimation5("Start\n" + "to\n" + "simulate\n");
+                String cmd = "./nocSim";
+                SimulationUtils.execute(cmd, simulationPath[0], simulationPath[1]);
+
+
+                //start to analyze
+                System.out.println("start to analyze");
+                simulationProgressController.startAnimation6("Start\n" + "to\n" + "analyze\n");
+
+
+                //execute the analysis for flow latency
+                //module table name list is needed for the execution
+                FlowLatencyService flowLatencyInstance = (FlowLatencyService) DashBoardController.getDataServiceInstance(FlowLatencyService.class.getName());
+                List<String> moduleTableList = new ArrayList<>();
+                //moduleTableList.add(mt_name);
+                //flowLatencyInstance.startAnalyze(moduleTableList, db_name);
+                moduleTableList.add("module_simulation_2017_6_10_14_21_58");
+                flowLatencyInstance.startAnalyze(moduleTableList, "SystemC");
+
+
+                //execute the analysis for flow packet details
+                //module table name list is needed for the execution
+                FlowPacketLatencyService flowPacketLatencyService = (FlowPacketLatencyService) DashBoardController.getDataServiceInstance(FlowPacketLatencyService.class.getName());
+                flowPacketLatencyService.startAnalyze(moduleTableList, "SystemC");
+
+
+                //execute the analysis for fifo size analyse details
+                //fifo size table name list is needed for the execution
+                FifoSizeService fifoSizeService = (FifoSizeService) DashBoardController.getDataServiceInstance(FifoSizeService.class.getName());
+                List<String> fifoTabelList = new ArrayList<>();
+                //fifoTabelList.add(ft_name);
+                fifoTabelList.add("fifo_simulation_2017_6_10_14_21_58");
+                fifoSizeService.startAnalyze(fifoTabelList, "SystemC");
+
+                //execute the analysis for trace flits details
+                FlitTraceService flitTraceService = (FlitTraceService) DashBoardController.getDataServiceInstance(FlitTraceService.class.getName());
+                List<String> fastfifoTabelList = new ArrayList<>();
+                //fifoTabelList.add(fft_name);
+                fastfifoTabelList.add("fastfiforw_simulation_2017_6_10_14_21_58");
+                flitTraceService.startAnalyze(fastfifoTabelList, "SystemC");
+                btnSimulation.setDisable(false);
+
+                //load the simulation to the default
+                Utils.updatePropValue("ModelsNocPath", simulationPath[0]);
+                Utils.updatePropValue("SystemCLibPath", simulationPath[1]);
+
+                Utils.updatePropValue("CefFilePath", cefFilePath);
+                Utils.updatePropValue("SaveCppPath", testBenchSavePath);
+
+
+                //finish
+                System.out.println("finish");
+                simulationProgressController.stopAnimation6();
+            } catch (Exception e) {
+                System.out.println("异常 simulation 终止");
+                SimulationProgressController simulationProgressController = (SimulationProgressController) DashBoardController.getDataServiceInstance(SimulationProgressController.class.getName());
+                simulationProgressController.stopALL();
+                simulationProgressController.setError("An exception occurs \n" +
+                        "Emulation is terminated");
+
+
+                btnSimulation.setDisable(false);
             }
-
-
-            //generate the test bench c++ file
-            System.out.println("Start generate c++ file");
-            simulationProgressController.startAnimation3("Generate\n" + "file\n");
-            SimulationUtils.generateTestFile(cefFilePath, testBenchSavePath);
-
-            //compile the module
-            System.out.println("start compile");
-            simulationProgressController.startAnimation4("Start\n" + "to\n" + "compile\n");
-            SimulationUtils.compile(simulationPath[0]);
-
-            //execute the simulation
-            System.out.println("start simulation");
-            simulationProgressController.startAnimation5("Start\n" + "to\n" + "simulate\n");
-            String cmd = "./nocSim";
-            SimulationUtils.execute(cmd, simulationPath[0], simulationPath[1]);
-
-
-            //start to analyze
-            System.out.println("start to analyze");
-            simulationProgressController.startAnimation6("Start\n" + "to\n" + "analyze\n");
-            btnSimulation.setDisable(false);
-
-            //execute the analysis for flow latency
-            //module table name list is needed for the execution
-            FlowLatencyService flowLatencyInstance = (FlowLatencyService) DashBoardController.getDataServiceInstance(FlowLatencyService.class.getName());
-            List<String> moduleTableList = new ArrayList<>();
-            //moduleTableList.add(mt_name);
-            //flowLatencyInstance.startAnalyze(moduleTableList, db_name);
-            moduleTableList.add("module_simulation_2017_6_10_14_21_58");
-            flowLatencyInstance.startAnalyze(moduleTableList, "SystemC");
-
-
-            //execute the analysis for flow packet details
-            //module table name list is needed for the execution
-            FlowPacketLatencyService flowPacketLatencyService = (FlowPacketLatencyService) DashBoardController.getDataServiceInstance(FlowPacketLatencyService.class.getName());
-            flowPacketLatencyService.startAnalyze(moduleTableList, "SystemC");
-
-
-            //execute the analysis for fifo size analyse details
-            //fifo size table name list is needed for the execution
-            FifoSizeService fifoSizeService = (FifoSizeService) DashBoardController.getDataServiceInstance(FifoSizeService.class.getName());
-            List<String> fifoTabelList = new ArrayList<>();
-            //fifoTabelList.add(ft_name);
-            fifoTabelList.add("fifo_simulation_2017_6_10_14_21_58");
-            fifoSizeService.startAnalyze(fifoTabelList, "SystemC");
-
-            //execute the analysis for trace flits details
-            FlitTraceService flitTraceService = (FlitTraceService) DashBoardController.getDataServiceInstance(FlitTraceService.class.getName());
-            List<String> fastfifoTabelList = new ArrayList<>();
-            //fifoTabelList.add(fft_name);
-            fastfifoTabelList.add("fastfiforw_simulation_2017_6_10_14_21_58");
-            flitTraceService.startAnalyze(fastfifoTabelList, "SystemC");
-
-
-            //finish
-            System.out.println("finish");
-            simulationProgressController.stopAnimation6();
 
         }
     }

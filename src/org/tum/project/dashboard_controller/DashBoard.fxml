@@ -1,16 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.image.*?>
 <?import java.lang.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.geometry.*?>
 <?import com.jfoenix.controls.*?>
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
-<?import javafx.scene.control.Label?>
 
-<?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView?>
-<StackPane fx:id="stackPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="1300.0" stylesheets="@custom.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.tum.project.dashboard_controller.DashBoardController">
+<StackPane fx:id="sp_root" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="1300.0" stylesheets="@custom.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.tum.project.dashboard_controller.DashBoardController">
     <children>
       <VBox prefHeight="200.0" prefWidth="100.0">
          <children>
@@ -34,9 +31,9 @@
                                          <font>
                                              <Font size="14.0" />
                                          </font>
-                                         <graphic>
-                                             <FontAwesomeIconView fill="#212121" glyphName="DASHBOARD" size="16.0" wrappingWidth="40.0" />
-                                         </graphic>
+                                         <!--<graphic>-->
+                                             <!--<FontAwesomeIconView fill="#212121" glyphName="DASHBOARD" size="16.0" wrappingWidth="40.0" />-->
+                                         <!--</graphic>-->
                                      </JFXButton>
                                      <Label alignment="CENTER" contentDisplay="CENTER" minHeight="-Infinity" prefHeight="1.0" prefWidth="200.0" style="-fx-background-color: #ffffff;" textAlignment="CENTER" textFill="#D500F9" />
                                      <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Simulation:">
@@ -52,42 +49,42 @@
                                          <font>
                                              <Font size="14.0" />
                                          </font>
-                                         <graphic>
-                                         <FontAwesomeIconView fill="#212121" glyphName="DASHBOARD" size="16.0" wrappingWidth="40.0" />
-                                         </graphic>
+                                         <!--<graphic>-->
+                                         <!--<FontAwesomeIconView fill="#212121" glyphName="DASHBOARD" size="16.0" wrappingWidth="40.0" />-->
+                                         <!--</graphic>-->
                                      </JFXButton>
                                      <JFXButton fx:id="btnLogout" onAction="#openFlowSizePane" prefHeight="36.0" prefWidth="189.0" styleClass="side-buttons" text="FIFO Size">
                                          <font>
                                              <Font size="14.0" />
                                          </font>
-                                         <graphic>
-                                         <FontAwesomeIconView fill="212121" glyphName="EYE" size="16.0" wrappingWidth="40.0" />
-                                         </graphic>
+                                         <!--<graphic>-->
+                                         <!--<FontAwesomeIconView fill="212121" glyphName="EYE" size="16.0" wrappingWidth="40.0" />-->
+                                         <!--</graphic>-->
                                      </JFXButton>
                                      <JFXButton fx:id="btnClose" onAction="#openFlitsTrance" prefHeight="36.0" prefWidth="189.0" styleClass="side-buttons" text="Flits Trace">
                                          <font>
                                              <Font size="14.0" />
                                          </font>
-                                         <graphic>
-                                         <FontAwesomeIconView fill="212121" glyphName="EYE" size="16.0" wrappingWidth="40.0" />
-                                         </graphic>
+                                         <!--<graphic>-->
+                                         <!--<FontAwesomeIconView fill="212121" glyphName="EYE" size="16.0" wrappingWidth="40.0" />-->
+                                         <!--</graphic>-->
                                      </JFXButton>
 
                                      <JFXButton fx:id="btnAdd" onAction="#openFlowLatencyPane" prefHeight="36.0" prefWidth="189.0" styleClass="side-buttons" text="Flow Latency ">
                                          <font>
                                              <Font size="14.0" />
                                          </font>
-                                         <graphic>
-                                         <FontAwesomeIconView fill="212121" glyphName="EYE" size="16.0" wrappingWidth="40.0" />
-                                         </graphic>
+                                         <!--<graphic>-->
+                                         <!--<FontAwesomeIconView fill="212121" glyphName="EYE" size="16.0" wrappingWidth="40.0" />-->
+                                         <!--</graphic>-->
                                      </JFXButton>
                                      <JFXButton fx:id="btnView" onAction="#openFlowPacketLatencyPane" prefHeight="36.0" prefWidth="189.0" styleClass="side-buttons" text="Flow Packet Latency">
                                          <font>
                                              <Font size="14.0" />
                                          </font>
-                                         <graphic>
-                                         <FontAwesomeIconView fill="212121" glyphName="EYE" size="16.0" wrappingWidth="40.0" />
-                                         </graphic>
+                                         <!--<graphic>-->
+                                         <!--<FontAwesomeIconView fill="212121" glyphName="EYE" size="16.0" wrappingWidth="40.0" />-->
+                                         <!--</graphic>-->
                                      </JFXButton>
                                  </children>
                                  <padding>

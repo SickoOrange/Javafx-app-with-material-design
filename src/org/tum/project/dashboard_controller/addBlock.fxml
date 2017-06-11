@@ -7,7 +7,7 @@
 
 <VBox fx:id="vbox_container" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="280.0" prefWidth="200.0" style="-fx-spacing: 30; -fx-padding: 10;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
    <children>
-      <Text strokeType="OUTSIDE" strokeWidth="0.0" text="NEW BLOCKTYPE" textAlignment="CENTER" wrappingWidth="168.126953125" />
+      <Text fx:id="t_block" strokeType="OUTSIDE" strokeWidth="0.0" text="NEW BLOCKTYPE" textAlignment="CENTER" wrappingWidth="168.126953125" />
       <JFXTextField labelFloat="true" promptText="name: String" />
       <JFXTextField promptText="id: Integer" />
       <JFXTextField labelFloat="true" promptText="BlockType: Integer" />

@@ -20,6 +20,7 @@ import java.util.ResourceBundle;
  * menus holder controller to control the logic after user login in success.
  * Created by Yin Ya on 2017/5/28.
  */
+@Deprecated
 public class MenusHolderController implements Initializable {
     @FXML
     private Pane NocEditor;
@@ -57,13 +58,15 @@ public class MenusHolderController implements Initializable {
 
     }
 
+
+
     private void openStage(Parent node) {
         //dashboardStage = new Stage();
         //dashboardStage.setScene(new Scene(node));
         //dashboardStage.setTitle("Analytics Dashboard");
         //dashboardStage.show();
         primaryStage.setScene(new Scene(node));
-      //  primaryStage.close();
+        //  primaryStage.close();
     }
 
     public static Stage getDashBoardStage() {
