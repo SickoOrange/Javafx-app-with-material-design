@@ -7,6 +7,7 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
+<?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView?>
 <AnchorPane prefHeight="374.0" prefWidth="1063.0" style="-fx-background-color: white; -fx-background-radius: 3; -fx-border-radius: 3; -fx-effect: dropshadow(gaussian, rgb(0.0, 0.0, 0.0, 0.15), 6.0, 0.7, 0.0,1.5);" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.tum.project.dashboard_controller.simulationPane.SimulationProjectSettingController">
     <children>
         <Pane layoutY="-1.0" prefHeight="60.0" prefWidth="1063.0" style="-fx-background-color: #F87951; -fx-background-radius: 5 5 0 0;">
@@ -107,7 +108,11 @@
                       <Font name="Roboto Medium" size="14.0" />
                   </font>
               </JFXRadioButton>
-      <JFXButton fx:id="btn_loadDefaultPath" layoutX="816.0" layoutY="288.0" onAction="#loadDefaultTestBenchPathAction" prefHeight="29.0" prefWidth="144.0" style="-fx-background-color: #8E24AA; -fx-background-radius: 50;" text="Load default path" textFill="WHITE" />
+      <JFXButton fx:id="btn_loadDefaultPath" layoutX="769.0" layoutY="288.0" onAction="#loadDefaultTestBenchPathAction" prefHeight="29.0" prefWidth="186.0" style="-fx-background-color: #F06292; -fx-background-radius: 50;" text="Load default path" textFill="WHITE" >
+          <graphic>
+              <FontAwesomeIconView fill="#ffffff" glyphName="PENCIL_SQUARE_ALT" size="16.0" wrappingWidth="15.0" />
+          </graphic>
+      </JFXButton>
     </children>
 
 </AnchorPane>

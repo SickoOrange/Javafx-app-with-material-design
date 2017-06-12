@@ -16,7 +16,7 @@ public class TaskExecutorPool {
 
     public static ThreadPoolExecutor getExecutor() {
         if (executor == null) {
-            executor = new ThreadPoolExecutor(20, 30, 200, TimeUnit.MILLISECONDS, new ArrayBlockingQueue<Runnable>(10));
+            executor = new ThreadPoolExecutor(5, 30, 200, TimeUnit.MILLISECONDS, new ArrayBlockingQueue<>(10));
         }
         return executor;
     }

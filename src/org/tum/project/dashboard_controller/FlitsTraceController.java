@@ -24,6 +24,7 @@ import org.tum.project.bean.FlitsSummary;
 import org.tum.project.callback.DataUpdateCallbackAdapter;
 import org.tum.project.dataservice.FlitTraceService;
 import org.tum.project.dataservice.TraceJframe;
+import org.tum.project.thread.TaskExecutorPool;
 
 import javax.swing.*;
 import java.net.URL;
@@ -255,18 +256,26 @@ public class FlitsTraceController extends DataUpdateCallbackAdapter implements I
      */
     @FXML
     void startToTraceAction(ActionEvent event) {
-        SwingNode swingNode = new SwingNode();
-        mxGraphComponent panel = traceJframe.runTrace(cloneTraceInformation);
-        SwingUtilities.invokeLater(() -> {
-            swingNode.setContent(panel);
 
 
+        TaskExecutorPool.getExecutor().execute(() -> {
+            mxGraphComponent panel = traceJframe.runTrace(cloneTraceInformation);
             Platform.runLater(() -> {
-                if (!ap_visualization.getChildren().isEmpty()) {
-                    ap_visualization.getChildren().clear();
-                }
-                ap_visualization.getChildren().add(swingNode);
+                SwingNode swingNode = new SwingNode();
+                SwingUtilities.invokeLater(() -> {
+                    swingNode.setContent(panel);
+
+
+                    Platform.runLater(() -> {
+                        if (!ap_visualization.getChildren().isEmpty()) {
+                            ap_visualization.getChildren().clear();
+                        }
+                        ap_visualization.getChildren().add(swingNode);
+                    });
+                });
             });
         });
+
+
     }
 }

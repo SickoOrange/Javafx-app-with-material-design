@@ -167,6 +167,7 @@ public class DashBoardController implements Initializable {
 
     @FXML
     void openSimulationPane(ActionEvent actionEvent) {
+
         setButtonStatus((JFXButton) actionEvent.getTarget());
         setCenterNode(simulationPane);
     }

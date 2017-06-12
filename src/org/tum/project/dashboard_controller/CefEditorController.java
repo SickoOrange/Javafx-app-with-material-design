@@ -11,6 +11,7 @@ import javafx.scene.layout.StackPane;
 import javafx.scene.text.Text;
 import org.tum.project.dataservice.CefVisualizationService;
 import org.tum.project.login_controller.MenusHolderController;
+import org.tum.project.thread.TaskExecutorPool;
 import org.tum.project.utils.Utils;
 
 import javax.swing.*;
@@ -67,10 +68,16 @@ public class CefEditorController implements Initializable {
         }
         t_openFile.setText("Open file: " + split[split.length - 1]);
 
-        //visualize the cef ecore file
-        cefVisualizationService = (CefVisualizationService) DashBoardController.getDataServiceInstance(CefVisualizationService.class.getName());
-        mxGraphComponent mxGraphComponent = cefVisualizationService.startVisualization(openFilePath.getAbsolutePath(), sp_editor);
-        displayContent(mxGraphComponent);
+        TaskExecutorPool.getExecutor().execute(new Runnable() {
+            @Override
+            public void run() {
+                //visualize the cef ecore file
+                cefVisualizationService = (CefVisualizationService) DashBoardController.getDataServiceInstance(CefVisualizationService.class.getName());
+                mxGraphComponent mxGraphComponent = cefVisualizationService.startVisualization(openFilePath.getAbsolutePath(), sp_editor);
+                Platform.runLater(() -> displayContent(mxGraphComponent));
+            }
+        });
+
     }
 
     /**
@@ -120,8 +127,10 @@ public class CefEditorController implements Initializable {
      */
     @FXML
     void refreshAction(ActionEvent event) {
-        mxGraphComponent mxGraphComponent = cefVisualizationService.refresh();
-        displayContent(mxGraphComponent);
+        TaskExecutorPool.getExecutor().execute(() -> {
+            mxGraphComponent mxGraphComponent = cefVisualizationService.refresh();
+            Platform.runLater(() -> displayContent(mxGraphComponent));
+        });
     }
 
     public static void main(String[] args) {

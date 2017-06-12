@@ -19,6 +19,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
+<?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView?>
 <AnchorPane prefHeight="720.0" prefWidth="1100.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1"
             fx:controller="org.tum.project.dashboard_controller.FlitsTraceController">
     <children>
@@ -144,10 +145,15 @@
                     </children>
                 </VBox>
                 <JFXButton graphicTextGap="6.0" layoutX="52.0" layoutY="352.0" onAction="#startToTraceAction"
-                           prefHeight="28.0" prefWidth="137.0" text="Start to trace" textFill="#11dd66">
+                           prefHeight="28.0" prefWidth="137.0" text="Start to trace" textFill="#ffffff"
+                           style="-fx-background-color: #F06292; -fx-background-radius: 50;">
                     <font>
                         <Font size="14.0"/>
                     </font>
+
+                    <graphic>
+                        <FontAwesomeIconView fill="#ffffff" glyphName="AREA_CHART" size="16.0" wrappingWidth="15.0" />
+                    </graphic>
                 </JFXButton>
                 <Pane prefHeight="146.0" prefWidth="241.0" style="-fx-background-color: rgb(39, 58, 78,0.7);">
                     <children>
