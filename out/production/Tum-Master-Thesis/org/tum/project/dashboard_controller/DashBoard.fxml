@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.image.*?>
-<?import java.lang.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.geometry.*?>
 <?import com.jfoenix.controls.*?>
@@ -53,29 +52,12 @@
                 </Pane>
                 <HBox layoutY="30.0" prefHeight="720.0" prefWidth="1300.0">
                     <children>
-                        <AnchorPane fx:id="sideAnchor" prefHeight="680.0" prefWidth="200.0" style="-fx-background-color: #EEEEEE;" styleClass="side-bar">
+                        <AnchorPane fx:id="sideAnchor" prefHeight="680.0" prefWidth="200.0" style="-fx-background-color: #eeeeee;" styleClass="side-bar">
                             <children>
 
                                 <VBox layoutY="28.0" prefHeight="248.0" prefWidth="200.0" spacing="20.0">
                                     <children>
-                                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Cef Setting:">
-                                            <VBox.margin>
-                                                <Insets left="5.0" />
-                                            </VBox.margin>
-                                            <font>
-                                                <Font size="14.0" />
-                                            </font>
-                                        </Text>
-                                        <JFXButton fx:id="btn_cefEditor" onAction="#openCefEditor" prefHeight="36.0" prefWidth="189.0" styleClass="side-buttons" text="CEF Editor Setting">
-                                            <font>
-                                                <Font size="14.0" />
-                                            </font>
-                                            <graphic>
-                                            <FontAwesomeIconView fill="#212121" glyphName="NEWSPAPER_ALT" size="16.0" wrappingWidth="40.0" />
-                                            </graphic>
-                                        </JFXButton>
-                                        <Label alignment="CENTER" contentDisplay="CENTER" minHeight="-Infinity" prefHeight="1.0" prefWidth="200.0" style="-fx-background-color: #ffffff;" textAlignment="CENTER" textFill="#D500F9" />
-                                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Simulation:">
+                                        <Text fill="#212121" strokeType="OUTSIDE" strokeWidth="0.0" text="Simulation:">
                                             <VBox.margin>
                                                 <Insets left="5.0" />
                                             </VBox.margin>
@@ -84,7 +66,7 @@
                                             </font>
                                         </Text>
 
-                                        <JFXButton fx:id="btn_Simulation" onAction="#openSimulationPane" prefHeight="36.0" prefWidth="189.0" styleClass="side-buttons" text="Simulation Setting">
+                                        <JFXButton fx:id="btn_Simulation" onAction="#openSimulationPane" prefHeight="36.0" prefWidth="189.0" styleClass="side-buttons" text="Simulation Setting" textFill="black">
                                             <font>
                                                 <Font size="14.0" />
                                             </font>
@@ -92,37 +74,54 @@
                                             <FontAwesomeIconView fill="#212121" glyphName="PENCIL_SQUARE_ALT" size="16.0" wrappingWidth="40.0" />
                                             </graphic>
                                         </JFXButton>
-                                        <JFXButton fx:id="btn_fifosize" onAction="#openFlowSizePane" prefHeight="36.0" prefWidth="189.0" styleClass="side-buttons" text="FIFO Size">
+                                        <JFXButton fx:id="btn_fifosize" onAction="#openFlowSizePane" prefHeight="36.0" prefWidth="189.0" styleClass="side-buttons" text="FIFO Size" textFill="black">
                                             <font>
                                                 <Font size="14.0" />
                                             </font>
                                             <graphic>
-                                            <FontAwesomeIconView fill="212121" glyphName="BAR_CHART_ALT" size="16.0" wrappingWidth="40.0" />
+                                            <FontAwesomeIconView fill="#212121" glyphName="BAR_CHART_ALT" size="16.0" wrappingWidth="40.0" />
                                             </graphic>
                                         </JFXButton>
-                                        <JFXButton fx:id="btn_flitsTrace" onAction="#openFlitsTrance" prefHeight="36.0" prefWidth="189.0" styleClass="side-buttons" text="Flits Trace">
+                                        <JFXButton fx:id="btn_flitsTrace" onAction="#openFlitsTrance" prefHeight="36.0" prefWidth="189.0" styleClass="side-buttons" text="Flits Trace" textFill="black">
                                             <font>
                                                 <Font size="14.0" />
                                             </font>
                                             <graphic>
-                                            <FontAwesomeIconView fill="212121" glyphName="BAR_CHART_ALT" size="16.0" wrappingWidth="40.0" />
+                                            <FontAwesomeIconView fill="#212121" glyphName="BAR_CHART_ALT" size="16.0" wrappingWidth="40.0" />
                                             </graphic>
                                         </JFXButton>
 
-                                        <JFXButton fx:id="btn_flowLatency" onAction="#openFlowLatencyPane" prefHeight="36.0" prefWidth="189.0" styleClass="side-buttons" text="Flow Latency ">
+                                        <JFXButton fx:id="btn_flowLatency" onAction="#openFlowLatencyPane" prefHeight="36.0" prefWidth="189.0" styleClass="side-buttons" text="Flow Latency " textFill="black">
                                             <font>
                                                 <Font size="14.0" />
                                             </font>
                                             <graphic>
-                                            <FontAwesomeIconView fill="212121" glyphName="BAR_CHART_ALT" size="16.0" wrappingWidth="40.0" />
+                                            <FontAwesomeIconView fill="#212121" glyphName="BAR_CHART_ALT" size="16.0" wrappingWidth="40.0" />
                                             </graphic>
                                         </JFXButton>
-                                        <JFXButton fx:id="btn_flowPacketLatency" onAction="#openFlowPacketLatencyPane" prefHeight="36.0" prefWidth="189.0" styleClass="side-buttons" text="Flow Packet Latency">
+                                        <JFXButton fx:id="btn_flowPacketLatency" onAction="#openFlowPacketLatencyPane" prefHeight="36.0" prefWidth="189.0" styleClass="side-buttons" text="Flow Packet Latency" textFill="black">
                                             <font>
                                                 <Font size="14.0" />
                                             </font>
                                             <graphic>
-                                            <FontAwesomeIconView fill="212121" glyphName="BAR_CHART_ALT" size="16.0" wrappingWidth="40.0" />
+                                            <FontAwesomeIconView fill="#212121" glyphName="BAR_CHART_ALT" size="16.0" wrappingWidth="40.0" />
+                                            </graphic>
+                                        </JFXButton>
+                                        <Label alignment="CENTER" contentDisplay="CENTER" minHeight="-Infinity" prefHeight="1.0" prefWidth="200.0" style="-fx-background-color: #ffffff;" textAlignment="CENTER" textFill="#D500F9" />
+                                        <Text fill="#212121" strokeType="OUTSIDE" strokeWidth="0.0" text="Cef Setting:">
+                                            <VBox.margin>
+                                                <Insets left="5.0" />
+                                            </VBox.margin>
+                                            <font>
+                                                <Font size="14.0" />
+                                            </font>
+                                        </Text>
+                                        <JFXButton fx:id="btn_cefEditor" onAction="#openCefEditor" prefHeight="36.0" prefWidth="189.0" styleClass="side-buttons" text="CEF Editor Setting" textFill="WHITE">
+                                            <font>
+                                                <Font size="14.0" />
+                                            </font>
+                                            <graphic>
+                                            <FontAwesomeIconView fill="#212121" glyphName="NEWSPAPER_ALT" size="16.0" wrappingWidth="40.0" />
                                             </graphic>
                                         </JFXButton>
                                     </children>

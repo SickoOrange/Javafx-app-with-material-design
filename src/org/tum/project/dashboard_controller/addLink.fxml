@@ -8,9 +8,9 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<ScrollPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="355.0" prefWidth="248.0" style="-fx-background-color: #ffffff;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+<ScrollPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="286.0" prefWidth="266.0" style="-fx-background-color: #ffffff;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
    <content>
-      <VBox prefHeight="503.0" prefWidth="228.0" style="-fx-padding: 10; -fx-spacing: 30; -fx-background-color: #ffffff;">
+      <VBox prefHeight="551.0" prefWidth="247.0" style="-fx-padding: 10; -fx-spacing: 30; -fx-background-color: #ffffff;">
          <children>
             <Text fx:id="t_link" strokeType="OUTSIDE" strokeWidth="0.0" text="New Link Type" textAlignment="CENTER" wrappingWidth="207.24169921875" />
             <JFXTextField fx:id="tf_name" labelFloat="true" promptText="name:String" />

@@ -71,6 +71,7 @@ public class DashBoardController implements Initializable {
 
     @FXML
     private JFXButton btn_flowPacketLatency;
+    private JFXButton[] buttons;
 
 
     /**
@@ -82,9 +83,15 @@ public class DashBoardController implements Initializable {
     @FXML
     @Override
     public void initialize(URL location, ResourceBundle resources) {
+        buttons = new JFXButton[]{
+                btn_cefEditor, btn_Simulation, btn_fifosize, btn_flitsTrace, btn_flowLatency, btn_flowPacketLatency
+        };
         createDataService();
         createCenterNode();
+
         setCenterNode(simulationPane);
+
+        setButtonStatus(buttons[1]);
 
     }
 
@@ -136,29 +143,51 @@ public class DashBoardController implements Initializable {
         }
     }
 
-    @FXML
-    void openSimulationPane(ActionEvent event) {
-        btn_Simulation.setTextFill(Color.RED);
-        System.out.println( );
-        javafx.scene.text.Text graphic = (javafx.scene.text.Text) btn_Simulation.getGraphic();
-        graphic.setFill(Color.RED);
 
+    /**
+     * when button is clicked, then change his status to the red
+     * then other button will be change to the white
+     *
+     * @param target
+     */
+    private void setButtonStatus(JFXButton target) {
+        target.setTextFill(Color.RED);
+        //javafx.scene.text.Text graphic = (javafx.scene.text.Text) btn_Simulation.getGraphic();
+        // graphic.setFill(Color.RED);
+        for (JFXButton button : buttons) {
+            if (button != target) {
+                button.setTextFill(Color.BLACK);
+                //javafx.scene.text.Text text = (javafx.scene.text.Text) button.getGraphic();
+                //  text.setFill(Color.valueOf("#212121"));
+            }
+        }
+
+    }
+
+
+    @FXML
+    void openSimulationPane(ActionEvent actionEvent) {
+        setButtonStatus((JFXButton) actionEvent.getTarget());
         setCenterNode(simulationPane);
     }
 
     @FXML
     public void openFlowLatencyPane(ActionEvent actionEvent) {
+        setButtonStatus((JFXButton) actionEvent.getTarget());
         setCenterNode(flowLatencyPane);
 
     }
 
     @FXML
     public void openFlowPacketLatencyPane(ActionEvent actionEvent) {
+        setButtonStatus((JFXButton) actionEvent.getTarget());
         setCenterNode(flowPacketDetailsPane);
     }
 
     @FXML
     public void openFlowSizePane(ActionEvent actionEvent) {
+
+        setButtonStatus((JFXButton) actionEvent.getTarget());
         setCenterNode(fifoSizeDetailsPane);
 
 
@@ -166,6 +195,7 @@ public class DashBoardController implements Initializable {
 
     @FXML
     public void openFlitsTrance(ActionEvent actionEvent) {
+        setButtonStatus((JFXButton) actionEvent.getTarget());
         setCenterNode(flitsTraceDetailsPane);
 
     }
@@ -177,6 +207,7 @@ public class DashBoardController implements Initializable {
      * @param actionEvent
      */
     public void openCefEditor(ActionEvent actionEvent) {
+        setButtonStatus((JFXButton) actionEvent.getTarget());
         setCenterNode(cefEditorPane);
     }
 
@@ -207,7 +238,7 @@ public class DashBoardController implements Initializable {
         });
         layout.setActions(btn_dialog_ok);
 
-        Label label_content = new Label("Fuck U");
+        Label label_content = new Label("Test Information");
         layout.setBody(label_content);
         dialog = new JFXDialog(sp_root, layout, JFXDialog.DialogTransition.CENTER, true);
         dialog.show();

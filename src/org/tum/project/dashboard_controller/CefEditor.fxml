@@ -32,14 +32,14 @@
                                 </ImageView>
                             </children>
                         </Pane>
-                        <JFXButton layoutX="14.0" layoutY="209.0" onAction="#openAction" prefHeight="29.0" prefWidth="84.0" style="-fx-background-radius: 50; -fx-background-color: #F50057;" text="Open " textFill="WHITE" />
-                        <JFXButton layoutX="117.0" layoutY="209.0" onAction="#saveAction" prefHeight="29.0" prefWidth="84.0" style="-fx-background-radius: 50; -fx-background-color: #F50057;" text="Save" textFill="WHITE" />
-                        <Text fx:id="t_openFile" layoutX="14.0" layoutY="278.0" strokeType="OUTSIDE" strokeWidth="0.0" text="CEF:" wrappingWidth="290.0" />
-                        <Text fx:id="t_savePath" layoutX="14.0" layoutY="312.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Save:" wrappingWidth="290.0" />
-                        <JFXButton fx:id="btn_refresh" layoutX="222.0" layoutY="209.0" onAction="#refreshAction" prefHeight="29.0" prefWidth="84.0" style="-fx-background-color: #F50057; -fx-background-radius: 50;" text="Refresh" textFill="WHITE" />
-                  <Separator layoutX="20.0" layoutY="326.0" prefHeight="2.0" prefWidth="280.0" />
+                        <JFXButton layoutX="16.0" layoutY="224.0" onAction="#openAction" prefHeight="29.0" prefWidth="84.0" style="-fx-background-radius: 50; -fx-background-color: #F50057;" text="Open " textFill="WHITE" />
+                        <JFXButton layoutX="118.0" layoutY="224.0" onAction="#saveAction" prefHeight="29.0" prefWidth="84.0" style="-fx-background-radius: 50; -fx-background-color: #F50057;" text="Save" textFill="WHITE" />
+                        <Text fx:id="t_openFile" layoutX="15.0" layoutY="291.0" strokeType="OUTSIDE" strokeWidth="0.0" text="CEF:" wrappingWidth="290.0" />
+                        <Text fx:id="t_savePath" layoutX="15.0" layoutY="325.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Save:" wrappingWidth="290.0" />
+                        <JFXButton fx:id="btn_refresh" layoutX="217.0" layoutY="224.0" onAction="#refreshAction" prefHeight="29.0" prefWidth="84.0" style="-fx-background-color: #F50057; -fx-background-radius: 50;" text="Refresh" textFill="WHITE" />
+                  <Separator layoutX="19.0" layoutY="340.0" prefHeight="2.0" prefWidth="280.0" />
                   <Pane fx:id="addPropertiesContainer" layoutX="14.0" layoutY="369.0" prefHeight="325.0" prefWidth="290.0" />
-                  <Text layoutX="56.0" layoutY="348.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Properties Controll Pane" textAlignment="CENTER" wrappingWidth="201.126953125">
+                  <Text layoutX="58.0" layoutY="367.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Properties Controll Pane" textAlignment="CENTER" wrappingWidth="201.126953125">
                      <font>
                         <Font size="14.0" />
                      </font>

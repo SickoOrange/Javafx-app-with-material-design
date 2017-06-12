@@ -12,10 +12,10 @@ import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.layout.AnchorPane;
-import javafx.scene.layout.HBox;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
 import javafx.util.Duration;
+import org.tum.project.thread.TaskExecutorPool;
 import org.tum.project.utils.Utils;
 
 import java.io.IOException;
@@ -30,7 +30,7 @@ import java.util.ResourceBundle;
  * Created by Yin Ya on 2017/5/27.
  */
 public class MaterialLoginController implements Initializable {
-    private final String desciption = "Technische Universität München\n" +
+    private final String description = "Technische Universität München\n" +
             "Department of Electrical Engineering and Information Technology\n" +
             "Institute for Electronic Design Automation";
 
@@ -48,10 +48,6 @@ public class MaterialLoginController implements Initializable {
     private AnchorPane loginRoot;
 
     @FXML
-    @Deprecated
-    private HBox menusHolder;
-    @Deprecated
-    private Parent menusCard;
     private Parent dashBoardPane;
 
     private static Stage mainStage;
@@ -66,13 +62,7 @@ public class MaterialLoginController implements Initializable {
     @Override
     public void initialize(URL location, ResourceBundle resources) {
 
-        try {
-            menusCard = FXMLLoader.load(getClass().getResource("../login_controller/MenusHolder.fxml"));
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-
-        appDescription.setText(desciption);
+        appDescription.setText(description);
         String isRemember = Utils.readPropValue("isRemember");
         if (Boolean.valueOf(isRemember)) {
             //get the user name and password
@@ -105,11 +95,14 @@ public class MaterialLoginController implements Initializable {
      */
     @FXML
     void signIn(ActionEvent event) {
-        new Thread(() -> {
-            String userName = name.getText();
-            String userPassword = password.getText();
-            connectMysql(userName, userPassword);
-        }).start();
+        TaskExecutorPool.getExecutor().execute(new Runnable() {
+            @Override
+            public void run() {
+                String userName = name.getText();
+                String userPassword = password.getText();
+                connectMysql(userName, userPassword);
+            }
+        });
 
 
     }
@@ -125,11 +118,9 @@ public class MaterialLoginController implements Initializable {
             // in the terminal, "show variables", see the mysql port
             // database name: SystemC
 
-
             conn = DriverManager.getConnection("jdbc:mysql://localhost:3306", userName, userPassword);
 
         } catch (ClassNotFoundException | SQLException e) {
-            // TODO: 2017/5/28  snack notification
             e.printStackTrace();
         }
 
@@ -138,9 +129,7 @@ public class MaterialLoginController implements Initializable {
             Utils.updatePropValue("userName", userName);
             Utils.updatePropValue("userPassword", userPassword);
             System.out.println("login successfully data: " + userName + "," + userPassword);
-            switchMenusHolder(loginRoot);
-
-
+            executeLoginAction(loginRoot);
         }
     }
 
@@ -150,18 +139,14 @@ public class MaterialLoginController implements Initializable {
      *
      * @param original original node
      */
-    private void switchMenusHolder(Node original) {
+    private void executeLoginAction(Node original) {
         FadeTransition inTransition = new FadeTransition();
         inTransition.setNode(original);
         inTransition.setDuration(Duration.millis(600));
         inTransition.setFromValue(1.0);
         inTransition.setToValue(0.0);
         inTransition.play();
-        inTransition.setOnFinished(event -> {
-            // menusHolder.getChildren().clear();
-            //menusHolder.getChildren().add(target);
-            mainStage.setScene(new Scene(dashBoardPane));
-        });
+        inTransition.setOnFinished(event -> mainStage.setScene(new Scene(dashBoardPane)));
 
     }
 

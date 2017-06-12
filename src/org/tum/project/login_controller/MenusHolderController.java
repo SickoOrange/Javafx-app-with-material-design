@@ -19,6 +19,7 @@ import java.util.ResourceBundle;
 /**
  * menus holder controller to control the logic after user login in success.
  * Created by Yin Ya on 2017/5/28.
+ * this class will never be used
  */
 @Deprecated
 public class MenusHolderController implements Initializable {
