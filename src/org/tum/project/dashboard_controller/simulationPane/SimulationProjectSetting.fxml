@@ -1,14 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import com.jfoenix.controls.*?>
-<?import java.lang.*?>
-<?import javafx.geometry.*?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
-<?import javafx.scene.text.*?>
-
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXComboBox?>
+<?import com.jfoenix.controls.JFXRadioButton?>
+<?import com.jfoenix.controls.JFXTextField?>
 <?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView?>
-<AnchorPane prefHeight="374.0" prefWidth="1063.0" style="-fx-background-color: white; -fx-background-radius: 3; -fx-border-radius: 3; -fx-effect: dropshadow(gaussian, rgb(0.0, 0.0, 0.0, 0.15), 6.0, 0.7, 0.0,1.5);" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.tum.project.dashboard_controller.simulationPane.SimulationProjectSettingController">
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.control.ToggleGroup?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane prefHeight="374.0" prefWidth="1063.0" style="-fx-background-color: white; -fx-background-radius: 3; -fx-border-radius: 3; -fx-effect: dropshadow(gaussian, rgb(0.0, 0.0, 0.0, 0.15), 6.0, 0.7, 0.0,1.5);" xmlns="http://javafx.com/javafx/8.0.112" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.tum.project.dashboard_controller.simulationPane.SimulationProjectSettingController">
     <children>
         <Pane layoutY="-1.0" prefHeight="60.0" prefWidth="1063.0" style="-fx-background-color: #F87951; -fx-background-radius: 5 5 0 0;">
             <children>
@@ -84,7 +91,7 @@
          <children>
                   <Label prefHeight="19.0" prefWidth="144.0" styleClass="control-label" text="Select Simulation File" />
                   <JFXComboBox fx:id="cb_file" prefHeight="39.0" prefWidth="310.0" />
-                  <JFXTextField fx:id="et_loadFactor" focusColor="#2196f3" maxWidth="309.0" minWidth="154.0" prefHeight="38.0" prefWidth="154.0" promptText="load Factor">
+                  <JFXTextField fx:id="et_loadFactor" focusColor="#2196f3" maxWidth="309.0" minWidth="154.0" prefHeight="38.0" prefWidth="154.0" promptText="load Factor (Integer start from 1)">
                       <font>
                           <Font name="Roboto Medium" size="14.0" />
                       </font>
@@ -92,7 +99,7 @@
                           <Insets top="5.0" />
                       </VBox.margin>
                   </JFXTextField>
-            <JFXTextField minWidth="154.0" prefHeight="38.0" prefWidth="154.0" promptText="Sampling frequency" />
+            <JFXTextField fx:id="et_frequency" minWidth="154.0" prefHeight="38.0" prefWidth="154.0" promptText="Sampling frequency (Integer  start with  1)" />
          </children>
       </VBox>
               <JFXRadioButton fx:id="rb_load" layoutX="29.0" layoutY="118.0" onAction="#rb_loadAction" text="load simulation" textFill="#4d4d4d">
@@ -108,7 +115,7 @@
                       <Font name="Roboto Medium" size="14.0" />
                   </font>
               </JFXRadioButton>
-      <JFXButton fx:id="btn_loadDefaultPath" layoutX="769.0" layoutY="288.0" onAction="#loadDefaultTestBenchPathAction" prefHeight="29.0" prefWidth="186.0" style="-fx-background-color: #F06292; -fx-background-radius: 50;" text="Load default path" textFill="WHITE" >
+      <JFXButton fx:id="btn_loadDefaultPath" layoutX="769.0" layoutY="288.0" onAction="#loadDefaultTestBenchPathAction" prefHeight="29.0" prefWidth="186.0" style="-fx-background-color: #F06292; -fx-background-radius: 50;" text="Load default path" textFill="WHITE">
           <graphic>
               <FontAwesomeIconView fill="#ffffff" glyphName="PENCIL_SQUARE_ALT" size="16.0" wrappingWidth="15.0" />
           </graphic>

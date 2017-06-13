@@ -68,14 +68,11 @@ public class CefEditorController implements Initializable {
         }
         t_openFile.setText("Open file: " + split[split.length - 1]);
 
-        TaskExecutorPool.getExecutor().execute(new Runnable() {
-            @Override
-            public void run() {
-                //visualize the cef ecore file
-                cefVisualizationService = (CefVisualizationService) DashBoardController.getDataServiceInstance(CefVisualizationService.class.getName());
-                mxGraphComponent mxGraphComponent = cefVisualizationService.startVisualization(openFilePath.getAbsolutePath(), sp_editor);
-                Platform.runLater(() -> displayContent(mxGraphComponent));
-            }
+        TaskExecutorPool.getExecutor().execute(() -> {
+            //visualize the cef ecore file
+            cefVisualizationService = (CefVisualizationService) DashBoardController.getDataServiceInstance(CefVisualizationService.class.getName());
+            mxGraphComponent mxGraphComponent = cefVisualizationService.startVisualization(openFilePath.getAbsolutePath(), sp_editor);
+            Platform.runLater(() -> displayContent(mxGraphComponent));
         });
 
     }

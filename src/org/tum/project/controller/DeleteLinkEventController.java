@@ -60,7 +60,7 @@ public class DeleteLinkEventController implements Initializable {
     }
 
     private void deleteTarget(ActionEvent event) {
-        AnchorPane anchorPane = (AnchorPane) ((Pane) ((JFXButton) event.getSource()).getParent()).getParent();
+        AnchorPane anchorPane = (AnchorPane) ((JFXButton) event.getSource()).getParent().getParent();
         HBox parent = (HBox) anchorPane.getParent();
         if (parent.getChildren().contains(anchorPane)) {
             System.out.println("delete this pane");

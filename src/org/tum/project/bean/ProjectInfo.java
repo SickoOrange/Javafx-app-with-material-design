@@ -13,10 +13,14 @@ public class ProjectInfo {
     private String fastfifoTabelName;
     private String dataBankName;
 
+
+    private String loadFactor;
+
+    private String sampleFrequency;
+
     public String getDataBankName() {
         return dataBankName;
     }
-
 
 
     public String getSimulationFile() {
@@ -53,6 +57,24 @@ public class ProjectInfo {
 
     public void setDataBankName(String dataBankName) {
         this.dataBankName = dataBankName;
+    }
+
+
+    public void setLoadFactor(String loadFactor) {
+
+        this.loadFactor = loadFactor;
+    }
+
+    public String getLoadFactor() {
+        return loadFactor;
+    }
+
+    public void setSampleFrequency(String sampleFrequency) {
+        this.sampleFrequency = sampleFrequency;
+    }
+
+    public String getSampleFrequency() {
+        return sampleFrequency;
     }
 
     @Override

@@ -20,7 +20,6 @@ public class Main extends Application {
 
             //Parent root = FXMLLoader.load(getClass().getResource("../layout/login_fxml.fxml"));
             Parent root = FXMLLoader.load(getClass().getResource("../login_controller/MaterialLogin.fxml"));
-           // Parent root = FXMLLoader.load(getClass().getResource("../test/listview.fxml"));
 
 
             primaryStage.setTitle("SystemC NoCs Analytics Tool");

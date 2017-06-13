@@ -1,2 +1,2 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<root/>
+<root><project><projectName>qq</projectName><dataBankName>qq</dataBankName><moduleName>qq</moduleName><fifoName>qq</fifoName><fastfifoName>qq</fastfifoName><loadFactor>1</loadFactor><sampleFrequency>1</sampleFrequency></project></root>

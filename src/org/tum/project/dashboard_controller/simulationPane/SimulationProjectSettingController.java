@@ -42,23 +42,20 @@ import java.util.ResourceBundle;
  * Created by heylbly on 17-6-4.
  */
 public class SimulationProjectSettingController implements Initializable {
-    @FXML
-    private JFXButton generateButton;
 
-    @FXML
-    private ToggleGroup level;
     @FXML
     private JFXButton btnSimulation;
 
-
-    @FXML
-    private JFXRadioButton rb_load;
     @FXML
     private JFXRadioButton rb_new;
     @FXML
     private JFXComboBox<String> cb_file;
+
     @FXML
     private JFXTextField et_loadFactor;
+
+    @FXML
+    private JFXTextField et_frequency;
 
 
     @FXML
@@ -122,6 +119,9 @@ public class SimulationProjectSettingController implements Initializable {
                 String ft_name = et_ftName.getText();
                 String fft_name = et_fftName.getText();
 
+                String loadFactor = et_loadFactor.getText();
+                String sampleFrequency = et_frequency.getText();
+
                 //Collect the necessary cef model and save test bench test c++ file path
                 String cefFilePath = et_cefFile.getText();
                 String testBenchSavePath = et_testBench.getText();
@@ -138,8 +138,10 @@ public class SimulationProjectSettingController implements Initializable {
                 info.setModuleTableName(mt_name);
                 info.setFifoTableName(ft_name);
                 info.setFastfifoTabelName(fft_name);
+                info.setLoadFactor(loadFactor);
+                info.setSampleFrequency(sampleFrequency);
 
-                //only when the new project is active, then write the project info to the software
+                //only when the new project is active, then write the project info to the app intern
                 if (rb_new.isSelected()) {
                     xmlUtils.writeToDocument(info);
                 }
@@ -172,7 +174,7 @@ public class SimulationProjectSettingController implements Initializable {
                 //execute the simulation
                 System.out.println("start simulation");
                 simulationProgressController.startAnimation5("Start\n" + "to\n" + "simulate\n");
-                String cmd = "./nocSim";
+                String cmd = "./nocSim " + et_loadFactor.getText();
                 SimulationUtils.execute(cmd, simulationPath[0], simulationPath[1]);
 
 
@@ -225,7 +227,7 @@ public class SimulationProjectSettingController implements Initializable {
                 System.out.println("finish");
                 simulationProgressController.stopAnimation6();
             } catch (Exception e) {
-                System.out.println("异常 simulation 终止");
+                System.out.println("Exception simulation aborting");
                 SimulationProgressController simulationProgressController = (SimulationProgressController) DashBoardController.getDataServiceInstance(SimulationProgressController.class.getName());
                 simulationProgressController.stopALL();
                 simulationProgressController.setError("An exception occurs \n" +
@@ -242,7 +244,7 @@ public class SimulationProjectSettingController implements Initializable {
     public void startSimulationAction(ActionEvent actionEvent) {
         simulationThread = new Thread(new SimulationTask());
         simulationThread.start();
-        // FIXME: 17-6-6 when the simulation is failed, that need to enable the button
+
     }
 
 
@@ -258,17 +260,20 @@ public class SimulationProjectSettingController implements Initializable {
 
 
         //add the click item listener to the item of combo box
-        cb_file.getSelectionModel().selectedItemProperty().addListener(new ChangeListener<String>() {
-            @Override
-            public void changed(ObservableValue<? extends String> observable, String oldValue, String newValue) {
-                //item click, set content to the UI
-                ProjectInfo info = infosMap.get(newValue);
-                et_fileName.setText(info.getSimulationFile());
-                et_dbName.setText(info.getDataBankName());
-                et_mtName.setText(info.getModuleTableName());
-                et_ftName.setText(info.getFifoTableName());
-                et_fftName.setText(info.getFastfifoTabelName());
+        cb_file.getSelectionModel().selectedItemProperty().addListener((observable, oldValue, newValue) -> {
+            //item click, set content to the UI
+            ProjectInfo info = infosMap.get(newValue);
+            if (info == null) {
+                return;
             }
+            et_fileName.setText(info.getSimulationFile());
+            et_dbName.setText(info.getDataBankName());
+            et_mtName.setText(info.getModuleTableName());
+            et_ftName.setText(info.getFifoTableName());
+            et_fftName.setText(info.getFastfifoTabelName());
+
+            et_loadFactor.setText(info.getLoadFactor());
+            et_frequency.setText(info.getSampleFrequency());
         });
 
 
@@ -315,7 +320,6 @@ public class SimulationProjectSettingController implements Initializable {
             ArrayList<ProjectInfo> infos = xmlUtils.getAllProjectFromDocument(document);
             infosMap = new HashMap<>();
             for (ProjectInfo info : infos) {
-                System.out.println(info.getSimulationFile());
                 cb_file.getItems().add(info.getSimulationFile());
                 infosMap.put(info.getSimulationFile(), info);
             }
@@ -329,6 +333,7 @@ public class SimulationProjectSettingController implements Initializable {
     @FXML
     void rb_newAction(ActionEvent event) {
         setEditTextEnable(true);
+        clearEditTextContent();
     }
 
     /**
@@ -342,6 +347,23 @@ public class SimulationProjectSettingController implements Initializable {
         et_mtName.setEditable(editTextEnable);
         et_fftName.setEditable(editTextEnable);
         et_ftName.setEditable(editTextEnable);
+
+        et_loadFactor.setEditable(editTextEnable);
+        et_frequency.setEditable(editTextEnable);
+    }
+
+    /**
+     * clear the content of all the edit text field
+     */
+    public void clearEditTextContent() {
+        et_fileName.setText(null);
+        et_dbName.setText(null);
+        et_mtName.setText(null);
+        et_fftName.setText(null);
+        et_ftName.setText(null);
+
+        et_loadFactor.setText(null);
+        et_frequency.setText(null);
     }
 
 

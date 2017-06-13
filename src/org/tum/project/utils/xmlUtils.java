@@ -43,11 +43,11 @@ public class xmlUtils {
     public static File createAndGetProjectXmlFile() {
         String projectPath = xmlUtils.class.getResource("../").getFile();
         System.out.println(projectPath);
-        File file = new File(projectPath + File.separator+"projectInfo.xml");
+        File file = new File(projectPath + File.separator + "projectInfo.xml");
         if (!file.exists()) {
             try {
-                boolean is=file.createNewFile();
-                System.out.println("file create: "+is);
+                boolean is = file.createNewFile();
+                System.out.println("file create: " + is);
                 writeToXml(createDocument(), file);
             } catch (IOException e) {
                 e.printStackTrace();
@@ -116,6 +116,8 @@ public class xmlUtils {
             info.setModuleTableName(project.element("moduleName").getText());
             info.setFifoTableName(project.element("fifoName").getText());
             info.setFastfifoTabelName(project.element("fastfifoName").getText());
+            info.setLoadFactor(project.element("loadFactor").getText());
+            info.setSampleFrequency(project.element("sampleFrequency").getText());
             projectInfos.add(info);
         }
         Collections.reverse(projectInfos);
@@ -139,6 +141,8 @@ public class xmlUtils {
             project.addElement("moduleName").setText(info.getModuleTableName());
             project.addElement("fifoName").setText(info.getFifoTableName());
             project.addElement("fastfifoName").setText(info.getFastfifoTabelName());
+            project.addElement("loadFactor").setText(info.getLoadFactor());
+            project.addElement("sampleFrequency").setText(info.getSampleFrequency());
             XMLWriter writer = new XMLWriter(new FileWriter(file));
             writer.write(document);
             writer.close();
@@ -148,7 +152,6 @@ public class xmlUtils {
         }
 
     }
-
 
 
 }

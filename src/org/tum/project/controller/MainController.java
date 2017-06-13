@@ -826,7 +826,7 @@ public class MainController implements DataUpdateCallback, JFrameCallback, Simul
 
     public void registerStage(Stage mainActivityStage) {
 
-        this.mainActivityStage = mainActivityStage;
+        MainController.mainActivityStage = mainActivityStage;
     }
 
     public static Stage getStage() {
