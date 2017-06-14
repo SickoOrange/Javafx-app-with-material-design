@@ -66,7 +66,7 @@ public class FlitTraceService {
                         info.setFlitId(flitId);
                         info.setFlitPosition(fifoName);
                         info.setFlitsTime(timeStamp);
-
+                        System.out.println("hello:\n"+info);
                         if (!flow_id_to_flits_map.containsKey(flowId)) {
                             List flitsList = new ArrayList();
                             HashMap<Integer, List<FlitsInfo>> flitsMap = new HashMap<>();
@@ -105,9 +105,7 @@ public class FlitTraceService {
                 }
             }
             sqlUtils.closeConn(conn, statement, rs);
-        } catch (ClassNotFoundException e) {
-            e.printStackTrace();
-        } catch (SQLException e) {
+        } catch (ClassNotFoundException | SQLException e) {
             e.printStackTrace();
         }
     }

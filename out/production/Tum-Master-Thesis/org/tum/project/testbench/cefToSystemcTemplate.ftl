@@ -62,28 +62,36 @@ int sc_main(int argc, char* argv[]) {
 
   sc_clock clk("clock", 10, SC_NS);
   sc_signal<bool> rst;
-  //--------------------------------
-  	std::string dataName="SystemC";
+
+  //insert data bank write code
+  	//--------------------------------
+
+  	ifstream infile;
+  	string nameArray[7];
+  	infile.open("params.txt");      //care file path
+   	string temp;
+  	int index=0;
+    	 while(getline(infile,temp)){
+     	cout<<temp<<endl;
+  	nameArray[index]=temp;
+  	index++;
+  	}
+  	index=0;
+  	// 0--simulation file
+  	// 1--data bank name
+  	// 2--module table name
+  	// 3--fifo table name
+  	// 4--fast fifo table name
+  	// 5--load factory
+  	// 6--sample frequency
+
   	MySqlConnector* connector=MySqlConnector::getInstance();
   	connector->connectMySQL();
-  	connector->createDatabase(dataName);
-  	time_t tt = time(NULL);
-   	tm* t= localtime(&tt);
-   	printf("%d-%02d-%02d %02d:%02d:%02d\n",
-   	t->tm_year + 1900,
-    	t->tm_mon + 1,
-    	t->tm_mday,
-    	t->tm_hour,
-    	t->tm_min,
-    	t->tm_sec);
-  	stringstream timeInhalt;
-  	timeInhalt<<t->tm_year + 1900<<"_"<<t->tm_mon + 1<<"_"<<t->tm_mday<<"_"<<t->tm_hour<<"_"<<t->tm_min<<"_"<<t->tm_sec;
-  	std::string moduleTableName="module_simulation_";
-  	std::string fastFifoRWTableName="fastfiforw_simulation_";
-  	std::string fifoTableName="fifo_simulation_";
-  	moduleTableName+=timeInhalt.str();
-  	fastFifoRWTableName+=timeInhalt.str();
-  	fifoTableName+=timeInhalt.str();
+  	connector->createDatabase(nameArray[1]);
+  	std::string moduleTableName=nameArray[2];
+  	std::string fastFifoRWTableName=nameArray[4];
+  	std::string fifoTableName=nameArray[3];
+
   	connector->createTable(moduleTableName);
   	connector->createTable(fastFifoRWTableName);
   	connector->createTable(fifoTableName);
@@ -92,7 +100,6 @@ int sc_main(int argc, char* argv[]) {
   	connector->setFifoTableName(fifoTableName);
   	connector->startTransaction();
   	cout<<"wait  to write data to datebank"<<endl;
-    //--------------------------------
   
 <#list getSystem().getBlocks().getBlock() as block>
   <#if block.getBlockType() == BLOCKTYPE_PE_WR>

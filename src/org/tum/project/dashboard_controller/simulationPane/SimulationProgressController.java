@@ -97,7 +97,7 @@ public class SimulationProgressController implements Initializable {
                 rotateTransition = new RotateTransition(Duration.seconds(0.5), imageViews[i]);
 
             } else {
-                rotateTransition = new RotateTransition(Duration.seconds(2), imageViews[i]);
+                rotateTransition = new RotateTransition(Duration.seconds(1), imageViews[i]);
 
             }
             rotateTransition.setFromAngle(0);

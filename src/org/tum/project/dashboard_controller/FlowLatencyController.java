@@ -77,6 +77,9 @@ public class FlowLatencyController extends DataUpdateCallbackAdapter implements 
                 String metaData = entry.getValue();
                 String[] split = metaData.split("_");
                 System.out.println(split[0]);
+                if (split[0].equals("NaN")) {
+                    split[0] = "0";
+                }
                 Float latency = Float.valueOf(split[0]);
                 int total_pkt = Integer.valueOf(split[1]);
                 int success_pkt = Integer.valueOf(split[2]);

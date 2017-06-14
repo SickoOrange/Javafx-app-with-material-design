@@ -138,9 +138,9 @@ public class xmlUtils {
             Element project = rootElement.addElement("project");
             project.addElement("projectName").setText(info.getSimulationFile());
             project.addElement("dataBankName").setText(info.getDataBankName());
-            project.addElement("moduleName").setText(info.getModuleTableName());
-            project.addElement("fifoName").setText(info.getFifoTableName());
-            project.addElement("fastfifoName").setText(info.getFastfifoTabelName());
+            project.addElement("moduleName").setText(info.getModuleTableName().toLowerCase());
+            project.addElement("fifoName").setText(info.getFifoTableName().toLowerCase());
+            project.addElement("fastfifoName").setText(info.getFastfifoTabelName().toLowerCase());
             project.addElement("loadFactor").setText(info.getLoadFactor());
             project.addElement("sampleFrequency").setText(info.getSampleFrequency());
             XMLWriter writer = new XMLWriter(new FileWriter(file));
