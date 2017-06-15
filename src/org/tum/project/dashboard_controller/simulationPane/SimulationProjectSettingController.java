@@ -24,6 +24,7 @@ import org.tum.project.dataservice.FlitTraceService;
 import org.tum.project.dataservice.FlowLatencyService;
 import org.tum.project.dataservice.FlowPacketLatencyService;
 import org.tum.project.login_controller.MenusHolderController;
+import org.tum.project.thread.TaskExecutorPool;
 import org.tum.project.utils.CefModifyUtils;
 import org.tum.project.utils.SimulationUtils;
 import org.tum.project.utils.Utils;
@@ -78,6 +79,9 @@ public class SimulationProjectSettingController implements Initializable {
     private JFXTextField et_cefFile;
     @FXML
     private JFXTextField et_testBench;
+
+    @FXML
+    private JFXButton btn_analysis;
 
 
     private File xmlFile;
@@ -196,8 +200,8 @@ public class SimulationProjectSettingController implements Initializable {
                 //execute the simulation
                 System.out.println("start simulation");
                 simulationProgressController.startAnimation5("Start\n" + "to\n" + "simulate\n");
-                //String cmd = "./nocSim " + et_loadFactor.getText();
-                String cmd = "./nocSim ";
+                String cmd = "./nocSim " + et_loadFactor.getText();
+               // String cmd = "./nocSim ";
 
                 SimulationUtils.execute(cmd, simulationPath[0], simulationPath[1]);
 
@@ -267,15 +271,25 @@ public class SimulationProjectSettingController implements Initializable {
 
     @FXML
     public void startSimulationAction(ActionEvent actionEvent) {
-        simulationThread = new Thread(new SimulationTask());
-        simulationThread.start();
+        //simulationThread = new Thread(new SimulationTask());
+        //simulationThread.start();
+        TaskExecutorPool.getExecutor().execute(new SimulationTask());
 
     }
 
 
+    @FXML
+    public void startDirectlyAnalysis(ActionEvent actionEvent) {
+        //simulationThread = new Thread(new SimulationTask());
+        //simulationThread.start();
+
+    }
+
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         System.out.println("SimulationProjectSettingController initialize");
+        btn_analysis.setDisable(true);
+        btnSimulation.setDisable(true);
         SimulationController.registerSelfToController(this, getClass().getName());
 
         //find the xml file, from this file, we can find the project information
@@ -328,11 +342,6 @@ public class SimulationProjectSettingController implements Initializable {
     }
 
 
-    @FXML
-    void rb_loadAction(ActionEvent event) {
-        setEditTextEnable(false);
-        loadingIntoComboBox();
-    }
 
 
     /**
@@ -356,7 +365,18 @@ public class SimulationProjectSettingController implements Initializable {
 
 
     @FXML
+    void rb_loadAction(ActionEvent event) {
+        btn_analysis.setDisable(false);
+        btnSimulation.setDisable(true);
+        setEditTextEnable(false);
+        loadingIntoComboBox();
+    }
+
+
+    @FXML
     void rb_newAction(ActionEvent event) {
+        btn_analysis.setDisable(true);
+        btnSimulation.setDisable(false);
         setEditTextEnable(true);
         clearEditTextContent();
     }

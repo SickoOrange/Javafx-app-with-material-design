@@ -87,7 +87,7 @@
         <moduleName>hh2</moduleName>
         <fifoName>hh3</fifoName>
         <fastfifoName>hh4</fastfifoName>
-        <loadFactor>1</loadFactor>
+        <loadFactor>10</loadFactor>
         <sampleFrequency>10</sampleFrequency>
     </project>
-<project><projectName>qq</projectName><dataBankName>qq1</dataBankName><moduleName>qq2</moduleName><fifoName>qq3</fifoName><fastfifoName>qq4</fastfifoName><loadFactor>1</loadFactor><sampleFrequency>10</sampleFrequency></project></root>
+<project><projectName>qq</projectName><dataBankName>qq1</dataBankName><moduleName>qq2</moduleName><fifoName>qq3</fifoName><fastfifoName>qq4</fastfifoName><loadFactor>1</loadFactor><sampleFrequency>10</sampleFrequency></project><project><projectName>ss</projectName><dataBankName>sssssssss</dataBankName><moduleName>ssssssssssss</moduleName><fifoName>ssssssssssssss</fifoName><fastfifoName>ssssssssssssssssss</fastfifoName><loadFactor>10</loadFactor><sampleFrequency>10</sampleFrequency></project></root>
