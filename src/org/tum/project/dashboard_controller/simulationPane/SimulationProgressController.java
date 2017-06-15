@@ -278,4 +278,32 @@ public class SimulationProgressController implements Initializable {
     public void setError(String error) {
         t_error.setText(error);
     }
+
+
+    /**
+     * success flag after directly analysis
+     */
+    public void directlyAnalysisSuccess() {
+        img1.setImage(new Image(String.valueOf(getResourceUrl("/ok.png"))));
+        img2.setImage(new Image(String.valueOf(getResourceUrl("/ok.png"))));
+        img3.setImage(new Image(String.valueOf(getResourceUrl("/ok.png"))));
+        img4.setImage(new Image(String.valueOf(getResourceUrl("/ok.png"))));
+        img5.setImage(new Image(String.valueOf(getResourceUrl("/ok.png"))));
+        img6.setImage(new Image(String.valueOf(getResourceUrl("/ok.png"))));
+
+        txt1.setText("");
+        txt2.setText("");
+        txt3.setText("");
+        txt4.setText("");
+        txt5.setText("");
+        txt6.setText("");
+        t_error.setText("");
+
+        lbl1.setStyle("-fx-background-color:#BCBCBC");
+        lbl2.setStyle("-fx-background-color:#BCBCBC");
+        lbl3.setStyle("-fx-background-color:#BCBCBC");
+        lbl4.setStyle("-fx-background-color:#BCBCBC");
+        lbl5.setStyle("-fx-background-color:#BCBCBC");
+
+    }
 }

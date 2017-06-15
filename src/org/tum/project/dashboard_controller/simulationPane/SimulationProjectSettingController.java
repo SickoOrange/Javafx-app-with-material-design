@@ -4,16 +4,9 @@ import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.jfoenix.controls.*;
 import javafx.application.Platform;
-import javafx.beans.value.ChangeListener;
-import javafx.beans.value.ObservableValue;
 import javafx.event.ActionEvent;
-import javafx.event.Event;
-import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.scene.control.ToggleGroup;
-import javafx.scene.input.MouseEvent;
-import javafx.scene.layout.StackPane;
 import org.dom4j.Document;
 import org.dom4j.DocumentException;
 import org.tum.project.bean.ProjectInfo;
@@ -86,9 +79,7 @@ public class SimulationProjectSettingController implements Initializable {
 
     private File xmlFile;
     private HashMap<String, ProjectInfo> infosMap;
-    private Thread simulationThread;
     private SimulationPathSettingController simulationPathSettingController;
-    private SimulationProgressController simulationProgressController;
 
 
     /**
@@ -112,7 +103,7 @@ public class SimulationProjectSettingController implements Initializable {
             try {
                 System.out.println("start simulation");
                 btnSimulation.setDisable(true);
-                simulationProgressController = (SimulationProgressController) SimulationController.getControllerInstance(SimulationProgressController.class.getName());
+                SimulationProgressController simulationProgressController= (SimulationProgressController) SimulationController.getControllerInstance(SimulationProgressController.class.getName());
                 simulationProgressController.clear();
                 simulationProgressController.startAnimation1("Checking for Start");
 
@@ -124,12 +115,12 @@ public class SimulationProjectSettingController implements Initializable {
 
                 //Collect the necessary simulation dank bank information
                 String db_name = et_dbName.getText().toLowerCase();
-                String mt_name =  et_mtName.getText().toLowerCase();
-                String ft_name =  et_ftName.getText().toLowerCase();
-                String fft_name =et_fftName.getText().toLowerCase();
+                String mt_name = et_mtName.getText().toLowerCase();
+                String ft_name = et_ftName.getText().toLowerCase();
+                String fft_name = et_fftName.getText().toLowerCase();
 
 
-                if (et_loadFactor.getText()==null || et_frequency.getText()==null || et_dbName.getText()==null|| et_mtName.getText()==null|| et_ftName.getText()==null || et_fftName.getText()==null) {
+                if (et_loadFactor.getText() == null || et_frequency.getText() == null || et_dbName.getText() == null || et_mtName.getText() == null || et_ftName.getText() == null || et_fftName.getText() == null) {
                     Platform.runLater(() -> {
                         CefModifyUtils.alertDialog("Edit Text cant be null");
                         btnSimulation.setDisable(false);
@@ -175,9 +166,9 @@ public class SimulationProjectSettingController implements Initializable {
                     FileWriter writer = new FileWriter(parametersPath);
                     writer.write(info.getSimulationFile() + "\n");
                     writer.write(info.getDataBankName() + "\n");
-                    writer.write("module_simulation_" +info.getModuleTableName().toLowerCase() + "\n");
-                    writer.write("fifo_simulation_" +info.getFifoTableName().toLowerCase() + "\n");
-                    writer.write( "fastfiforw_simulation_" + info.getFastfifoTabelName().toLowerCase() + "\n");
+                    writer.write("module_simulation_" + info.getModuleTableName().toLowerCase() + "\n");
+                    writer.write("fifo_simulation_" + info.getFifoTableName().toLowerCase() + "\n");
+                    writer.write("fastfiforw_simulation_" + info.getFastfifoTabelName().toLowerCase() + "\n");
                     writer.write(info.getLoadFactor() + "\n");
                     writer.write(info.getSampleFrequency() + "\n");
                     writer.flush();
@@ -201,7 +192,7 @@ public class SimulationProjectSettingController implements Initializable {
                 System.out.println("start simulation");
                 simulationProgressController.startAnimation5("Start\n" + "to\n" + "simulate\n");
                 String cmd = "./nocSim " + et_loadFactor.getText();
-               // String cmd = "./nocSim ";
+                // String cmd = "./nocSim ";
 
                 SimulationUtils.execute(cmd, simulationPath[0], simulationPath[1]);
 
@@ -218,7 +209,7 @@ public class SimulationProjectSettingController implements Initializable {
                 //module table name list is needed for the execution
                 FlowLatencyService flowLatencyInstance = (FlowLatencyService) DashBoardController.getDataServiceInstance(FlowLatencyService.class.getName());
                 List<String> moduleTableList = new ArrayList<>();
-                moduleTableList.add("module_simulation_"+mt_name);
+                moduleTableList.add("module_simulation_" + mt_name);
                 //flowLatencyInstance.startAnalyze(moduleTableList, db_name);
                 //moduleTableList.add("module_simulation_2017_6_10_14_21_58");
                 flowLatencyInstance.startAnalyze(moduleTableList, db_name);
@@ -234,14 +225,14 @@ public class SimulationProjectSettingController implements Initializable {
                 //fifo size table name list is needed for the execution
                 FifoSizeService fifoSizeService = (FifoSizeService) DashBoardController.getDataServiceInstance(FifoSizeService.class.getName());
                 List<String> fifoTabelList = new ArrayList<>();
-                fifoTabelList.add("fifo_simulation_"+ft_name);
+                fifoTabelList.add("fifo_simulation_" + ft_name);
                 //fifoTabelList.add("fifo_simulation_2017_6_10_14_21_58");
                 fifoSizeService.startAnalyze(fifoTabelList, db_name);
 
                 //execute the analysis for trace flits details
                 FlitTraceService flitTraceService = (FlitTraceService) DashBoardController.getDataServiceInstance(FlitTraceService.class.getName());
                 List<String> fastfifoTabelList = new ArrayList<>();
-                fastfifoTabelList.add("fastfiforw_simulation_"+fft_name);
+                fastfifoTabelList.add("fastfiforw_simulation_" + fft_name);
                 //fastfifoTabelList.add("fastfiforw_simulation_2017_6_10_14_21_58");
                 flitTraceService.startAnalyze(fastfifoTabelList, db_name);
                 btnSimulation.setDisable(false);
@@ -280,9 +271,54 @@ public class SimulationProjectSettingController implements Initializable {
 
     @FXML
     public void startDirectlyAnalysis(ActionEvent actionEvent) {
-        //simulationThread = new Thread(new SimulationTask());
-        //simulationThread.start();
+        SimulationProgressController simulationProgressController= (SimulationProgressController) SimulationController.getControllerInstance(SimulationProgressController.class.getName());
 
+        try {
+            //Collect the necessary simulation dank bank information
+            String db_name = et_dbName.getText().toLowerCase();
+            String mt_name = et_mtName.getText().toLowerCase();
+            String ft_name = et_ftName.getText().toLowerCase();
+            String fft_name = et_fftName.getText().toLowerCase();
+
+            //execute the analysis for flow latency
+            //module table name list is needed for the execution
+            FlowLatencyService flowLatencyInstance = (FlowLatencyService) DashBoardController.getDataServiceInstance(FlowLatencyService.class.getName());
+            List<String> moduleTableList = new ArrayList<>();
+            moduleTableList.add("module_simulation_" + mt_name);
+            //flowLatencyInstance.startAnalyze(moduleTableList, db_name);
+            //moduleTableList.add("module_simulation_2017_6_10_14_21_58");
+            flowLatencyInstance.startAnalyze(moduleTableList, db_name);
+
+
+            //execute the analysis for flow packet details
+            //module table name list is needed for the execution
+            FlowPacketLatencyService flowPacketLatencyService = (FlowPacketLatencyService) DashBoardController.getDataServiceInstance(FlowPacketLatencyService.class.getName());
+            flowPacketLatencyService.startAnalyze(moduleTableList, db_name);
+
+
+            //execute the analysis for fifo size analyse details
+            //fifo size table name list is needed for the execution
+            FifoSizeService fifoSizeService = (FifoSizeService) DashBoardController.getDataServiceInstance(FifoSizeService.class.getName());
+            List<String> fifoTabelList = new ArrayList<>();
+            fifoTabelList.add("fifo_simulation_" + ft_name);
+            //fifoTabelList.add("fifo_simulation_2017_6_10_14_21_58");
+            fifoSizeService.startAnalyze(fifoTabelList, db_name);
+
+            //execute the analysis for trace flits details
+            FlitTraceService flitTraceService = (FlitTraceService) DashBoardController.getDataServiceInstance(FlitTraceService.class.getName());
+            List<String> fastfifoTabelList = new ArrayList<>();
+            fastfifoTabelList.add("fastfiforw_simulation_" + fft_name);
+            //fastfifoTabelList.add("fastfiforw_simulation_2017_6_10_14_21_58");
+            flitTraceService.startAnalyze(fastfifoTabelList, db_name);
+
+            //finish
+            System.out.println("finish");
+            Platform.runLater(() -> simulationProgressController.directlyAnalysisSuccess());
+        } catch (Exception e) {
+            e.printStackTrace();
+            Platform.runLater(() -> simulationProgressController.setError("analysis failed"));
+
+        }
     }
 
     @Override
@@ -332,13 +368,6 @@ public class SimulationProjectSettingController implements Initializable {
                 System.out.println(file.getAbsolutePath());
             }
         });
-    }
-
-
-    public static void main(String[] args) {
-        System.out.println("test");
-        SimulationUtils.generateTestFile("/home/heylbly/Desktop/multimedia_4x4_routed.xml", "/home/heylbly/Desktop");
-        System.out.println("finish");
     }
 
 

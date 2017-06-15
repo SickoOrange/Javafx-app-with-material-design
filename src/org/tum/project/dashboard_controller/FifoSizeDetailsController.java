@@ -198,6 +198,9 @@ public class FifoSizeDetailsController extends DataUpdateCallbackAdapter impleme
      */
     private void decreaseLabelCounter(String labelName) {
         Label label = counterLabelContainer.get(labelName);
+        if (label == null) {
+            return;
+        }
         int i = Integer.valueOf(label.getText());
         i--;
         label.setText(String.valueOf(i));
