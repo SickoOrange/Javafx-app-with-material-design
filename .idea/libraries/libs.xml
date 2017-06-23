@@ -5,6 +5,8 @@
       <root url="jar://$PROJECT_DIR$/libs/fontawesomefx-8.9.jar!/" />
       <root url="jar://$PROJECT_DIR$/libs/Ecore.jar!/" />
       <root url="jar://$PROJECT_DIR$/libs/freemarker.jar!/" />
+      <root url="jar://$PROJECT_DIR$/libs/gson-2.8.1.jar!/" />
+      <root url="jar://$PROJECT_DIR$/libs/gson-2.6.2.jar!/" />
       <root url="jar://$PROJECT_DIR$/libs/jgraphx.jar!/" />
       <root url="jar://$PROJECT_DIR$/libs/dom4j-2.0.0-RC1.jar!/" />
       <root url="jar://$PROJECT_DIR$/libs/jfoenix.jar!/" />

@@ -382,7 +382,7 @@ public class MainController implements DataUpdateCallback, JFrameCallback, Simul
                     //click link event
                     HBox hbox = new HBox(5);
                     hbox.setPadding(new Insets(15, 15, 15, 15));
-                    Object[] linkResource = cefVisualizationService.findLinkandBlockByLinkId((BigInteger) o);
+                    Object[] linkResource = cefVisualizationService.findLinkAndBlockByLinkId((BigInteger) o);
 
                     LinkType linkType = (LinkType) linkResource[0];
                     BlockType sourceBlock = (BlockType) linkResource[1];

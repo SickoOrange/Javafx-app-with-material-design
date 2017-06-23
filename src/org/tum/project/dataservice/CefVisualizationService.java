@@ -17,7 +17,6 @@ import javafx.collections.ObservableList;
 import javafx.fxml.FXMLLoader;
 import javafx.geometry.Pos;
 import javafx.scene.Node;
-import javafx.scene.control.*;
 import javafx.scene.control.Label;
 import javafx.scene.control.ScrollPane;
 import javafx.scene.layout.*;
@@ -204,7 +203,7 @@ public class CefVisualizationService {
      * @param o link id
      * @return linkType+sourceBlock+destinationBlock
      */
-    public Object[] findLinkandBlockByLinkId(BigInteger o) {
+    public Object[] findLinkAndBlockByLinkId(BigInteger o) {
         EList<LinkType> linksList = documentRoot.getCef().getSystem().getLinks().getLink();
         EList<BlockType> blocksList = documentRoot.getCef().getSystem().getBlocks().getBlock();
         //Generate the linksList array that kann hold linkType, sourceBlock, and destinationBlock
@@ -698,7 +697,6 @@ public class CefVisualizationService {
     public mxGraphComponent startVisualization(String absolutePath, StackPane sp_editor) {
         documentRoot = getMetalDocumentRoot(absolutePath);
         dialogHolder = sp_editor;
-
         return visualizationWithPane(documentRoot);
     }
 
@@ -957,6 +955,26 @@ public class CefVisualizationService {
 
                         }
                     }
+                } else if (mouseEvent.getButton() == 1) {
+                    // mouse left click
+                    Object selectedCell = graphComponent.getCellAt(mouseEvent.getX(), mouseEvent.getY());
+                    if (selectedCell != null) {
+                        if (isVertex(selectedCell)) {
+                            //its vertex
+                            //properties: block port ports list
+                            String blockName = graph.convertValueToString(selectedCell);
+                            BlockType block = findBlockByName(blockName);
+                            Platform.runLater(() -> setBlockPropertiesAndAddPane(block));
+                        }
+                        if (isEdge(selectedCell)) {
+                            //its edge
+                            //properties: link, source port, destination port
+                            BigInteger linkId = getEdgeId(selectedCell);
+                            Object[] resource = findLinkAndBlockByLinkId(linkId);
+                            LinkType linkType = (LinkType) resource[0];
+                            Platform.runLater(() -> setLinkPropertiesAndAddPane(linkType));
+                        }
+                    }
                 }
                 super.mouseReleased(mouseEvent);
             }
@@ -980,18 +998,40 @@ public class CefVisualizationService {
             case "default":
                 break;
             case "content":
-                String describe = null;
+                JFXButton sourcePortBtn = null;
+                JFXButton destinationPortBtn = null;
+                String elementDescriber = null;
                 if (obj instanceof String) {
-                    describe = (String) obj;
+                    elementDescriber = (String) obj;
                 } else if (obj instanceof BigInteger) {
                     BigInteger linkId = (BigInteger) obj;
-                    describe = linkId.toString();
+                    elementDescriber = linkId.toString();
+                    //elementDescriber: integer=> link type  need to find the source and destination port information
+                    Object[] linkResource = findLinkAndBlockByLinkId(linkId);
+                    LinkType linkType = (LinkType) linkResource[0];
+                    sourcePortBtn = new JFXButton("source port properties");
+                    //find the source port information and provide the pane to edit his properties
+                    sourcePortBtn.setOnAction(event -> {
+                        BigInteger sourcePortId = linkType.getSourcePortId();
+                        BlockType sourceBlock = (BlockType) linkResource[1];
+                        PortType sourcePort = CefModifyUtils.getPort(sourcePortId, sourceBlock, documentRoot);
+                        setPortPropertiesAndAddPane(sourcePort);
+                    });
+
+                    destinationPortBtn = new JFXButton("destination port properties");
+                    destinationPortBtn.setOnAction(event -> {
+                        BigInteger destinationPortId = linkType.getDestinationPortId();
+                        BlockType destinationBlock = (BlockType) linkResource[2];
+                        PortType destinationPort = CefModifyUtils.getPort(destinationPortId, destinationBlock, documentRoot);
+                        setPortPropertiesAndAddPane(destinationPort);
+                    });
                 }
 
-
-                JFXButton button = new JFXButton("Delete Element=> " + prefix + describe);
-                boxContent.getChildren().add(button);
-                button.setOnAction(event -> {
+                //elementDescriber: integer=> link type  need to find the source and destination port information
+                //elementDescriber: string=> block type
+                JFXButton deleteElementBtn = new JFXButton("Delete Element=> " + prefix + elementDescriber);
+                boxContent.getChildren().add(deleteElementBtn);
+                deleteElementBtn.setOnAction(event -> {
                     try {
                         deleteElement(obj);
                     } catch (NullPointerException e) {
@@ -1003,18 +1043,26 @@ public class CefVisualizationService {
                     }
                 });
 
+
+                if ((sourcePortBtn != null) && (destinationPortBtn != null)) {
+                    boxContent.getChildren().addAll(sourcePortBtn, destinationPortBtn);
+                }
+
+
                 break;
         }
 
-        JFXButton addBlock = new JFXButton("Add Block Type");
-        addBlock.setOnAction(event -> {
-            setBlockPropertiesAndAdd();
+        JFXButton addBlockBtn = new JFXButton("Add Block Type");
+        addBlockBtn.setOnAction(event -> {
+            setBlockPropertiesAndAddPane(null);
+
         });
-        JFXButton addLink = new JFXButton("Add Link Type");
-        addLink.setOnAction(event -> {
-            setLinkPropertiesAndAdd();
+        JFXButton addLinkBtn = new JFXButton("Add Link Type");
+        addLinkBtn.setOnAction(event -> {
+            setLinkPropertiesAndAddPane(null);
+
         });
-        boxContent.getChildren().addAll(addBlock, addLink);
+        boxContent.getChildren().addAll(addBlockBtn, addLinkBtn);
         boxContent.setAlignment(Pos.CENTER);
         layout.setBody(boxContent);
 
@@ -1036,8 +1084,17 @@ public class CefVisualizationService {
             } else if (container.getChildren().get(0) instanceof ScrollPane) {
                 //this is a link properties
                 ScrollPane pane = (ScrollPane) container.getChildren().get(0);
-                VBox box = (VBox) pane.getContent();
-                collectLinkProperties(box);
+
+                if (pane.getId().equals("addLinkPane")) {
+                    VBox box = (VBox) pane.getContent();
+                    collectLinkProperties(box);
+                }
+
+                if (pane.getId().equals("addPortPane")) {
+                    VBox box = (VBox) pane.getContent();
+                    collectPortProperties(box);
+                }
+
             }
             dialog.close();
 
@@ -1045,6 +1102,49 @@ public class CefVisualizationService {
         layout.setActions(cancel, btn_ok);
         dialog.show();
     }
+
+    /**
+     * collect the information of a port type and submit to the ecore file
+     *
+     * @param box
+     */
+    private void collectPortProperties(VBox box) {
+        String label_id = ((JFXTextField) box.getChildren().get(1)).getText();
+        String label_protocol = ((JFXTextField) box.getChildren().get(2)).getText();
+        String label_maxoutstanding = ((JFXTextField) box.getChildren().get(3)).getText();
+        String label_addressWidth = ((JFXTextField) box.getChildren().get(4)).getText();
+        String label_readDataWidth = ((JFXTextField) box.getChildren().get(5)).getText();
+        String label_writeDataWidth = ((JFXTextField) box.getChildren().get(6)).getText();
+        String label_flitsWidth = ((JFXTextField) box.getChildren().get(7)).getText();
+        String label_positionX = ((JFXTextField) box.getChildren().get(8)).getText();
+        String label_positionY = ((JFXTextField) box.getChildren().get(9)).getText();
+        String label_DomainId = ((JFXTextField) box.getChildren().get(10)).getText();
+
+        if (!label_id.equals("")) {
+            PortType modifyPort = CefFactory.eINSTANCE.createPortType();
+
+            modifyPort.setId(label_id.length() == 0 ? null : new BigInteger(label_id));
+            modifyPort.setProtocol(label_protocol.length() == 0 ? null : label_protocol);
+            modifyPort.setMaxOutstandingTransactions(label_maxoutstanding.length() == 0 ? null : new BigInteger(label_maxoutstanding));
+            modifyPort.setAddressWidth(label_addressWidth.length() == 0 ? null : new BigInteger(label_addressWidth));
+            modifyPort.setReadDataWidth(label_readDataWidth.length() == 0 ? null : new BigInteger(label_readDataWidth));
+            modifyPort.setWriteDataWidth(label_writeDataWidth.length() == 0 ? null : new BigInteger(label_writeDataWidth));
+            modifyPort.setFlitWidth(label_flitsWidth.length() == 0 ? null : new BigInteger(label_flitsWidth));
+            modifyPort.setPositionX(label_positionX.length() == 0 ? null : new Double(label_positionX));
+            modifyPort.setPositionY(label_positionY.length() == 0 ? null : new Double(label_positionY));
+            modifyPort.setDomainId(label_DomainId.length() == 0 ? null : new BigInteger(label_DomainId));
+
+            if (documentRoot != null) {
+                EList<BlockType> blocksList = documentRoot.getCef().getSystem().getBlocks().getBlock();
+                BlockType targetBlock = findBlockFromPortId(modifyPort.getId(), blocksList);
+                CefModifyUtils.addPortToBlock(targetBlock, modifyPort);
+            }
+        } else {
+            CefModifyUtils.alertDialog("port id can't be null");
+        }
+
+    }
+
 
     /**
      * collect the information of a link type and submit to the ecore file
@@ -1094,11 +1194,11 @@ public class CefVisualizationService {
 
 
         } else {
-            // TODO: 17-6-11 replace the dialog with snackbar
             CefModifyUtils.alertDialog("link id, source port id and destination id can't be null");
         }
 
     }
+
 
     /**
      * collect the information of a block type and submit to the ecore file
@@ -1121,27 +1221,100 @@ public class CefVisualizationService {
 
 
         } else {
-            // TODO: 17-6-11 replace the dialog with snackbar
             CefModifyUtils.alertDialog("Block Name can't be null");
+        }
+    }
+
+    /**
+     * create a pane that hold all properties, which a port type has
+     * user can edit the properties in this pane
+     * after editing, user can direct update this port type to the cef ecore dile
+     *
+     * @param port port type
+     */
+    private void setPortPropertiesAndAddPane(PortType port) {
+        try {
+            CefEditorController cefEditorController = (CefEditorController) DashBoardController.getDataServiceInstance(CefEditorController.class.getName());
+
+            Pane container = cefEditorController.getAddPropertiesContainer();
+            container.getChildren().clear();
+            javafx.scene.control.ScrollPane addPortPane = FXMLLoader.load(getClass().getResource("../dashboard_controller/addPort.fxml"));
+            addPortPane.setId("addPortPane");
+            fillPortPaneContent(addPortPane, port);
+            addPortPane.setLayoutX(18);
+            addPortPane.setLayoutY(20);
+            addPortPane.setFitToWidth(true);
+            container.getChildren().add(addPortPane);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    /**
+     * fill the existing properties to the pane
+     *
+     * @param pane port pane
+     * @param port port type
+     */
+    private void fillPortPaneContent(ScrollPane pane, PortType port) {
+        if (port == null) {
+            return;
+        }
+        if (pane.getContent() instanceof VBox) {
+            VBox box = (VBox) pane.getContent();
+            JFXTextField label_id = (JFXTextField) box.getChildren().get(1);
+            label_id.setText(String.valueOf(port.getId()));
+
+            JFXTextField label_protocol = (JFXTextField) box.getChildren().get(2);
+            label_protocol.setText(String.valueOf(port.getProtocol()));
+
+            JFXTextField label_maxoutstanding = (JFXTextField) box.getChildren().get(3);
+            label_maxoutstanding.setText(String.valueOf(port.getMaxOutstandingTransactions()));
+
+            JFXTextField label_addressWidth = (JFXTextField) box.getChildren().get(4);
+            label_addressWidth.setText(String.valueOf(port.getAddressWidth()));
+
+            JFXTextField label_readDataWidth = (JFXTextField) box.getChildren().get(5);
+            label_readDataWidth.setText(String.valueOf(port.getReadDataWidth()));
+
+            JFXTextField label_writeDataWidth = (JFXTextField) box.getChildren().get(6);
+            label_writeDataWidth.setText(String.valueOf(port.getWriteDataWidth()));
+
+            JFXTextField label_flitsWidth = (JFXTextField) box.getChildren().get(7);
+            label_flitsWidth.setText(String.valueOf(port.getFlitWidth()));
+
+            JFXTextField label_positionX = (JFXTextField) box.getChildren().get(8);
+            label_positionX.setText(String.valueOf(port.getPositionX()));
+
+            JFXTextField label_positionY = (JFXTextField) box.getChildren().get(9);
+            label_positionY.setText(String.valueOf(port.getPositionY()));
+
+            JFXTextField label_DomainId = (JFXTextField) box.getChildren().get(10);
+            label_DomainId.setText(String.valueOf(port.getDomainId()));
+
         }
     }
 
     /**
      * create a pane that hold all properties,which a link type has
      * user can edit the properties in this pane
-     * after editing , user can direct add this link type to the cef ecore file
+     * after editing , user can direct add or update this link type to the cef ecore file
+     *
+     * @param linkType
      */
-    private void setLinkPropertiesAndAdd() {
+    private void setLinkPropertiesAndAddPane(LinkType linkType) {
         try {
             CefEditorController cefEditorController = (CefEditorController) DashBoardController.getDataServiceInstance(CefEditorController.class.getName());
 
             Pane container = cefEditorController.getAddPropertiesContainer();
             container.getChildren().clear();
-            System.out.println("add link pane");
-            javafx.scene.control.ScrollPane addBlockPane = FXMLLoader.load(getClass().getResource("../dashboard_controller/addLink.fxml"));
-            addBlockPane.setLayoutX(18);
-            addBlockPane.setLayoutY(20);
-            container.getChildren().add(addBlockPane);
+            javafx.scene.control.ScrollPane addLinkPane = FXMLLoader.load(getClass().getResource("../dashboard_controller/addLink.fxml"));
+            fillLinkPaneContent(addLinkPane, linkType);
+            addLinkPane.setId("addLinkPane");
+            addLinkPane.setLayoutX(18);
+            addLinkPane.setLayoutY(20);
+            addLinkPane.setFitToWidth(true);
+            container.getChildren().add(addLinkPane);
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -1149,24 +1322,93 @@ public class CefVisualizationService {
     }
 
     /**
+     * fill the existing properties to the pane
+     *
+     * @param pane     add link pane
+     * @param linkType link type
+     */
+    private void fillLinkPaneContent(ScrollPane pane, LinkType linkType) {
+        if (linkType == null) {
+            return;
+        }
+        if (pane.getContent() instanceof VBox) {
+            VBox box = (VBox) pane.getContent();
+            JFXTextField label_name = (JFXTextField) box.getChildren().get(1);
+            label_name.setText(String.valueOf(linkType.getName()));
+
+            JFXTextField label_id = (JFXTextField) box.getChildren().get(2);
+            label_id.setText(String.valueOf(linkType.getId()));
+
+            JFXTextField label_sourcePortId = (JFXTextField) box.getChildren().get(3);
+            label_sourcePortId.setText(String.valueOf(linkType.getSourcePortId()));
+
+            JFXTextField label_targetPortId = (JFXTextField) box.getChildren().get(4);
+            label_targetPortId.setText(String.valueOf(linkType.getDestinationPortId()));
+
+            JFXTextField label_isCarriesSourceClock = (JFXTextField) box.getChildren().get(5);
+            label_isCarriesSourceClock.setText(String.valueOf(linkType.isCarriesSourceClock()));
+
+            JFXTextField label_isCarriesSourceReset = (JFXTextField) box.getChildren().get(6);
+            label_isCarriesSourceReset.setText(String.valueOf(linkType.isCarriesSourceReset()));
+
+            JFXTextField label_linkLengthEstimation = (JFXTextField) box.getChildren().get(7);
+            label_linkLengthEstimation.setText(String.valueOf(linkType.getLinkLengthEstimation()));
+
+            JFXTextField label_auxiliaryForwardWires = (JFXTextField) box.getChildren().get(8);
+            label_auxiliaryForwardWires.setText(String.valueOf(linkType.getAuxiliaryForwardWires()));
+
+            JFXTextField label_auxiliaryBackwardWires = (JFXTextField) box.getChildren().get(9);
+            label_auxiliaryBackwardWires.setText(String.valueOf(linkType.getAuxiliaryBackwardWires()));
+
+        }
+    }
+
+    /**
      * create a pane that hold all properties,which a block type has
      * user can edit the properties in this pane
      * after editing , user can direct add this block type to the cef ecore file
+     *
+     * @param block
      */
-    private void setBlockPropertiesAndAdd() {
+    private void setBlockPropertiesAndAddPane(BlockType block) {
         try {
             CefEditorController cefEditorController = (CefEditorController) DashBoardController.getDataServiceInstance(CefEditorController.class.getName());
 
             Pane container = cefEditorController.getAddPropertiesContainer();
             container.getChildren().clear();
-            System.out.println("add block pane");
             VBox addBlockPane = FXMLLoader.load(getClass().getResource("../dashboard_controller/addBlock.fxml"));
+            fillBlockPaneContent(addBlockPane, block);
             addBlockPane.setLayoutX(18);
             addBlockPane.setLayoutY(20);
+            addBlockPane.setFillWidth(true);
             container.getChildren().add(addBlockPane);
         } catch (IOException e) {
             e.printStackTrace();
         }
+    }
+
+    /**
+     * fill the existing properties to the pane
+     *
+     * @param addBlockPane add block pane
+     * @param block        block type
+     */
+    private void fillBlockPaneContent(VBox addBlockPane, BlockType block) {
+        if (block == null) {
+            return;
+        }
+        JFXTextField label_name = (JFXTextField) addBlockPane.getChildren().get(1);
+        label_name.setText(String.valueOf(block.getName()));
+
+        JFXTextField label_id = (JFXTextField) addBlockPane.getChildren().get(2);
+        label_id.setText(String.valueOf(block.getId()));
+
+        JFXTextField label_blockType = (JFXTextField) addBlockPane.getChildren().get(3);
+        label_blockType.setText(String.valueOf(block.getBlockType()));
+
+        JFXTextField label_layer = (JFXTextField) addBlockPane.getChildren().get(4);
+        label_layer.setText(String.valueOf(block.getLayer()));
+
     }
 
     /**

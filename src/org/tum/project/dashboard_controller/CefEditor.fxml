@@ -38,7 +38,7 @@
                         <Text fx:id="t_savePath" layoutX="15.0" layoutY="325.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Save:" wrappingWidth="290.0" />
                         <JFXButton fx:id="btn_refresh" layoutX="217.0" layoutY="224.0" onAction="#refreshAction" prefHeight="29.0" prefWidth="84.0" style="-fx-background-color: #F50057; -fx-background-radius: 50;" text="Refresh" textFill="WHITE" />
                   <Separator layoutX="19.0" layoutY="340.0" prefHeight="2.0" prefWidth="280.0" />
-                  <Pane fx:id="addPropertiesContainer" layoutX="14.0" layoutY="369.0" prefHeight="325.0" prefWidth="290.0" />
+                  <Pane fx:id="addPropertiesContainer" layoutX="5.0" layoutY="369.0" prefHeight="325.0" prefWidth="315.0" />
                   <Text layoutX="58.0" layoutY="367.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Properties Controll Pane" textAlignment="CENTER" wrappingWidth="201.126953125">
                      <font>
                         <Font size="14.0" />

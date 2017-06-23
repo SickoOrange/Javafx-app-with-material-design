@@ -138,7 +138,6 @@ public class SimulationProjectSettingController implements Initializable {
                 String testBenchSavePath = et_testBench.getText();
 
 
-                // TODO: 17-6-4  validate all string, can‘be null
                 System.out.println("start collect information");
                 simulationProgressController.startAnimation2("Collecting\n" + "Info\n");
 
@@ -157,6 +156,9 @@ public class SimulationProjectSettingController implements Initializable {
                     xmlUtils.writeToDocument(info);
                 }
 
+
+                // TODO: 23.06.17 test the project is existing in the database;
+                // TODO: 23.06.17  fifo size chong fu de wen ti
 
                 //write the relative information to the json file in the simulation path.
                 GsonBuilder builder = new GsonBuilder();

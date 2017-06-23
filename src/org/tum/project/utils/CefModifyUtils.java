@@ -108,8 +108,8 @@ public class CefModifyUtils {
     public static void addLinkToDocumentRoot(DocumentRoot documentRoot, LinkType newLinkType) {
         System.out.println("read to add");
         EList<LinkType> linkList = documentRoot.getCef().getSystem().getLinks().getLink();
-        boolean findSource = findPort(newLinkType.getSourcePortId(), documentRoot);
-        boolean findDestination = findPort(newLinkType.getDestinationPortId(), documentRoot);
+        boolean findSource = canFindPort(newLinkType.getSourcePortId(), documentRoot);
+        boolean findDestination = canFindPort(newLinkType.getDestinationPortId(), documentRoot);
         boolean adding = false;
         if (findSource && findDestination) {
             //source port and destination port exist
@@ -148,14 +148,14 @@ public class CefModifyUtils {
     }
 
     /**
-     * hether it can add this link
+     * whether it can add this link
      * Only source or destination port exist, then can we add it to the document root
      *
      * @param id           port id
      * @param documentRoot document root
      * @return true can add this link
      */
-    private static boolean findPort(BigInteger id, DocumentRoot documentRoot) {
+    public static boolean canFindPort(BigInteger id, DocumentRoot documentRoot) {
         boolean findId = false;
         EList<BlockType> blockList = documentRoot.getCef().getSystem().getBlocks().getBlock();
         for (BlockType blockType : blockList) {
@@ -168,6 +168,17 @@ public class CefModifyUtils {
             }
         }
         return findId;
+    }
+
+    public static PortType getPort(BigInteger portId,BlockType blockType,DocumentRoot documentRoot){
+        EList<PortType> portsList = blockType.getPorts().getPort();
+        for (PortType portType : portsList) {
+            if (portType.getId().compareTo(portId)==0) {
+                return portType;
+            }
+        }
+        System.out.println("find find a valid port type by given block!");
+        return null;
     }
 
     /**
