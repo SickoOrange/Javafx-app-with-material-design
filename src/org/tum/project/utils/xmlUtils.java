@@ -124,6 +124,24 @@ public class xmlUtils {
         return projectInfos;
     }
 
+    public static boolean hasExecute(String databaseName) throws MalformedURLException, DocumentException {
+        File file = createAndGetProjectXmlFile();
+        Document document = readDocument(file.getAbsolutePath());
+        Element rootElement = document.getRootElement();
+        Iterator<Element> elementIterator = rootElement.elementIterator();
+
+        while (elementIterator.hasNext()) {
+            Element project = elementIterator.next();
+
+            if (project.element("dataBankName").getText().equals(databaseName)) {
+                //hit the point
+                return true;
+            }
+
+        }
+        return false;
+    }
+
 
     /**
      * write the project information to the project xml file

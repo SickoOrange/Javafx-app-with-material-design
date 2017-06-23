@@ -103,7 +103,7 @@ public class SimulationProjectSettingController implements Initializable {
             try {
                 System.out.println("start simulation");
                 btnSimulation.setDisable(true);
-                SimulationProgressController simulationProgressController= (SimulationProgressController) SimulationController.getControllerInstance(SimulationProgressController.class.getName());
+                SimulationProgressController simulationProgressController = (SimulationProgressController) SimulationController.getControllerInstance(SimulationProgressController.class.getName());
                 simulationProgressController.clear();
                 simulationProgressController.startAnimation1("Checking for Start");
 
@@ -114,10 +114,24 @@ public class SimulationProjectSettingController implements Initializable {
                 String[] simulationPath = simulationPathSettingController.getSimulationPath();
 
                 //Collect the necessary simulation dank bank information
+
                 String db_name = et_dbName.getText().toLowerCase();
                 String mt_name = et_mtName.getText().toLowerCase();
                 String ft_name = et_ftName.getText().toLowerCase();
                 String fft_name = et_fftName.getText().toLowerCase();
+
+
+                if (xmlUtils.hasExecute(db_name)) {
+                    // directAnalysis();
+                    // System.out.println("analysis has executed, direct read database");
+                    Platform.runLater(() -> {
+                        CefModifyUtils.alertDialog("this simulation has been executed, pls use direct analysis button");
+                        simulationProgressController.clear();
+                        btnSimulation.setDisable(false);
+                    });
+
+                    return;
+                }
 
 
                 if (et_loadFactor.getText() == null || et_frequency.getText() == null || et_dbName.getText() == null || et_mtName.getText() == null || et_ftName.getText() == null || et_fftName.getText() == null) {
@@ -156,9 +170,6 @@ public class SimulationProjectSettingController implements Initializable {
                     xmlUtils.writeToDocument(info);
                 }
 
-
-                // TODO: 23.06.17 test the project is existing in the database;
-                // TODO: 23.06.17  fifo size chong fu de wen ti
 
                 //write the relative information to the json file in the simulation path.
                 GsonBuilder builder = new GsonBuilder();
@@ -273,7 +284,16 @@ public class SimulationProjectSettingController implements Initializable {
 
     @FXML
     public void startDirectlyAnalysis(ActionEvent actionEvent) {
-        SimulationProgressController simulationProgressController= (SimulationProgressController) SimulationController.getControllerInstance(SimulationProgressController.class.getName());
+        directAnalysis();
+
+    }
+
+    /**
+     * direct execute the analysis
+     * avoid repeat to compile and execute the simulation and avoid to write data always to the database
+     */
+    private void directAnalysis() {
+        SimulationProgressController simulationProgressController = (SimulationProgressController) SimulationController.getControllerInstance(SimulationProgressController.class.getName());
 
         try {
             //Collect the necessary simulation dank bank information
@@ -373,8 +393,6 @@ public class SimulationProjectSettingController implements Initializable {
     }
 
 
-
-
     /**
      * loading project information from existing xml file into the combo box
      */
@@ -385,7 +403,7 @@ public class SimulationProjectSettingController implements Initializable {
             ArrayList<ProjectInfo> infos = xmlUtils.getAllProjectFromDocument(document);
             infosMap = new HashMap<>();
             for (ProjectInfo info : infos) {
-                cb_file.getItems().add(info.getSimulationFile());
+                cb_file.getItems().add(info.getSimulationFile() + ": " + info.getDataBankName());
                 infosMap.put(info.getSimulationFile(), info);
             }
             cb_file.show();
