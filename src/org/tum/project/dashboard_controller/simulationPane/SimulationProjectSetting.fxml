@@ -24,7 +24,7 @@
                         <Font name="Roboto Medium" size="18.0" />
                     </font>
                 </Label>
-                <JFXButton fx:id="btnSimulation" layoutX="770.0" layoutY="13.0" mnemonicParsing="false" onAction="#startSimulationAction" prefHeight="34.0" prefWidth="153.0" styleClass="scan-btn" text="Simualte" textFill="WHITE">
+                <JFXButton fx:id="btnSimulation" layoutX="770.0" layoutY="13.0" mnemonicParsing="false" onAction="#startSimulationAction" prefHeight="34.0" prefWidth="153.0" styleClass="scan-btn" text="Simulate" textFill="WHITE">
                     <font>
                         <Font name="System Bold" size="16.0" />
                     </font>
