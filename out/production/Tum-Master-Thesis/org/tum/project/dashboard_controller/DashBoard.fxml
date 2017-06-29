@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.image.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.geometry.*?>
+<?import com.jfoenix.controls.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView?>
+<StackPane fx:id="sp_root" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="1300.0" stylesheets="@custom.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.tum.project.dashboard_controller.DashBoardController">
+    <children>
+        <VBox prefHeight="200.0" prefWidth="100.0">
+            <children>
+                <Pane prefHeight="80.0" prefWidth="1300.0" style="-fx-background-color: #2196F3;">
+                    <children>
+                        <HBox alignment="CENTER" layoutX="976.0" layoutY="11.0" prefHeight="66.0" prefWidth="314.0" style="-fx-spacing: 60; -fx-padding: 5;">
+                     <children>
+                        <ImageView fitHeight="30.0" fitWidth="30.0" onMouseClicked="#showInfoAction" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../images/Info.png" />
+                           </image>
+                        </ImageView>
+                        <ImageView fitHeight="30.0" fitWidth="30.0" onMouseClicked="#showHomeAction" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../images/Home.png" />
+                           </image>
+                        </ImageView>
+                        <ImageView fitHeight="30.0" fitWidth="30.0" onMouseClicked="#showExitAction" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../images/Exit.png" />
+                           </image>
+                        </ImageView>
+                     </children>
+                        </HBox>
+                        <ImageView fitHeight="58.0" fitWidth="54.0" layoutX="32.0" layoutY="13.0" pickOnBounds="true" preserveRatio="true">
+                            <image>
+                                <Image url="@../images/search.png" />
+                            </image>
+                        </ImageView>
+                        <Text fill="WHITE" layoutX="86.0" layoutY="46.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Root" textAlignment="CENTER" wrappingWidth="74.0400390625">
+                            <font>
+                                <Font size="16.0" />
+                            </font>
+                        </Text>
+                        <Text fill="WHITE" layoutX="260.0" layoutY="50.0" strokeType="OUTSIDE" strokeWidth="0.0" text="A Analystic Tool  For Electronic Design Automation" textAlignment="CENTER">
+                            <font>
+                                <Font size="29.0" />
+                            </font>
+                        </Text>
+                    </children>
+                </Pane>
+                <HBox layoutY="30.0" prefHeight="720.0" prefWidth="1300.0">
+                    <children>
+                        <AnchorPane fx:id="sideAnchor" prefHeight="680.0" prefWidth="200.0" style="-fx-background-color: #eeeeee;" styleClass="side-bar">
+                            <children>
+
+                                <VBox layoutY="28.0" prefHeight="248.0" prefWidth="200.0" spacing="20.0">
+                                    <children>
+                                        <Text fill="#212121" strokeType="OUTSIDE" strokeWidth="0.0" text="Simulation:">
+                                            <VBox.margin>
+                                                <Insets left="5.0" />
+                                            </VBox.margin>
+                                            <font>
+                                                <Font size="14.0" />
+                                            </font>
+                                        </Text>
+
+                                        <JFXButton fx:id="btn_Simulation" onAction="#openSimulationPane" prefHeight="36.0" prefWidth="189.0" styleClass="side-buttons" text="Simulation" textFill="black">
+                                            <font>
+                                                <Font size="14.0" />
+                                            </font>
+                                            <graphic>
+                                            <FontAwesomeIconView fill="#212121" glyphName="PENCIL_SQUARE_ALT" size="16.0" wrappingWidth="40.0" />
+                                            </graphic>
+                                        </JFXButton>
+                                        <JFXButton fx:id="btn_fifosize" onAction="#openFlowSizePane" prefHeight="36.0" prefWidth="189.0" styleClass="side-buttons" text="FIFO Size" textFill="black">
+                                            <font>
+                                                <Font size="14.0" />
+                                            </font>
+                                            <graphic>
+                                            <FontAwesomeIconView fill="#212121" glyphName="BAR_CHART_ALT" size="16.0" wrappingWidth="40.0" />
+                                            </graphic>
+                                        </JFXButton>
+                                        <JFXButton fx:id="btn_flitsTrace" onAction="#openFlitsTrance" prefHeight="36.0" prefWidth="189.0" styleClass="side-buttons" text="Flits Trace" textFill="black">
+                                            <font>
+                                                <Font size="14.0" />
+                                            </font>
+                                            <graphic>
+                                            <FontAwesomeIconView fill="#212121" glyphName="BAR_CHART_ALT" size="16.0" wrappingWidth="40.0" />
+                                            </graphic>
+                                        </JFXButton>
+
+                                        <JFXButton fx:id="btn_flowLatency" onAction="#openFlowLatencyPane" prefHeight="36.0" prefWidth="189.0" styleClass="side-buttons" text="Flow Latency " textFill="black">
+                                            <font>
+                                                <Font size="14.0" />
+                                            </font>
+                                            <graphic>
+                                            <FontAwesomeIconView fill="#212121" glyphName="BAR_CHART_ALT" size="16.0" wrappingWidth="40.0" />
+                                            </graphic>
+                                        </JFXButton>
+                                        <JFXButton fx:id="btn_flowPacketLatency" onAction="#openFlowPacketLatencyPane" prefHeight="36.0" prefWidth="189.0" styleClass="side-buttons" text="Flow Packet" textFill="black">
+                                            <font>
+                                                <Font size="14.0" />
+                                            </font>
+                                            <graphic>
+                                            <FontAwesomeIconView fill="#212121" glyphName="BAR_CHART_ALT" size="16.0" wrappingWidth="40.0" />
+                                            </graphic>
+                                        </JFXButton>
+                                        <Label alignment="CENTER" contentDisplay="CENTER" minHeight="-Infinity" prefHeight="1.0" prefWidth="200.0" style="-fx-background-color: #ffffff;" textAlignment="CENTER" textFill="#D500F9" />
+                                        <Text fill="#212121" strokeType="OUTSIDE" strokeWidth="0.0" text="Cef Setting:">
+                                            <VBox.margin>
+                                                <Insets left="5.0" />
+                                            </VBox.margin>
+                                            <font>
+                                                <Font size="14.0" />
+                                            </font>
+                                        </Text>
+                                        <JFXButton fx:id="btn_cefEditor" onAction="#openCefEditor" prefHeight="36.0" prefWidth="189.0" styleClass="side-buttons" text="CEF Editor" textFill="WHITE">
+                                            <font>
+                                                <Font size="14.0" />
+                                            </font>
+                                            <graphic>
+                                            <FontAwesomeIconView fill="#212121" glyphName="NEWSPAPER_ALT" size="16.0" wrappingWidth="40.0" />
+                                            </graphic>
+                                        </JFXButton>
+                                    </children>
+                                    <padding>
+                                        <Insets bottom="5.0" left="5.0" right="5.0" top="10.0" />
+                                    </padding>
+                                </VBox>
+                            </children>
+                        </AnchorPane>
+                        <AnchorPane fx:id="holderPane" prefHeight="40.0" prefWidth="40.0" />
+                    </children>
+                </HBox>
+            </children>
+        </VBox>
+
+    </children>
+</StackPane>

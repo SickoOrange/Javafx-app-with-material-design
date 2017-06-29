@@ -7,23 +7,28 @@ package org.tum.project.bean;
  */
 public class ProjectInfo {
 
-    private String projectName;
+    private String simulationFile;
     private String moduleTableName;
     private String fifoTableName;
     private String fastfifoTabelName;
+    private String dataBankName;
+
+
+    private String loadFactor;
+
+    private String sampleFrequency;
 
     public String getDataBankName() {
         return dataBankName;
     }
 
-    private String dataBankName;
 
-    public String getProjectName() {
-        return projectName;
+    public String getSimulationFile() {
+        return simulationFile;
     }
 
-    public void setProjectName(String projectName) {
-        this.projectName = projectName;
+    public void setSimulationFile(String simulationFile) {
+        this.simulationFile = simulationFile;
     }
 
     public String getModuleTableName() {
@@ -54,9 +59,27 @@ public class ProjectInfo {
         this.dataBankName = dataBankName;
     }
 
+
+    public void setLoadFactor(String loadFactor) {
+
+        this.loadFactor = loadFactor;
+    }
+
+    public String getLoadFactor() {
+        return loadFactor;
+    }
+
+    public void setSampleFrequency(String sampleFrequency) {
+        this.sampleFrequency = sampleFrequency;
+    }
+
+    public String getSampleFrequency() {
+        return sampleFrequency;
+    }
+
     @Override
     public String toString() {
-        return "project info:" + getProjectName() + " " + getDataBankName() + " " + getModuleTableName() + " " + getFifoTableName()
+        return "project info:" + getSimulationFile() + " " + getDataBankName() + " " + getModuleTableName() + " " + getFifoTableName()
                 + " " + getFastfifoTabelName();
     }
 }

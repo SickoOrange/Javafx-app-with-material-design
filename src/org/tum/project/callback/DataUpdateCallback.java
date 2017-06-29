@@ -16,7 +16,14 @@ import java.util.TreeMap;
 
 public interface DataUpdateCallback {
 
-    //void updateFLowLatency(HashMap<Long, String> flowChartDataMap);
+
+    /**
+     * extract the result to "flow latency analysis"
+     *
+     * @param flowChartDataMap
+     * @param analyzeResult
+     */
+    void updateFLowLatency(HashMap<Long, String> flowChartDataMap, StringBuffer analyzeResult);
 
     /**
      * extract the result to "fifo Analyze"

@@ -53,7 +53,7 @@ public class FifoSizeService {
                 } else {
                     list = new ArrayList<>();
                 }
-                list.add(fifoName.substring(strings[0].length()+1));
+                list.add(fifoName.substring(strings[0].length() + 1));
                 processData.put(moduleName, list);
 
             }
@@ -100,9 +100,4 @@ public class FifoSizeService {
         processData.clear();
     }
 
-    public void getContent() {
-        if (callback != null) {
-            callback.updateFifoSizeAnalyze(fifoMap,processData);
-        }
-    }
 }

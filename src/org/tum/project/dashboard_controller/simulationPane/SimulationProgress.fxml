@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane id="AnchorPane" prefHeight="117.0" prefWidth="1063.0" style="-fx-background-color: white; -fx-background-radius: 3; -fx-border-radius: 3; -fx-effect: dropshadow(gaussian, rgb(0.0, 0.0, 0.0, 0.15), 6.0, 0.7, 0.0,1.5);" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.tum.project.dashboard_controller.simulationPane.SimulationProgressController">
+    <children>
+        <HBox alignment="CENTER" layoutX="233.0" layoutY="19.0" prefHeight="40.0" prefWidth="518.0">
+            <children>
+                <ImageView fx:id="img1" fitHeight="40.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true">
+                    <image>
+                        <Image url="@./imgs/clock.png" />
+                    </image>
+                </ImageView>
+                <Label fx:id="lbl1" maxHeight="-Infinity" minHeight="-Infinity" prefHeight="3.0" prefWidth="47.0" style="-fx-background-color: #BCBCBC;" />
+                <ImageView fx:id="img2" fitHeight="40.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true">
+                    <image>
+                        <Image url="@./imgs/clock.png" />
+                    </image>
+                </ImageView>
+                <Label fx:id="lbl2" maxHeight="-Infinity" minHeight="-Infinity" prefHeight="3.0" prefWidth="47.0" style="-fx-background-color: #BCBCBC;" />
+                <ImageView fx:id="img3" fitHeight="40.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true">
+                    <image>
+                        <Image url="@./imgs/clock.png" />
+                    </image>
+                </ImageView>
+                <Label fx:id="lbl3" maxHeight="-Infinity" minHeight="-Infinity" prefHeight="3.0" prefWidth="47.0" style="-fx-background-color: #BCBCBC;" />
+                <ImageView fx:id="img4" fitHeight="40.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true">
+                    <image>
+                        <Image url="@./imgs/clock.png" />
+                    </image>
+                </ImageView>
+                <Label fx:id="lbl4" maxHeight="-Infinity" minHeight="-Infinity" prefHeight="3.0" prefWidth="47.0" style="-fx-background-color: #BCBCBC;" />
+                <ImageView fx:id="img5" fitHeight="40.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true">
+                    <image>
+                        <Image url="@./imgs/clock.png" />
+                    </image>
+                </ImageView>
+                <Label fx:id="lbl5" maxHeight="-Infinity" minHeight="-Infinity" prefHeight="3.0" prefWidth="47.0" style="-fx-background-color: #BCBCBC;" />
+                <ImageView fx:id="img6" fitHeight="40.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true">
+                    <image>
+                        <Image url="@./imgs/clock.png" />
+                    </image>
+                </ImageView>
+            </children>
+        </HBox>
+
+        <Text fx:id="txt1" fill="#403f3f" layoutX="245.0" layoutY="76.0" strokeType="OUTSIDE" strokeWidth="0.0" textAlignment="CENTER" wrappingWidth="66.13671875">
+            <font>
+                <Font name="Roboto Light" size="12.0" />
+            </font>
+        </Text>
+        <Text fx:id="txt2" fill="#403f3f" layoutX="333.0" layoutY="76.0" strokeType="OUTSIDE" strokeWidth="0.0" textAlignment="CENTER" wrappingWidth="59.13671875">
+            <font>
+                <Font name="Roboto Light" size="12.0" />
+            </font>
+        </Text>
+        <Text fx:id="txt3" fill="#403f3f" layoutX="415.0" layoutY="76.0" strokeType="OUTSIDE" strokeWidth="0.0" textAlignment="CENTER" wrappingWidth="66.13671875">
+            <font>
+                <Font name="Roboto Light" size="12.0" />
+            </font>
+        </Text>
+        <Text fx:id="txt4" fill="#403f3f" layoutX="504.0" layoutY="76.0" strokeType="OUTSIDE" strokeWidth="0.0" textAlignment="CENTER" wrappingWidth="66.13671875">
+            <font>
+                <Font name="Roboto Light" size="12.0" />
+            </font>
+        </Text>
+        <Text fx:id="txt5" fill="#403f3f" layoutX="588.0" layoutY="76.0" strokeType="OUTSIDE" strokeWidth="0.0" textAlignment="CENTER" wrappingWidth="75.13671875">
+            <font>
+                <Font name="Roboto Light" size="12.0" />
+            </font>
+        </Text>
+        <Text fx:id="txt6" fill="#403f3f" layoutX="675.0" layoutY="76.0" strokeType="OUTSIDE" strokeWidth="0.0" textAlignment="CENTER" wrappingWidth="75.13671875">
+            <font>
+                <Font name="Roboto Light" size="12.0" />
+            </font>
+        </Text>
+      <Text fx:id="t_error" fill="RED" layoutX="800.0" layoutY="53.0" strokeType="OUTSIDE" strokeWidth="0.0" textAlignment="CENTER" wrappingWidth="223.126953125" />
+    </children>
+</AnchorPane>

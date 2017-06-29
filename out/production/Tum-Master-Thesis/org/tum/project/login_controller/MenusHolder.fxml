@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView?>
+<?import javafx.scene.Group?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<HBox fx:id="Holder" alignment="CENTER" prefHeight="268.0" prefWidth="975.0" spacing="50" styleClass="card" xmlns="http://javafx.com/javafx/8.0.91" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.tum.project.login_controller.MenusHolderController">
+    <children>
+        <AnchorPane fx:id="NocEditor" layoutX="241.0" layoutY="28.0" onMouseClicked="#openNocEditor" prefHeight="241.0" prefWidth="197.0">
+            <children>
+                <Group fx:id="groupPlanes" layoutY="21.0">
+               <children>
+                        <Pane fx:id="nocPane" layoutX="7.0" layoutY="36.0" prefHeight="189.0" prefWidth="184.0"
+                              style="-fx-effect: dropshadow(gaussian, rgb(0.0, 0.0, 0.0, 0.15), 6.0, 0.7, 0.0,1.5); -fx-background-color: rgb(17, 158, 132); -fx-background-radius: 8;">
+                            <children>
+                                <Label alignment="CENTER" layoutX="62.0" layoutY="-32.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="60.0" prefWidth="60.0" style="-fx-background-color: rgb(47, 143, 212,0.8); -fx-effect: dropshadow(gaussian, rgb(0.0, 0.0, 0.0, 0.15), 4.0, 0.3, 0.0,0.5); -fx-border-radius: 60; -fx-background-radius: 60;" textAlignment="CENTER">
+                                    <graphic>
+                                        <FontAwesomeIconView fill="#a4fffc" glyphName="CUT" size="28.0" />
+                                    </graphic>
+                                </Label>
+                                <Text fill="#a4fffc" layoutX="41.0" layoutY="68.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Noc Editor" textAlignment="CENTER">
+                                    <font>
+                                        <Font name="Roboto Medium" size="20.0" />
+                                    </font>
+                                </Text>
+                                <Text fill="WHITE" layoutX="5.0" layoutY="102.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Graphical Noc Editor" textAlignment="CENTER" wrappingWidth="172.298828125">
+                                    <font>
+                                        <Font name="Roboto Medium" size="14.0" />
+                                    </font>
+                                </Text>
+                                <Label alignment="CENTER" contentDisplay="CENTER" layoutX="56.0" layoutY="127.0" minHeight="-Infinity" prefHeight="1.0" prefWidth="72.0" style="-fx-background-color: #a4fffc;" textAlignment="CENTER" />
+                            </children>
+                        </Pane>
+               </children>
+            </Group>
+            </children>
+        </AnchorPane>
+        <AnchorPane fx:id="Analytics" layoutX="504.0" layoutY="28.0" onMouseClicked="#openAnalytics" prefHeight="268.0" prefWidth="158.0">
+            <children>
+                <Group fx:id="groupTrains1">
+               <children>
+                        <Pane layoutX="10.0" layoutY="54.0" prefHeight="189.0" prefWidth="184.0" style="-fx-effect: dropshadow(gaussian, rgb(0.0, 0.0, 0.0, 0.15), 6.0, 0.7, 0.0,1.5); -fx-background-color: rgb(140, 69, 172); -fx-background-radius: 8;">
+                            <children>
+                                <Label alignment="CENTER" layoutX="62.0" layoutY="-30.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="60.0" prefWidth="60.0" style="-fx-background-color: rgb(39, 58, 78,0.7); -fx-effect: dropshadow(gaussian, rgb(0.0, 0.0, 0.0, 0.15), 4.0, 0.3, 0.0,0.5); -fx-border-radius: 60; -fx-background-radius: 60;" textAlignment="CENTER">
+                                    <graphic>
+                                        <FontAwesomeIconView fill="#a4fffc" glyphName="EDIT" size="28.0" />
+                                    </graphic>
+                                </Label>
+                                <Text fill="#a4fffc" layoutX="50.0" layoutY="67.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Analytics" textAlignment="CENTER">
+                                    <font>
+                                        <Font name="Roboto Medium" size="20.0" />
+                                    </font>
+                                </Text>
+                                <Text fill="WHITE" layoutX="6.0" layoutY="100.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Simulation and View Analytics" textAlignment="CENTER" wrappingWidth="172.298828125">
+                                    <font>
+                                        <Font name="Roboto Medium" size="14.0" />
+                                    </font>
+                                </Text>
+                                <Label alignment="CENTER" contentDisplay="CENTER" layoutX="56.0" layoutY="127.0" minHeight="-Infinity" prefHeight="1.0" prefWidth="72.0" style="-fx-background-color: #a4fffc;" textAlignment="CENTER" />
+                            </children>
+                        </Pane>
+               </children></Group>
+            </children>
+        </AnchorPane>
+    </children>
+</HBox>

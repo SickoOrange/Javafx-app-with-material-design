@@ -1,24 +1,32 @@
 package org.tum.project.main;
 
+import com.sun.prism.Material;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 import org.tum.project.controller.LoginController;
+import org.tum.project.login_controller.MaterialLoginController;
+import org.tum.project.login_controller.MenusHolderController;
 
 import java.io.IOException;
 
 public class Main extends Application {
 
     @Override
-    public void start(Stage primaryStage) throws Exception{
+    public void start(Stage primaryStage) throws Exception {
         try {
-            Parent root = FXMLLoader.load(getClass().getResource("../layout/login_fxml.fxml"));
-            primaryStage.setTitle("TUM GUI Analyse Tool");
-            primaryStage.setScene(new Scene(root, 800, 600));
+
+            // Parent root = FXMLLoader.load(getClass().getResource("../layout/login_fxml.fxml"));
+            Parent root = FXMLLoader.load(getClass().getResource("../login_controller/MaterialLogin.fxml"));
+
+
+            primaryStage.setTitle("SystemC NoCs Analytics Tool");
+            primaryStage.setScene(new Scene(root));
             primaryStage.show();
-            LoginController.registerStage(primaryStage);
+            // LoginController.registerStage(primaryStage);
+            MaterialLoginController.registerPrimaryStage(primaryStage);
         } catch (IOException e) {
             e.printStackTrace();
         }

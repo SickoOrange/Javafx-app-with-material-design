@@ -1,19 +1,11 @@
 package org.tum.project.utils;
 
-import Cef.CefPackage;
-import Cef.CefType;
-import Cef.DocumentRoot;
-import Cef.util.CefResourceFactoryImpl;
 import org.dom4j.Document;
 import org.dom4j.DocumentException;
 import org.dom4j.DocumentHelper;
 import org.dom4j.Element;
 import org.dom4j.io.SAXReader;
 import org.dom4j.io.XMLWriter;
-import org.eclipse.emf.common.util.URI;
-import org.eclipse.emf.ecore.resource.Resource;
-import org.eclipse.emf.ecore.resource.ResourceSet;
-import org.eclipse.emf.ecore.resource.impl.ResourceSetImpl;
 import org.tum.project.bean.ProjectInfo;
 
 import java.io.File;
@@ -51,16 +43,17 @@ public class xmlUtils {
     public static File createAndGetProjectXmlFile() {
         String projectPath = xmlUtils.class.getResource("../").getFile();
         System.out.println(projectPath);
-        File file = new File(projectPath + "/projectInfo.xml");
+        File file = new File(projectPath + File.separator + "projectInfo.xml");
         if (!file.exists()) {
             try {
-                file.createNewFile();
+                boolean is = file.createNewFile();
+                System.out.println("file create: " + is);
                 writeToXml(createDocument(), file);
             } catch (IOException e) {
                 e.printStackTrace();
             }
         }
-
+        System.out.println(file.exists());
         return file;
     }
 
@@ -118,15 +111,35 @@ public class xmlUtils {
         while (elementIterator.hasNext()) {
             Element project = elementIterator.next();
             ProjectInfo info = new ProjectInfo();
-            info.setProjectName(project.element("projectName").getText());
+            info.setSimulationFile(project.element("projectName").getText());
             info.setDataBankName(project.element("dataBankName").getText());
             info.setModuleTableName(project.element("moduleName").getText());
             info.setFifoTableName(project.element("fifoName").getText());
             info.setFastfifoTabelName(project.element("fastfifoName").getText());
+            info.setLoadFactor(project.element("loadFactor").getText());
+            info.setSampleFrequency(project.element("sampleFrequency").getText());
             projectInfos.add(info);
         }
         Collections.reverse(projectInfos);
         return projectInfos;
+    }
+
+    public static boolean hasExecute(String databaseName) throws MalformedURLException, DocumentException {
+        File file = createAndGetProjectXmlFile();
+        Document document = readDocument(file.getAbsolutePath());
+        Element rootElement = document.getRootElement();
+        Iterator<Element> elementIterator = rootElement.elementIterator();
+
+        while (elementIterator.hasNext()) {
+            Element project = elementIterator.next();
+
+            if (project.element("dataBankName").getText().equals(databaseName)) {
+                //hit the point
+                return true;
+            }
+
+        }
+        return false;
     }
 
 
@@ -141,11 +154,13 @@ public class xmlUtils {
             Document document = readDocument(file.getAbsolutePath());
             Element rootElement = document.getRootElement();
             Element project = rootElement.addElement("project");
-            project.addElement("projectName").setText(info.getProjectName());
+            project.addElement("projectName").setText(info.getSimulationFile());
             project.addElement("dataBankName").setText(info.getDataBankName());
-            project.addElement("moduleName").setText(info.getModuleTableName());
-            project.addElement("fifoName").setText(info.getFifoTableName());
-            project.addElement("fastfifoName").setText(info.getFastfifoTabelName());
+            project.addElement("moduleName").setText(info.getModuleTableName().toLowerCase());
+            project.addElement("fifoName").setText(info.getFifoTableName().toLowerCase());
+            project.addElement("fastfifoName").setText(info.getFastfifoTabelName().toLowerCase());
+            project.addElement("loadFactor").setText(info.getLoadFactor());
+            project.addElement("sampleFrequency").setText(info.getSampleFrequency());
             XMLWriter writer = new XMLWriter(new FileWriter(file));
             writer.write(document);
             writer.close();
@@ -155,7 +170,6 @@ public class xmlUtils {
         }
 
     }
-
 
 
 }

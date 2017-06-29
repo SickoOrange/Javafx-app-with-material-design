@@ -31,4 +31,14 @@ public class FlitsInfo {
     private double flitId;
     private String flitPosition;
     private double flitsTime;
+
+
+    @Override
+    public String toString() {
+        return "FlitsInfo{" +
+                "flitId=" + flitId +
+                ", flitPosition='" + flitPosition + '\'' +
+                ", flitsTime=" + flitsTime +
+                '}';
+    }
 }
