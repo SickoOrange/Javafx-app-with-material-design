@@ -30,9 +30,9 @@ import org.eclipse.emf.ecore.resource.ResourceSet;
 import org.eclipse.emf.ecore.resource.impl.ResourceSetImpl;
 import org.tum.project.dashboard_controller.CefEditorController;
 import org.tum.project.dashboard_controller.DashBoardController;
+import org.tum.project.login_controller.MenusHolderController;
 import org.tum.project.utils.CefModifyUtils;
 import org.tum.project.callback.JFrameCallback;
-import org.tum.project.controller.MainController;
 import org.tum.project.utils.Utils;
 
 import javax.swing.*;
@@ -59,36 +59,14 @@ public class CefVisualizationService {
     private HashMap<BigInteger, Object> edgeList;
 
 
-    private JFrameCallback jFrameCallbacK;
     private DocumentRoot documentRoot;
 
     private Object popData;
-    private AnchorPane handleButtonGroup;
-    private javafx.scene.control.ScrollPane cefEditorRoot;
-    private VBox cefEditorVBox;
     private StackPane dialogHolder;
     private JFXDialog dialog;
-    private File file;
 
 
-    /**
-     * set the callback for receive the popFrameData from jFrame
-     *
-     * @param jFrameCallbacK
-     */
-    public void setJframeCallback(JFrameCallback jFrameCallbacK) {
-        this.jFrameCallbacK = jFrameCallbacK;
-    }
 
-
-    /**
-     * test method
-     */
-    public void test() {
-        DocumentRoot root = getMetalDocumentRoot("C:\\Users\\SickoOrange\\Desktop\\multimedia_4x4_routed.xml");
-        initGraph();
-        visualization(root);
-    }
 
 
     /**
@@ -182,9 +160,6 @@ public class CefVisualizationService {
     }
 
 
-    public void getDefaultContent() {
-        Platform.runLater(() -> jFrameCallbacK.popFrameData(popData));
-    }
 
     /**
      * find block properties by block name
@@ -226,371 +201,10 @@ public class CefVisualizationService {
     }
 
 
-    /**
-     * return a block pane,that we can edit the properties for this block
-     *
-     * @param block blockType
-     * @param tag   source oder destination block
-     * @return blockpane
-     */
-    public AnchorPane getBlockPane(BlockType block, String tag) throws IOException {
-        AnchorPane blockPane = FXMLLoader.load(getClass().getResource("../layout/block.fxml"));
-        //pane container for edit group
-        ObservableList<Node> editGroupForBlock = ((Pane) blockPane.getChildren().get(0)).getChildren();
-        for (Node node : editGroupForBlock) {
-            if (node instanceof JFXTextField) {
-                JFXTextField textField = (JFXTextField) node;
-                //get text filed id
-                String id = textField.getId();
-                id = id.split("_")[1];
-                switch (id) {
-                    case "name":
-                        textField.setText(block.getName());
-                        break;
-                    case "id":
-                        textField.setText(String.valueOf(block.getId()));
-                        break;
-                    case "blockType":
-                        textField.setText(String.valueOf(block.getBlockType()));
-                        break;
-                    case "layer":
-                        textField.setText(String.valueOf(block.getLayer()));
-                        break;
-                }
-            }
-        }
-
-        //mark the block source or destination
-        if (tag != null) {
-            JFXButton node = (JFXButton) blockPane.getChildren().get(1);
-            node.setText(tag + "\n" + "BlockType");
-        }
-
-        return blockPane;
-    }
 
 
-    /**
-     * get all port pane that belong to this block
-     *
-     * @param block blockType
-     * @return portPaneList that belong to this block
-     * @throws IOException
-     */
-    public ArrayList<AnchorPane> getPortPane(BlockType block) throws IOException {
-        ArrayList<AnchorPane> portPaneList = new ArrayList<>();
-        EList<PortType> portList = block.getPorts().getPort();
-        for (PortType port : portList) {
-            AnchorPane portPane = FXMLLoader.load(getClass().getResource("../layout/port.fxml"));
-            ObservableList<Node> editGroupForPort = ((Pane) portPane.getChildren().get(0)).getChildren();
-            for (Node node : editGroupForPort) {
-                if (node instanceof JFXTextField) {
-                    JFXTextField textField = (JFXTextField) node;
-                    String id = textField.getId().split("_")[1];
-                    System.out.println(id);
-                    switch (id) {
-                        case "id":
-                            textField.setText(String.valueOf(port.getId()));
-                            break;
-                        case "protocol":
-                            System.out.println(": " + port.getProtocol());
-                            textField.setText(port.getProtocol());
-                            break;
-                        case "maxOutstandingTransactions":
-                            textField.setText(String.valueOf(port.getMaxOutstandingTransactions()));
-                            break;
-                        case "addressWidth":
-                            textField.setText(String.valueOf(port.getAddressWidth()));
-                            break;
-                        case "readDataWidth":
-                            textField.setText(String.valueOf(port.getReadDataWidth()));
-                            break;
-                        case "writeDataWidth":
-                            textField.setText(String.valueOf(port.getWriteDataWidth()));
-                            break;
-                        case "flitWidth":
-                            textField.setText(String.valueOf(port.getFlitWidth()));
-                            break;
-                        case "positionX":
-                            textField.setText(String.valueOf(port.getPositionX()));
-                            break;
-                        case "positionY":
-                            textField.setText(String.valueOf(port.getPositionY()));
-                            break;
-                        case "domainId":
-                            textField.setText(String.valueOf(port.getDomainId()));
-                            break;
-                    }
-
-                }
-            }
-
-            //add port pane to the container
-            portPaneList.add(portPane);
-        }
-
-        return portPaneList;
-    }
-
-    //get link pane from the link Type that we can edit the properties for this link
-    public AnchorPane getLinkPane(LinkType linkType) throws IOException {
-        AnchorPane linkPane = FXMLLoader.load(getClass().getResource("../layout/link.fxml"));
-        //pane container for edit group
-        ObservableList<Node> editGroupForBlock = ((Pane) linkPane.getChildren().get(0)).getChildren();
-        for (Node node : editGroupForBlock) {
-            if (node instanceof JFXTextField) {
-                JFXTextField textField = (JFXTextField) node;
-                //get text filed id
-                String id = textField.getId();
-                id = id.split("_")[1];
-                switch (id) {
-                    case "name":
-                        textField.setText(linkType.getName());
-                        break;
-                    case "id":
-                        textField.setText(String.valueOf(linkType.getId()));
-                        break;
-                    case "sourcePortId":
-                        textField.setText(String.valueOf(linkType.getSourcePortId()));
-                        break;
-                    case "destinationPortId":
-                        textField.setText(String.valueOf(linkType.getDestinationPortId()));
-                        break;
-                    case "carriesSourceClock":
-                        textField.setText(String.valueOf(linkType.isCarriesSourceClock()));
-                        break;
-                    case "carriesSourceReset":
-                        textField.setText(String.valueOf(linkType.isCarriesSourceReset()));
-                        break;
-                    case "linkLengthEstimation":
-                        textField.setText(String.valueOf(linkType.getLinkLengthEstimation()));
-                        break;
-                    case "auxiliaryForwardWires":
-                        textField.setText(String.valueOf(linkType.getAuxiliaryForwardWires()));
-                        break;
-                    case "auxiliaryBackwardWires":
-                        textField.setText(String.valueOf(linkType.getAuxiliaryBackwardWires()));
-                        break;
-                }
-            }
-        }
-
-        return linkPane;
-    }
 
 
-    public void popCommand(String command) {
-        jFrameCallbacK.popFrameData(command);
-    }
-
-
-    /**
-     * add a add_block_cardView to the content
-     */
-    public void addBlockCard(VBox vBox) throws IOException {
-        AnchorPane blockPane = FXMLLoader.load(getClass().getResource("../layout/modify_block_event.fxml"));
-        vBox.getChildren().add(blockPane);
-    }
-
-    /**
-     * add a port_edit_card to the layout
-     *
-     * @param vBox
-     */
-    public void addPortCard(VBox vBox) throws IOException {
-        AnchorPane portPane = FXMLLoader.load(getClass().getResource("../layout/modify_port_event.fxml"));
-        vBox.getChildren().add(portPane);
-    }
-
-    /**
-     * add a link_edit_card to the layout
-     * vBox  *
-     *
-     * @param
-     */
-    public void addLinkCard(VBox vBox) throws IOException {
-        AnchorPane portPane = FXMLLoader.load(getClass().getResource("../layout/modify_link_event.fxml"));
-        vBox.getChildren().add(portPane);
-    }
-
-    /**
-     * scan all the Block(Vertex) in the graph
-     * add the delete block pane in the layout
-     *
-     * @param vBox
-     */
-    public void addDeleteBlockCard(VBox vBox) {
-        if (documentRoot == null) {
-            return;
-        }
-
-        new Thread(() -> {
-            EList<BlockType> blocksList = documentRoot.getCef().getSystem().getBlocks().getBlock();
-            if (blocksList.size() == 0) {
-                return;
-            }
-            int blockCounter = blocksList.size();
-            //calculate how many hbox we need, to storage the delete Block Pane
-            //every hbox can hold maximal 6 delete block pane
-            HBox[] boxArray = new HBox[blockCounter / 5 + 1];
-            for (int i = 0; i < boxArray.length; i++) {
-                boxArray[i] = new HBox();
-            }
-
-            for (BlockType block : blocksList) {
-                int index = blocksList.indexOf(block);
-                AnchorPane deleteBlockPane = null;
-                try {
-                    deleteBlockPane = FXMLLoader.load(getClass().getResource("../layout/delete_block_event.fxml"));
-                } catch (IOException e) {
-                    e.printStackTrace();
-                }
-                //pane container for edit group
-                ObservableList<Node> editGroupForBlock = ((Pane) deleteBlockPane.getChildren().get(0)).getChildren();
-                for (Node node : editGroupForBlock) {
-                    if (node instanceof JFXTextField) {
-                        JFXTextField textField = (JFXTextField) node;
-                        //get text filed id
-                        String id = textField.getId();
-                        id = id.split("_")[1];
-                        switch (id) {
-                            case "name":
-                                textField.setText(block.getName());
-                                break;
-                            case "id":
-                                textField.setText(String.valueOf(block.getId()));
-                                break;
-                            case "blockType":
-                                textField.setText(String.valueOf(block.getBlockType()));
-                                break;
-                            case "layer":
-                                textField.setText(String.valueOf(block.getLayer()));
-                                break;
-                        }
-                    }
-                }
-
-
-                int mod = index / 5;
-                boxArray[mod].getChildren().add(deleteBlockPane);
-            }
-            Platform.runLater(() -> {
-                for (HBox hBox : boxArray) {
-                    vBox.getChildren().add(hBox);
-                }
-
-            });
-
-        }).start();
-
-
-    }
-
-    /**
-     * scan all the Link(Edge) in the graph
-     * add the delete block pane in the layout
-     *
-     * @param vBox
-     */
-    public void addDeleteLinkCard(VBox vBox) {
-        if (documentRoot == null) {
-            return;
-        }
-        new Thread(new Runnable() {
-            @Override
-            public void run() {
-                EList<LinkType> linkList = documentRoot.getCef().getSystem().getLinks().getLink();
-                if (linkList.size() == 0) {
-                    return;
-                }
-                int blockCounter = linkList.size();
-                //calculate how many hbox we need, to storage the delete Block Pane
-                //every hbox can hold maximal 6 delete block pane
-                HBox[] boxArray = new HBox[blockCounter / 5 + 1];
-                for (int i = 0; i < boxArray.length; i++) {
-                    boxArray[i] = new HBox();
-                }
-
-                for (LinkType link : linkList) {
-                    int index = linkList.indexOf(link);
-                    AnchorPane deleteBlockPane = null;
-                    try {
-                        deleteBlockPane = FXMLLoader.load(getClass().getResource("../layout/delete_link_event.fxml"));
-                    } catch (IOException e) {
-                        e.printStackTrace();
-                    }
-                    //pane container for edit group
-                    ObservableList<Node> editGroupForBlock = ((Pane) deleteBlockPane.getChildren().get(0)).getChildren();
-                    for (Node node : editGroupForBlock) {
-                        if (node instanceof JFXTextField) {
-                            JFXTextField textField = (JFXTextField) node;
-                            //get text filed id
-                            String id = textField.getId();
-                            id = id.split("_")[1];
-                            switch (id) {
-                                case "name":
-                                    textField.setText(link.getName());
-                                    break;
-                                case "id":
-                                    textField.setText(String.valueOf(link.getId()));
-                                    break;
-                                case "sourcePortId":
-                                    textField.setText(String.valueOf(link.getSourcePortId()));
-                                    break;
-                                case "destinationPortId":
-                                    textField.setText(String.valueOf(link.getDestinationPortId()));
-                                    break;
-                                case "carriesSourceClock":
-                                    textField.setText(String.valueOf(link.isCarriesSourceClock()));
-                                    break;
-                                case "carriesSourceReset":
-                                    textField.setText(String.valueOf(link.isCarriesSourceReset()));
-                                    break;
-                                case "linkLengthEstimation":
-                                    textField.setText(String.valueOf(link.getLinkLengthEstimation()));
-                                    break;
-                                case "auxiliaryForwardWires":
-                                    textField.setText(String.valueOf(link.getAuxiliaryForwardWires()));
-                                    break;
-                                case "auxiliaryBackwardWires":
-                                    textField.setText(String.valueOf(link.getAuxiliaryBackwardWires()));
-                                    break;
-                            }
-                        }
-                    }
-
-
-                    int mod = index / 5;
-                    boxArray[mod].getChildren().add(deleteBlockPane);
-                }
-                Platform.runLater(() -> {
-                    for (HBox hBox : boxArray) {
-                        vBox.getChildren().add(hBox);
-                    }
-                });
-
-            }
-        }).start();
-    }
-
-
-    /**
-     * save the element to the document root
-     */
-    @Deprecated
-    public void save() {
-        if (documentRoot != null) {
-            //save the document
-            File file = Utils.openFileChooser("save", MainController.getStage());
-            documentRoot = CefModifyUtils.saveCef(this.documentRoot.getCef(), file);
-
-            graph.clearSelection();
-            visualization(documentRoot);
-        } else {
-            CefModifyUtils.alertDialog("can't save the file, pls select a xml file first");
-        }
-
-    }
 
     /**
      * save the element to the document root
@@ -601,7 +215,7 @@ public class CefVisualizationService {
         if (documentRoot != null) {
             //save the document
 
-            file = Utils.openFileChooser("save", MainController.getStage());
+            file = Utils.openFileChooser("save", MenusHolderController.getDashBoardStage());
             objects[0] = file.getAbsolutePath();
             documentRoot = CefModifyUtils.saveCef(this.documentRoot.getCef(), file);
 
@@ -650,40 +264,6 @@ public class CefVisualizationService {
     }
 
 
-    /**
-     * open the file chooser to select a xml file
-     * and start visualization with the specified file(cef ecore model)
-     * this method is not appropriate with the new material design user interface
-     * its deprecated and only be used for use old user interface
-     *
-     * @param mainActivityStage documentRoot for main ui
-     * @param action            open oder save
-     */
-    @Deprecated
-    public String handleCefEditor(Stage mainActivityStage, String action) {
-        FileChooser fileChooser = new FileChooser();
-        File selectFile = null;
-        switch (action) {
-            case "open":
-                fileChooser.setTitle("Open Resource File");
-                selectFile = fileChooser.showOpenDialog(mainActivityStage);
-                documentRoot = getMetalDocumentRoot(selectFile.getAbsolutePath());
-
-                visualization(documentRoot);
-                break;
-            case "save":
-                fileChooser.setTitle("Open Resource File");
-                selectFile = fileChooser.showSaveDialog(mainActivityStage);
-                break;
-
-        }
-        if (selectFile != null) {
-            return selectFile.getAbsolutePath();
-        } else {
-            return null;
-        }
-
-    }
 
 
     /**
@@ -718,68 +298,6 @@ public class CefVisualizationService {
     }
 
 
-    /**
-     * visualization for this model in the graph
-     * its appropriate only with old user interface
-     *
-     * @param root cef document documentRoot
-     */
-    @Deprecated
-    private void visualization(DocumentRoot root) {
-        initGraph();
-
-        Object parent = graph.getDefaultParent();
-        graph.getModel().beginUpdate();
-
-        //get all block list
-        EList<BlockType> blocksList = root.getCef().getSystem().getBlocks().getBlock();
-        if (blocksList.size() == 0) {
-            System.out.println("null block");
-            return;
-        }
-        vertexList = new ArrayList<>();
-        for (BlockType block : blocksList) {
-            BigInteger blockType = block.getBlockType();
-            Object vertex = null;
-            if (blockType.toString().equals("0")) {
-                //0- router style round
-
-                vertex = graph.insertVertex(parent, null, block.getName(), 20, 20, 80, 30, "shape=ellipse;perimeter=100;whiteSpace=wrap;fillColor=green");
-            } else if (blockType.toString().equals("1")) {
-                //1- processing element
-                vertex = graph.insertVertex(parent, null, block.getName(), 20, 20, 80, 30);
-            }
-            vertexList.add(vertex);
-
-        }
-
-        //get all link list
-        EList<LinkType> linksList = root.getCef().getSystem().getLinks().getLink();
-        if (linksList.size() == 0) {
-            System.out.println("null link");
-            return;
-        }
-        edgeList = new HashMap<>();
-        for (LinkType linkType : linksList) {
-            BigInteger sourcePortId = linkType.getSourcePortId();
-            BigInteger destinationPortId = linkType.getDestinationPortId();
-
-            BlockType sourceBlock = findBlockFromPortId(sourcePortId, blocksList);
-            BlockType destinationBlock = findBlockFromPortId(destinationPortId, blocksList);
-
-            //get vertex from block name
-            Object sourceVertex = getVertexFromBlock(sourceBlock, vertexList);
-            Object destinationVertex = getVertexFromBlock(destinationBlock, vertexList);
-            Object edge = graph.insertEdge(parent, null, "linkid: " + linkType.getId(), sourceVertex,
-                    destinationVertex);
-            edgeList.put(linkType.getId(), edge);
-        }
-
-
-        graph.getModel().endUpdate();
-
-        morphGraph(graph, graphComponent);
-    }
 
     /**
      * visualization for this model in the graph
@@ -846,59 +364,6 @@ public class CefVisualizationService {
     }
 
 
-    /**
-     * init the setting for generate a graph
-     */
-    @Deprecated
-    private void initGraph() {
-        jFrame = new JFrame();
-        jFrame.setSize(800, 800);
-        jFrame.setLocation(300, 200);
-        jFrame.setDefaultCloseOperation(WindowConstants.DISPOSE_ON_CLOSE);
-
-
-        graph = new mxGraph();
-        //Vertices and Edges (Cells) not editable by default in JGraph
-        graph.setCellsEditable(false);
-        graph.setCellsResizable(false);
-        graphComponent = new mxGraphComponent(graph);
-        //Vertices and Edges (Cells) not movable by default in JGraph
-        graphComponent.setDragEnabled(false);
-
-        jFrame.getContentPane().add(graphComponent, BorderLayout.CENTER);
-        jFrame.setVisible(true);
-
-        //set the mouse listener to the graphComponent
-        //capture the double click event
-        //capture the selected cell
-        graphComponent.getGraphControl().addMouseListener(new mxMouseAdapter() {
-            @Override
-            public void mouseReleased(MouseEvent mouseEvent) {
-                //mouse event=> double click
-                if (mouseEvent.getClickCount() == 2) {
-
-                    Object selectedCell = graphComponent.getCellAt(mouseEvent.getX(), mouseEvent.getY());
-                    if (selectedCell != null) {
-                        if (isVertex(selectedCell)) {
-                            //its vertex
-                            //properties: block port ports list
-                            String blockName = graph.convertValueToString(selectedCell);
-                            popData = blockName;
-                        }
-                        if (isEdge(selectedCell)) {
-                            //its edge
-                            //properties: link, source port, destination port
-                            BigInteger linkId = getEdgeId(selectedCell);
-                            popData = linkId;
-
-                        }
-                        Platform.runLater(() -> jFrameCallbacK.popFrameData(popData));
-                    }
-                }
-                super.mouseReleased(mouseEvent);
-            }
-        });
-    }
 
     /**
      * init the setting for generate a graph
@@ -1309,6 +774,16 @@ public class CefVisualizationService {
             Pane container = cefEditorController.getAddPropertiesContainer();
             container.getChildren().clear();
             javafx.scene.control.ScrollPane addLinkPane = FXMLLoader.load(getClass().getResource("../dashboard_controller/addLink.fxml"));
+            if (linkType != null) {
+
+                VBox box = (VBox) addLinkPane.getContent();
+                for (Node node : box.getChildren()) {
+                    if (node instanceof JFXTextField) {
+                        JFXTextField instance = (JFXTextField) node;
+                        instance.setEditable(false);
+                    }
+                }
+            }
             fillLinkPaneContent(addLinkPane, linkType);
             addLinkPane.setId("addLinkPane");
             addLinkPane.setLayoutX(18);
@@ -1377,6 +852,16 @@ public class CefVisualizationService {
             Pane container = cefEditorController.getAddPropertiesContainer();
             container.getChildren().clear();
             VBox addBlockPane = FXMLLoader.load(getClass().getResource("../dashboard_controller/addBlock.fxml"));
+
+            if (block != null) {
+                for (Node node : addBlockPane.getChildren()) {
+                    if (node instanceof JFXTextField) {
+                        JFXTextField instance = (JFXTextField) node;
+                        instance.setDisable(true);
+                    }
+                }
+            }
+
             fillBlockPaneContent(addBlockPane, block);
             addBlockPane.setLayoutX(18);
             addBlockPane.setLayoutY(20);

@@ -1,20 +1,122 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
-  <component name="BookmarkManager">
-    <bookmark url="file://$PROJECT_DIR$/src/org/tum/project/dataservice/CefVisualizationService.java" line="1353" />
-  </component>
   <component name="ChangeListManager">
-    <list default="true" id="b2432404-0613-45e1-bfb2-49e796578d48" name="Default" comment="">
+    <list default="true" id="a1cea32e-d597-45a9-9df5-b2a3954bfa8b" name="Default" comment="">
+      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/Tum-Master-Thesis/org/tum/project/callback/SimulationCallBack.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/Tum-Master-Thesis/org/tum/project/controller/AddBlockEventController.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/Tum-Master-Thesis/org/tum/project/controller/AddLinkEventController.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/Tum-Master-Thesis/org/tum/project/controller/AddNewProjectController.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/Tum-Master-Thesis/org/tum/project/controller/AddPortEventController.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/Tum-Master-Thesis/org/tum/project/controller/DeleteBlockEventController.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/Tum-Master-Thesis/org/tum/project/controller/DeleteLinkEventController.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/Tum-Master-Thesis/org/tum/project/controller/HandleButtonGroupForCefEditor.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/Tum-Master-Thesis/org/tum/project/controller/HandleButtonGroupForSimulation.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/Tum-Master-Thesis/org/tum/project/controller/LoginController$1.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/Tum-Master-Thesis/org/tum/project/controller/LoginController.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/Tum-Master-Thesis/org/tum/project/controller/MainActivityController.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/Tum-Master-Thesis/org/tum/project/controller/MainController$1.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/Tum-Master-Thesis/org/tum/project/controller/MainController$ButtonEvents.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/Tum-Master-Thesis/org/tum/project/controller/MainController.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/Tum-Master-Thesis/org/tum/project/controller/SimulationCardController.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/Tum-Master-Thesis/org/tum/project/dataservice/SimulationService.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/Tum-Master-Thesis/org/tum/project/layout/add_new_project.fxml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/Tum-Master-Thesis/org/tum/project/layout/block.fxml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/Tum-Master-Thesis/org/tum/project/layout/delete_block_event.fxml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/Tum-Master-Thesis/org/tum/project/layout/delete_link_event.fxml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/Tum-Master-Thesis/org/tum/project/layout/handle_button_group.fxml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/Tum-Master-Thesis/org/tum/project/layout/link.fxml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/Tum-Master-Thesis/org/tum/project/layout/login_fxml.fxml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/Tum-Master-Thesis/org/tum/project/layout/main_activity_fxml.fxml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/Tum-Master-Thesis/org/tum/project/layout/modify_block_event.fxml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/Tum-Master-Thesis/org/tum/project/layout/modify_link_event.fxml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/Tum-Master-Thesis/org/tum/project/layout/modify_port_event.fxml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/Tum-Master-Thesis/org/tum/project/layout/port.fxml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/Tum-Master-Thesis/org/tum/project/layout/simulation_button_group.fxml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/Tum-Master-Thesis/org/tum/project/layout/simulation_card.fxml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/Tum-Master-Thesis/org/tum/project/layout/test_bench_stage.fxml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/Tum-Master-Thesis/org/tum/project/res/Login.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/Tum-Master-Thesis/org/tum/project/res/background.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/Tum-Master-Thesis/org/tum/project/test/CefToSystemC.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/Tum-Master-Thesis/org/tum/project/test/Test.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/Tum-Master-Thesis/org/tum/project/test/TestCefEditor.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/Tum-Master-Thesis/org/tum/project/test/TestGui$1.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/Tum-Master-Thesis/org/tum/project/test/TestGui.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/Tum-Master-Thesis/org/tum/project/test/TestUI.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/Tum-Master-Thesis/org/tum/project/test/TestXML.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/Tum-Master-Thesis/org/tum/project/test/cefToSystemcTemplate.ftl" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/Tum-Master-Thesis/org/tum/project/testbench/TestBenchStageController$1$1.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/Tum-Master-Thesis/org/tum/project/testbench/TestBenchStageController$1.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/org/tum/project/callback/SimulationCallBack.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/org/tum/project/controller/AddBlockEventController.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/org/tum/project/controller/AddLinkEventController.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/org/tum/project/controller/AddNewProjectController.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/org/tum/project/controller/AddPortEventController.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/org/tum/project/controller/DeleteBlockEventController.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/org/tum/project/controller/DeleteLinkEventController.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/org/tum/project/controller/HandleButtonGroupForCefEditor.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/org/tum/project/controller/HandleButtonGroupForSimulation.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/org/tum/project/controller/LoginController.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/org/tum/project/controller/MainActivityController.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/org/tum/project/controller/MainController.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/org/tum/project/controller/SimulationCardController.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/org/tum/project/dataservice/SimulationService.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/org/tum/project/layout/add_new_project.fxml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/org/tum/project/layout/block.fxml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/org/tum/project/layout/delete_block_event.fxml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/org/tum/project/layout/delete_link_event.fxml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/org/tum/project/layout/handle_button_group.fxml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/org/tum/project/layout/link.fxml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/org/tum/project/layout/login_fxml.fxml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/org/tum/project/layout/main_activity_fxml.fxml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/org/tum/project/layout/modify_block_event.fxml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/org/tum/project/layout/modify_link_event.fxml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/org/tum/project/layout/modify_port_event.fxml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/org/tum/project/layout/port.fxml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/org/tum/project/layout/simulation_button_group.fxml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/org/tum/project/layout/simulation_card.fxml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/org/tum/project/layout/test_bench_stage.fxml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/org/tum/project/res/Login.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/org/tum/project/res/background.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/org/tum/project/test/CefToSystemC.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/org/tum/project/test/Test.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/org/tum/project/test/TestCefEditor.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/org/tum/project/test/TestGui.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/org/tum/project/test/TestUI.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/org/tum/project/test/TestXML.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/org/tum/project/test/ThreadPool.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/org/tum/project/test/cefToSystemcTemplate.ftl" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/org/tum/project/test/jsonTest.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/org/tum/project/test/listview.fxml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/org/tum/project/test/test.fxml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/org/tum/project/test/testObj.java" afterPath="" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Tum-Master-Thesis/org/tum/project/dashboard_controller/simulationPane/SimulationProjectSettingController.class" afterPath="$PROJECT_DIR$/out/production/Tum-Master-Thesis/org/tum/project/dashboard_controller/simulationPane/SimulationProjectSettingController.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Tum-Master-Thesis/org/tum/project/utils/xmlUtils.class" afterPath="$PROJECT_DIR$/out/production/Tum-Master-Thesis/org/tum/project/utils/xmlUtils.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Tum-Master-Thesis/org/tum/project/dataservice/FifoSizeService.class" afterPath="$PROJECT_DIR$/out/production/Tum-Master-Thesis/org/tum/project/dataservice/FifoSizeService.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Tum-Master-Thesis/org/tum/project/dataservice/FlitTraceService.class" afterPath="$PROJECT_DIR$/out/production/Tum-Master-Thesis/org/tum/project/dataservice/FlitTraceService.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Tum-Master-Thesis/org/tum/project/dataservice/FlowLatencyService.class" afterPath="$PROJECT_DIR$/out/production/Tum-Master-Thesis/org/tum/project/dataservice/FlowLatencyService.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Tum-Master-Thesis/org/tum/project/dataservice/FlowPacketLatencyService.class" afterPath="$PROJECT_DIR$/out/production/Tum-Master-Thesis/org/tum/project/dataservice/FlowPacketLatencyService.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Tum-Master-Thesis/org/tum/project/dataservice/TraceJframe.class" afterPath="$PROJECT_DIR$/out/production/Tum-Master-Thesis/org/tum/project/dataservice/TraceJframe.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Tum-Master-Thesis/org/tum/project/testbench/TestBenchStageController.class" afterPath="$PROJECT_DIR$/out/production/Tum-Master-Thesis/org/tum/project/testbench/TestBenchStageController.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Tum-Master-Thesis/org/tum/project/utils/SimulationUtils.class" afterPath="$PROJECT_DIR$/out/production/Tum-Master-Thesis/org/tum/project/utils/SimulationUtils.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/emf_runtime.xml" afterPath="$PROJECT_DIR$/.idea/libraries/emf_runtime.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/libs.xml" afterPath="$PROJECT_DIR$/.idea/libraries/libs.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Tum-Master-Thesis/org/tum/project/dashboard_controller/DashBoard.fxml" afterPath="$PROJECT_DIR$/out/production/Tum-Master-Thesis/org/tum/project/dashboard_controller/DashBoard.fxml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Tum-Master-Thesis/org/tum/project/dashboard_controller/custom.css" afterPath="$PROJECT_DIR$/out/production/Tum-Master-Thesis/org/tum/project/dashboard_controller/custom.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Tum-Master-Thesis/org/tum/project/dashboard_controller/simulationPane/SimulationProjectSetting.fxml" afterPath="$PROJECT_DIR$/out/production/Tum-Master-Thesis/org/tum/project/dashboard_controller/simulationPane/SimulationProjectSetting.fxml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Tum-Master-Thesis/org/tum/project/projectInfo.xml" afterPath="$PROJECT_DIR$/out/production/Tum-Master-Thesis/org/tum/project/projectInfo.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Tum-Master-Thesis/org/tum/project/prop.properties" afterPath="$PROJECT_DIR$/out/production/Tum-Master-Thesis/org/tum/project/prop.properties" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/org/tum/project/dashboard_controller/DashBoard.fxml" afterPath="$PROJECT_DIR$/src/org/tum/project/dashboard_controller/DashBoard.fxml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/org/tum/project/dashboard_controller/simulationPane/SimulationProjectSetting.fxml" afterPath="$PROJECT_DIR$/src/org/tum/project/dashboard_controller/simulationPane/SimulationProjectSetting.fxml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/org/tum/project/constant/ConstantValue.java" afterPath="$PROJECT_DIR$/src/org/tum/project/constant/ConstantValue.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/org/tum/project/dashboard_controller/FlitsTraceController.java" afterPath="$PROJECT_DIR$/src/org/tum/project/dashboard_controller/FlitsTraceController.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/org/tum/project/dashboard_controller/simulationPane/SimulationProjectSettingController.java" afterPath="$PROJECT_DIR$/src/org/tum/project/dashboard_controller/simulationPane/SimulationProjectSettingController.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/org/tum/project/utils/xmlUtils.java" afterPath="$PROJECT_DIR$/src/org/tum/project/utils/xmlUtils.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/org/tum/project/dataservice/CefVisualizationService.java" afterPath="$PROJECT_DIR$/src/org/tum/project/dataservice/CefVisualizationService.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/org/tum/project/dataservice/FifoSizeService.java" afterPath="$PROJECT_DIR$/src/org/tum/project/dataservice/FifoSizeService.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/org/tum/project/dataservice/FlitTraceService.java" afterPath="$PROJECT_DIR$/src/org/tum/project/dataservice/FlitTraceService.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/org/tum/project/dataservice/FlowLatencyService.java" afterPath="$PROJECT_DIR$/src/org/tum/project/dataservice/FlowLatencyService.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/org/tum/project/dataservice/FlowPacketLatencyService.java" afterPath="$PROJECT_DIR$/src/org/tum/project/dataservice/FlowPacketLatencyService.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/org/tum/project/dataservice/TraceJframe.java" afterPath="$PROJECT_DIR$/src/org/tum/project/dataservice/TraceJframe.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/org/tum/project/login_controller/MaterialLoginController.java" afterPath="$PROJECT_DIR$/src/org/tum/project/login_controller/MaterialLoginController.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/org/tum/project/testbench/TestBenchStageController.java" afterPath="$PROJECT_DIR$/src/org/tum/project/testbench/TestBenchStageController.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/org/tum/project/utils/SimulationUtils.java" afterPath="$PROJECT_DIR$/src/org/tum/project/utils/SimulationUtils.java" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -25,138 +127,118 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
-  <component name="FavoritesManager">
-    <favorites_list name="Tum-Master-Thesis" />
-  </component>
   <component name="FileEditorManager">
-    <leaf>
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file leaf-file-name="CefVisualizationService.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/org/tum/project/dataservice/CefVisualizationService.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="143">
-              <caret line="696" column="37" lean-forward="true" selection-start-line="696" selection-start-column="37" selection-end-line="696" selection-end-column="37" />
-              <folding />
+            <state relative-caret-position="3260">
+              <caret line="206" column="0" lean-forward="false" selection-start-line="206" selection-start-column="0" selection-end-line="206" selection-end-column="0" />
+              <folding>
+                <element signature="imports" expanded="true" />
+                <element signature="docComment;method#isEdge#0;class#CefVisualizationService#0" expanded="false" />
+                <element signature="method#isEdge#0;class#CefVisualizationService#0" expanded="false" />
+                <element signature="method#getEdgeId#0;class#CefVisualizationService#0" expanded="false" />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="CefEditorController.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/org/tum/project/dashboard_controller/CefEditorController.java">
+      <file leaf-file-name="ConstantValue.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/org/tum/project/constant/ConstantValue.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="183">
-              <caret line="36" column="31" lean-forward="false" selection-start-line="36" selection-start-column="22" selection-end-line="36" selection-end-column="31" />
+            <state relative-caret-position="60">
+              <caret line="3" column="0" lean-forward="false" selection-start-line="3" selection-start-column="0" selection-end-line="3" selection-end-column="0" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="SimulationProjectSettingController.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/org/tum/project/dashboard_controller/simulationPane/SimulationProjectSettingController.java">
+      <file leaf-file-name="TestBenchStageController.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/org/tum/project/testbench/TestBenchStageController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="233">
-              <caret line="129" column="54" lean-forward="false" selection-start-line="129" selection-start-column="54" selection-end-line="129" selection-end-column="54" />
+            <state relative-caret-position="40">
+              <caret line="2" column="0" lean-forward="false" selection-start-line="2" selection-start-column="0" selection-end-line="2" selection-end-column="0" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="CefModifyUtils.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="CefModifyUtils.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/org/tum/project/utils/CefModifyUtils.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="82">
-              <caret line="56" column="0" lean-forward="false" selection-start-line="56" selection-start-column="0" selection-end-line="56" selection-end-column="0" />
+            <state relative-caret-position="-1460">
+              <caret line="22" column="13" lean-forward="false" selection-start-line="22" selection-start-column="13" selection-end-line="22" selection-end-column="13" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="SimulationProjectSetting.fxml" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/org/tum/project/dashboard_controller/simulationPane/SimulationProjectSetting.fxml">
-          <provider editor-type-id="text-editor">
-            <state relative-caret-position="552">
-              <caret line="122" column="57" lean-forward="false" selection-start-line="122" selection-start-column="57" selection-end-line="122" selection-end-column="57" />
-              <folding />
-            </state>
-          </provider>
-          <provider selected="true" editor-type-id="JavaFX-Scene-Builder">
-            <state />
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="SimulationProgress.fxml" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/org/tum/project/dashboard_controller/simulationPane/SimulationProgress.fxml">
+      <file leaf-file-name="DataUpdateCallback.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/org/tum/project/callback/DataUpdateCallback.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="0">
-              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-          <provider editor-type-id="JavaFX-Scene-Builder">
-            <state />
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="SimulationPathSetting.fxml" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/org/tum/project/dashboard_controller/simulationPane/SimulationPathSetting.fxml">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="0">
-              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-          <provider editor-type-id="JavaFX-Scene-Builder">
-            <state />
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="DashBoard.fxml" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/org/tum/project/dashboard_controller/DashBoard.fxml">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="629">
-              <caret line="118" column="177" lean-forward="false" selection-start-line="118" selection-start-column="177" selection-end-line="118" selection-end-column="177" />
-              <folding />
-            </state>
-          </provider>
-          <provider editor-type-id="JavaFX-Scene-Builder">
-            <state />
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="DashBoardController.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/org/tum/project/dashboard_controller/DashBoardController.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-1159">
-              <caret line="44" column="29" lean-forward="false" selection-start-line="44" selection-start-column="22" selection-end-line="44" selection-end-column="29" />
+            <state relative-caret-position="200">
+              <caret line="16" column="17" lean-forward="false" selection-start-line="16" selection-start-column="17" selection-end-line="16" selection-end-column="17" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="xmlUtils.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/org/tum/project/utils/xmlUtils.java">
+      <file leaf-file-name="DataUpdateCallbackAdapter.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/org/tum/project/callback/DataUpdateCallbackAdapter.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="514">
-              <caret line="136" column="31" lean-forward="false" selection-start-line="136" selection-start-column="31" selection-end-line="136" selection-end-column="31" />
+            <state relative-caret-position="160">
+              <caret line="14" column="13" lean-forward="false" selection-start-line="14" selection-start-column="13" selection-end-line="14" selection-end-column="13" />
               <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="JFrameCallback.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/org/tum/project/callback/JFrameCallback.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="160">
+              <caret line="8" column="26" lean-forward="false" selection-start-line="8" selection-start-column="26" selection-end-line="8" selection-end-column="26" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="FlowLatencyService.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/org/tum/project/dataservice/FlowLatencyService.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="1260">
+              <caret line="79" column="0" lean-forward="false" selection-start-line="79" selection-start-column="0" selection-end-line="79" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="FlitTraceService.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/org/tum/project/dataservice/FlitTraceService.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="840">
+              <caret line="119" column="0" lean-forward="false" selection-start-line="119" selection-start-column="0" selection-end-line="119" selection-end-column="0" />
+              <folding>
+                <element signature="method#readData#0;class#FlitTraceService#0" expanded="false" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="FifoSizeService.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/org/tum/project/dataservice/FifoSizeService.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="1220">
+              <caret line="102" column="0" lean-forward="false" selection-start-line="102" selection-start-column="0" selection-end-line="102" selection-end-column="0" />
+              <folding>
+                <element signature="method#start#0;class#FifoSizeService#0" expanded="false" />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
     </leaf>
-  </component>
-  <component name="FindInProjectRecents">
-    <findStrings>
-      <find>addp</find>
-      <find>findport</find>
-      <find>editable=&quot;false</find>
-      <find>editable=&quot;false&quot;</find>
-      <find>init</find>
-      <find>initG</find>
-      <find>JFXDIALOG</find>
-      <find>dialogHolder</find>
-      <find>sp_editor</find>
-      <find>Load default path</find>
-    </findStrings>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -169,19 +251,16 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/org/tum/project/dashboard_controller/CefEditor.fxml" />
-        <option value="$PROJECT_DIR$/src/org/tum/project/main/Main.java" />
-        <option value="$PROJECT_DIR$/src/org/tum/project/utils/CefModifyUtils.java" />
-        <option value="$PROJECT_DIR$/src/org/tum/project/layout/port.fxml" />
-        <option value="$PROJECT_DIR$/src/org/tum/project/dashboard_controller/addLink.fxml" />
-        <option value="$PROJECT_DIR$/src/org/tum/project/dashboard_controller/addBlock.fxml" />
-        <option value="$PROJECT_DIR$/src/org/tum/project/dashboard_controller/addPort.fxml" />
+        <option value="$PROJECT_DIR$/src/org/tum/project/utils/SimulationUtils.java" />
+        <option value="$PROJECT_DIR$/src/org/tum/project/dataservice/TraceJframe.java" />
+        <option value="$PROJECT_DIR$/src/org/tum/project/dataservice/SimulationService.java" />
+        <option value="$PROJECT_DIR$/src/org/tum/project/dataservice/FlowPacketLatencyService.java" />
+        <option value="$PROJECT_DIR$/src/org/tum/project/dataservice/FlowLatencyService.java" />
+        <option value="$PROJECT_DIR$/src/org/tum/project/dataservice/FlitTraceService.java" />
+        <option value="$PROJECT_DIR$/src/org/tum/project/dataservice/FifoSizeService.java" />
         <option value="$PROJECT_DIR$/src/org/tum/project/dataservice/CefVisualizationService.java" />
-        <option value="$PROJECT_DIR$/out/production/Tum-Master-Thesis/org/tum/project/projectInfo.xml" />
-        <option value="$PROJECT_DIR$/src/org/tum/project/utils/xmlUtils.java" />
-        <option value="$PROJECT_DIR$/src/org/tum/project/dashboard_controller/simulationPane/SimulationProjectSettingController.java" />
-        <option value="$PROJECT_DIR$/src/org/tum/project/dashboard_controller/simulationPane/SimulationProjectSetting.fxml" />
-        <option value="$PROJECT_DIR$/src/org/tum/project/dashboard_controller/DashBoard.fxml" />
+        <option value="$PROJECT_DIR$/src/org/tum/project/constant/ConstantValue.java" />
+        <option value="$PROJECT_DIR$/src/org/tum/project/testbench/TestBenchStageController.java" />
       </list>
     </option>
   </component>
@@ -205,6 +284,8 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scope" />
+      <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -235,103 +316,13 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Tum-Master-Thesis" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Tum-Master-Thesis" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="project" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="dashboard_controller" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Tum-Master-Thesis" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Tum-Master-Thesis" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="project" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="dashboard_controller" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="simulationPane" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Tum-Master-Thesis" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Tum-Master-Thesis" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="out" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="production" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Tum-Master-Thesis" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="org" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="tum" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="project" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
         </subPane>
       </pane>
       <pane id="Scratches" />
-      <pane id="Scope" />
-      <pane id="PackagesPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
-    <property name="settings.editor.selected.configurable" value="preferences.JavaFX" />
     <property name="run.code.analysis.last.selected.profile" value="pProject Default" />
-  </component>
-  <component name="RecentsManager">
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/src/org/tum/project/dashboard_controller" />
-    </key>
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -584,75 +575,54 @@
   </component>
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="b2432404-0613-45e1-bfb2-49e796578d48" name="Default" comment="" />
-      <created>1498098162191</created>
+      <changelist id="a1cea32e-d597-45a9-9df5-b2a3954bfa8b" name="Default" comment="" />
+      <created>1498740063486</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
-      <updated>1498098162191</updated>
+      <updated>1498740063486</updated>
     </task>
-    <task id="LOCAL-00001" summary="&#9;&#10;linux 20.commit add new source and destination port modify pane, add function: mouse click to view the properties of the selected element">
-      <created>1498211725367</created>
-      <option name="number" value="00001" />
-      <option name="presentableId" value="LOCAL-00001" />
-      <option name="project" value="LOCAL" />
-      <updated>1498211725367</updated>
-    </task>
-    <option name="localTasksCounter" value="2" />
     <servers />
-  </component>
-  <component name="TodoView">
-    <todo-panel id="selected-file">
-      <is-autoscroll-to-source value="true" />
-    </todo-panel>
-    <todo-panel id="all">
-      <are-packages-shown value="true" />
-      <is-autoscroll-to-source value="true" />
-    </todo-panel>
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="27" width="1920" height="1053" extended-state="6" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32947367" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Nl-Palette" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32947367" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Image Layers" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.23578948" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32944915" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Properties" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.19166666" sideWeight="0.49578947" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32947367" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.18229167" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Theme Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.18229167" sideWeight="0.50421053" order="2" side_tool="true" content_ui="tabs" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Dependency Viewer" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32947367" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
+      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="Inspection Results" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32944915" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32944915" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32944915" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
     </layout>
   </component>
   <component name="VcsContentAnnotationSettings">
     <option name="myLimit" value="2678400000" />
   </component>
-  <component name="VcsManagerConfiguration">
-    <MESSAGE value="&#9;&#10;linux 20.commit add new source and destination port modify pane, add function: mouse click to view the properties of the selected element" />
-    <option name="LAST_COMMIT_MESSAGE" value="&#9;&#10;linux 20.commit add new source and destination port modify pane, add function: mouse click to view the properties of the selected element" />
-  </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <option name="time" value="3" />
+      <option name="time" value="4" />
     </breakpoint-manager>
     <watches-manager />
   </component>
@@ -661,316 +631,106 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/org/tum/project/bean/FifoInfo.java">
+    <entry file="file://$PROJECT_DIR$/src/org/tum/project/dataservice/CefVisualizationService.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="280">
-          <caret line="18" column="0" lean-forward="true" selection-start-line="18" selection-start-column="0" selection-end-line="18" selection-end-column="0" />
+        <state relative-caret-position="4120">
+          <caret line="206" column="0" lean-forward="false" selection-start-line="206" selection-start-column="0" selection-end-line="206" selection-end-column="0" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="docComment;method#isEdge#0;class#CefVisualizationService#0" expanded="false" />
+            <element signature="method#isEdge#0;class#CefVisualizationService#0" expanded="false" />
+            <element signature="method#getEdgeId#0;class#CefVisualizationService#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/org/tum/project/utils/sqlUtils.java">
+    <entry file="file://$PROJECT_DIR$/src/org/tum/project/constant/ConstantValue.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="440">
-          <caret line="24" column="0" lean-forward="false" selection-start-line="24" selection-start-column="0" selection-end-line="24" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/out/production/Tum-Master-Thesis/org/tum/project/projectInfo.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="220">
-          <caret line="11" column="1465" lean-forward="true" selection-start-line="11" selection-start-column="1465" selection-end-line="11" selection-end-column="1465" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/org/tum/project/dashboard_controller/simulationPane/SimulationProjectSettingController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2600">
-          <caret line="161" column="0" lean-forward="true" selection-start-line="161" selection-start-column="0" selection-end-line="161" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/org/tum/project/layout/delete_block_event.fxml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-      <provider editor-type-id="JavaFX-Scene-Builder">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/org/tum/project/dashboard_controller/addLink.fxml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-      <provider editor-type-id="JavaFX-Scene-Builder">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/org/tum/project/dashboard_controller/AddLinkController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="100">
-          <caret line="5" column="13" lean-forward="false" selection-start-line="5" selection-start-column="13" selection-end-line="5" selection-end-column="13" />
+        <state relative-caret-position="60">
+          <caret line="3" column="0" lean-forward="false" selection-start-line="3" selection-start-column="0" selection-end-line="3" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/org/tum/project/dashboard_controller/AddBlockController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="100">
-          <caret line="5" column="13" lean-forward="false" selection-start-line="5" selection-start-column="13" selection-end-line="5" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/org/tum/project/dashboard_controller/CefEditorController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="180">
-          <caret line="26" column="13" lean-forward="false" selection-start-line="26" selection-start-column="13" selection-end-line="26" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/org/tum/project/main/Main.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="280">
-          <caret line="24" column="65" lean-forward="true" selection-start-line="24" selection-start-column="65" selection-end-line="24" selection-end-column="65" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/org/tum/project/dashboard_controller/DashBoard.fxml">
-      <provider editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-      <provider selected="true" editor-type-id="JavaFX-Scene-Builder">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/org/tum/project/dashboard_controller/simulationPane/SimulationProjectSettingController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="160">
-          <caret line="39" column="13" lean-forward="false" selection-start-line="39" selection-start-column="13" selection-end-line="39" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/org/tum/project/dashboard_controller/simulationPane/SimulationProjectSetting.fxml">
-      <provider editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-      <provider selected="true" editor-type-id="JavaFX-Scene-Builder">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/org/tum/project/bean/FifoInfo.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="280">
-          <caret line="18" column="0" lean-forward="true" selection-start-line="18" selection-start-column="0" selection-end-line="18" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/org/tum/project/layout/delete_block_event.fxml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-      <provider editor-type-id="JavaFX-Scene-Builder">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/org/tum/project/dashboard_controller/addLink.fxml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-      <provider editor-type-id="JavaFX-Scene-Builder">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/org/tum/project/dashboard_controller/AddLinkController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="100">
-          <caret line="5" column="13" lean-forward="false" selection-start-line="5" selection-start-column="13" selection-end-line="5" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/org/tum/project/dashboard_controller/AddBlockController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="100">
-          <caret line="5" column="13" lean-forward="false" selection-start-line="5" selection-start-column="13" selection-end-line="5" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/org/tum/project/dashboard_controller/CefEditorController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="180">
-          <caret line="26" column="13" lean-forward="false" selection-start-line="26" selection-start-column="13" selection-end-line="26" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/org/tum/project/main/Main.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="80">
-          <caret line="14" column="13" lean-forward="false" selection-start-line="14" selection-start-column="13" selection-end-line="14" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/org/tum/project/layout/delete_block_event.fxml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-      <provider editor-type-id="JavaFX-Scene-Builder">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/org/tum/project/dashboard_controller/addLink.fxml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-      <provider editor-type-id="JavaFX-Scene-Builder">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/org/tum/project/dashboard_controller/AddLinkController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="100">
-          <caret line="5" column="13" lean-forward="false" selection-start-line="5" selection-start-column="13" selection-end-line="5" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/org/tum/project/dashboard_controller/AddBlockController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="100">
-          <caret line="5" column="13" lean-forward="false" selection-start-line="5" selection-start-column="13" selection-end-line="5" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/org/tum/project/dashboard_controller/CefEditorController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="520">
-          <caret line="26" column="13" lean-forward="false" selection-start-line="26" selection-start-column="13" selection-end-line="26" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/org/tum/project/main/Main.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="80">
-          <caret line="14" column="13" lean-forward="false" selection-start-line="14" selection-start-column="13" selection-end-line="14" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/org/tum/project/layout/delete_block_event.fxml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-      <provider editor-type-id="JavaFX-Scene-Builder">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/org/tum/project/dashboard_controller/AddBlockController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="100">
-          <caret line="5" column="13" lean-forward="false" selection-start-line="5" selection-start-column="13" selection-end-line="5" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/org/tum/project/bean/FifoInfo.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="280">
-          <caret line="18" column="0" lean-forward="false" selection-start-line="18" selection-start-column="0" selection-end-line="18" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/org/tum/project/utils/sqlUtils.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="440">
-          <caret line="24" column="0" lean-forward="false" selection-start-line="24" selection-start-column="0" selection-end-line="24" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/org/tum/project/controller/SimulationCardController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="180">
-          <caret line="25" column="13" lean-forward="false" selection-start-line="25" selection-start-column="13" selection-end-line="25" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/org/tum/project/main/Main.java">
+    <entry file="file://$PROJECT_DIR$/src/org/tum/project/callback/DataUpdateCallback.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="200">
-          <caret line="20" column="14" lean-forward="false" selection-start-line="20" selection-start-column="14" selection-end-line="20" selection-end-column="14" />
+          <caret line="16" column="17" lean-forward="false" selection-start-line="16" selection-start-column="17" selection-end-line="16" selection-end-column="17" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/org/tum/project/controller/MainActivityController.java">
+    <entry file="file://$PROJECT_DIR$/src/org/tum/project/callback/DataUpdateCallbackAdapter.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-4060">
+        <state relative-caret-position="160">
           <caret line="14" column="13" lean-forward="false" selection-start-line="14" selection-start-column="13" selection-end-line="14" selection-end-column="13" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/org/tum/project/dashboard_controller/CefEditor.fxml">
-      <provider editor-type-id="text-editor">
-        <state relative-caret-position="452">
-          <caret line="40" column="118" lean-forward="false" selection-start-line="40" selection-start-column="118" selection-end-line="40" selection-end-column="118" />
-          <folding />
-        </state>
-      </provider>
-      <provider selected="true" editor-type-id="JavaFX-Scene-Builder">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/org/tum/project/controller/MainController.java">
+    <entry file="file://$PROJECT_DIR$/src/org/tum/project/callback/JFrameCallback.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="354">
-          <caret line="387" column="47" lean-forward="false" selection-start-line="386" selection-start-column="19" selection-end-line="388" selection-end-column="77" />
+        <state relative-caret-position="160">
+          <caret line="8" column="26" lean-forward="true" selection-start-line="8" selection-start-column="26" selection-end-line="8" selection-end-column="26" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/org/tum/project/dashboard_controller/AddLinkController.java">
+    <entry file="file://$PROJECT_DIR$/src/org/tum/project/dataservice/FlowPacketLatencyService.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="100">
-          <caret line="5" column="13" lean-forward="false" selection-start-line="5" selection-start-column="13" selection-end-line="5" selection-end-column="13" />
+        <state relative-caret-position="2540">
+          <caret line="139" column="0" lean-forward="false" selection-start-line="139" selection-start-column="0" selection-end-line="139" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/org/tum/project/dashboard_controller/addPort.fxml">
+    <entry file="file://$PROJECT_DIR$/src/org/tum/project/dataservice/FlowLatencyService.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="649">
-          <caret line="48" column="95" lean-forward="true" selection-start-line="48" selection-start-column="95" selection-end-line="48" selection-end-column="95" />
+        <state relative-caret-position="1260">
+          <caret line="79" column="0" lean-forward="false" selection-start-line="79" selection-start-column="0" selection-end-line="79" selection-end-column="0" />
           <folding />
         </state>
       </provider>
-      <provider editor-type-id="JavaFX-Scene-Builder">
-        <state />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/org/tum/project/dataservice/FlitTraceService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="840">
+          <caret line="119" column="0" lean-forward="false" selection-start-line="119" selection-start-column="0" selection-end-line="119" selection-end-column="0" />
+          <folding>
+            <element signature="method#readData#0;class#FlitTraceService#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/org/tum/project/dataservice/FifoSizeService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1220">
+          <caret line="102" column="0" lean-forward="false" selection-start-line="102" selection-start-column="0" selection-end-line="102" selection-end-column="0" />
+          <folding>
+            <element signature="method#start#0;class#FifoSizeService#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/org/tum/project/testbench/TestBenchStageController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="40">
+          <caret line="2" column="0" lean-forward="false" selection-start-line="2" selection-start-column="0" selection-end-line="2" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/org/tum/project/main/Main.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="340">
+          <caret line="27" column="59" lean-forward="false" selection-start-line="27" selection-start-column="59" selection-end-line="27" selection-end-column="59" />
+        </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/org/tum/project/dashboard_controller/addBlock.fxml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="140">
-          <caret line="7" column="146" lean-forward="false" selection-start-line="7" selection-start-column="146" selection-end-line="7" selection-end-column="146" />
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding />
         </state>
       </provider>
@@ -980,124 +740,156 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/org/tum/project/dashboard_controller/addLink.fxml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="200">
-          <caret line="10" column="131" lean-forward="false" selection-start-line="10" selection-start-column="131" selection-end-line="10" selection-end-column="131" />
+        <state relative-caret-position="480">
+          <caret line="24" column="20" lean-forward="false" selection-start-line="24" selection-start-column="20" selection-end-line="24" selection-end-column="20" />
           <folding />
         </state>
       </provider>
       <provider editor-type-id="JavaFX-Scene-Builder">
         <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/org/tum/project/layout/port.fxml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="443">
-          <caret line="69" column="31" lean-forward="true" selection-start-line="13" selection-start-column="16" selection-end-line="69" selection-end-column="31" />
-          <folding />
-        </state>
-      </provider>
-      <provider editor-type-id="JavaFX-Scene-Builder">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/out/production/Tum-Master-Thesis/org/tum/project/projectInfo.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="634">
-          <caret line="58" column="26" lean-forward="false" selection-start-line="58" selection-start-column="22" selection-end-line="58" selection-end-column="26" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/org/tum/project/utils/xmlUtils.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="514">
-          <caret line="136" column="31" lean-forward="false" selection-start-line="136" selection-start-column="31" selection-end-line="136" selection-end-column="31" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/org/tum/project/dashboard_controller/simulationPane/SimulationProgress.fxml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-      <provider editor-type-id="JavaFX-Scene-Builder">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/org/tum/project/dashboard_controller/simulationPane/SimulationPathSetting.fxml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-      <provider editor-type-id="JavaFX-Scene-Builder">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/org/tum/project/dashboard_controller/DashBoardController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1159">
-          <caret line="44" column="29" lean-forward="false" selection-start-line="44" selection-start-column="22" selection-end-line="44" selection-end-column="29" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/org/tum/project/dataservice/CefVisualizationService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="143">
-          <caret line="696" column="37" lean-forward="true" selection-start-line="696" selection-start-column="37" selection-end-line="696" selection-end-column="37" />
-          <folding />
-        </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/org/tum/project/dashboard_controller/CefEditorController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="183">
-          <caret line="36" column="31" lean-forward="false" selection-start-line="36" selection-start-column="22" selection-end-line="36" selection-end-column="31" />
+        <state relative-caret-position="201">
+          <caret line="107" column="56" lean-forward="false" selection-start-line="107" selection-start-column="56" selection-end-line="107" selection-end-column="56" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/org/tum/project/utils/Utils.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="200">
+          <caret line="18" column="32" lean-forward="true" selection-start-line="18" selection-start-column="32" selection-end-line="18" selection-end-column="32" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/org/tum/project/login_controller/MenusHolderController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="320">
+          <caret line="72" column="24" lean-forward="false" selection-start-line="72" selection-start-column="24" selection-end-line="72" selection-end-column="24" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/org/tum/project/dashboard_controller/simulationPane/SimulationProjectSettingController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="251">
+          <caret line="196" column="42" lean-forward="false" selection-start-line="196" selection-start-column="42" selection-end-line="196" selection-end-column="42" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/org/tum/project/utils/SimulationUtils.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="195">
+          <caret line="68" column="0" lean-forward="false" selection-start-line="68" selection-start-column="0" selection-end-line="68" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/org/tum/project/dataservice/SimulationService.java" />
+    <entry file="file://$PROJECT_DIR$/src/org/tum/project/dataservice/TraceJframe.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1074">
+          <caret line="31" column="0" lean-forward="false" selection-start-line="31" selection-start-column="0" selection-end-line="31" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/org/tum/project/dataservice/FlowPacketLatencyService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2540">
+          <caret line="139" column="0" lean-forward="false" selection-start-line="139" selection-start-column="0" selection-end-line="139" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/org/tum/project/dataservice/FlowLatencyService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1260">
+          <caret line="79" column="0" lean-forward="false" selection-start-line="79" selection-start-column="0" selection-end-line="79" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/org/tum/project/dataservice/FlitTraceService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="840">
+          <caret line="119" column="0" lean-forward="false" selection-start-line="119" selection-start-column="0" selection-end-line="119" selection-end-column="0" />
+          <folding>
+            <element signature="method#readData#0;class#FlitTraceService#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/org/tum/project/dataservice/FifoSizeService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1220">
+          <caret line="102" column="0" lean-forward="false" selection-start-line="102" selection-start-column="0" selection-end-line="102" selection-end-column="0" />
+          <folding>
+            <element signature="method#start#0;class#FifoSizeService#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/org/tum/project/callback/SimulationCallBack.java" />
+    <entry file="file://$PROJECT_DIR$/src/org/tum/project/dataservice/CefVisualizationService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="3260">
+          <caret line="206" column="0" lean-forward="false" selection-start-line="206" selection-start-column="0" selection-end-line="206" selection-end-column="0" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="docComment;method#isEdge#0;class#CefVisualizationService#0" expanded="false" />
+            <element signature="method#isEdge#0;class#CefVisualizationService#0" expanded="false" />
+            <element signature="method#getEdgeId#0;class#CefVisualizationService#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/org/tum/project/callback/DataUpdateCallback.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="200">
+          <caret line="16" column="17" lean-forward="false" selection-start-line="16" selection-start-column="17" selection-end-line="16" selection-end-column="17" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/org/tum/project/callback/DataUpdateCallbackAdapter.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="160">
+          <caret line="14" column="13" lean-forward="false" selection-start-line="14" selection-start-column="13" selection-end-line="14" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/org/tum/project/callback/JFrameCallback.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="160">
+          <caret line="8" column="26" lean-forward="false" selection-start-line="8" selection-start-column="26" selection-end-line="8" selection-end-column="26" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/org/tum/project/constant/ConstantValue.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="60">
+          <caret line="3" column="0" lean-forward="false" selection-start-line="3" selection-start-column="0" selection-end-line="3" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/org/tum/project/testbench/TestBenchStageController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="40">
+          <caret line="2" column="0" lean-forward="false" selection-start-line="2" selection-start-column="0" selection-end-line="2" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/org/tum/project/utils/CefModifyUtils.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="82">
-          <caret line="56" column="0" lean-forward="false" selection-start-line="56" selection-start-column="0" selection-end-line="56" selection-end-column="0" />
+        <state relative-caret-position="-1460">
+          <caret line="22" column="13" lean-forward="false" selection-start-line="22" selection-start-column="13" selection-end-line="22" selection-end-column="13" />
           <folding />
         </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/org/tum/project/dashboard_controller/simulationPane/SimulationProjectSettingController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="233">
-          <caret line="129" column="54" lean-forward="false" selection-start-line="129" selection-start-column="54" selection-end-line="129" selection-end-column="54" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/org/tum/project/dashboard_controller/simulationPane/SimulationProjectSetting.fxml">
-      <provider editor-type-id="text-editor">
-        <state relative-caret-position="552">
-          <caret line="122" column="57" lean-forward="false" selection-start-line="122" selection-start-column="57" selection-end-line="122" selection-end-column="57" />
-          <folding />
-        </state>
-      </provider>
-      <provider selected="true" editor-type-id="JavaFX-Scene-Builder">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/org/tum/project/dashboard_controller/DashBoard.fxml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="629">
-          <caret line="118" column="177" lean-forward="false" selection-start-line="118" selection-start-column="177" selection-end-line="118" selection-end-column="177" />
-          <folding />
-        </state>
-      </provider>
-      <provider editor-type-id="JavaFX-Scene-Builder">
-        <state />
       </provider>
     </entry>
   </component>

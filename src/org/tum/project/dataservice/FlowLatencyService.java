@@ -37,16 +37,9 @@ public class FlowLatencyService {
 
     private StringBuffer recoverInformation = new StringBuffer();
 
-    public StringBuffer getRecoverInformation() {
-        return analyzeResult;
-    }
 
-    public void startAnalyze(List<String> dataModelName, String currentDataBase, BarChart<String, Number> flowLatencyChart1, BarChart<String, Number> flowLatencyChart2, Label flowBottomLabel) {
 
-        execute(dataModelName, currentDataBase);
 
-        showInBarChart(flowLatencyChart1, flowLatencyChart2, flowBottomLabel);
-    }
 
 
     /**
@@ -84,42 +77,6 @@ public class FlowLatencyService {
 
     }
 
-    private void showInBarChart(BarChart<String, Number> flowLatencyChart1, BarChart<String, Number> flowLatencyChart2, Label flowBottomLabel) {
-        flowLatencyChart1.getData().clear();
-        flowLatencyChart2.getData().clear();
-
-        XYChart.Series series1 = new XYChart.Series();
-        series1.setName("latency");
-        XYChart.Series series2 = new XYChart.Series();
-        series2.setName("total_pkt");
-        XYChart.Series series3 = new XYChart.Series();
-        series3.setName("success_pkt");
-
-
-        for (Map.Entry<Long, String> entry : flowChartDataMap.entrySet()) {
-            String flow_id = String.valueOf(entry.getKey());
-            String metaData = entry.getValue();
-            String[] split = metaData.split("_");
-            Float latency = Float.valueOf(split[0]);
-            int total_pkt = Integer.valueOf(split[1]);
-            int success_pkt = Integer.valueOf(split[2]);
-            series1.getData().add(new XYChart.Data(flow_id, latency));
-            series2.getData().add(new XYChart.Data(flow_id, total_pkt));
-            series3.getData().add(new XYChart.Data(flow_id, success_pkt));
-
-        }
-
-        flowLatencyChart1.getData().add(series1);
-        flowLatencyChart2.getData().add(series2);
-        flowLatencyChart2.getData().add(series3);
-
-        flowLatencyChart1.setBarGap(1.0);
-
-        flowLatencyChart2.setBarGap(1.0);
-
-        flowBottomLabel.setText(analyzeResult.toString());
-
-    }
 
 
     private void reportAllFlows() {

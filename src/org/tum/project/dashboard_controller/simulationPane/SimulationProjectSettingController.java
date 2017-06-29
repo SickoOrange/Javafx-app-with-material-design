@@ -79,7 +79,6 @@ public class SimulationProjectSettingController implements Initializable {
 
     private File xmlFile;
     private HashMap<String, ProjectInfo> infosMap;
-    private SimulationPathSettingController simulationPathSettingController;
 
 
     /**
@@ -109,7 +108,7 @@ public class SimulationProjectSettingController implements Initializable {
 
 
                 //Collect the necessary path information
-                simulationPathSettingController = (SimulationPathSettingController) SimulationController.getControllerInstance(SimulationPathSettingController.class.getName());
+                SimulationPathSettingController simulationPathSettingController = (SimulationPathSettingController) SimulationController.getControllerInstance(SimulationPathSettingController.class.getName());
 
                 String[] simulationPath = simulationPathSettingController.getSimulationPath();
 

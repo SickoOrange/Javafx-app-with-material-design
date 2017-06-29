@@ -18,10 +18,9 @@ import java.util.List;
  * Created by Yin Ya on 2017/5/11.
  */
 public class TraceJframe {
-    private StringBuffer traceInfo;
 
     public TraceJframe(StringBuffer traceInfo) {
-        this.traceInfo = traceInfo;
+        StringBuffer traceInfo1 = traceInfo;
     }
 
     public TraceJframe() {
@@ -29,66 +28,6 @@ public class TraceJframe {
     }
 
 
-    /**
-     * no parameter for this method, so the specified trace information need to be given at the constructor
-     * give Parameter is StringBuffer
-     */
-    public void runTrace() {
-
-        //set the container for trace flit
-        JFrame jFrame = new JFrame();
-        jFrame.setSize(500, 500);
-        jFrame.setLocation(200, 200);
-        jFrame.setDefaultCloseOperation(WindowConstants.DISPOSE_ON_CLOSE);
-
-        //create the trace graph
-        mxGraph graph = new mxGraph();
-        mxGraphComponent graphComponent = new mxGraphComponent(graph);
-
-        jFrame.getContentPane().add(graphComponent, BorderLayout.CENTER);
-        jFrame.setVisible(true);
-
-        //graph setting
-        Object parent = graph.getDefaultParent();
-        graph.getModel().beginUpdate();
-
-        //handle the trace information
-        String base = traceInfo.toString();
-        String[] baseSplits = base.split("--->");
-
-        //module name
-        ArrayList<Object> vertex = new ArrayList<>();
-
-        //position time
-        ArrayList<String> time = new ArrayList<>();
-
-        //generate the vertex and insert to the graph
-        for (int i = 0; i < baseSplits.length; i++) {
-            String[] vertexArr = baseSplits[i].split(",");
-            String title = "";
-            if (i == 0 || i == baseSplits.length - 1) {
-                title = vertexArr[1] + "\n" + vertexArr[0];
-            } else {
-                //title = vertexArr[1];
-                title = vertexArr[1] + "\n" + vertexArr[0];
-            }
-            Object obj = graph.insertVertex(parent, "start", title, 200, 50, 100, 50);
-            vertex.add(obj);
-            time.add(vertexArr[0]);
-        }
-
-        //generate edge between the vertex and insert to th graph
-        for (int i = 0; i < baseSplits.length - 1; i++) {
-            graph.insertEdge(parent, null, time.get(i + 1), vertex.get(i), vertex.get(i + 1));
-        }
-
-        graph.getModel().endUpdate();
-
-
-        //algorithm setting
-        autoLayout(graph, graphComponent);
-
-    }
 
 
     /**

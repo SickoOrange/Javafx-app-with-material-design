@@ -66,7 +66,7 @@
                                             </font>
                                         </Text>
 
-                                        <JFXButton fx:id="btn_Simulation" onAction="#openSimulationPane" prefHeight="36.0" prefWidth="189.0" styleClass="side-buttons" text="Simulation Setting" textFill="black">
+                                        <JFXButton fx:id="btn_Simulation" onAction="#openSimulationPane" prefHeight="36.0" prefWidth="189.0" styleClass="side-buttons" text="Simulation" textFill="black">
                                             <font>
                                                 <Font size="14.0" />
                                             </font>
@@ -99,7 +99,7 @@
                                             <FontAwesomeIconView fill="#212121" glyphName="BAR_CHART_ALT" size="16.0" wrappingWidth="40.0" />
                                             </graphic>
                                         </JFXButton>
-                                        <JFXButton fx:id="btn_flowPacketLatency" onAction="#openFlowPacketLatencyPane" prefHeight="36.0" prefWidth="189.0" styleClass="side-buttons" text="Flow Packet Latency" textFill="black">
+                                        <JFXButton fx:id="btn_flowPacketLatency" onAction="#openFlowPacketLatencyPane" prefHeight="36.0" prefWidth="189.0" styleClass="side-buttons" text="Flow Packet" textFill="black">
                                             <font>
                                                 <Font size="14.0" />
                                             </font>
@@ -116,7 +116,7 @@
                                                 <Font size="14.0" />
                                             </font>
                                         </Text>
-                                        <JFXButton fx:id="btn_cefEditor" onAction="#openCefEditor" prefHeight="36.0" prefWidth="189.0" styleClass="side-buttons" text="CEF Editor Setting" textFill="WHITE">
+                                        <JFXButton fx:id="btn_cefEditor" onAction="#openCefEditor" prefHeight="36.0" prefWidth="189.0" styleClass="side-buttons" text="CEF Editor" textFill="WHITE">
                                             <font>
                                                 <Font size="14.0" />
                                             </font>

@@ -137,7 +137,4 @@ public class FlowPacketLatencyService {
        flow_id_to_packetInfo_map.clear();
     }
 
-    public void getContent() {
-        callback.updateFlowPacketLatency(flow_id_to_packetInfo_map);
-    }
 }

@@ -78,8 +78,6 @@ public class FlitsTraceController extends DataUpdateCallbackAdapter implements I
 
     //integer: flow id, StringBuffer summary visualization string to this flow id
     private HashMap<Integer, StringBuffer> traceDetailsMap = new HashMap<>();
-    private StringBuffer traceDetails;
-    private StringBuffer tail;
     private HashMap<Integer, List<FlitsInfo>> cloneMap = new HashMap<>();
     private List<FlitsInfo> cloneTraceInformation;
     private TraceJframe traceJframe;
@@ -175,7 +173,7 @@ public class FlitsTraceController extends DataUpdateCallbackAdapter implements I
             flitsSummary.setFlitsNumber(flitsList.size());
             flitsSummary.setFlitsIDList(flowid, flitsList);
 
-            traceDetails = new StringBuffer();
+            StringBuffer traceDetails = new StringBuffer();
 
             //we need a sequence flag to record the first flit
             //from first flit, we can calculate transmission duration, start position and end position
@@ -183,7 +181,7 @@ public class FlitsTraceController extends DataUpdateCallbackAdapter implements I
             //******************************************
             for (HashMap<Integer, List<FlitsInfo>> flitMap : flitsList) {
                 sequenceControl++;
-                tail = new StringBuffer();
+                StringBuffer tail = new StringBuffer();
                 int header = 0;
                 flitsSummary.setList(flowid, flitMap.entrySet());
 

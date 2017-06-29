@@ -30,9 +30,6 @@ import java.util.ResourceBundle;
  * Created by Yin Ya on 2017/5/27.
  */
 public class MaterialLoginController implements Initializable {
-    private final String description = "Technische Universität München\n" +
-            "Department of Electrical Engineering and Information Technology\n" +
-            "Institute for Electronic Design Automation";
 
     @FXML
     private Text appDescription;
@@ -62,6 +59,9 @@ public class MaterialLoginController implements Initializable {
     @Override
     public void initialize(URL location, ResourceBundle resources) {
 
+        String description = "Technische Universität München\n" +
+                "Department of Electrical Engineering and Information Technology\n" +
+                "Institute for Electronic Design Automation";
         appDescription.setText(description);
         String isRemember = Utils.readPropValue("isRemember");
         if (Boolean.valueOf(isRemember)) {

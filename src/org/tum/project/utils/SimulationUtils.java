@@ -66,7 +66,6 @@ public class SimulationUtils {
         Configuration config = new Configuration();
         config.setClassForTemplateLoading(TestBenchStageController.class, "");
         config.setAPIBuiltinEnabled(true);
-        System.out.println(cef);
         Template template = null;
         FileWriter out = null;
         try {
